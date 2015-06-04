@@ -42,8 +42,8 @@
 
     window.fbAsyncInit = function() {
     FB.init({
-    	//Mark je app ID 1597503327174282
-        appId      : '1673718156189886',
+    	//Mark je app ID 1597503327174282/1673718156189886
+        appId      : '1597503327174282',
         // enable cookies to allow the server to access the session
         cookie     : true,
         // parse social plugins on this page
@@ -61,7 +61,7 @@
     // 2. Logged into Facebook, but not your app ('not_authorized')
     // 3. Not logged into Facebook and can't tell if they are logged into
     //    your app or not.
-    //	
+    //
     // These three cases are handled in the callback function.
 
     FB.getLoginStatus(function(response) {
@@ -86,8 +86,8 @@
         console.log('Welcome!  Fetching your information.... ');
         FB.api('/me', function(response) {
             console.log('Successful login for: ' + response.name);
-            document.getElementById('status').innerHTML = 
-            'Name = ' + response.last_name + 
+            document.getElementById('status').innerHTML =
+            'Name = ' + response.last_name +
             			response.name + '<br>' +
             			response.gender + '<br>' +
             			response.username + '<br>' +
@@ -99,7 +99,7 @@
             			response.quotes + '<br>' +
             			response.hometown.name;
 
-        });	
+        });
     }
 </script>
 
