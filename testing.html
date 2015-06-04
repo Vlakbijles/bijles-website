@@ -87,7 +87,7 @@
         FB.api('/me', function(response) {
             console.log('Successful login for: ' + response.name);
             document.getElementById('status').innerHTML = 
-            'Name = ' + response.last_name + 
+            'Name = ' + response.last_name + '<br>' +
             			response.name + '<br>' +
             			response.gender + '<br>' +
             			response.username + '<br>' + //undf
@@ -96,8 +96,8 @@
             			response.bio + '<br>'+	//undf
             			response.id + '<br>' +
             			//response.location.name + '<br>';
-            			response.quotes + '<br>';
-            			//response.hometown.name;
+            			response.quotes + '<br>' +
+            			response.hometown.name;
 
         });	
     }
