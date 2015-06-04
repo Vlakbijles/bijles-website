@@ -48,8 +48,8 @@
         cookie     : true,
         // parse social plugins on this page
         xfbml      : true,
-        // use version 2.2
-        version    : 'v2.2'
+        // use version 2.2# veranderd naar 2.3
+        version    : 'v2.3'
     });
 
     // Now that we've initialized the JavaScript SDK, we call
@@ -61,7 +61,7 @@
     // 2. Logged into Facebook, but not your app ('not_authorized')
     // 3. Not logged into Facebook and can't tell if they are logged into
     //    your app or not.
-    //
+    //	
     // These three cases are handled in the callback function.
 
     FB.getLoginStatus(function(response) {
@@ -86,8 +86,9 @@
         console.log('Welcome!  Fetching your information.... ');
         FB.api('/me', function(response) {
             console.log('Successful login for: ' + response.name);
-            document.getElementById('status').innerHTML =
-            'Name = ' + response.name;
+            document.getElementById('status').innerHTML = 
+            'Name = ' + response.last_name + response.name;
+
         });
     }
 </script>
