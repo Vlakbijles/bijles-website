@@ -81,7 +81,8 @@
 
     // Here we run a very simple test of the Graph API after login is
     // successful.  See statusChangeCallback() for when this call is made.
-    // TODO
+    // TODO:
+        //Save data into database
     function getData() {
         console.log('Welcome!  Fetching your information.... ');
         FB.api('/me', function(response) {
@@ -108,7 +109,7 @@
   the FB.login() function when clicked.
 -->
 
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+<fb:login-button scope="public_profile,email,picture" onlogin="checkLoginState();">
 </fb:login-button>
 
 	<div class = "content">
@@ -122,7 +123,7 @@
 				<form action="marktplaats.html"> <br><br><br><br>
 					<a class="btn btn-primary btn-lg" href="fbconnect.html" role="button">Facebook</a>
 					<br><br>
-					<input type="text" name="voornaam" placeholder="Naam" value=<div id="status">>
+					<input type="text" name="voornaam" placeholder="Naam" value=div id="status">
 					<br><br>
 					<input type="text" name="voornaam" placeholder="Achternaam">
 					<br><br>
