@@ -59,9 +59,17 @@ keyframes sample{
 }
 
 .roundrect{
-	border-radius: 100px;
-	height:150px;
-	width:150px;
+	border-radius: 150px;
+	height:300px;
+	width:300px;
+}
+
+.navbar-inner{
+   border:0;
+   background: transparent url('http://designreflect.com/wp-content/uploads/2012/09/wooden-textures/Vintage-Grunge-Wood-Background.jpg') no-repeat center center;
+   background-size:cover;
+   height:50px;
+   mergin: 0 6%;
 }
 
 
