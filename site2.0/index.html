@@ -98,9 +98,10 @@
         FB.api('/me', function(response) {
             console.log('Successful login for: ' + response.name);
             
-            document.getElementById('voornaam1').innerHTML = response.last_name;
-            
-            
+            document.getElementById('voornaam').value = response.name;
+            document.getElementById('achternaam').value = response.last_name;
+            document.getElementById('geslacht').value = response.gender;
+            document.getElementById('email').value = response.email;
             			//response.name + '<br>' +
             			//response.gender + '<br>' +
             			//response.email + '<br>'+
@@ -197,16 +198,17 @@
 				<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 				</fb:login-button>
 				<br><br>
-				<p id="voornaam1"></p>
-				<input type="text" name="voornaam" id="voornaam1" placeholder="Naam" class="form-control">
+				<input type="text" name="voornaam" id="voornaam" placeholder="Naam" class="form-control">
 				<br>
-				<input type="text" name="voornaam" placeholder="Achternaam" class="form-control">
+				<input type="text" name="achternaam" id="achternaam" placeholder="Achternaam" class="form-control">
 				<br>
-				<input type="text" name="voornaam" placeholder="Fakebook" class="form-control">
+				<input type="text" name="facebook" placeholder="Facebook" class="form-control">
 				<br>
-				<input type="text" name="voornaam" placeholder="E-mail" class="form-control">
+				<input type="text" name="email" id="email" placeholder="E-mail" class="form-control">
 				<br>
-				<input type="text" name="voornaam" placeholder="Vakken" class="form-control">
+				<input type="text" name="geslacht" id="geslacht" placeholder="geslacht" class="form-control">
+				<br>
+				<input type="text" name="vakken" placeholder="Vakken" class="form-control">
 				<br>
 				<input type="text" name="wachtwoord" placeholder="Wachtwoord" class="form-control"> 
 				<br>
