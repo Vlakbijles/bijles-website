@@ -98,7 +98,7 @@
         FB.api('/me', function(response) {
             console.log('Successful login for: ' + response.name);
             
-            document.getElementById('voornaam').innerHTML = response.last_name;
+            document.getElementById('voornaam1').innerHTML = response.last_name;
             
             
             			//response.name + '<br>' +
@@ -197,11 +197,12 @@
 				<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 				</fb:login-button>
 				<br><br>
-				<input type="text" name="voornaam" id="voornaam" placeholder="Naam" class="form-control">
+				<p id="voornaam1"></p>
+				<input type="text" name="voornaam" id="voornaam1" placeholder="Naam" class="form-control">
 				<br>
 				<input type="text" name="voornaam" placeholder="Achternaam" class="form-control">
 				<br>
-				<input type="text" name="voornaam" placeholder="Facebook" class="form-control">
+				<input type="text" name="voornaam" placeholder="Fakebook" class="form-control">
 				<br>
 				<input type="text" name="voornaam" placeholder="E-mail" class="form-control">
 				<br>
