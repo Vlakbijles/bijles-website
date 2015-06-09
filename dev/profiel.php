@@ -15,9 +15,9 @@
         $private_key = 32487f987a897987d8739d8a987ff987;
 
         $user_data_json = "";
+
+        $page_title = "get rekt";
     ?>
-
-
     <head>
     <title>Vlakbijles.nl - <?php echo $page_title; ?><title>
         <meta name= "viewport" content="width=device-width, initial-scale=1.0">
