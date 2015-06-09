@@ -97,12 +97,14 @@
         console.log('Welcome!  Fetching your information.... ');
         FB.api('/me', function(response) {
             console.log('Successful login for: ' + response.name);
-            document.getElementById('status').innerHTML =
-            'Name = ' + response.last_name + '<br>' +
-            			response.name + '<br>' +
-            			response.gender + '<br>' +
-            			response.email + '<br>'+
-            			response.id + '<br>';
+            
+            document.getElementById('voornaam').innerHTML = response.last_name;
+            
+            
+            			//response.name + '<br>' +
+            			//response.gender + '<br>' +
+            			//response.email + '<br>'+
+            			//response.id + '<br>';
         });
     }
 </script>
@@ -195,7 +197,7 @@
 				<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 				</fb:login-button>
 				<br><br>
-				<input type="text" name="voornaam" placeholder="Naam" class="form-control">
+				<input type="text" name="voornaam" id="voornaam" placeholder="Naam" class="form-control">
 				<br>
 				<input type="text" name="voornaam" placeholder="Achternaam" class="form-control">
 				<br>
