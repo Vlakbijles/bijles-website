@@ -18,12 +18,12 @@
 
         $page_title = "get rekt";
     ?>
-    <head>
-    <title>Vlakbijles.nl - <?php echo $page_title; ?><title>
-        <meta name= "viewport" content="width=device-width, initial-scale=1.0">
-        <link href = "css/bootstrap.min.css" rel = "stylesheet">
-        <link href = "css/style.css" rel = "stylesheet">
-    </head>
+    <!-- <head> -->
+    <!-- <title>Vlakbijles.nl &#45; <?php echo $page_title; ?><title> -->
+    <!--     <meta name= "viewport" content="width=device&#45;width, initial&#45;scale=1.0"> -->
+    <!--     <link href = "css/bootstrap.min.css" rel = "stylesheet"> -->
+    <!--     <link href = "css/style.css" rel = "stylesheet"> -->
+    <!-- </head> -->
     <body>
     <!-- Navbar at top of page -->
     <?php include "navbar.php"; ?>
