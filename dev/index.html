@@ -98,7 +98,7 @@
         FB.api('/me', function(response) {
             console.log('Successful login for: ' + response.name);
             
-            document.getElementById('voornaam').value = response.name;
+            document.getElementById('voornaam').value = response.first_name;
             document.getElementById('achternaam').value = response.last_name;
             document.getElementById('geslacht').value = response.gender;
             document.getElementById('email').value = response.email;
