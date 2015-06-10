@@ -109,9 +109,6 @@
   the FB.login() function when clicked.
 -->
 
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
-
 	<div class = "content">
 		<div class ="homepagelogologin">
 
@@ -121,8 +118,9 @@
 			<div class = "input" style="display:flex;justify-content:center;align-items:center;">
 
 				<form action="marktplaats.html"> <br><br><br><br>
-					<a class="btn btn-primary btn-lg" href="fbconnect.html" role="button">Facebook</a>
-					<br><br>
+                    <fb:ĺogin-button scope="public_profile,email,picture" onlogin="checkLoginState();">
+                    </fb:ĺogin-button>
+                    <br><br>
 					<input type="text" name="voornaam" placeholder="Naam" value=div id="status">
 					<br><br>
 					<input type="text" name="voornaam" placeholder="Achternaam">
