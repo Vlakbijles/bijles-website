@@ -3,37 +3,49 @@
     <!-- Retrieve data from API first -->
     <?php
         // Retrieve data from API
+
         // TODO Authentication
 
-        // Create request hash
+        // Create initial json
         date_default_timezone_set("UTC");
-        $utc_timestamp = time();
-        $client_name = "";
-        $client_key = "";
+        $api_user = "";
+        $data  = array();
+        $timestamp = time();
+        $json_data = array("api_user" => $api_user,
+                           "data" => $data,
+                           "timestamp" => $timestamp);
 
+        $request = json_encode($json_data);
 
+        // Hash json
         $hash_algorithm = "sha256";
-        $hash_data = "?";
+        $api_key = "3aced6d2d652a5a7426daabff22e372c";
+        $request_hash = hash_init($hash_algorithm, $api_key);
+        hash_update($request_hash, $request);
 
-        $request_data = hash_hmac($hash_algorithm, $hash_data, $hash_key);
-
-        // Http get
         $request_uri = "/user/user_id";
-        $request_url = "localhost{$request_uri}:5000";
+        hash_update($request_hash, $request_uri);
 
-        $request_response = http_get($request_url, array("timeout"=>1), $request_data);
+        $request_method = "GET";
+        hash_update($request_hash, $request_method);
 
-        // Decode json & fill variables
-        $user_data = json_decode($request_response, true);
+        $final_hash = hash_final($request_hash);
 
-        $user_name = $user_data["user"];
-        $user_surname = $user_data["surname"];
-        $user_picture = $user_data["picture"];
-        $user_description = $user_data["description"];
-        $user_phone = $user_data["phone"];
-        $user_email = $user_data["email"];
-
-        $page_title = "Profiel van {$user_name} {$user_surname}";
+        // $request_url = "localhost{$request_uri}:5000";
+        // $request = json_encode(
+        //
+        // // Decode json & fill variables
+        // $user_data = json_decode($request_response, true);
+        //
+        // $user_name = $user_data["user"];
+        // $user_surname = $user_data["surname"];
+        // $user_picture = $user_data["picture"];
+        // $user_description = $user_data["description"];
+        // $user_phone = $user_data["phone"];
+        // $user_email = $user_data["email"];
+        //
+        // $page_title = "Profiel van {$user_name} {$user_surname}";
+        $page_title = "Profiel van";
     ?>
     <head>
         <title>
@@ -42,15 +54,23 @@
     </head>
 
     <body>
-        <!-- Navbar at top of page -->
         <?php
-            echo $user_name;
-            echo $user_surname;
-            echo $user_picture;
-            echo $user_description;
-            echo $user_phone;
-            echo $user_email;
-            echo $page_title;
+            echo $request;
+            echo $request_hash;
+            echo $final_hash;
+            echo "kanker govert";
+
+            $ctx = hash_init('md5');
+            hash_update($ctx, 'The quick brown fox ');
+            hash_update($ctx, 'jumped over the lazy dog.');
+            echo hash_final($ctx);
+            // echo $user_name;
+            // echo $user_surname;
+            // echo $user_picture;
+            // echo $user_description;
+            // echo $user_phone;
+            // echo $user_email;
+            // echo $page_title;
         ?>
     </body>
 </html>
