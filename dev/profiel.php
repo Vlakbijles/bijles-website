@@ -8,14 +8,16 @@
 
         // Create initial json
         date_default_timezone_set("UTC");
-        $api_user = "";
+        $api_user = "website";
         $data  = array();
         $timestamp = time();
+
         $json_data = array("api_user" => $api_user,
                            "data" => $data,
                            "timestamp" => $timestamp);
 
-        $request = json_encode($json_data);
+        $request_json = json_encode($json_data);
+
 
         // Hash json
         $hash_algorithm = "sha256";
@@ -25,26 +27,21 @@
 
         $request_hash = hash_init($hash_algorithm);
         hash_update($request_hash, $api_key);
-        hash_update($request_hash, $request);
+        hash_update($request_hash, $request_json);
         hash_update($request_hash, $request_uri);
         hash_update($request_hash, $request_method);
         $final_hash = hash_final($request_hash);
 
         $json_data["hash"] = $final_hash;
 
-        $final_request = json_encode($json_data);
+        $final_request_json = json_encode($json_data);
+
 
         // Http GET request
         $request_url = "localhost{$request_uri}:5000";
-        
-        http_request($request_method, $request_url, $json_data);
-        
-        
-        
-        
-        $output = curl_exec($cg);
-        curl_close($cg);
+        $request_url = "vlakbijles.nl{$request_uri}:5000";
 
+        // $response = http_request($request_method, $request_url, $final_request_json);
 
         // $user_data = json_decode($request_response, true);
         // $user_name = $user_data["user"];
@@ -64,7 +61,7 @@
 
     <body>
         <?php
-            echo $final_request;
+            echo $final_request_json;
 
             // echo $user_name;
             // echo $user_surname;
