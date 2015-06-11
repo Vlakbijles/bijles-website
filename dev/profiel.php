@@ -36,8 +36,14 @@
 
         // Http GET request
         $request_url = "localhost{$request_uri}:5000";
-
-
+        
+        http_request($request_method, $request_url, $json_data);
+        
+        
+        
+        
+        $output = curl_exec($cg);
+        curl_close($cg);
 
 
         // $user_data = json_decode($request_response, true);
