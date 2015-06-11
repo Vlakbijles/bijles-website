@@ -19,17 +19,16 @@
 
         // Hash json
         $hash_algorithm = "sha256";
-		$request_uri = "/user/user_id";
-        $api_key = "3aced6d2d652a5a7426daabff22e372c";
 
+        $api_key = "3aced6d2d652a5a7426daabff22e372c";
+        $request_uri = "/user/user_id";
         $request_method = "GET";
-        
+
         $request_hash = hash_init($hash_algorithm);
         hash_update($request_hash, $api_key);
-        hash_update($request_hash, $request);        
-        hash_update($request_hash, $request_uri);        
+        hash_update($request_hash, $request);
+        hash_update($request_hash, $request_uri);
         hash_update($request_hash, $request_method);
-
         $final_hash = hash_final($request_hash);
 
         // $request_url = "localhost{$request_uri}:5000";
@@ -58,9 +57,12 @@
         <?php
             echo $final_hash;
 
+<<<<<<< HEAD
 
 
  
+=======
+>>>>>>> 810f2e357f026f513a672354eb3101e07ee4c6a0
             // echo $user_name;
             // echo $user_surname;
             // echo $user_picture;
