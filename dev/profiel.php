@@ -58,12 +58,18 @@
             echo $request;
             echo $request_hash;
             echo $final_hash;
-            echo "kanker govert";
 
-            $ctx = hash_init('md5');
-            hash_update($ctx, 'The quick brown fox ');
-            hash_update($ctx, 'jumped over the lazy dog.');
-            echo hash_final($ctx);
+            echo "                        ";
+            $dat =  "kanker govert ";
+
+            $ctx = hash_init("sha256", "23423423423423432432432423432");
+            hash_update($ctx, $dat);
+            hash_update($ctx, $request);
+            hash_update($ctx, $request_uri);
+            $fin = hash_final($ctx);
+            echo $fin;
+            echo "                        ";
+            echo $ctx;
             // echo $user_name;
             // echo $user_surname;
             // echo $user_picture;
