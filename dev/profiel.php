@@ -57,12 +57,6 @@
         <?php
             echo $final_hash;
 
-<<<<<<< HEAD
-
-
- 
-=======
->>>>>>> 810f2e357f026f513a672354eb3101e07ee4c6a0
             // echo $user_name;
             // echo $user_surname;
             // echo $user_picture;
