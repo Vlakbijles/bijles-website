@@ -41,7 +41,7 @@
         $request_url = "localhost{$request_uri}:5000";
         $request_url = "vlakbijles.nl{$request_uri}:5000";
 
-        // $response = http_request($request_method, $request_url, $final_request_json);
+        $response = http_request($request_method, $request_url, $final_request_json);
 
         // $user_data = json_decode($request_response, true);
         // $user_name = $user_data["user"];
