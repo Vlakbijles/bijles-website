@@ -19,8 +19,11 @@
 
         // Hash json
         $hash_algorithm = "sha256";
+        $request_hash = hash_init($hash_algorithm);
+
         $api_key = "3aced6d2d652a5a7426daabff22e372c";
-        $request_hash = hash_init($hash_algorithm, $api_key);
+        hash_update($request_hash, $api_key);
+
         hash_update($request_hash, $request);
 
         $request_uri = "/user/user_id";
