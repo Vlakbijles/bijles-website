@@ -19,9 +19,6 @@
                            "timestamp" => $timestamp);
         $request_json = json_encode($json_data);
 
-        echo $request_json;
-
-
         // Hash json
         $hash_algorithm = "sha256";
         $request_hash = hash_init($hash_algorithm, HASH_HMAC, $api_key);
@@ -51,7 +48,14 @@
 
         echo $response;
         echo "</br>";
-        var_dump(json_decode($request_response, true));
+        if(get_magic_quotes_gpc()){
+          $d = stripslashes($response);
+        }else{
+          $d = $response;
+        }
+        $d = json_decode($d,true);
+        echo $d["id"];
+        echo $d["meta.description"];
         // $user_name = $user_data["meta.name"];
         // $user_surname = $user_data["surname"];
         // $user_picture = $user_data["picture"];
@@ -68,22 +72,5 @@
     </head>
 
     <body>
-        <?php
-            echo "</br>";
-            echo $final_request_json;
-            echo "</br>";
-            echo $response;
-            echo "</br>";
-
-            echo $user_data;
-            echo "</br>";
-            echo $user_name;
-            // echo $user_surname;
-            // echo $user_picture;
-            // echo $user_description;
-            // echo $user_phone;
-            // echo $user_email;
-            // echo $page_title;
-        ?>
     </body>
 </html>
