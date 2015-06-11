@@ -7,10 +7,13 @@
 
         // Create request hash
         date_default_timezone_set("UTC");
-        $hash_algorithm = "sha256";
         $utc_timestamp = time();
+        $client_name = "";
+        $client_key = "3aced6d2d652a5a7426daabff22e372c";
+
+
+        $hash_algorithm = "sha256";
         $hash_data = "?";
-        $hash_key= "3aced6d2d652a5a7426daabff22e372c";
 
         $request_data = hash_hmac($hash_algorithm, $hash_data, $hash_key);
 
