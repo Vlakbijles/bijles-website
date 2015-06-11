@@ -19,19 +19,15 @@
 
         // Hash json
         $hash_algorithm = "sha256";
-        $request_hash = hash_init($hash_algorithm);
-
         $api_key = "3aced6d2d652a5a7426daabff22e372c";
-        hash_update($request_hash, $api_key);
-
-        hash_update($request_hash, $request);
-
         $request_uri = "/user/user_id";
-        hash_update($request_hash, $request_uri);
-
         $request_method = "GET";
-        hash_update($request_hash, $request_method);
 
+        $request_hash = hash_init($hash_algorithm);
+        hash_update($request_hash, $api_key);
+        hash_update($request_hash, $request);
+        hash_update($request_hash, $request_uri);
+        hash_update($request_hash, $request_method);
         $final_hash = hash_final($request_hash);
 
         // $request_url = "localhost{$request_uri}:5000";
@@ -58,21 +54,8 @@
 
     <body>
         <?php
-            echo $request;
-            echo $request_hash;
             echo $final_hash;
 
-            echo "                        ";
-            $dat =  "kanker govert ";
-
-            $ctx = hash_init("sha256", "23423423423423432432432423432");
-            hash_update($ctx, $dat);
-            hash_update($ctx, $request);
-            hash_update($ctx, $request_uri);
-            $fin = hash_final($ctx);
-            echo $fin;
-            echo "                        ";
-            echo $ctx;
             // echo $user_name;
             // echo $user_surname;
             // echo $user_picture;
