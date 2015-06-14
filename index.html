@@ -31,6 +31,7 @@
     		if (response.status === 'connected') {
       			// Logged into your app and Facebook.
       			getData();
+				showFBLogin(false);
     		} else if (response.status === 'not_authorized') {
       			// The person is logged into Facebook, but not your app.
       			document.getElementById('status').innerHTML = 'Please log ' +
@@ -89,6 +90,16 @@
         document.getElementById('email').value = response.email;
     	});
   	}
+
+	function showFBLogin(ShowLogin) {
+		var div_fblogin = document.getElementById('fblogin');
+		if (ShowLogin) {
+			div_fblogin.style.visibility = 'visible';
+		else {
+			div_fblogin.style.visibility = 'collapse';
+		}
+	}
+
 	</script>
         <!-- Navbar -->
         <nav class="navbar navbar-default navbar-fixed-top">
@@ -137,8 +148,7 @@
                             <div class="form-group">
                                 <input type="password" class="form-control" id="reg_pwd" placeholder="Wachtwoord">
                             </div>
-                            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-							</fb:login-button>
+                            <div id="fblogin" class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Registreren</button>
