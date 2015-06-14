@@ -39,6 +39,10 @@ body {
 }
 
 .spacer{
+    font-size: 15px;
+}
+
+.spacer-small{
     font-size: 5px;
 }
 
