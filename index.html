@@ -30,8 +30,8 @@
     		// for FB.getLoginStatus().
     		if (response.status === 'connected') {
       			// Logged into your app and Facebook.
-      			getData();
-				showFBLogin(false);
+      			showFBLogin(false);
+				getData();
     		} else if (response.status === 'not_authorized') {
       			// The person is logged into Facebook, but not your app.
       			document.getElementById('status').innerHTML = 'Please log ' +
@@ -97,7 +97,7 @@
 			div_fblogin.style.visibility = 'visible';
 		}
 		else {
-			div_fblogin.style.visibility = 'collapse';
+			div_fblogin.style.visibility = 'hidden';
 		}
 	}
 
