@@ -30,12 +30,16 @@ body {
 }
 
 .search-logo {
-    max-width:400px;
+    max-width:270px;
     margin: 30px 0 0 0;
 }
 
 .search-form {
-    padding: 30px 0;
+    padding: 15px 0;
+}
+
+.spacer{
+    font-size: 5px;
 }
 
 .search-result:hover{
