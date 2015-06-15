@@ -19,11 +19,8 @@
     <body>
 
         <?php include("components/navbar.php"); ?>
-
         <?php include("components/modals/register.php"); ?>
-
         <?php include("components/modals/login.php"); ?>
-
         <?php include("components/search_small.php"); ?>
 
         <!-- Search results -->
