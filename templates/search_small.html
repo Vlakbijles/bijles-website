@@ -3,14 +3,15 @@
     <div class="container theme-vlakbijles">
         <div class="row search-form">
             <div class="form-group">
-                <form action="search.php" method="GET">
+                <form action="index.php" method="GET">
+                    <input type="hidden" name="page" value="search">
                     <div class="hidden-lg hidden-md hidden-sm spacer">&nbsp;</div>
                     <div class="col-sm-6">
-                        <input type="text" name="subject_id" class="form-control" placeholder="Vaknaam...">
+                        <input type="text" name="subject_id" class="form-control" placeholder="Vaknaam..." value=<?=$subject_id?>>
                     </div>
                     <div class="hidden-lg hidden-md hidden-sm spacer-small">&nbsp;</div>
                     <div class="col-sm-3">
-                        <input type="text" name="postal_code" class="form-control" placeholder="1234AB">
+                        <input type="text" name="postal_code" class="form-control" placeholder="1234AB" value="<?=$postal_code?>">
                     </div>
                     <div class="hidden-lg hidden-md hidden-sm spacer-small">&nbsp;</div>
                     <div class="col-sm-3">

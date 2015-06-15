@@ -13,7 +13,7 @@ if (isset($_GET["id"])) {
     // Request user profile data
     $request_uri = "/user/" . $_GET["id"] . "?";
     $request_method = "GET";
-    $response = api_request($request_uri, $request_method, $data);
+    $response = api_request($request_uri, $request_method, NULL);
 
     if ($response["response_code"] == 0) {
         echo "api server down";
@@ -26,7 +26,7 @@ if (isset($_GET["id"])) {
     // Request users offers
     $request_uri = "/user/" . $_GET["id"] . "/offer?";
     $request_method = "GET";
-    $response = api_request($request_uri, $request_method, $data);
+    $response = api_request($request_uri, $request_method, NULL);
 
     if ($response["response_code"] == 0) {
         echo "api server down";
@@ -39,7 +39,7 @@ if (isset($_GET["id"])) {
     // Request users reviews
     $request_uri = "/user/" . $_GET["id"] . "/review?";
     $request_method = "GET";
-    $response = api_request($request_uri, $request_method, $data);
+    $response = api_request($request_uri, $request_method, NULL);
 
     //TODO handle errors
     if ($response["response_code"] == 0) {
@@ -72,7 +72,7 @@ if (isset($_GET["id"])) {
         include("templates/modals/register.html");
         include("templates/modals/login.html");
 
-        include("templates/search_small.html");
+        echo render_template("templates/search_small.html");
 
         echo render_template("templates/profile.html",
                              array("name" => $user_profile["meta.name"],
