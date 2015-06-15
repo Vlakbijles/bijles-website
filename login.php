@@ -7,7 +7,6 @@
 
     $email = "";
     $password = "";
-    $hashed_password = "";
 
     function clean_input($input) {
         return htmlspecialchars(stripslashes(trim($input)));
@@ -19,7 +18,6 @@
         }
         if (isset($_POST["login_pwd"])) {
             $password = clean_input($_POST["login_pwd"]);
-            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
         }
     }
 
