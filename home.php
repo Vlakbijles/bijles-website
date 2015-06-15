@@ -3,7 +3,8 @@
 $title = "Vind bijles bij jou in de buurt - Vlakbijles";
 
 echo render_template("templates/head.html", array("title" => $title));
-echo render_template("templates/navbar.html", array("logged_in" => $logged_in));
+echo render_template("templates/navbar.html", array("logged_in" => $logged_in,
+                                                    "user_id" => $user_id));
 
 include("templates/modals/register.html");
 include("templates/modals/login.html");
