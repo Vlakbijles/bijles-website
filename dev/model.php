@@ -1,18 +1,6 @@
 <?php
-    $api_user = "site-vlakbij";
-    $api_key = "3aced6d2d652a5a7426daabff22e372c";
-    // $api_user = "test";
-    // $api_key = "9103fb5e80d7747ee407505dfa4ca3dc";
-    $hash_algorithm = "sha256";
-
-    $api_url = "localhost:5000";
-    // $api_url = "vlakbijles.nl:5000";
-
-    // Received from POST
-
     function api_request($request_uri, $request_method, $data) {
-        // include "vars.php";
-        global $api_url, $api_user, $api_key, $hash_algorithm;
+        include "vars.php";
         $timestamp = strval(time());
 
         $request_url = $api_url . $request_uri;
