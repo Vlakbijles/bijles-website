@@ -2,6 +2,6 @@
 <?php
     require "model.php";
 
-    print_r(api_request("/user/1?", "GET", new ArrayObject()));
+    print_r(api_request("/user/1/offer?", "GET", new ArrayObject()));
 ?>
 </pre>
