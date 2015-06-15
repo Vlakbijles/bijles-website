@@ -14,7 +14,7 @@ if(isset($_COOKIE["user_id"]) && isset($_COOKIE["token_hash"])) {
         $logged_in = true;
         echo "henkies";
     } else {
-        echo $response["response_code"];
+        print_r($response);
         echo "vriend";
     }
 }
