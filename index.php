@@ -19,81 +19,11 @@
 
     <body>
 
-        <!-- Navbar -->
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a href="/" class="navbar-brand">
-                        <img src="img/logo_green.png" alt="Vlakbijles" class="navbar-logo">
-                    </a>
-                </div>
+        <? include("navbar.php"); ?>
 
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#" data-toggle="modal" data-target="#registermodal">Registreren</a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#loginmodal">Inloggen</a></li>
-                        <li><a href="profile.html">Mijn profiel</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <? include("modals/register.php"); ?>
 
-        <!-- Register modal -->
-        <div id="registermodal" class="modal fade" role="dialog">
-            <div class="modal-dialog modal-xs">
-                <form role="form">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Registreren</h4>
-                        </div>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="reg_email" placeholder="E-mailadres">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" id="reg_pwd" placeholder="Wachtwoord">
-                            </div>
-                            <p>Blablafacebook</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Registreren</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <!-- Login modal -->
-        <div id="loginmodal" class="modal fade" role="dialog">
-            <div class="modal-dialog modal-xs">
-                <form role="form">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Inloggen</h4>
-                        </div>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="login_email" placeholder="E-mailadres">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" id="login_pwd" placeholder="Wachtwoord">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Inloggen</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
+        <? include("modals/login.php"); ?>
 
         <!-- Search container -->
         <div class="container-fluid text-center search-bg">
@@ -154,12 +84,7 @@
 
         </div>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="container">
-                <p class="text-muted text-center footer-text">Vlakbijles.nl</p>
-            </div>
-        </footer>
+        <? include("footer.php"); ?>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
