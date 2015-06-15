@@ -61,7 +61,7 @@ if (isset($_GET["id"])) {
 
         echo render_template("templates/modals/editprofile.html",
                              array("description" => $user_profile["meta.description"],
-                                   "postal_code" => $user_profile["meta.description"]));
+                                   "zipcode" => $user_profile["meta.zipcode"]));
 
         echo render_template("templates/modals/contactuser.html",
                              array("offers" => $user_offers));
@@ -78,6 +78,7 @@ if (isset($_GET["id"])) {
                              array("name" => $user_profile["meta.name"],
                                    "surname" => $user_profile["meta.surname"],
                                    "city" => $user_profile["meta.city"],
+                                   "age" => $user_profile["meta.age"],
                                    "description" => $user_profile["meta.description"],
                                    "offers" => $user_offers));
 
