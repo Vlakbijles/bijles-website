@@ -34,10 +34,12 @@
 				getData();
     		} else if (response.status === 'not_authorized') {
       			// The person is logged into Facebook, but not your app.
+				console.log("Not logged in");
       			document.getElementById('status').innerHTML = '';
     		} else {
       			// The person is not logged into Facebook, so we're not sure if
       			// they are logged into this app or not.
+			console.log("Not logged in either");
       		document.getElementById('status').innerHTML = '';
     		}
   		}
@@ -54,7 +56,7 @@
   		window.fbAsyncInit = function() {
   			FB.init({
     			appId      : '1597503327174282',
-    			cookie     : true,  // enable cookies to allow the server to access 
+    			cookie     : true,  // enable cookies to allow the server to access
     		    	                // the session
     			xfbml      : true,  // parse social plugins on this page
     			version    : 'v2.3' // use version 2.2
@@ -78,18 +80,14 @@
   	// Here we run a very simple test of the Graph API after login is
   	// successful.  See statusChangeCallback() for when this call is made.
   	function getData() {
+        var access_token = FB.getAuthResponse()['accessToken'];
     	console.log('Welcome!  Fetching your information.... ');
     	FB.api('/me', function(response) {
-      		console.log('Successful login for: ' + response.name);
-		document.getElementById('voornaam').value = response.first_name;
-		document.getElementById('voornaam').disabled = true;
-        document.getElementById('achternaam').value = response.last_name;
-		document.getElementById('achternaam').disabled = true;
-        document.getElementById('email').value = response.email;
+      		console.log('Successful login for: ' + access_token);
     	});
   	}
 
-	
+
 	</script>
         <!-- Navbar -->
         <nav class="navbar navbar-default navbar-fixed-top">
@@ -138,10 +136,10 @@
                             <div class="form-group">
                                 <input type="password" class="form-control" id="reg_pwd" placeholder="Wachtwoord">
                             </div>
-                            <div id="fblogin" class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
+                            <div id="fblogin" class="fb-login-button" data-scope: "public_profile,email,user_photos" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
                         	</div>
 							<div id="status">
-							</div> 
+							</div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">Registreren</button>
                         </div>
