@@ -1,4 +1,3 @@
-<?php include("include.php"); ?>
 <!-- Navbar -->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -16,7 +15,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
             <ul class="nav navbar-nav navbar-right">
 
-                <?php if ($logged_in) { ?>
+                <?php if ($GLOBALS["logged_in"]) { ?>
 
                 <li><a href="profile.html">Mijn profiel</a></li>
                 <li><a href="logout.php">Uitloggen</a></li>

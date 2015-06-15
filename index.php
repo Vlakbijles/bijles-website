@@ -1,5 +1,3 @@
-<?php include("include.php"); ?>
-
 <html lang="nl">
 
     <head>
