@@ -19,17 +19,11 @@
     <body>
 
         <?php include("components/navbar.php"); ?>
-
         <?php include("components/modals/register.php"); ?>
-
         <?php include("components/modals/login.php"); ?>
-
         <?php include("components/modals/contactuser.php"); ?>
-
         <?php include("components/modals/review.php"); ?>
-
         <?php include("components/modals/editprofile.php"); ?>
-
         <?php include("components/search_small.php"); ?>
 
         <!-- Main container -->
