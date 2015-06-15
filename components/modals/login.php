@@ -1,7 +1,7 @@
 <!-- Login modal -->
 <div id="loginmodal" class="modal fade" role="dialog">
     <div class="modal-dialog modal-xs">
-        <form role="form">
+        <form role="form" method="POST" action="login.php">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
