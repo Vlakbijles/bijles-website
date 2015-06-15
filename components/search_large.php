@@ -6,7 +6,7 @@
     <div class="container theme-vlakbijles">
         <div class="row search-form">
             <div class="form-group">
-                <form action="results.html">
+                <form action="results.php">
                     <div class="col-sm-6">
                         <input type="text" class="form-control" placeholder="Vaknaam...">
                     </div>
