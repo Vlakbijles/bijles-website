@@ -14,9 +14,22 @@
 
         $response = api_request($request_uri, $request_method, $data);
 
-        echo "<pre>";
-        print_r($response);
-        echo "</pre>";
     }
+
+    class MissingTemplateException extends Exception {}
+
+    function render_template($template_file, $vars = array())
+    {
+        if(file_exists($template_file))
+        {
+            ob_start();
+            extract($vars);
+            include($template_file);
+            return ob_get_clean();
+        }else
+            throw new MissingTemplateException("Template: {$template_file} could not be found!");
+    }
+
+    echo render_template('profile.html', array('description' => $response['meta.description']));
 
 ?>
