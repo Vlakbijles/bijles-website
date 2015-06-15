@@ -1,13 +1,13 @@
-            <?php if (!empty($reviews)) { ?>
 
             <hr class="featurette-divider">
 
             <!-- Reviews -->
             <div id="reviews" class="row featurette">
-                <h2 class="featurette-heading col-xs-11">Recensies <span class="text-muted">(3)</span></h2>
+                <h2 class="featurette-heading col-xs-11">Recensies <span class="text-muted">(<?=count($reviews)?>)</span></h2>
             </div>
 
             <?php
+            if (!empty($reviews)) {
 
             $keys = array_keys($reviews);
 
@@ -19,7 +19,7 @@
                 <div class="col-xs-9">
                     <blockquote class="pull-right">
                         <p class="lead"><?=$reviews[$keys[$i]]["description"]?></p>
-                        <small><cite title="Source Title">Henk Honk</cite></small>
+                        <small><?=$reviews[$keys[$i]]["author.meta.name"]?> <?=$reviews[$keys[$i]]["author.meta.surname"]?></small>
                     </blockquote>
                 </div>
                 <div class="col-xs-3">
@@ -36,7 +36,7 @@
                 <div class="col-xs-9">
                     <blockquote>
                         <p class="lead"><?=$reviews[$keys[$i]]["description"]?></p>
-                        <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                        <small><?=$reviews[$keys[$i]]["author.meta.name"]?> <?=$reviews[$keys[$i]]["author.meta.surname"]?></small>
                     </blockquote>
                 </div>
             </div>
