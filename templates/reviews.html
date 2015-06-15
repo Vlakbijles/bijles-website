@@ -1,0 +1,46 @@
+            <?php if (!empty($reviews)) { ?>
+
+            <hr class="featurette-divider">
+
+            <!-- Reviews -->
+            <div id="reviews" class="row featurette">
+                <h2 class="featurette-heading col-xs-11">Recensies <span class="text-muted">(3)</span></h2>
+            </div>
+
+            <?php
+
+            $keys = array_keys($reviews);
+
+            for ($i = 0; $i < count($reviews); $i++) {
+
+                if ($i % 2 == 0) { ?>
+
+            <div class="row">
+                <div class="col-xs-9">
+                    <blockquote class="pull-right">
+                        <p class="lead"><?=$reviews[$keys[$i]]["description"]?></p>
+                        <small><cite title="Source Title">Henk Honk</cite></small>
+                    </blockquote>
+                </div>
+                <div class="col-xs-3">
+                    <img src="img/profile/1.jpg" class="img-responsive img-circle" alt="Henk Honk">
+                </div>
+            </div>
+
+            <?php } else { ?>
+
+            <div class="row">
+                <div class="col-xs-3">
+                    <img src="img/profile/2.jpg" class="img-responsive img-circle" alt="Henk Honk">
+                </div>
+                <div class="col-xs-9">
+                    <blockquote>
+                        <p class="lead"><?=$reviews[$keys[$i]]["description"]?></p>
+                        <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                    </blockquote>
+                </div>
+            </div>
+
+            <?php } } } ?>
+
+        </div>

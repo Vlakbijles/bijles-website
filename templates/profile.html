@@ -12,8 +12,10 @@
                             <div class="progress-bar progress-bar-success" style="width: 80%"></div>
                             <div class="progress-bar progress-bar-warning" style="width: 20%"></div>
                         </div>
-                        <p class="zeromargin"><span class="text-muted hidden-sm hidden-md">Locatie</span> Amsterdam</p>
-                        <p class="zeromargin"><span class="text-muted hidden-sm hidden-md">Leeftijd</span> 12</p>
+                        <p class="zeromargin"><span class="text-muted hidden-sm hidden-md">Locatie</span> <?=$city?></p>
+                        <?php if ($age) { ?>
+                        <p class="zeromargin"><span class="text-muted hidden-sm hidden-md">Leeftijd</span> <?=$age?></p>
+                        <?php } ?>
                     </div>
 
                     <div class="row" >
@@ -74,49 +76,4 @@
 
                 </div>
             </div>
-
-            <hr class="featurette-divider">
-
-            <!-- Reviews -->
-            <div id="reviews" class="row featurette">
-                <h2 class="featurette-heading col-xs-11">Recensies <span class="text-muted">(3)</span></h2>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-9">
-                    <blockquote class="pull-right">
-                        <p class="lead">Hey asda ojspaodj asdpoaj apsodik ben henk, ik vind allemaal dingen, deze boy kan cker goed bijles geven whaha</p>
-                        <small><cite title="Source Title">Henk Honk</cite></small>
-                    </blockquote>
-                </div>
-                <div class="col-xs-3">
-                    <img src="img/profile/1.jpg" class="img-responsive img-circle" alt="Henk Honk">
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-3">
-                    <img src="img/profile/2.jpg" class="img-responsive img-circle" alt="Henk Honk">
-                </div>
-                <div class="col-xs-9">
-                    <blockquote>
-                        <p class="lead">Ze noemen me ook wel robin klusboy, ik klaar graag klussies in me vrije tijd. Naast klusjes hou ik ook van motors, lekker sjezen. Over deze boy, naja deze boy ken best bijles geven</p>
-                        <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-                    </blockquote>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-9">
-                    <blockquote class="pull-right">
-                        <p class="lead">ik ben de beste hekker, hekken is mijn ding gwn, I LUV LInuX ARTSSJ</p>
-                        <small><cite title="Source Title">Nerd</cite></small>
-                    </blockquote>
-                </div>
-                <div class="col-xs-3">
-                    <img src="img/profile/4.jpg" class="img-responsive img-circle" alt="Henk Honk">
-                </div>
-            </div>
-
-        </div>
 
