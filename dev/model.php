@@ -1,6 +1,6 @@
 <?php
-    include "vars.php";
     function api_request($request_uri, $request_method, $data) {
+        include "vars.php";
         $timestamp = strval(time());
 
         $request_url = $api_url . $request_uri;
