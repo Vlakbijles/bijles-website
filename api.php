@@ -3,8 +3,7 @@
     $api_user = "site-vlakbij";
     $api_key = "3aced6d2d652a5a7426daabff22e372c";
     $hash_algorithm = "sha256";
-
-    $api_url = "localhost:5000";
+    $api_url = "vlakbijles.nl:5000";
 
     function api_request($request_uri, $request_method, $data) {
 
@@ -39,17 +38,18 @@
         curl_setopt($cs, CURLOPT_CUSTOMREQUEST, $request_method);
         curl_setopt($cs, CURLOPT_HTTPHEADER, array("Content-Type: application/json"));
         $response = curl_exec($cs);
+        $response_code = curl_getinfo($cs, CURLINFO_HTTP_CODE);
         curl_close($cs);
 
         // Strip incoming json string
         if(get_magic_quotes_gpc()){
-          $response = stripslashes($response);
+            $response = stripslashes($response);
         }else{
-          $response = $response;
+            $response = $response;
         }
         $response = json_decode($response, true);
 
-        return $response;
+        return array("response" => $response, "response_code" => $response_code);
 
     }
 

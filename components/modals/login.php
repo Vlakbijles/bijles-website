@@ -9,10 +9,10 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <input type="email" class="form-control" id="login_email" placeholder="E-mailadres">
+                        <input type="email" class="form-control" name="login_email" placeholder="E-mailadres">
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="login_pwd" placeholder="Wachtwoord">
+                        <input type="password" class="form-control" name="login_pwd" placeholder="Wachtwoord">
                     </div>
                 </div>
                 <div class="modal-footer">
