@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="nl">
 
     <head>
@@ -19,11 +18,11 @@
 
     <body>
 
-        <? include("navbar.php"); ?>
+        <?php include("navbar.php"); ?>
 
-        <? include("modals/register.php"); ?>
+        <?php include("modals/register.php"); ?>
 
-        <? include("modals/login.php"); ?>
+        <?php include("modals/login.php"); ?>
 
         <!-- Search container -->
         <div class="container-fluid text-center search-bg">
@@ -84,7 +83,7 @@
 
         </div>
 
-        <? include("footer.php"); ?>
+        <?php include("footer.php"); ?>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
