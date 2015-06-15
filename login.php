@@ -26,7 +26,7 @@
     // Perform login
     $request_uri = "/login?";
     $request_method = "POST";
-    $data = array("user" => array("email" => $email, "password" => $hashed_password));
+    $data = array("user" => array("email" => $email, "password" => $password));
     $response = api_request($request_uri, $request_method, $data);
 
     if ($response["response_code"] == 200) {
