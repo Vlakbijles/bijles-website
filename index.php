@@ -1,3 +1,5 @@
+<?php include("include.php"); ?>
+
 <html lang="nl">
 
     <head>
@@ -18,39 +20,13 @@
 
     <body>
 
-        <?php include("navbar.php"); ?>
+        <?php include("components/navbar.php"); ?>
 
-        <?php include("modals/register.php"); ?>
+        <?php include("components/modals/register.php"); ?>
 
-        <?php include("modals/login.php"); ?>
+        <?php include("components/modals/login.php"); ?>
 
-        <!-- Search container -->
-        <div class="container-fluid text-center search-bg">
-
-            <img src="img/logo_green.png" alt="Vlakbijles" class="search-logo">
-
-            <div class="container theme-vlakbijles">
-                <div class="row search-form">
-                    <div class="form-group">
-                        <form action="results.html">
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" placeholder="Vaknaam...">
-                            </div>
-                            <div class="hidden-lg hidden-md hidden-sm spacer-small">&nbsp;</div>
-                            <div class="col-sm-3">
-                                <input type="text" class="form-control" placeholder="1234AB">
-                            </div>
-                            <div class="hidden-lg hidden-md hidden-sm spacer-small">&nbsp;</div>
-                            <div class="col-sm-3">
-                                <button type="submit" class="btn btn-block btn-danger glyphicon">&#xe003;</button>
-                            </div>
-                            <div class="hidden-xs spacer-small">&nbsp;</div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+        <?php include("components/search_large.php"); ?>
 
         <!-- Selling points container -->
         <div class="container">
@@ -83,7 +59,7 @@
 
         </div>
 
-        <?php include("footer.php"); ?>
+        <?php include("components/footer.php"); ?>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
