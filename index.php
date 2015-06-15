@@ -32,24 +32,20 @@ function render_template($template_file, $vars = array()) {
     }
 }
 
-if (isset($_GET["page"])) {
+// Landing page if no page parameter is specified
+$page = "home";
+if (isset($_GET["page"])) $page = $_GET["page"];
 
-    switch ($_GET["page"]) {
+switch ($page) {
 
-        case "home":
-            include("home.php");
-            break;
-        case "profile":
-            include("profile.php");
-            break;
-        default:
-            echo "no way jose";
-
-    }
-
-} else {
-
-    echo "no way jose";
+    case "home":
+        include("home.php");
+        break;
+    case "profile":
+        include("profile.php");
+        break;
+    default:
+        echo "no way jose";
 
 }
 
