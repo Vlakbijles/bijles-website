@@ -14,14 +14,14 @@
     }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (isset($_POST["register_email"])) {
-            $email = clean_input($_POST["register_email"]);
+        if (isset($_POST["reg_email"])) {
+            $email = clean_input($_POST["reg_email"]);
         }
-        if (isset($_POST["register_pwd"])) {
-            $password = clean_input($_POST["register_pwd"]);
+        if (isset($_POST["reg_pwd"])) {
+            $password = clean_input($_POST["reg_pwd"]);
         }
-        if (isset($_POST["register_facebook_token"])) {
-            $facebook_token = clean_input($_POST["register_facebook_token"]);
+        if (isset($_POST["reg_fb_token"])) {
+            $facebook_token = clean_input($_POST["reg_fb_token"]);
         }
     }
 
