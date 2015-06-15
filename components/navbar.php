@@ -1,4 +1,4 @@
-<?php require_once("include.php"); ?>
+<?php include("include.php"); ?>
 <!-- Navbar -->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
