@@ -11,10 +11,11 @@
                     <div class="form-group">
                         <label for="contact_offer" class="control-label">Bijles</label>
                         <select class="form-control" id="contact_offer">
-                            <option>League of legends (Nerd)</option>
-                            <option>Microsoft Word (Pro)</option>
-                            <option>Microsoft Excel (Pro)</option>
-                            <option>VIM (0/3)</option>
+
+                            <?php foreach ($offers as $offer) { ?>
+                            <option value=<?=$offer["id"]?>><?=$offer["subject.name"]?> (<?=$offer["level.name"]?>)</option>
+                            <?php } ?>
+
                         </select>
                     </div>
                     <div class="form-group">
