@@ -1,7 +1,7 @@
 <?php
 
 require_once("api.php");
-$GLOBALS["logged_in"] = false;
+$logged_in = false;
 
 if(isset($_COOKIE["user_id"]) && isset($_COOKIE["token_hash"])) {
     $data = array("loggedin" => array("token_hash" => $_COOKIE["token_hash"],
@@ -10,7 +10,7 @@ if(isset($_COOKIE["user_id"]) && isset($_COOKIE["token_hash"])) {
     $request_method = "GET";
     $response = api_request($request_uri, $request_method, $data);
     if ($response["response_code"] == 200) {
-        $GLOBALS["logged_in"] = true;
+        $logged_in = true;
         print_r($response);
         echo "henkies";
     } else {

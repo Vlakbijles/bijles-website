@@ -16,7 +16,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
             <ul class="nav navbar-nav navbar-right">
 
-                <?php if ($GLOBALS["logged_in"]) { ?>
+                <?php if ($logged_in) { ?>
 
                 <li><a href="profile.html">Mijn profiel</a></li>
                 <li><a href="logout.php">Uitloggen</a></li>
