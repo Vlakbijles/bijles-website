@@ -24,133 +24,137 @@
 
         <?php include("components/modals/login.php"); ?>
 
+        <?php include("components/modals/contactuser.php"); ?>
+
+        <?php include("components/modals/review.php"); ?>
+
+        <?php include("components/modals/editprofile.php"); ?>
+
         <?php include("components/search_small.php"); ?>
 
-        <!-- Search results -->
+        <!-- Main container -->
         <div class="container">
 
-            <!-- Top row -->
-            <div class="row">
+            <!-- Profile -->
+            <div class="row ">
 
-                <div class="col-xs-6 col-sm-3">
-                    <div class="panel panel-default search-result">
-                        <div class="panel-heading text-center">23.2km</div>
-                        <div class="panel-body">
-                            <a href="profile.php"><img src="img/profile/1.jpg" class="img-responsive img-circle" alt="Henk Honk"></a>
-                            <h4 class="text-center">Henk Honk</h4>
-                            <div class="progress nobottommargin"><div class="progress-bar progress-bar-danger" style="width: 40%;"></div></div>
+                <div class="col-sm-3 lead">
+                    <div class="well">
+                        <img src="img/profile/3.jpg" class="img-responsive img-thumbnail center-block bottommargin" alt="Henk Honk">
+                        <h1 class="notopmargin text-center visible-xs">Bolle Henkie</h1>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" style="width: 80%"></div>
+                            <div class="progress-bar progress-bar-warning" style="width: 20%"></div>
                         </div>
-                        <a href="profile.php#reviews" class="btn btn-block btn-primary btn-sm">5 recensies</a>
+                        <p class="zeromargin"><span class="text-muted hidden-sm hidden-md">Locatie</span> Amsterdam</p>
+                        <p class="zeromargin"><span class="text-muted hidden-sm hidden-md">Leeftijd</span> 12</p>
                     </div>
+
+                    <div class="row" >
+                        <a href="#" data-toggle="modal" data-target="#contactusermodal" class="btn btn-primary glyphicon col-xs-6">&#x2709;</a>
+                        <a href="#" data-toggle="modal" data-target="#reviewmodal" class="btn btn-success glyphicon col-xs-6">&#xe065;</a>
+                    </div>
+
                 </div>
 
-                <div class="col-xs-6 col-sm-3">
-                    <div class="panel panel-default search-result">
-                        <div class="panel-heading text-center">5.7km</div>
-                        <div class="panel-body">
-                            <a href="profile.php"><img src="img/profile/2.jpg" class="img-responsive img-circle" alt="Henk Honk"></a>
-                            <h4 class="text-center">Frits Wester</h4>
-                            <div class="progress nobottommargin"><div class="progress-bar progress-bar-success" style="width: 80%;"></div></div>
-                        </div>
-                        <a href="profile.php" class="btn btn-block btn-default btn-sm disabled">Geen recensies</a>
-                    </div>
-                </div>
+                <div class="col-sm-9 lead">
 
-                <div class="col-xs-6 col-sm-3">
-                    <div class="panel panel-default search-result">
-                        <div class="panel-heading text-center">39.2km</div>
-                        <div class="panel-body">
-                            <a href="profile.php"><img src="img/profile/3.jpg" class="img-responsive img-circle" alt="Henk Honk"></a>
-                            <h4 class="text-center">Tim Honks</h4>
-                            <div class="progress nobottommargin"><div class="progress-bar progress-bar-success" style="width: 80%;"></div></div>
-                        </div>
-                        <a href="profile.php#reviews" class="btn btn-block btn-primary btn-sm">2 recensies</a>
-                    </div>
-                </div>
+                    <h1 class="notopmargin hidden-xs">Bolle Henkie</h1>
 
-                <div class="col-xs-6 col-sm-3">
-                    <div class="panel panel-default search-result">
-                        <div class="panel-heading text-center">1.4km</div>
-                        <div class="panel-body">
-                            <a href="profile.php"><img src="img/profile/4.jpg" class="img-responsive img-circle" alt="Henk Honk"></a>
-                            <h4 class="text-center">Freddy Boy</h4>
-                            <div class="progress nobottommargin"><div class="progress-bar progress-bar-warning" style="width: 60%;"></div></div>
-                        </div>
-                        <a href="profile.php" class="btn btn-block btn-default btn-sm disabled">Geen recensies</a>
-                    </div>
-                </div>
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#profile" data-toggle="tab" aria-expanded="true">Profiel</a></li>
+                        <li class=""><a href="#offers" data-toggle="tab" aria-expanded="false">Vakken</a></li>
+                    </ul>
 
+                    <div id="myTabContent" class="tab-content topmargin" >
+
+                        <!-- Profile tab -->
+                        <div class="tab-pane fade active in" id="profile">
+                            <a href="#" data-toggle="modal" data-target="#editmodal" class="btn btn-primary btn-sm glyphicon pull-right" style="margin: 0 0 10px 10px;">&#x270f;</a>
+                            <p class="lead">Hello, i am bolle henkie. I give good lessons, i also know a lut from english, i play leage of legens a lut, so i talk wit de peoples there, i say hello, they sey HELLO bek. it are a nice community, becaus ei feel like a winner</p>
+                        </div>
+
+                        <!-- Offers tab -->
+                        <div class="tab-pane fade" id="offers">
+                            <table class="table table-striped table-hover vcenter">
+                                <thead>
+                                    <tr>
+                                        <th class="col-xs-8">Vaknaam</th>
+                                        <th class="col-xs-3">Niveau</th>
+                                        <th class="col-xs-1"><a href="#" class="btn btn-success btn-sm btn-block glyphicon pull-right">&#x2b;</a></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>League of legends</td>
+                                        <td>Nerd</td>
+                                        <td><a href="#" class="btn btn-danger btn-sm btn-block glyphicon pull-right">&#xe014;</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Microsoft Word</td>
+                                        <td>Pro</td>
+                                        <td><a href="#" class="btn btn-danger btn-sm btn-block glyphicon pull-right">&#xe014;</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Microsoft Excel</td>
+                                        <td>Pro</td>
+                                        <td><a href="#" class="btn btn-primary btn-sm btn-block glyphicon pull-right">&#x2709;</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>VIM</td>
+                                        <td>0/3</td>
+                                        <td><a href="#" class="btn btn-primary btn-sm btn-block glyphicon pull-right">&#x2709;</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
             </div>
 
-            <!-- 6 column row results -->
+            <hr class="featurette-divider">
+
+            <!-- Reviews -->
+            <div id="reviews" class="row featurette">
+                <h2 class="featurette-heading col-xs-11">Recensies <span class="text-muted">(3)</span></h2>
+            </div>
+
             <div class="row">
-
-                <div class="col-xs-4 col-sm-2">
-                    <div class="panel panel-default search-result">
-                        <div class="panel-heading text-center">23.2km</div>
-                        <div class="panel-body">
-                            <a href="profile.php"><img src="img/profile/1.jpg" class="img-responsive img-circle" alt="Henk Honk"></a>
-                            <div class="progress topmargin"><div class="progress-bar progress-bar-success" style="width: 70%;"></div></div>
-                        </div>
-                        <a href="profile.php#reviews" class="btn btn-block btn-primary btn-sm">5</a>
-                    </div>
+                <div class="col-xs-9">
+                    <blockquote class="pull-right">
+                        <p class="lead">Hey asda ojspaodj asdpoaj apsodik ben henk, ik vind allemaal dingen, deze boy kan cker goed bijles geven whaha</p>
+                        <small><cite title="Source Title">Henk Honk</cite></small>
+                    </blockquote>
                 </div>
-
-                <div class="col-xs-4 col-sm-2">
-                    <div class="panel panel-default search-result">
-                        <div class="panel-heading text-center">16.3km</div>
-                        <div class="panel-body">
-                            <a href="profile.php"><img src="img/profile/4.jpg" class="img-responsive img-circle" alt="Henk Honk"></a>
-                            <div class="progress topmargin"><div class="progress-bar progress-bar-success" style="width: 70%;"></div></div>
-                        </div>
-                        <a href="profile.php#reviews" class="btn btn-block btn-primary btn-sm">2</a>
-                    </div>
+                <div class="col-xs-3">
+                    <img src="img/profile/1.jpg" class="img-responsive img-circle" alt="Henk Honk">
                 </div>
+            </div>
 
-                <div class="col-xs-4 col-sm-2">
-                    <div class="panel panel-default search-result">
-                        <div class="panel-heading text-center">6.3km</div>
-                        <div class="panel-body">
-                            <a href="profile.php"><img src="img/profile/2.jpg" class="img-responsive img-circle" alt="Henk Honk"></a>
-                            <div class="progress topmargin"><div class="progress-bar progress-bar-success" style="width: 70%;"></div></div>
-                        </div>
-                        <a href="profile.php" class="btn btn-block btn-default btn-sm disabled">-</a>
-                    </div>
+            <div class="row">
+                <div class="col-xs-3">
+                    <img src="img/profile/2.jpg" class="img-responsive img-circle" alt="Henk Honk">
                 </div>
-
-                <div class="col-xs-4 col-sm-2">
-                    <div class="panel panel-default search-result">
-                        <div class="panel-heading text-center">6.3km</div>
-                        <div class="panel-body">
-                            <a href="profile.php"><img src="img/profile/3.jpg" class="img-responsive img-circle" alt="Henk Honk"></a>
-                            <div class="progress topmargin"><div class="progress-bar progress-bar-success" style="width: 70%;"></div></div>
-                        </div>
-                        <a href="profile.php" class="btn btn-block btn-default btn-sm disabled">-</a>
-                    </div>
+                <div class="col-xs-9">
+                    <blockquote>
+                        <p class="lead">Ze noemen me ook wel robin klusboy, ik klaar graag klussies in me vrije tijd. Naast klusjes hou ik ook van motors, lekker sjezen. Over deze boy, naja deze boy ken best bijles geven</p>
+                        <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                    </blockquote>
                 </div>
+            </div>
 
-                <div class="col-xs-4 col-sm-2">
-                    <div class="panel panel-default search-result">
-                        <div class="panel-heading text-center">6.3km</div>
-                        <div class="panel-body">
-                            <a href="profile.php"><img src="img/profile/3.jpg" class="img-responsive img-circle" alt="Henk Honk"></a>
-                            <div class="progress topmargin"><div class="progress-bar progress-bar-success" style="width: 70%;"></div></div>
-                        </div>
-                        <a href="profile.php" class="btn btn-block btn-default btn-sm disabled">-</a>
-                    </div>
+            <div class="row">
+                <div class="col-xs-9">
+                    <blockquote class="pull-right">
+                        <p class="lead">ik ben de beste hekker, hekken is mijn ding gwn, I LUV LInuX ARTSSJ</p>
+                        <small><cite title="Source Title">Nerd</cite></small>
+                    </blockquote>
                 </div>
-
-                <div class="col-xs-4 col-sm-2">
-                    <div class="panel panel-default search-result">
-                        <div class="panel-heading text-center">6.3km</div>
-                        <div class="panel-body">
-                            <a href="profile.php"><img src="img/profile/1.jpg" class="img-responsive img-circle" alt="Henk Honk"></a>
-                            <div class="progress topmargin"><div class="progress-bar progress-bar-success" style="width: 70%;"></div></div>
-                        </div>
-                        <a href="profile.php" class="btn btn-block btn-default btn-sm disabled">-</a>
-                    </div>
+                <div class="col-xs-3">
+                    <img src="img/profile/4.jpg" class="img-responsive img-circle" alt="Henk Honk">
                 </div>
-
             </div>
 
         </div>
