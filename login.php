@@ -17,13 +17,14 @@
         }
         if (isset($_POST["login_pwd"])) {
             $password = clean_input($_POST["login_pwd"]);
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
         }
     }
 
     // Perform login
     $request_uri = "/login?";
     $request_method = "POST";
-    $data = array("user" => array("email" => $email, "password" => $password));
+    $data = array("user" => array("email" => $email, "password" => $hashed_password));
     $response = api_request($request_uri, $request_method, $data);
 
     if ($response["response_code"] == 200) {
