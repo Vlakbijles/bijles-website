@@ -12,6 +12,8 @@ if(isset($_COOKIE["user_id"]) && isset($_COOKIE["token_hash"])) {
     $response = api_request($request_uri, $request_method, $data);
     if ($response["response_code"] == 200) {
         $logged_in = true;
+    } elseif ($response["response_code"] == 0) {
+        echo "api server down";
     }
 }
 
@@ -28,12 +30,25 @@ function render_template($template_file, $vars = array()) {
     }
 }
 
+if (isset($_GET["page"])) {
 
-if ($_GET["page"] == "home") {
+    switch ($_GET["page"]) {
 
+        case "home":
+            include("home.php");
+            break;
+        case "profile":
+            include("profile.php");
+            break;
+        default:
+            echo "no way jose";
 
+    }
+
+} else {
+
+    echo "no way jose";
 
 }
-
 
 ?>

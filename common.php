@@ -1,8 +1,5 @@
 <?php
 
-// common.php
-// description
-
 class MissingTemplateException extends Exception {}
 
 function render_template($template_file, $vars = array()) {
@@ -15,7 +12,6 @@ function render_template($template_file, $vars = array()) {
         throw new MissingTemplateException("Template: {$template_file} could not be found!");
     }
 }
-
 
 ?>
 
