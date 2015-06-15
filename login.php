@@ -5,7 +5,8 @@
 
     require_once("api.php");
 
-    $email = $password = "";
+    $email = "";
+    $password = "";
 
     function clean_input($input) {
         return htmlspecialchars(stripslashes(trim($input)));
