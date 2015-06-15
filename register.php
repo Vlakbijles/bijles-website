@@ -19,7 +19,6 @@
         }
         if (isset($_POST["register_pwd"])) {
             $password = clean_input($_POST["register_pwd"]);
-            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
         }
         if (isset($_POST["register_facebook_token"])) {
             $facebook_token = clean_input($_POST["register_facebook_token"]);
@@ -29,12 +28,13 @@
     // Perform login
     $request_uri = "/register?";
     $request_method = "POST";
-    $data = array("user" => array("email" => $email, "password" => $hashed_password, "facebook_token" => $facebook_token));
+    $data = array("user" => array("email" => $email, "password" => $password, "facebook_token" => $facebook_token));
     $response = api_request($request_uri, $request_method, $data);
 
     if ($response["response_code"] == 200) {
         // succesful registration, proceed to login
     } else {
+        // Check for faulty data (duplicate email, invalid fb token)
         print_r($response["response"]);
     }
 
