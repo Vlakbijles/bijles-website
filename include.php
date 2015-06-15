@@ -13,6 +13,8 @@ if(isset($_COOKIE["user_id"]) && isset($_COOKIE["token_hash"])) {
     if ($response["response_code"] == 200) {
         $logged_in = true;
         echo "henkies";
+    } else {
+        echo "vriend";
     }
 }
 
