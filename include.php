@@ -12,8 +12,9 @@ if(isset($_COOKIE["user_id"]) && isset($_COOKIE["token_hash"])) {
     $response = api_request($request_uri, $request_method, $data);
     if ($response["response_code"] == 200) {
         $logged_in = true;
-        echo $response["response_code"];
+        echo "henkies";
     } else {
+        echo $response["response_code"];
         echo "vriend";
     }
 }
