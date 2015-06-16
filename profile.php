@@ -73,12 +73,11 @@ if (isset($_GET["id"])) {
                                      array("offers" => $user_offers));
         }
 
-        print_r($user_offers);
-
         include("templates/modals/register.html");
         include("templates/modals/login.html");
 
-        echo render_template("templates/search_small.html");
+        echo render_template("templates/search_small.html",
+                             array("zipcode" => $user_profile["meta.zipcode"]));
 
         echo render_template("templates/profile.html",
                              array("name" => $user_profile["meta.name"],
