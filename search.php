@@ -7,7 +7,7 @@ if (isset($_GET["subject_id"]) && isset($_GET["postal_code"])
 
     $request_uri = "/offer?subject="
                     . $_GET["subject_id"]
-                    . "&loc=" . $_GET["postal_code"]
+                    . "&loc=" . strtoupper($_GET["postal_code"])
                     . "&page=1&range=10000000&level=1&sortby=apj";
     $request_method = "GET";
     $response = api_request($request_uri, $request_method, NULL);
