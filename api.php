@@ -2,6 +2,7 @@
 
 $api_user = "site-vlakbij";
 $api_key = "3aced6d2d652a5a7426daabff22e372c";
+
 $hash_algorithm = "sha256";
 $api_url = "vlakbijles.nl:5000";
 

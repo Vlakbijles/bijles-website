@@ -1,4 +1,3 @@
-<pre>
 <?php
 
     // register.php
@@ -37,18 +36,18 @@
     $user = array("email" => $email, "password" => $password);
     $data = array("user" => $user, "usermeta" => $usermeta);
 
-    print_r($data);
-
     $response = api_request($request_uri, $request_method, $data);
 
     if ($response["response_code"] == 200) {
         // succesful registration, proceed to login
-    } else {
+    } else if ($response["response_code"] == 400) {
         // Check for faulty data (duplicate email, invalid fb token)
         print_r($response["response"]);
+    } else {
+        // Unknown error
+        echo "Unknown Errors";
     }
 
-    // header("Location: " . $_SERVER["HTTP_REFERER"]);
+    header("Location: " . $_SERVER["HTTP_REFERER"]);
 
 ?>
-</pre>
