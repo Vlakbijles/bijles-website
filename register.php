@@ -46,6 +46,7 @@
     } else {
         // Unknown error
         echo "Unknown Errors";
+        print_r($response["response"]);
     }
 
     header("Location: " . $_SERVER["HTTP_REFERER"]);
