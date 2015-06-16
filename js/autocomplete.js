@@ -2,6 +2,7 @@
 // Load local json file containing subjects, enable autocomplete for searchbar
 
 $(function() {
+
     var subjects = (function() {
         var json = null;
         $.ajax({
@@ -18,7 +19,6 @@ $(function() {
 
     $( "#subject_name" ).autocomplete({
         source: subjects,
-        minLength: 1,
         select: function (event, ui) {
             event.preventDefault()
                 $(this).val(ui.item.label);
@@ -28,6 +28,18 @@ $(function() {
             event.preventDefault()
                 $(this).val(ui.item.label);
             $("#subject_id").val(ui.item.value);
-        }
+        },
+        change: function (event, ui) {
+                if(!ui.item){
+                    $("#subject_name").val("");
+                }
+        },
+
+        // focus: function (event, ui) {
+        //         return false;
+        // }
     });
+
+    // TODO force valid subject on form submission
+
 });
