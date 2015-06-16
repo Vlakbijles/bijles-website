@@ -10,7 +10,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="contact_offer" class="control-label">Bijles</label>
-                        <select class="form-control" id="contact_offer">
+                        <select name="contact_offer" class="form-control" id="contact_offer">
 
                             <?php foreach ($offers as $offer) { ?>
                             <option value=<?=$offer["id"]?>><?=$offer["subject.name"]?> (<?=$offer["level.name"]?>)</option>
