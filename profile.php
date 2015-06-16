@@ -73,6 +73,8 @@ if (isset($_GET["id"])) {
                                      array("offers" => $user_offers));
         }
 
+        print_r($user_offers);
+
         include("templates/modals/register.html");
         include("templates/modals/login.html");
 
