@@ -8,7 +8,7 @@ if (isset($_GET["subject_id"]) && isset($_GET["postal_code"])
     $request_uri = "/offer?subject="
                     . $_GET["subject_id"]
                     . "&loc=" . strtoupper($_GET["postal_code"])
-                    . "&page=1&range=10000000&level=1&sortby=apj";
+                    . "&page=1&range=10000000&level=2&sortby=apj";
     $request_method = "GET";
     $response = api_request($request_uri, $request_method, NULL);
 
@@ -19,7 +19,6 @@ if (isset($_GET["subject_id"]) && isset($_GET["postal_code"])
     } elseif ($response["response_code"] == 200) {
         $search_results = $response["response"];
     }
-
 
     if (isset($search_results)) {
 

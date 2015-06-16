@@ -15,7 +15,7 @@
                     <div class="panel panel-default search-result">
                         <div class="panel-heading text-center"><?php echo round($results[$keys[$i]]["distance"] / 1000.0, 1) ?>km</div>
                         <div class="panel-body">
-                            <a href="index.php?page=profile&id=<?=$results[$keys[$i]]["user_id"]?>"><img src="img/profile/3.jpg" class="img-responsive img-circle" alt="Henk Honk"></a>
+                            <a href="index.php?page=profile&id=<?=$results[$keys[$i]]["user_id"]?>"><img src="img/profile/<?php echo rand(1, 5); ?>.jpg" class="img-responsive img-circle" alt="Henk Honk"></a>
                             <h4 class="text-center"><?=$results[$keys[$i]]["user.meta.name"]?> <?=$results[$keys[$i]]["user.meta.surname"]?></h4>
                             <div class="progress nobottommargin"><div class="progress-bar progress-bar-success" style="width: 90%;"></div></div>
                         </div>
