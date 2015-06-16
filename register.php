@@ -1,4 +1,3 @@
-<pre>
 <?php
 
     // register.php
@@ -51,4 +50,3 @@
     // header("Location: " . $_SERVER["HTTP_REFERER"]);
 
 ?>
-</pre>

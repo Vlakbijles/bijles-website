@@ -1,5 +1,3 @@
-check if user posts review of subject not given by user
-
 goed alle reponse codes handlen
 
 in searchbar subject id omzetten naar subject naam
