@@ -1,396 +1,1586 @@
-[{"value": 1,"label": "Aardewetenschappen"},
-{"value": 2,"label": "Aardrijkskunde"},
-{"value": 3,"label": "Accountancy"},
-{"value": 4,"label": "Actuarieel Analist"},
-{"value": 5,"label": "Actuariële Wetenschappen"},
-{"value": 6,"label": "Advanced Business Creation"},
-{"value": 7,"label": "Advanced Technology"},
-{"value": 8,"label": "Afrikaanse talen en culturen"},
-{"value": 9,"label": "Agrotechnologie"},
-{"value": 10,"label": "Algemene Cultuurwetenschappen"},
-{"value": 11,"label": "Algemene Natuurwetenschappen"},
-{"value": 12,"label": "Algemene Sociale Wetenschappen"},
-{"value": 13,"label": "Allround Styling"},
-{"value": 14,"label": "American Studies"},
-{"value": 15,"label": "Applied Behavioral and Social Sciences"},
-{"value": 16,"label": "Applied Science"},
-{"value": 17,"label": "Arabische Taal en Cultuur"},
-{"value": 18,"label": "Archeologie"},
-{"value": 19,"label": "Automotive"},
-{"value": 20,"label": "Autonome Beeldende Kunst"},
-{"value": 21,"label": "Aviation"},
-{"value": 22,"label": "Bachelor of Business Administration in Fashion"},
-{"value": 23,"label": "Bachelor of Cabaret"},
-{"value": 24,"label": "Bedrijfs- en Consumentenwetenschappen"},
-{"value": 25,"label": "Bedrijfseconomie"},
-{"value": 26,"label": "Bedrijfsinformatie-technologie"},
-{"value": 27,"label": "Bedrijfskunde"},
-{"value": 28,"label": "Bedrijfskunde en Agribusiness"},
-{"value": 29,"label": "Bedrijfskundige Informatica"},
-{"value": 30,"label": "Beeldende Kunst en Vormgeving"},
-{"value": 31,"label": "Bestuurs- en Organisatiewetenschap"},
-{"value": 32,"label": "Bestuurskunde"},
-{"value": 33,"label": "Bestuurskunde/Overhevaluesmanagement"},
-{"value": 34,"label": "Beta-gamma"},
-{"value": 35,"label": "Bewegingswetenschappen"},
-{"value": 36,"label": "Bio-Farmaceutische Wetenschappen"},
-{"value": 37,"label": "Bio-informatica"},
-{"value": 38,"label": "Biologie"},
-{"value": 39,"label": "Biologie en Medisch Laboratoriumonderzoek"},
-{"value": 40,"label": "Biomedische Technologie"},
-{"value": 41,"label": "Biomedische Wetenschappen"},
-{"value": 42,"label": "Biotechnologie"},
-{"value": 43,"label": "Bodem, Water, Atmosfeer"},
-{"value": 44,"label": "Bos- en Natuurbeheer"},
-{"value": 45,"label": "Bouwkunde"},
-{"value": 46,"label": "Built Environment"},
-{"value": 47,"label": "Business Administration"},
-{"value": 48,"label": "Business Administration in Hotel Management"},
-{"value": 49,"label": "Business Analytics"},
-{"value": 50,"label": "Business IT & Management"},
-{"value": 51,"label": "Business Management"},
-{"value": 52,"label": "Business Studies"},
-{"value": 53,"label": "Chemie"},
-{"value": 54,"label": "Chemische Technologie"},
-{"value": 55,"label": "Chinastudies"},
-{"value": 56,"label": "Circus and Performance Art"},
-{"value": 57,"label": "Circus Arts"},
-{"value": 58,"label": "Civiele Techniek"},
-{"value": 59,"label": "Commercieel Management"},
-{"value": 60,"label": "Commerciële Economie"},
-{"value": 61,"label": "Communicatie"},
-{"value": 62,"label": "Communicatie en Organisatie"},
-{"value": 63,"label": "Communicatie- en Informatiewetenschappen"},
-{"value": 64,"label": "Communicatiesystemen"},
-{"value": 65,"label": "Communicatiewetenschap"},
-{"value": 66,"label": "Communication and Multimedia Design"},
-{"value": 67,"label": "Computer Science"},
-{"value": 68,"label": "Creatieve Therapie"},
-{"value": 69,"label": "Creative Media and Game Technologies"},
-{"value": 70,"label": "Creative Technology"},
-{"value": 71,"label": "Criminologie"},
-{"value": 72,"label": "Cultureel Erfgoed"},
-{"value": 73,"label": "Culturele Antropologie en Ontwikkelingssociologie"},
-{"value": 74,"label": "Culturele en Maatschappelijke Vorming"},
-{"value": 75,"label": "Culturele Informatiewetenschap"},
-{"value": 76,"label": "Cultuurwetenschappen"},
-{"value": 77,"label": "Dans"},
-{"value": 78,"label": "Dier- en Veehouderij"},
-{"value": 79,"label": "Diergeneeskunde"},
-{"value": 80,"label": "Diermanagement"},
-{"value": 81,"label": "Dierwetenschappen"},
-{"value": 82,"label": "Docent Beeldende Kunst en Vormgeving"},
-{"value": 83,"label": "Docent Dans"},
-{"value": 84,"label": "Docent Muziek"},
-{"value": 85,"label": "Docent Theater"},
-{"value": 86,"label": "Duitse Taal en Cultuur"},
-{"value": 87,"label": "Econometrie en Operationele Research"},
-{"value": 88,"label": "Economie"},
-{"value": 89,"label": "Economie en Bedrijfseconomie"},
-{"value": 90,"label": "Economie en Bedrijfskunde"},
-{"value": 91,"label": "Economie en Belevalue"},
-{"value": 92,"label": "Educatie en Kennismanagement Groene Sector"},
-{"value": 93,"label": "Electrical Engineering"},
-{"value": 94,"label": "Elektrotechniek"},
-{"value": 95,"label": "Engelse Taal en Cultuur"},
-{"value": 96,"label": "Engineering"},
-{"value": 97,"label": "English Language and Culture"},
-{"value": 98,"label": "European Law School"},
-{"value": 99,"label": "European Public Administration"},
-{"value": 100,"label": "European Public Health"},
-{"value": 101,"label": "European Studies"},
-{"value": 102,"label": "Europese Studies"},
-{"value": 103,"label": "Europese Talen en Culturen"},
-{"value": 104,"label": "Facility Management"},
-{"value": 105,"label": "Farmaceutisch Consulent"},
-{"value": 106,"label": "Farmaceutische Wetenschappen"},
-{"value": 107,"label": "Farmacie"},
-{"value": 108,"label": "Farmakunde"},
-{"value": 109,"label": "Fashion & Textile Technologies"},
-{"value": 110,"label": "Film en Televisie"},
-{"value": 111,"label": "Film- en Literatuurwetenschap"},
-{"value": 112,"label": "Filosofie"},
-{"value": 113,"label": "Financial Services Management"},
-{"value": 114,"label": "Financieel Economisch Management"},
-{"value": 115,"label": "Fiscaal Recht"},
-{"value": 116,"label": "Fiscaal Recht en Economie"},
-{"value": 117,"label": "Fiscale Economie"},
-{"value": 118,"label": "Food and Business"},
-{"value": 119,"label": "Food Commerce & Technology"},
-{"value": 120,"label": "Food Design and Innovation"},
-{"value": 121,"label": "Forensisch Onderzoek"},
-{"value": 122,"label": "Franse Taal en Cultuur"},
-{"value": 123,"label": "Functiegerichte Bachelor in Toerisme en Recreatie"},
-{"value": 124,"label": "Future Planet Studies"},
-{"value": 125,"label": "Geneeskunde"},
-{"value": 126,"label": "Geo Media & Design"},
-{"value": 127,"label": "Geografie, Planologie en Milieu"},
-{"value": 128,"label": "Geschiedenis"},
-{"value": 129,"label": "Gezondhevalue en Leven"},
-{"value": 130,"label": "Gezondhevalue en Maatschappij"},
-{"value": 131,"label": "Gezondhevalueswetenschappen"},
-{"value": 132,"label": "Global Law"},
-{"value": 133,"label": "Global Project and Change Management"},
-{"value": 134,"label": "Godsdienst-pastoraal Werk"},
-{"value": 135,"label": "Greenport Business & Retail"},
-{"value": 136,"label": "Griekse en Latijnse Taal en Cultuur"},
-{"value": 137,"label": "Hartfunctielaborant"},
-{"value": 138,"label": "HBO - Rechten"},
-{"value": 139,"label": "HBO-ICT"},
-{"value": 140,"label": "Hebreeuwse Taal en Cultuur"},
-{"value": 141,"label": "Hoger Hotelonderwijs"},
-{"value": 142,"label": "Hoger Toeristisch en Recreatief Onderwijs"},
-{"value": 143,"label": "Hogere Jurvalueische Oplevalueing"},
-{"value": 144,"label": "Hogere Managementoplevalueing voor de Mobiliteitsbranche"},
-{"value": 145,"label": "Hospitality & Events Management"},
-{"value": 146,"label": "Hotel- en Eventmanagement"},
-{"value": 147,"label": "Huvaluetherapie"},
-{"value": 148,"label": "Human Resource Management"},
-{"value": 149,"label": "Humanistiek"},
-{"value": 150,"label": "Industrieel Ontwerpen"},
-{"value": 151,"label": "Industrieel Product Ontwerpen"},
-{"value": 152,"label": "Informatica"},
-{"value": 153,"label": "Informatie en Communicatie Technologie"},
-{"value": 154,"label": "Informatie, Multimedia en Management"},
-{"value": 155,"label": "Informatiekunde"},
-{"value": 156,"label": "Integrale Veilighevalueskunde"},
-{"value": 157,"label": "Interior Design & Styling"},
-{"value": 158,"label": "Internationaal en Europees Recht"},
-{"value": 159,"label": "Internationaal Land- en Waterbeheer"},
-{"value": 160,"label": "Internationaal Toeristisch Management"},
-{"value": 161,"label": "International Business"},
-{"value": 162,"label": "International Business & Entrepreneurship"},
-{"value": 163,"label": "International Business Administration"},
-{"value": 164,"label": "International Business and Languages"},
-{"value": 165,"label": "International Business and Management Studies"},
-{"value": 166,"label": "International Business Innovation Studies"},
-{"value": 167,"label": "International Business Management"},
-{"value": 168,"label": "International Development Management"},
-{"value": 169,"label": "International Food & Agribusiness"},
-{"value": 170,"label": "International Fresh Business Management"},
-{"value": 171,"label": "International Hotel & Hospitality Management"},
-{"value": 172,"label": "International Studies"},
-{"value": 173,"label": "Internationale Betrekkingen en Internationale Organisatie"},
-{"value": 174,"label": "Internationale Ontwikkelingsstudies"},
-{"value": 175,"label": "Islam en Arabisch"},
-{"value": 176,"label": "Islamitische Theologie"},
-{"value": 177,"label": "IT-Service Management"},
-{"value": 178,"label": "Italiaanse Taal en Cultuur"},
-{"value": 179,"label": "Japanstudies"},
-{"value": 180,"label": "Journalistiek"},
-{"value": 181,"label": "Keltische Talen en Cultuur"},
-{"value": 182,"label": "Kennistechnologie"},
-{"value": 183,"label": "Klinische Technologie"},
-{"value": 184,"label": "Koreastudies"},
-{"value": 185,"label": "Krijgswetenschappen"},
-{"value": 186,"label": "Kunst en Economie"},
-{"value": 187,"label": "Kunsten, Cultuur en Media"},
-{"value": 188,"label": "Kunstgeschiedenis"},
-{"value": 189,"label": "Kunstmatige Intelligentie"},
-{"value": 190,"label": "Kunstzinnige Therapie"},
-{"value": 191,"label": "Kust en Zee Management"},
-{"value": 192,"label": "Laborant Klinische Neurofysiologie"},
-{"value": 193,"label": "Land- en Watermanagement"},
-{"value": 194,"label": "Landscape and Environment Management"},
-{"value": 195,"label": "Landschapsarchitectuur en ruimtelijke planning"},
-{"value": 196,"label": "Latijns-Amerikastudie"},
-{"value": 197,"label": "Latijnse Taal en Cultuur"},
-{"value": 198,"label": "Leraar Nederlandse Gebarentaal (NGT) / Bacheloroplevalueing [...]"},
-{"value": 199,"label": "Lerarenoplevalueing 1e graad Lichamelijke Opvoeding"},
-{"value": 200,"label": "Lerarenoplevalueing 2e graad Aardrijkskunde"},
-{"value": 201,"label": "Lerarenoplevalueing 2e graad Algemene Economie"},
-{"value": 202,"label": "Lerarenoplevalueing 2e graad Bedrijfseconomie"},
-{"value": 203,"label": "Lerarenoplevalueing 2e graad beeldende vorming"},
-{"value": 204,"label": "Lerarenoplevalueing 2e graad Biologie"},
-{"value": 205,"label": "Lerarenoplevalueing 2e graad Consumptieve Techniek I en II"},
-{"value": 206,"label": "Lerarenoplevalueing 2e graad Duits"},
-{"value": 207,"label": "Lerarenoplevalueing 2e graad Economie"},
-{"value": 208,"label": "Lerarenoplevalueing 2e graad Engels"},
-{"value": 209,"label": "Lerarenoplevalueing 2e graad Frans"},
-{"value": 210,"label": "Lerarenoplevalueing 2e graad Fries"},
-{"value": 211,"label": "Lerarenoplevalueing 2e graad Geschiedenis"},
-{"value": 212,"label": "Lerarenoplevalueing 2e graad Gezondhevalueszorg en Welzijn"},
-{"value": 213,"label": "Lerarenoplevalueing 2e graad Godsdienst"},
-{"value": 214,"label": "Lerarenoplevalueing 2e graad Islamgodsdienst"},
-{"value": 215,"label": "Lerarenoplevalueing 2e graad Maatschappijleer"},
-{"value": 216,"label": "Lerarenoplevalueing 2e graad Mens en Technologie"},
-{"value": 217,"label": "Lerarenoplevalueing 2e graad Natuurkunde"},
-{"value": 218,"label": "Lerarenoplevalueing 2e graad Nederlands"},
-{"value": 219,"label": "Lerarenoplevalueing 2e graad Omgangskunde"},
-{"value": 220,"label": "Lerarenoplevalueing 2e graad Pedagogiek"},
-{"value": 221,"label": "Lerarenoplevalueing 2e graad Scheikunde"},
-{"value": 222,"label": "Lerarenoplevalueing 2e graad Spaans"},
-{"value": 223,"label": "Lerarenoplevalueing 2e graad Talen"},
-{"value": 224,"label": "Lerarenoplevalueing 2e graad Techniek"},
-{"value": 225,"label": "Lerarenoplevalueing 2e graad Technisch Beroepsonderwijs"},
-{"value": 226,"label": "Lerarenoplevalueing 2e graad Verzorging/Gezondhevalueskunde"},
-{"value": 227,"label": "Lerarenoplevalueing 2e graad Verzorging/Huishoudkunde"},
-{"value": 228,"label": "Lerarenoplevalueing 2e graad Wiskunde"},
-{"value": 229,"label": "Lerarenoplevalueing Basisonderwijs"},
-{"value": 230,"label": "Levensmvaluedelentechnologie"},
-{"value": 231,"label": "Liberal Arts and Sciences"},
-{"value": 232,"label": "Life Science and Technology"},
-{"value": 233,"label": "Lifestyle"},
-{"value": 234,"label": "Lifestyle Informatics"},
-{"value": 235,"label": "Literatuur en Samenleving"},
-{"value": 236,"label": "Literatuurwetenschap"},
-{"value": 237,"label": "Logistics Engineering"},
-{"value": 238,"label": "Logistiek en Economie"},
-{"value": 239,"label": "Longfunctieanalist"},
-{"value": 240,"label": "Luchtvaart- en Ruimtevaarttechniek"},
-{"value": 241,"label": "Luchtvaarttechnologie"},
-{"value": 242,"label": "Maatschappelijk Werk en Dienstverlening"},
-{"value": 243,"label": "Maatschappijleer"},
-{"value": 244,"label": "Management"},
-{"value": 245,"label": "Management & Organisatie"},
-{"value": 246,"label": "Management in de Zorg"},
-{"value": 247,"label": "Management Payroll Services"},
-{"value": 248,"label": "Management van Informatie"},
-{"value": 249,"label": "Management, Economie en Recht"},
-{"value": 250,"label": "Maritiem Officier"},
-{"value": 251,"label": "Maritieme Techniek"},
-{"value": 252,"label": "Marketing Communicatie"},
-{"value": 253,"label": "Mechatronica"},
-{"value": 254,"label": "Media en Cultuur"},
-{"value": 255,"label": "Media en Entertainment Management"},
-{"value": 256,"label": "Media, Informatie en Communicatie"},
-{"value": 257,"label": "Media, Kunst, Design en Architectuur"},
-{"value": 258,"label": "Medisch Beeldvormende en Radiotherapeutische Technieken"},
-{"value": 259,"label": "Medische Hulpverlening"},
-{"value": 260,"label": "Medische Informatiekunde"},
-{"value": 261,"label": "Medische Natuurwetenschappen"},
-{"value": 262,"label": "Mens en Techniek"},
-{"value": 263,"label": "Mvalueden-Oostenstudies"},
-{"value": 264,"label": "Milieu-maatschappijwetenschappen"},
-{"value": 265,"label": "Milieu-natuurwetenschappen"},
-{"value": 266,"label": "Milieukunde"},
-{"value": 267,"label": "Milieuwetenschappen"},
-{"value": 268,"label": "Militaire Bedrijfswetenschappen"},
-{"value": 269,"label": "Militaire Systemen & Technologie"},
-{"value": 270,"label": "Minorities & Multilingualism"},
-{"value": 271,"label": "Moleculaire Levenswetenschappen"},
-{"value": 272,"label": "Molecular Science and Technology"},
-{"value": 273,"label": "Mondzorgkunde"},
-{"value": 274,"label": "Muziek"},
-{"value": 275,"label": "Muziektherapie"},
-{"value": 276,"label": "Muziekwetenschap"},
-{"value": 277,"label": "Nanobiologie (joint degree)"},
-{"value": 278,"label": "Natuurkunde"},
-{"value": 279,"label": "Natuurwetenschap en Innovatiemanagement"},
-{"value": 280,"label": "Nederlandkunde/Dutch Studies"},
-{"value": 281,"label": "Nederlandse Taal en Cultuur"},
-{"value": 282,"label": "New Business"},
-{"value": 283,"label": "Nieuwgriekse Taal en Cultuur"},
-{"value": 284,"label": "Notarieel Recht"},
-{"value": 285,"label": "Ocean Technology"},
-{"value": 286,"label": "Oefentherapie Cesar"},
-{"value": 287,"label": "Office Management"},
-{"value": 288,"label": "Ondernemerschap"},
-{"value": 289,"label": "Onderwijskunde"},
-{"value": 290,"label": "Oplevalueing Podotherapie"},
-{"value": 291,"label": "Oplevalueing Tolk-Vertaler"},
-{"value": 292,"label": "Oplevalueing tot Fysiotherapeut"},
-{"value": 293,"label": "Oplevalueing tot Oefentherapeut-Mensendieck"},
-{"value": 294,"label": "Oplevalueing tot Verpleegkundige"},
-{"value": 295,"label": "Oplevalueing voor Ergotherapie"},
-{"value": 296,"label": "Oplevalueing voor Logopedie"},
-{"value": 297,"label": "Oplevalueingskunde"},
-{"value": 298,"label": "Optometrie"},
-{"value": 299,"label": "Organisatiepsychologie"},
-{"value": 300,"label": "Organisatiewetenschappen"},
-{"value": 301,"label": "Oriëntaalse Talen en Communicatie"},
-{"value": 302,"label": "Orthoptie"},
-{"value": 303,"label": "Oude Culturen van de Mediterrane Wereld"},
-{"value": 304,"label": "Oudhevaluekunde"},
-{"value": 305,"label": "Pedagogiek"},
-{"value": 306,"label": "Pedagogisch Management Kinderopvang"},
-{"value": 307,"label": "Pedagogische Wetenschappen"},
-{"value": 308,"label": "Pensions"},
-{"value": 309,"label": "People and Business Management"},
-{"value": 310,"label": "Personeelwetenschappen"},
-{"value": 311,"label": "Plantenwetenschappen"},
-{"value": 312,"label": "Plattelandsvernieuwing"},
-{"value": 313,"label": "Policing"},
-{"value": 314,"label": "Politicologie"},
-{"value": 315,"label": "Politics, Psychology, Law and Economics"},
-{"value": 316,"label": "Popular Culture"},
-{"value": 317,"label": "Psychobiologie"},
-{"value": 318,"label": "Psychologie"},
-{"value": 319,"label": "Psychomotorische Therapie en Bewegingsagogie"},
-{"value": 320,"label": "Public Administration"},
-{"value": 321,"label": "Rechten"},
-{"value": 322,"label": "Rechtsgeleerdhevalue"},
-{"value": 323,"label": "Religiewetenschappen"},
-{"value": 324,"label": "Romaanse Talen en Culturen"},
-{"value": 325,"label": "Ruimtelijke Ontwikkeling"},
-{"value": 326,"label": "Russische Studies"},
-{"value": 327,"label": "Scandinavische Talen en Culturen"},
-{"value": 328,"label": "Scheepsbouwkunde / Maritieme Techniek"},
-{"value": 329,"label": "Scheikunde"},
-{"value": 330,"label": "Scheikundige Technologie"},
-{"value": 331,"label": "Science, Business & Innovation"},
-{"value": 332,"label": "Security Management"},
-{"value": 333,"label": "Slavische Talen en Culturen"},
-{"value": 334,"label": "Small Business and Retail Management"},
-{"value": 335,"label": "Sociaal Pedagogische Hulpverlening"},
-{"value": 336,"label": "Sociaal-Jurvalueische Dienstverlening"},
-{"value": 337,"label": "Social Work"},
-{"value": 338,"label": "Sociale Geografie en Planologie"},
-{"value": 339,"label": "Sociologie"},
-{"value": 340,"label": "Spaanse Taal en Cultuur"},
-{"value": 341,"label": "SPD Bedrijfsadministratie"},
-{"value": 342,"label": "Sport en Bewegen"},
-{"value": 343,"label": "Sport en Bewegingseducatie"},
-{"value": 344,"label": "Sport, Gezondhevalue en Management"},
-{"value": 345,"label": "Sport, Management en Ondernemen"},
-{"value": 346,"label": "Sterrenkunde"},
-{"value": 347,"label": "SZ-Professional"},
-{"value": 348,"label": "Taal- en Cultuurstudies"},
-{"value": 349,"label": "Taalwetenschap"},
-{"value": 350,"label": "Tandheelkunde"},
-{"value": 351,"label": "Technische Aardwetenschappen"},
-{"value": 352,"label": "Technische Bedrijfskunde"},
-{"value": 353,"label": "Technische Bestuurskunde"},
-{"value": 354,"label": "Technische Informatica"},
-{"value": 355,"label": "Technische Innovatiewetenschappen"},
-{"value": 356,"label": "Technische Natuurkunde"},
-{"value": 357,"label": "Technische Planologie"},
-{"value": 358,"label": "Technische Wiskunde"},
-{"value": 359,"label": "Technology and Liberal Arts & Sciences"},
-{"value": 360,"label": "Theater"},
-{"value": 361,"label": "Theaterwetenschap"},
-{"value": 362,"label": "Theologie"},
-{"value": 363,"label": "Toegepaste Bedrijfskunde"},
-{"value": 364,"label": "Toegepaste Biologie"},
-{"value": 365,"label": "Toegepaste Fotografie en Beeldcommunicatie"},
-{"value": 366,"label": "Toegepaste Gerontologie"},
-{"value": 367,"label": "Toegepaste Psychologie"},
-{"value": 368,"label": "Toegepaste Wiskunde"},
-{"value": 369,"label": "Toerisme en Recreatie"},
-{"value": 370,"label": "Tourism (joint degree)"},
-{"value": 371,"label": "Trade Management gericht op Azië"},
-{"value": 372,"label": "Tuin- en Landschapsinrichting"},
-{"value": 373,"label": "Tuinbouw en Akkerbouw"},
-{"value": 374,"label": "Vastgoed en Makelaardij"},
-{"value": 375,"label": "Verkeer en Logistiek"},
-{"value": 376,"label": "Verloskunde"},
-{"value": 377,"label": "Vertaalacademie"},
-{"value": 378,"label": "Vertaler Duits"},
-{"value": 379,"label": "Vertaler Engels"},
-{"value": 380,"label": "Vertaler Frans"},
-{"value": 381,"label": "Vertaler Spaans"},
-{"value": 382,"label": "Vitaliteitsmanagement & Toerisme"},
-{"value": 383,"label": "Voeding en Diëtetiek"},
-{"value": 384,"label": "Voeding en Gezondhevalue"},
-{"value": 385,"label": "Voedingsmvaluedelentechnologie"},
-{"value": 386,"label": "Vormgeving"},
-{"value": 387,"label": "Vrijetijdsmanagement"},
-{"value": 388,"label": "Vrijetijdwetenschappen"},
-{"value": 389,"label": "Watermanagement"},
-{"value": 390,"label": "Werktuigbouwkunde"},
-{"value": 391,"label": "Wijsbegeerte"},
-{"value": 392,"label": "Wiskunde"},
-{"value": 393,"label": "Wiskunde A"},
-{"value": 394,"label": "Wiskunde B"},
-{"value": 395,"label": "Wiskunde C"},
-{"value": 396,"label": "Wiskunde D"}]
+[
+    {
+        "value": 1,
+        "label": "Aardewetenschappen"
+    },
+    {
+        "value": 2,
+        "label": "Aardrijkskunde"
+    },
+    {
+        "value": 3,
+        "label": "Accountancy"
+    },
+    {
+        "value": 4,
+        "label": "Actuarieel Analist"
+    },
+    {
+        "value": 5,
+        "label": "Actuari\u00eble Wetenschappen"
+    },
+    {
+        "value": 6,
+        "label": "Advanced Business Creation"
+    },
+    {
+        "value": 7,
+        "label": "Advanced Technology"
+    },
+    {
+        "value": 8,
+        "label": "Afrikaanse talen en culturen"
+    },
+    {
+        "value": 9,
+        "label": "Agrotechnologie"
+    },
+    {
+        "value": 10,
+        "label": "Algemene Cultuurwetenschappen"
+    },
+    {
+        "value": 11,
+        "label": "Algemene Natuurwetenschappen"
+    },
+    {
+        "value": 12,
+        "label": "Algemene Sociale Wetenschappen"
+    },
+    {
+        "value": 13,
+        "label": "Allround Styling"
+    },
+    {
+        "value": 14,
+        "label": "American Studies"
+    },
+    {
+        "value": 15,
+        "label": "Applied Behavioral and Social Sciences"
+    },
+    {
+        "value": 16,
+        "label": "Applied Science"
+    },
+    {
+        "value": 17,
+        "label": "Arabische Taal en Cultuur"
+    },
+    {
+        "value": 18,
+        "label": "Archeologie"
+    },
+    {
+        "value": 19,
+        "label": "Automotive"
+    },
+    {
+        "value": 20,
+        "label": "Autonome Beeldende Kunst"
+    },
+    {
+        "value": 21,
+        "label": "Aviation"
+    },
+    {
+        "value": 22,
+        "label": "Bachelor of Business Administration in Fashion"
+    },
+    {
+        "value": 23,
+        "label": "Bachelor of Cabaret"
+    },
+    {
+        "value": 24,
+        "label": "Bedrijfs- en Consumentenwetenschappen"
+    },
+    {
+        "value": 25,
+        "label": "Bedrijfseconomie"
+    },
+    {
+        "value": 26,
+        "label": "Bedrijfsinformatie-technologie"
+    },
+    {
+        "value": 27,
+        "label": "Bedrijfskunde"
+    },
+    {
+        "value": 28,
+        "label": "Bedrijfskunde en Agribusiness"
+    },
+    {
+        "value": 29,
+        "label": "Bedrijfskundige Informatica"
+    },
+    {
+        "value": 30,
+        "label": "Beeldende Kunst en Vormgeving"
+    },
+    {
+        "value": 31,
+        "label": "Bestuurs- en Organisatiewetenschap"
+    },
+    {
+        "value": 32,
+        "label": "Bestuurskunde"
+    },
+    {
+        "value": 33,
+        "label": "Bestuurskunde/Overhevaluesmanagement"
+    },
+    {
+        "value": 34,
+        "label": "Beta-gamma"
+    },
+    {
+        "value": 35,
+        "label": "Bewegingswetenschappen"
+    },
+    {
+        "value": 36,
+        "label": "Bio-Farmaceutische Wetenschappen"
+    },
+    {
+        "value": 37,
+        "label": "Bio-informatica"
+    },
+    {
+        "value": 38,
+        "label": "Biologie"
+    },
+    {
+        "value": 39,
+        "label": "Biologie en Medisch Laboratoriumonderzoek"
+    },
+    {
+        "value": 40,
+        "label": "Biomedische Technologie"
+    },
+    {
+        "value": 41,
+        "label": "Biomedische Wetenschappen"
+    },
+    {
+        "value": 42,
+        "label": "Biotechnologie"
+    },
+    {
+        "value": 43,
+        "label": "Bodem, Water, Atmosfeer"
+    },
+    {
+        "value": 44,
+        "label": "Bos- en Natuurbeheer"
+    },
+    {
+        "value": 45,
+        "label": "Bouwkunde"
+    },
+    {
+        "value": 46,
+        "label": "Built Environment"
+    },
+    {
+        "value": 47,
+        "label": "Business Administration"
+    },
+    {
+        "value": 48,
+        "label": "Business Administration in Hotel Management"
+    },
+    {
+        "value": 49,
+        "label": "Business Analytics"
+    },
+    {
+        "value": 50,
+        "label": "Business IT & Management"
+    },
+    {
+        "value": 51,
+        "label": "Business Management"
+    },
+    {
+        "value": 52,
+        "label": "Business Studies"
+    },
+    {
+        "value": 53,
+        "label": "Chemie"
+    },
+    {
+        "value": 54,
+        "label": "Chemische Technologie"
+    },
+    {
+        "value": 55,
+        "label": "Chinastudies"
+    },
+    {
+        "value": 56,
+        "label": "Circus and Performance Art"
+    },
+    {
+        "value": 57,
+        "label": "Circus Arts"
+    },
+    {
+        "value": 58,
+        "label": "Civiele Techniek"
+    },
+    {
+        "value": 59,
+        "label": "Commercieel Management"
+    },
+    {
+        "value": 60,
+        "label": "Commerci\u00eble Economie"
+    },
+    {
+        "value": 61,
+        "label": "Communicatie"
+    },
+    {
+        "value": 62,
+        "label": "Communicatie en Organisatie"
+    },
+    {
+        "value": 63,
+        "label": "Communicatie- en Informatiewetenschappen"
+    },
+    {
+        "value": 64,
+        "label": "Communicatiesystemen"
+    },
+    {
+        "value": 65,
+        "label": "Communicatiewetenschap"
+    },
+    {
+        "value": 66,
+        "label": "Communication and Multimedia Design"
+    },
+    {
+        "value": 67,
+        "label": "Computer Science"
+    },
+    {
+        "value": 68,
+        "label": "Creatieve Therapie"
+    },
+    {
+        "value": 69,
+        "label": "Creative Media and Game Technologies"
+    },
+    {
+        "value": 70,
+        "label": "Creative Technology"
+    },
+    {
+        "value": 71,
+        "label": "Criminologie"
+    },
+    {
+        "value": 72,
+        "label": "Cultureel Erfgoed"
+    },
+    {
+        "value": 73,
+        "label": "Culturele Antropologie en Ontwikkelingssociologie"
+    },
+    {
+        "value": 74,
+        "label": "Culturele en Maatschappelijke Vorming"
+    },
+    {
+        "value": 75,
+        "label": "Culturele Informatiewetenschap"
+    },
+    {
+        "value": 76,
+        "label": "Cultuurwetenschappen"
+    },
+    {
+        "value": 77,
+        "label": "Dans"
+    },
+    {
+        "value": 78,
+        "label": "Dier- en Veehouderij"
+    },
+    {
+        "value": 79,
+        "label": "Diergeneeskunde"
+    },
+    {
+        "value": 80,
+        "label": "Diermanagement"
+    },
+    {
+        "value": 81,
+        "label": "Dierwetenschappen"
+    },
+    {
+        "value": 82,
+        "label": "Docent Beeldende Kunst en Vormgeving"
+    },
+    {
+        "value": 83,
+        "label": "Docent Dans"
+    },
+    {
+        "value": 84,
+        "label": "Docent Muziek"
+    },
+    {
+        "value": 85,
+        "label": "Docent Theater"
+    },
+    {
+        "value": 86,
+        "label": "Duitse Taal en Cultuur"
+    },
+    {
+        "value": 87,
+        "label": "Econometrie en Operationele Research"
+    },
+    {
+        "value": 88,
+        "label": "Economie"
+    },
+    {
+        "value": 89,
+        "label": "Economie en Bedrijfseconomie"
+    },
+    {
+        "value": 90,
+        "label": "Economie en Bedrijfskunde"
+    },
+    {
+        "value": 91,
+        "label": "Economie en Belevalue"
+    },
+    {
+        "value": 92,
+        "label": "Educatie en Kennismanagement Groene Sector"
+    },
+    {
+        "value": 93,
+        "label": "Electrical Engineering"
+    },
+    {
+        "value": 94,
+        "label": "Elektrotechniek"
+    },
+    {
+        "value": 95,
+        "label": "Engelse Taal en Cultuur"
+    },
+    {
+        "value": 96,
+        "label": "Engineering"
+    },
+    {
+        "value": 97,
+        "label": "English Language and Culture"
+    },
+    {
+        "value": 98,
+        "label": "European Law School"
+    },
+    {
+        "value": 99,
+        "label": "European Public Administration"
+    },
+    {
+        "value": 100,
+        "label": "European Public Health"
+    },
+    {
+        "value": 101,
+        "label": "European Studies"
+    },
+    {
+        "value": 102,
+        "label": "Europese Studies"
+    },
+    {
+        "value": 103,
+        "label": "Europese Talen en Culturen"
+    },
+    {
+        "value": 104,
+        "label": "Facility Management"
+    },
+    {
+        "value": 105,
+        "label": "Farmaceutisch Consulent"
+    },
+    {
+        "value": 106,
+        "label": "Farmaceutische Wetenschappen"
+    },
+    {
+        "value": 107,
+        "label": "Farmacie"
+    },
+    {
+        "value": 108,
+        "label": "Farmakunde"
+    },
+    {
+        "value": 109,
+        "label": "Fashion & Textile Technologies"
+    },
+    {
+        "value": 110,
+        "label": "Film en Televisie"
+    },
+    {
+        "value": 111,
+        "label": "Film- en Literatuurwetenschap"
+    },
+    {
+        "value": 112,
+        "label": "Filosofie"
+    },
+    {
+        "value": 113,
+        "label": "Financial Services Management"
+    },
+    {
+        "value": 114,
+        "label": "Financieel Economisch Management"
+    },
+    {
+        "value": 115,
+        "label": "Fiscaal Recht"
+    },
+    {
+        "value": 116,
+        "label": "Fiscaal Recht en Economie"
+    },
+    {
+        "value": 117,
+        "label": "Fiscale Economie"
+    },
+    {
+        "value": 118,
+        "label": "Food and Business"
+    },
+    {
+        "value": 119,
+        "label": "Food Commerce & Technology"
+    },
+    {
+        "value": 120,
+        "label": "Food Design and Innovation"
+    },
+    {
+        "value": 121,
+        "label": "Forensisch Onderzoek"
+    },
+    {
+        "value": 122,
+        "label": "Franse Taal en Cultuur"
+    },
+    {
+        "value": 123,
+        "label": "Functiegerichte Bachelor in Toerisme en Recreatie"
+    },
+    {
+        "value": 124,
+        "label": "Future Planet Studies"
+    },
+    {
+        "value": 125,
+        "label": "Geneeskunde"
+    },
+    {
+        "value": 126,
+        "label": "Geo Media & Design"
+    },
+    {
+        "value": 127,
+        "label": "Geografie, Planologie en Milieu"
+    },
+    {
+        "value": 128,
+        "label": "Geschiedenis"
+    },
+    {
+        "value": 129,
+        "label": "Gezondhevalue en Leven"
+    },
+    {
+        "value": 130,
+        "label": "Gezondhevalue en Maatschappij"
+    },
+    {
+        "value": 131,
+        "label": "Gezondhevalueswetenschappen"
+    },
+    {
+        "value": 132,
+        "label": "Global Law"
+    },
+    {
+        "value": 133,
+        "label": "Global Project and Change Management"
+    },
+    {
+        "value": 134,
+        "label": "Godsdienst-pastoraal Werk"
+    },
+    {
+        "value": 135,
+        "label": "Greenport Business & Retail"
+    },
+    {
+        "value": 136,
+        "label": "Griekse en Latijnse Taal en Cultuur"
+    },
+    {
+        "value": 137,
+        "label": "Hartfunctielaborant"
+    },
+    {
+        "value": 138,
+        "label": "HBO - Rechten"
+    },
+    {
+        "value": 139,
+        "label": "HBO-ICT"
+    },
+    {
+        "value": 140,
+        "label": "Hebreeuwse Taal en Cultuur"
+    },
+    {
+        "value": 141,
+        "label": "Hoger Hotelonderwijs"
+    },
+    {
+        "value": 142,
+        "label": "Hoger Toeristisch en Recreatief Onderwijs"
+    },
+    {
+        "value": 143,
+        "label": "Hogere Jurvalueische Oplevalueing"
+    },
+    {
+        "value": 144,
+        "label": "Hogere Managementoplevalueing voor de Mobiliteitsbranche"
+    },
+    {
+        "value": 145,
+        "label": "Hospitality & Events Management"
+    },
+    {
+        "value": 146,
+        "label": "Hotel- en Eventmanagement"
+    },
+    {
+        "value": 147,
+        "label": "Huvaluetherapie"
+    },
+    {
+        "value": 148,
+        "label": "Human Resource Management"
+    },
+    {
+        "value": 149,
+        "label": "Humanistiek"
+    },
+    {
+        "value": 150,
+        "label": "Industrieel Ontwerpen"
+    },
+    {
+        "value": 151,
+        "label": "Industrieel Product Ontwerpen"
+    },
+    {
+        "value": 152,
+        "label": "Informatica"
+    },
+    {
+        "value": 153,
+        "label": "Informatie en Communicatie Technologie"
+    },
+    {
+        "value": 154,
+        "label": "Informatie, Multimedia en Management"
+    },
+    {
+        "value": 155,
+        "label": "Informatiekunde"
+    },
+    {
+        "value": 156,
+        "label": "Integrale Veilighevalueskunde"
+    },
+    {
+        "value": 157,
+        "label": "Interior Design & Styling"
+    },
+    {
+        "value": 158,
+        "label": "Internationaal en Europees Recht"
+    },
+    {
+        "value": 159,
+        "label": "Internationaal Land- en Waterbeheer"
+    },
+    {
+        "value": 160,
+        "label": "Internationaal Toeristisch Management"
+    },
+    {
+        "value": 161,
+        "label": "International Business"
+    },
+    {
+        "value": 162,
+        "label": "International Business & Entrepreneurship"
+    },
+    {
+        "value": 163,
+        "label": "International Business Administration"
+    },
+    {
+        "value": 164,
+        "label": "International Business and Languages"
+    },
+    {
+        "value": 165,
+        "label": "International Business and Management Studies"
+    },
+    {
+        "value": 166,
+        "label": "International Business Innovation Studies"
+    },
+    {
+        "value": 167,
+        "label": "International Business Management"
+    },
+    {
+        "value": 168,
+        "label": "International Development Management"
+    },
+    {
+        "value": 169,
+        "label": "International Food & Agribusiness"
+    },
+    {
+        "value": 170,
+        "label": "International Fresh Business Management"
+    },
+    {
+        "value": 171,
+        "label": "International Hotel & Hospitality Management"
+    },
+    {
+        "value": 172,
+        "label": "International Studies"
+    },
+    {
+        "value": 173,
+        "label": "Internationale Betrekkingen en Internationale Organisatie"
+    },
+    {
+        "value": 174,
+        "label": "Internationale Ontwikkelingsstudies"
+    },
+    {
+        "value": 175,
+        "label": "Islam en Arabisch"
+    },
+    {
+        "value": 176,
+        "label": "Islamitische Theologie"
+    },
+    {
+        "value": 177,
+        "label": "IT-Service Management"
+    },
+    {
+        "value": 178,
+        "label": "Italiaanse Taal en Cultuur"
+    },
+    {
+        "value": 179,
+        "label": "Japanstudies"
+    },
+    {
+        "value": 180,
+        "label": "Journalistiek"
+    },
+    {
+        "value": 181,
+        "label": "Keltische Talen en Cultuur"
+    },
+    {
+        "value": 182,
+        "label": "Kennistechnologie"
+    },
+    {
+        "value": 183,
+        "label": "Klinische Technologie"
+    },
+    {
+        "value": 184,
+        "label": "Koreastudies"
+    },
+    {
+        "value": 185,
+        "label": "Krijgswetenschappen"
+    },
+    {
+        "value": 186,
+        "label": "Kunst en Economie"
+    },
+    {
+        "value": 187,
+        "label": "Kunsten, Cultuur en Media"
+    },
+    {
+        "value": 188,
+        "label": "Kunstgeschiedenis"
+    },
+    {
+        "value": 189,
+        "label": "Kunstmatige Intelligentie"
+    },
+    {
+        "value": 190,
+        "label": "Kunstzinnige Therapie"
+    },
+    {
+        "value": 191,
+        "label": "Kust en Zee Management"
+    },
+    {
+        "value": 192,
+        "label": "Laborant Klinische Neurofysiologie"
+    },
+    {
+        "value": 193,
+        "label": "Land- en Watermanagement"
+    },
+    {
+        "value": 194,
+        "label": "Landscape and Environment Management"
+    },
+    {
+        "value": 195,
+        "label": "Landschapsarchitectuur en ruimtelijke planning"
+    },
+    {
+        "value": 196,
+        "label": "Latijns-Amerikastudie"
+    },
+    {
+        "value": 197,
+        "label": "Latijnse Taal en Cultuur"
+    },
+    {
+        "value": 198,
+        "label": "Leraar Nederlandse Gebarentaal (NGT) / Bacheloroplevalueing\u00a0[...]"
+    },
+    {
+        "value": 199,
+        "label": "Lerarenoplevalueing 1e graad Lichamelijke Opvoeding"
+    },
+    {
+        "value": 200,
+        "label": "Lerarenoplevalueing 2e graad Aardrijkskunde"
+    },
+    {
+        "value": 201,
+        "label": "Lerarenoplevalueing 2e graad Algemene Economie"
+    },
+    {
+        "value": 202,
+        "label": "Lerarenoplevalueing 2e graad Bedrijfseconomie"
+    },
+    {
+        "value": 203,
+        "label": "Lerarenoplevalueing 2e graad beeldende vorming"
+    },
+    {
+        "value": 204,
+        "label": "Lerarenoplevalueing 2e graad Biologie"
+    },
+    {
+        "value": 205,
+        "label": "Lerarenoplevalueing 2e graad Consumptieve Techniek I en II"
+    },
+    {
+        "value": 206,
+        "label": "Lerarenoplevalueing 2e graad Duits"
+    },
+    {
+        "value": 207,
+        "label": "Lerarenoplevalueing 2e graad Economie"
+    },
+    {
+        "value": 208,
+        "label": "Lerarenoplevalueing 2e graad Engels"
+    },
+    {
+        "value": 209,
+        "label": "Lerarenoplevalueing 2e graad Frans"
+    },
+    {
+        "value": 210,
+        "label": "Lerarenoplevalueing 2e graad Fries"
+    },
+    {
+        "value": 211,
+        "label": "Lerarenoplevalueing 2e graad Geschiedenis"
+    },
+    {
+        "value": 212,
+        "label": "Lerarenoplevalueing 2e graad Gezondhevalueszorg en Welzijn"
+    },
+    {
+        "value": 213,
+        "label": "Lerarenoplevalueing 2e graad Godsdienst"
+    },
+    {
+        "value": 214,
+        "label": "Lerarenoplevalueing 2e graad Islamgodsdienst"
+    },
+    {
+        "value": 215,
+        "label": "Lerarenoplevalueing 2e graad Maatschappijleer"
+    },
+    {
+        "value": 216,
+        "label": "Lerarenoplevalueing 2e graad Mens en Technologie"
+    },
+    {
+        "value": 217,
+        "label": "Lerarenoplevalueing 2e graad Natuurkunde"
+    },
+    {
+        "value": 218,
+        "label": "Lerarenoplevalueing 2e graad Nederlands"
+    },
+    {
+        "value": 219,
+        "label": "Lerarenoplevalueing 2e graad Omgangskunde"
+    },
+    {
+        "value": 220,
+        "label": "Lerarenoplevalueing 2e graad Pedagogiek"
+    },
+    {
+        "value": 221,
+        "label": "Lerarenoplevalueing 2e graad Scheikunde"
+    },
+    {
+        "value": 222,
+        "label": "Lerarenoplevalueing 2e graad Spaans"
+    },
+    {
+        "value": 223,
+        "label": "Lerarenoplevalueing 2e graad Talen"
+    },
+    {
+        "value": 224,
+        "label": "Lerarenoplevalueing 2e graad Techniek"
+    },
+    {
+        "value": 225,
+        "label": "Lerarenoplevalueing 2e graad Technisch Beroepsonderwijs"
+    },
+    {
+        "value": 226,
+        "label": "Lerarenoplevalueing 2e graad Verzorging/Gezondhevalueskunde"
+    },
+    {
+        "value": 227,
+        "label": "Lerarenoplevalueing 2e graad Verzorging/Huishoudkunde"
+    },
+    {
+        "value": 228,
+        "label": "Lerarenoplevalueing 2e graad Wiskunde"
+    },
+    {
+        "value": 229,
+        "label": "Lerarenoplevalueing Basisonderwijs"
+    },
+    {
+        "value": 230,
+        "label": "Levensmvaluedelentechnologie"
+    },
+    {
+        "value": 231,
+        "label": "Liberal Arts and Sciences"
+    },
+    {
+        "value": 232,
+        "label": "Life Science and Technology"
+    },
+    {
+        "value": 233,
+        "label": "Lifestyle"
+    },
+    {
+        "value": 234,
+        "label": "Lifestyle Informatics"
+    },
+    {
+        "value": 235,
+        "label": "Literatuur en Samenleving"
+    },
+    {
+        "value": 236,
+        "label": "Literatuurwetenschap"
+    },
+    {
+        "value": 237,
+        "label": "Logistics Engineering"
+    },
+    {
+        "value": 238,
+        "label": "Logistiek en Economie"
+    },
+    {
+        "value": 239,
+        "label": "Longfunctieanalist"
+    },
+    {
+        "value": 240,
+        "label": "Luchtvaart- en Ruimtevaarttechniek"
+    },
+    {
+        "value": 241,
+        "label": "Luchtvaarttechnologie"
+    },
+    {
+        "value": 242,
+        "label": "Maatschappelijk Werk en Dienstverlening"
+    },
+    {
+        "value": 243,
+        "label": "Maatschappijleer"
+    },
+    {
+        "value": 244,
+        "label": "Management"
+    },
+    {
+        "value": 245,
+        "label": "Management & Organisatie"
+    },
+    {
+        "value": 246,
+        "label": "Management in de Zorg"
+    },
+    {
+        "value": 247,
+        "label": "Management Payroll Services"
+    },
+    {
+        "value": 248,
+        "label": "Management van Informatie"
+    },
+    {
+        "value": 249,
+        "label": "Management, Economie en Recht"
+    },
+    {
+        "value": 250,
+        "label": "Maritiem Officier"
+    },
+    {
+        "value": 251,
+        "label": "Maritieme Techniek"
+    },
+    {
+        "value": 252,
+        "label": "Marketing Communicatie"
+    },
+    {
+        "value": 253,
+        "label": "Mechatronica"
+    },
+    {
+        "value": 254,
+        "label": "Media en Cultuur"
+    },
+    {
+        "value": 255,
+        "label": "Media en Entertainment Management"
+    },
+    {
+        "value": 256,
+        "label": "Media, Informatie en Communicatie"
+    },
+    {
+        "value": 257,
+        "label": "Media, Kunst, Design en Architectuur"
+    },
+    {
+        "value": 258,
+        "label": "Medisch Beeldvormende en Radiotherapeutische Technieken"
+    },
+    {
+        "value": 259,
+        "label": "Medische Hulpverlening"
+    },
+    {
+        "value": 260,
+        "label": "Medische Informatiekunde"
+    },
+    {
+        "value": 261,
+        "label": "Medische Natuurwetenschappen"
+    },
+    {
+        "value": 262,
+        "label": "Mens en Techniek"
+    },
+    {
+        "value": 263,
+        "label": "Mvalueden-Oostenstudies"
+    },
+    {
+        "value": 264,
+        "label": "Milieu-maatschappijwetenschappen"
+    },
+    {
+        "value": 265,
+        "label": "Milieu-natuurwetenschappen"
+    },
+    {
+        "value": 266,
+        "label": "Milieukunde"
+    },
+    {
+        "value": 267,
+        "label": "Milieuwetenschappen"
+    },
+    {
+        "value": 268,
+        "label": "Militaire Bedrijfswetenschappen"
+    },
+    {
+        "value": 269,
+        "label": "Militaire Systemen & Technologie"
+    },
+    {
+        "value": 270,
+        "label": "Minorities & Multilingualism"
+    },
+    {
+        "value": 271,
+        "label": "Moleculaire Levenswetenschappen"
+    },
+    {
+        "value": 272,
+        "label": "Molecular Science and Technology"
+    },
+    {
+        "value": 273,
+        "label": "Mondzorgkunde"
+    },
+    {
+        "value": 274,
+        "label": "Muziek"
+    },
+    {
+        "value": 275,
+        "label": "Muziektherapie"
+    },
+    {
+        "value": 276,
+        "label": "Muziekwetenschap"
+    },
+    {
+        "value": 277,
+        "label": "Nanobiologie (joint degree)"
+    },
+    {
+        "value": 278,
+        "label": "Natuurkunde"
+    },
+    {
+        "value": 279,
+        "label": "Natuurwetenschap en Innovatiemanagement"
+    },
+    {
+        "value": 280,
+        "label": "Nederlandkunde/Dutch Studies"
+    },
+    {
+        "value": 281,
+        "label": "Nederlandse Taal en Cultuur"
+    },
+    {
+        "value": 282,
+        "label": "New Business"
+    },
+    {
+        "value": 283,
+        "label": "Nieuwgriekse Taal en Cultuur"
+    },
+    {
+        "value": 284,
+        "label": "Notarieel Recht"
+    },
+    {
+        "value": 285,
+        "label": "Ocean Technology"
+    },
+    {
+        "value": 286,
+        "label": "Oefentherapie Cesar"
+    },
+    {
+        "value": 287,
+        "label": "Office Management"
+    },
+    {
+        "value": 288,
+        "label": "Ondernemerschap"
+    },
+    {
+        "value": 289,
+        "label": "Onderwijskunde"
+    },
+    {
+        "value": 290,
+        "label": "Oplevalueing Podotherapie"
+    },
+    {
+        "value": 291,
+        "label": "Oplevalueing Tolk-Vertaler"
+    },
+    {
+        "value": 292,
+        "label": "Oplevalueing tot Fysiotherapeut"
+    },
+    {
+        "value": 293,
+        "label": "Oplevalueing tot Oefentherapeut-Mensendieck"
+    },
+    {
+        "value": 294,
+        "label": "Oplevalueing tot Verpleegkundige"
+    },
+    {
+        "value": 295,
+        "label": "Oplevalueing voor Ergotherapie"
+    },
+    {
+        "value": 296,
+        "label": "Oplevalueing voor Logopedie"
+    },
+    {
+        "value": 297,
+        "label": "Oplevalueingskunde"
+    },
+    {
+        "value": 298,
+        "label": "Optometrie"
+    },
+    {
+        "value": 299,
+        "label": "Organisatiepsychologie"
+    },
+    {
+        "value": 300,
+        "label": "Organisatiewetenschappen"
+    },
+    {
+        "value": 301,
+        "label": "Ori\u00ebntaalse Talen en Communicatie"
+    },
+    {
+        "value": 302,
+        "label": "Orthoptie"
+    },
+    {
+        "value": 303,
+        "label": "Oude Culturen van de Mediterrane Wereld"
+    },
+    {
+        "value": 304,
+        "label": "Oudhevaluekunde"
+    },
+    {
+        "value": 305,
+        "label": "Pedagogiek"
+    },
+    {
+        "value": 306,
+        "label": "Pedagogisch Management Kinderopvang"
+    },
+    {
+        "value": 307,
+        "label": "Pedagogische Wetenschappen"
+    },
+    {
+        "value": 308,
+        "label": "Pensions"
+    },
+    {
+        "value": 309,
+        "label": "People and Business Management"
+    },
+    {
+        "value": 310,
+        "label": "Personeelwetenschappen"
+    },
+    {
+        "value": 311,
+        "label": "Plantenwetenschappen"
+    },
+    {
+        "value": 312,
+        "label": "Plattelandsvernieuwing"
+    },
+    {
+        "value": 313,
+        "label": "Policing"
+    },
+    {
+        "value": 314,
+        "label": "Politicologie"
+    },
+    {
+        "value": 315,
+        "label": "Politics, Psychology, Law and Economics"
+    },
+    {
+        "value": 316,
+        "label": "Popular Culture"
+    },
+    {
+        "value": 317,
+        "label": "Psychobiologie"
+    },
+    {
+        "value": 318,
+        "label": "Psychologie"
+    },
+    {
+        "value": 319,
+        "label": "Psychomotorische Therapie en Bewegingsagogie"
+    },
+    {
+        "value": 320,
+        "label": "Public Administration"
+    },
+    {
+        "value": 321,
+        "label": "Rechten"
+    },
+    {
+        "value": 322,
+        "label": "Rechtsgeleerdhevalue"
+    },
+    {
+        "value": 323,
+        "label": "Religiewetenschappen"
+    },
+    {
+        "value": 324,
+        "label": "Romaanse Talen en Culturen"
+    },
+    {
+        "value": 325,
+        "label": "Ruimtelijke Ontwikkeling"
+    },
+    {
+        "value": 326,
+        "label": "Russische Studies"
+    },
+    {
+        "value": 327,
+        "label": "Scandinavische Talen en Culturen"
+    },
+    {
+        "value": 328,
+        "label": "Scheepsbouwkunde / Maritieme Techniek"
+    },
+    {
+        "value": 329,
+        "label": "Scheikunde"
+    },
+    {
+        "value": 330,
+        "label": "Scheikundige Technologie"
+    },
+    {
+        "value": 331,
+        "label": "Science, Business & Innovation"
+    },
+    {
+        "value": 332,
+        "label": "Security Management"
+    },
+    {
+        "value": 333,
+        "label": "Slavische Talen en Culturen"
+    },
+    {
+        "value": 334,
+        "label": "Small Business and Retail Management"
+    },
+    {
+        "value": 335,
+        "label": "Sociaal Pedagogische Hulpverlening"
+    },
+    {
+        "value": 336,
+        "label": "Sociaal-Jurvalueische Dienstverlening"
+    },
+    {
+        "value": 337,
+        "label": "Social Work"
+    },
+    {
+        "value": 338,
+        "label": "Sociale Geografie en Planologie"
+    },
+    {
+        "value": 339,
+        "label": "Sociologie"
+    },
+    {
+        "value": 340,
+        "label": "Spaanse Taal en Cultuur"
+    },
+    {
+        "value": 341,
+        "label": "SPD Bedrijfsadministratie"
+    },
+    {
+        "value": 342,
+        "label": "Sport en Bewegen"
+    },
+    {
+        "value": 343,
+        "label": "Sport en Bewegingseducatie"
+    },
+    {
+        "value": 344,
+        "label": "Sport, Gezondhevalue en Management"
+    },
+    {
+        "value": 345,
+        "label": "Sport, Management en Ondernemen"
+    },
+    {
+        "value": 346,
+        "label": "Sterrenkunde"
+    },
+    {
+        "value": 347,
+        "label": "SZ-Professional"
+    },
+    {
+        "value": 348,
+        "label": "Taal- en Cultuurstudies"
+    },
+    {
+        "value": 349,
+        "label": "Taalwetenschap"
+    },
+    {
+        "value": 350,
+        "label": "Tandheelkunde"
+    },
+    {
+        "value": 351,
+        "label": "Technische Aardwetenschappen"
+    },
+    {
+        "value": 352,
+        "label": "Technische Bedrijfskunde"
+    },
+    {
+        "value": 353,
+        "label": "Technische Bestuurskunde"
+    },
+    {
+        "value": 354,
+        "label": "Technische Informatica"
+    },
+    {
+        "value": 355,
+        "label": "Technische Innovatiewetenschappen"
+    },
+    {
+        "value": 356,
+        "label": "Technische Natuurkunde"
+    },
+    {
+        "value": 357,
+        "label": "Technische Planologie"
+    },
+    {
+        "value": 358,
+        "label": "Technische Wiskunde"
+    },
+    {
+        "value": 359,
+        "label": "Technology and Liberal Arts & Sciences"
+    },
+    {
+        "value": 360,
+        "label": "Theater"
+    },
+    {
+        "value": 361,
+        "label": "Theaterwetenschap"
+    },
+    {
+        "value": 362,
+        "label": "Theologie"
+    },
+    {
+        "value": 363,
+        "label": "Toegepaste Bedrijfskunde"
+    },
+    {
+        "value": 364,
+        "label": "Toegepaste Biologie"
+    },
+    {
+        "value": 365,
+        "label": "Toegepaste Fotografie en Beeldcommunicatie"
+    },
+    {
+        "value": 366,
+        "label": "Toegepaste Gerontologie"
+    },
+    {
+        "value": 367,
+        "label": "Toegepaste Psychologie"
+    },
+    {
+        "value": 368,
+        "label": "Toegepaste Wiskunde"
+    },
+    {
+        "value": 369,
+        "label": "Toerisme en Recreatie"
+    },
+    {
+        "value": 370,
+        "label": "Tourism (joint degree)"
+    },
+    {
+        "value": 371,
+        "label": "Trade Management gericht op Azi\u00eb"
+    },
+    {
+        "value": 372,
+        "label": "Tuin- en Landschapsinrichting"
+    },
+    {
+        "value": 373,
+        "label": "Tuinbouw en Akkerbouw"
+    },
+    {
+        "value": 374,
+        "label": "Vastgoed en Makelaardij"
+    },
+    {
+        "value": 375,
+        "label": "Verkeer en Logistiek"
+    },
+    {
+        "value": 376,
+        "label": "Verloskunde"
+    },
+    {
+        "value": 377,
+        "label": "Vertaalacademie"
+    },
+    {
+        "value": 378,
+        "label": "Vertaler Duits"
+    },
+    {
+        "value": 379,
+        "label": "Vertaler Engels"
+    },
+    {
+        "value": 380,
+        "label": "Vertaler Frans"
+    },
+    {
+        "value": 381,
+        "label": "Vertaler Spaans"
+    },
+    {
+        "value": 382,
+        "label": "Vitaliteitsmanagement & Toerisme"
+    },
+    {
+        "value": 383,
+        "label": "Voeding en Di\u00ebtetiek"
+    },
+    {
+        "value": 384,
+        "label": "Voeding en Gezondhevalue"
+    },
+    {
+        "value": 385,
+        "label": "Voedingsmvaluedelentechnologie"
+    },
+    {
+        "value": 386,
+        "label": "Vormgeving"
+    },
+    {
+        "value": 387,
+        "label": "Vrijetijdsmanagement"
+    },
+    {
+        "value": 388,
+        "label": "Vrijetijdwetenschappen"
+    },
+    {
+        "value": 389,
+        "label": "Watermanagement"
+    },
+    {
+        "value": 390,
+        "label": "Werktuigbouwkunde"
+    },
+    {
+        "value": 391,
+        "label": "Wijsbegeerte"
+    },
+    {
+        "value": 392,
+        "label": "Wiskunde"
+    },
+    {
+        "value": 393,
+        "label": "Wiskunde A"
+    },
+    {
+        "value": 394,
+        "label": "Wiskunde B"
+    },
+    {
+        "value": 395,
+        "label": "Wiskunde C"
+    },
+    {
+        "value": 396,
+        "label": "Wiskunde D"
+    }
+]
