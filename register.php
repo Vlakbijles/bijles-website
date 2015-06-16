@@ -1,3 +1,4 @@
+<pre>
 <?php
 
     // register.php
@@ -7,7 +8,8 @@
 
     $email =  "";
     $password = "";
-    $facebook_token = "";
+    $zipcode = "";
+    $fb_token = "";
 
     function clean_input($input) {
         return htmlspecialchars(stripslashes(trim($input)));
@@ -20,15 +22,23 @@
         if (isset($_POST["reg_pwd"])) {
             $password = clean_input($_POST["reg_pwd"]);
         }
+        if (isset($_POST["reg_zipcode"])) {
+            $zipcode = clean_input($_POST["reg_zipcode"]);
+        }
         if (isset($_POST["reg_fb_token"])) {
-            $facebook_token = clean_input($_POST["reg_fb_token"]);
+            $fb_token = clean_input($_POST["reg_fb_token"]);
         }
     }
 
     // Perform login
-    $request_uri = "/register?";
+    $request_uri = "/user?";
     $request_method = "POST";
-    $data = array("user" => array("email" => $email, "password" => $password, "facebook_token" => $facebook_token));
+    $usermeta = array("fb_token" => $fb_token, "zipcode" => $zipcode);
+    $user = array("email" => $email, "password" => $password);
+    $data = array("user" => $user, "usermeta" => $usermeta);
+
+    print_r($data);
+
     $response = api_request($request_uri, $request_method, $data);
 
     if ($response["response_code"] == 200) {
@@ -38,6 +48,7 @@
         print_r($response["response"]);
     }
 
-    header("Location: " . $_SERVER["HTTP_REFERER"]);
+    // header("Location: " . $_SERVER["HTTP_REFERER"]);
 
 ?>
+</pre>
