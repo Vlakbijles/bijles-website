@@ -20,9 +20,9 @@
                             <div class="progress nobottommargin"><div class="progress-bar progress-bar-success" style="width: 90%;"></div></div>
                         </div>
                         <?php if (true) { ?>
-                        <a href="index.php?page=profile&id=<?=$results[$keys[$i]]["user_id"]?>#reviews" class="btn btn-block btn-primary btn-sm">3 recensies</a>
+                        <a href="index.php?page=profile&id=<?=$results[$keys[$i]]["user_id"]?>#reviews" class="btn btn-block btn-primary btn-sm"><?=$results[$keys[$i]]["user.meta.no_reviews"]?> recensies</a>
                         <?php } else { ?>
-                        <a href="index.php?page=profile&id=<?=$results[$keys[$i]]["user_id"]?>#reviews" class="btn btn-block btn-default btn-sm disabled">Geen recensies</a>
+                        <a href="index.php?page=profile&id=<?=$results[$keys[$i]]["user_id"]?>" class="btn btn-block btn-default btn-sm disabled">Geen recensies</a>
                         <?php } ?>
                     </div>
                 </div>

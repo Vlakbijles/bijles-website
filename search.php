@@ -5,8 +5,6 @@ require_once("api.php");
 if (isset($_GET["subject_id"]) && isset($_GET["postal_code"])
     && !empty($_GET["subject_id"]) && !empty($_GET["postal_code"])) {
 
-    $lat = 52.6759082590322;
-    $lon = 4.7038764017095;
     $request_uri = "/offer?subject="
                     . $_GET["subject_id"]
                     . "&loc=" . $_GET["postal_code"]
@@ -21,6 +19,7 @@ if (isset($_GET["subject_id"]) && isset($_GET["postal_code"])
     } elseif ($response["response_code"] == 200) {
         $search_results = $response["response"];
     }
+
 
     if (isset($search_results)) {
 
