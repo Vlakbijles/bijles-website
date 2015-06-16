@@ -4,8 +4,6 @@ require_once("api.php");
 
 if (isset($_GET["id"])) {
 
-    $title = "henkies profile";
-
     $user_profile = array();
     $user_offers = array();
     $user_reviews = array();
@@ -51,6 +49,7 @@ if (isset($_GET["id"])) {
     if (!empty($user_profile) && !empty($user_offers)) {
 
         $title = "Vind bijles bij jou in de buurt - Vlakbijles";
+        $own_profile = ($user_id == $user_profile["id"]);
 
         echo render_template("templates/head.html",
                              array("title" => $title));
@@ -59,15 +58,20 @@ if (isset($_GET["id"])) {
                              array("logged_in" => $logged_in,
                                    "user_id" => $user_id));
 
-        echo render_template("templates/modals/editprofile.html",
-                             array("description" => $user_profile["meta.description"],
-                                   "zipcode" => $user_profile["meta.zipcode"]));
-
         echo render_template("templates/modals/contactuser.html",
                              array("offers" => $user_offers));
 
         echo render_template("templates/modals/review.html",
                              array("offers" => $user_offers));
+
+        if ($own_profile) {
+            echo render_template("templates/modals/editprofile.html",
+                                 array("description" => $user_profile["meta.description"],
+                                       "zipcode" => $user_profile["meta.zipcode"]));
+
+            echo render_template("templates/modals/addsubjects.html",
+                                 array("user_id" => $user_id));
+        }
 
         include("templates/modals/register.html");
         include("templates/modals/login.html");
@@ -80,7 +84,10 @@ if (isset($_GET["id"])) {
                                    "city" => $user_profile["meta.city"],
                                    "age" => $user_profile["meta.age"],
                                    "description" => $user_profile["meta.description"],
-                                   "offers" => $user_offers));
+                                   "offers" => $user_offers,
+                                   "logged_in" => $logged_in,
+                                   "user_id" => $user_id,
+                                   "own_profile" => $own_profile));
 
         echo render_template("templates/reviews.html",
                              array("reviews" => $user_reviews));
