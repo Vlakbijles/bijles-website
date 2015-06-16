@@ -58,19 +58,19 @@ if (isset($_GET["id"])) {
                              array("logged_in" => $logged_in,
                                    "user_id" => $user_id));
 
-        echo render_template("templates/modals/contactuser.html",
-                             array("offers" => $user_offers));
-
-        echo render_template("templates/modals/review.html",
-                             array("offers" => $user_offers));
-
         if ($own_profile) {
             echo render_template("templates/modals/editprofile.html",
                                  array("description" => $user_profile["meta.description"],
                                        "zipcode" => $user_profile["meta.zipcode"]));
-
             echo render_template("templates/modals/addsubjects.html",
                                  array("user_id" => $user_id));
+        }
+
+        if (!$own_profile && $logged_in) {
+            echo render_template("templates/modals/contactuser.html",
+                                 array("offers" => $user_offers));
+            echo render_template("templates/modals/review.html",
+                                     array("offers" => $user_offers));
         }
 
         include("templates/modals/register.html");
