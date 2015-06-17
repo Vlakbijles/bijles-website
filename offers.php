@@ -42,7 +42,7 @@ if (isset($_GET["subject_id"]) && isset($_GET["postal_code"])
                              array("subject_id" => $_GET["subject_id"],
                                    "postal_code" => $_GET["postal_code"]));
 
-        echo render_template("templates/search_results.html",
+        echo render_template("templates/offers.html",
                              array("results" => $search_results));
 
         include("templates/footer.html");

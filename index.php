@@ -44,8 +44,8 @@ switch ($page) {
     case "profile":
         include("profile.php");
         break;
-    case "search":
-        include("search.php");
+    case "offers":
+        include("offers.php");
         break;
     default:
         die("Invalid URL, no valid page specified");
