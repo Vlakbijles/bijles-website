@@ -77,6 +77,7 @@ switch($resp_profile["response_code"]) {
                              "age" => $resp_profile["response"]["meta.age"],
                              "description" => $resp_profile["response"]["meta.description"],
                              "offers" => $resp_offers["response"],
+                             "num_offers" => count($resp_offers["response"]),
                              "logged_in" => $logged_in,
                              "user_id" => $user_id,
                              "own_profile" => $own_profile));
