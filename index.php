@@ -15,7 +15,7 @@ if(isset($_COOKIE["user_id"]) && isset($_COOKIE["token_hash"])) {
         $logged_in = true;
         $user_id = $_COOKIE["user_id"];
     } elseif ($response["response_code"] == 0) {
-        echo "api server down";
+        die("Unable to connect to API server");
     }
 }
 

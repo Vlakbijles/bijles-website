@@ -45,12 +45,6 @@ echo render_template("templates/search_small.html");
 // Render profile or display error messages
 switch($resp_profile["response_code"]) {
 
-    case 0:
-        echo render_template("templates/error.html", array(
-                             "title" => "Er is iets misgegaan (" . $resp_profile["response_code"] . ")",
-                             "message" => "API server is niet bereikbaar"));
-        break;
-
     case 404:
         echo render_template("templates/error.html", array(
                              "title" => "Er is iets misgegaan (" . $resp_profile["response_code"] . ")",
