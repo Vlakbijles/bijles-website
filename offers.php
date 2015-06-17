@@ -3,6 +3,7 @@
 if (!isset($_GET["subject_id"]) || !isset($_GET["postal_code"])) die("Invalid URL, no subject id and/or postal code provided");
 
 require_once("api.php");
+require_once("vars.php");
 
 $request_uri = "/offer?subject="
                 . $_GET["subject_id"]
@@ -13,7 +14,7 @@ $resp_offers = api_request($request_uri, $request_method, NULL);
 
 // Render header
 switch($resp_offers["response_code"]) {
-    case 200:
+    case SUCCESS:
         //TODO city and subject name in title
         $title = "placeholder - Vlakbijles";
         break;
@@ -38,19 +39,19 @@ echo render_template("templates/search_small.html");
 // Render found offers or display errors
 switch($resp_offers["response_code"]) {
 
-    case 400:
+    case INVALID:
         echo render_template("templates/error.html", array(
                              "title" => "Er is iets misgegaan (" . $resp_offers["response_code"] . ")",
                              "message" => "Onjuist vak en/of niet bestaande postcode ingevoerd"));
         break;
 
-    case 404:
+    case NO_RESULTS:
         echo render_template("templates/error.html", array(
                              "title" => "Geen resultaten (" . $resp_offers["response_code"] . ")",
                              "message" => "Er zijn geen bijles aanbiedingen gevonden die voldoen aan de gespecifeerde criteria"));
         break;
 
-    case 200:
+    case SUCCESS:
         echo render_template("templates/offers.html", array(
                              "results" => $resp_offers["response"]));
 
@@ -65,6 +66,5 @@ switch($resp_offers["response_code"]) {
 }
 
 include("templates/footer.html");
-
 
 ?>

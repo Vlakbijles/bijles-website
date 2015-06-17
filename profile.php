@@ -3,6 +3,7 @@
 if (!isset($_GET["id"])) die("Invalid URL, no profile id specified");
 
 require_once("api.php");
+require_once("vars.php");
 
 // Request user profile data
 $request_uri = "/user/" . $_GET["id"] . "?";
@@ -21,7 +22,7 @@ $resp_reviews = api_request($request_uri, $request_method, NULL);
 
 // Render header
 switch($resp_profile["response_code"]) {
-    case 200:
+    case SUCCESS:
         $title = "Profiel van " . $resp_profile["response"]["meta.name"] . " "
                  . $resp_profile["response"]["meta.surname"] . " - Vlakbijles";
         break;
@@ -46,13 +47,13 @@ echo render_template("templates/search_small.html");
 // Render profile or display error messages
 switch($resp_profile["response_code"]) {
 
-    case 404:
+    case NO_RESULTS:
         echo render_template("templates/error.html", array(
                              "title" => "Er is iets misgegaan (" . $resp_profile["response_code"] . ")",
                              "message" => "Gebruiker niet gevonden"));
         break;
 
-    case 200:
+    case SUCCESS:
         $own_profile = ($user_id == $resp_profile["response"]["id"]);
 
         if ($own_profile) {

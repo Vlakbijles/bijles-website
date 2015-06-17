@@ -1,5 +1,10 @@
 <?php
 
+// Response codes
+define("SUCCESS", 200);
+define("NO_RESULTS", 404);
+define("INVALID", 400);
+
 $api_user = "site-vlakbij";
 $api_key = "3aced6d2d652a5a7426daabff22e372c";
 
