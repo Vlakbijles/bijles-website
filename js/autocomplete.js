@@ -1,33 +1,47 @@
 // autocomplete.js
-// Load local json file containing subjects, enable autocomplete for searchbar
+// Obtain subject list from server, enable autocomplete for searchbar
 
 $(function() {
-    var subjects = (function() {
-        var json = null;
+
+    var subjects = (function () {
+        var formatted = [];
         $.ajax({
             'async': false,
             'global': false,
-            'url': "subjects.json",
+            'url': "http://vlakbijles.nl:5000/subject/all",
             'dataType': "json",
             'success': function (data) {
-                json = data;
+                $.each(data, function(key, val) {
+                    formatted.push({ "value" : val.id, "label" : val.name });
+                });
             }
         });
-        return json;
+        return formatted;
     })();
 
     $( "#subject_name" ).autocomplete({
         source: subjects,
-        minLength: 1,
         select: function (event, ui) {
-            event.preventDefault()
+            event.preventDefault();
                 $(this).val(ui.item.label);
             $("#subject_id").val(ui.item.value);
         },
         focus: function (event, ui) {
-            event.preventDefault()
+            event.preventDefault();
                 $(this).val(ui.item.label);
             $("#subject_id").val(ui.item.value);
-        }
+        },
+        change: function (event, ui) {
+            if(!ui.item){
+                $("#subject_name").val("");
+            }
+        },
+
+        // focus: function (event, ui) {
+        //         return false;
+        // }
     });
+
+    // TODO force valid subject on form submission
+
 });

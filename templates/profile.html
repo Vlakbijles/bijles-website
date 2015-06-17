@@ -1,5 +1,5 @@
         <!-- Main container -->
-        <div class="container">
+        <div class="container maincontent">
 
             <!-- Profile -->
             <div class="row ">
@@ -18,7 +18,7 @@
                         <?php } ?>
                     </div>
 
-                    <?php if ($logged_in) { ?>
+                    <?php if (!$own_profile && $logged_in) { ?>
                     <div class="row" >
                         <a href="#" data-toggle="modal" data-target="#contactusermodal" class="btn btn-primary glyphicon col-xs-6">&#x2709;</a>
                         <a href="#" data-toggle="modal" data-target="#reviewmodal" class="btn btn-success glyphicon col-xs-6">&#xe065;</a>
@@ -69,8 +69,6 @@
                                         <td>
                                             <?php if($own_profile) { ?>
                                             <a href="#" class="btn btn-danger btn-sm btn-block glyphicon pull-right">&#xe014;</a>
-                                            <?php } elseif ($logged_in) { ?>
-                                            <a href="#" class="btn btn-primary btn-sm btn-block glyphicon pull-right">&#x2709;</a>
                                             <?php } ?>
                                         </td>
                                     </tr>

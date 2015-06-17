@@ -1,106 +1,94 @@
 <?php
 
+if (!isset($_GET["id"])) die("Invalid URL, no profile id specified");
+
 require_once("api.php");
+require_once("vars.php");
 
-if (isset($_GET["id"])) {
+// Request user profile data
+$request_uri = "/user/" . $_GET["id"] . "?";
+$request_method = "GET";
+$resp_profile = api_request($request_uri, $request_method, NULL);
 
-    $user_profile = array();
-    $user_offers = array();
-    $user_reviews = array();
+// Request user's offers
+$request_uri = "/user/" . $_GET["id"] . "/offer?";
+$request_method = "GET";
+$resp_offers = api_request($request_uri, $request_method, NULL);
 
-    // Request user profile data
-    $request_uri = "/user/" . $_GET["id"] . "?";
-    $request_method = "GET";
-    $response = api_request($request_uri, $request_method, NULL);
+// Request user's reviews
+$request_uri = "/user/" . $_GET["id"] . "/review?";
+$request_method = "GET";
+$resp_reviews = api_request($request_uri, $request_method, NULL);
 
-    if ($response["response_code"] == 0) {
-        echo "api server down";
-    } elseif ($response["response_code"] == 404) {
-        echo $response["response"]["message"];
-    } elseif ($response["response_code"] == 200) {
-        $user_profile = $response["response"];
-    }
+// Render header
+switch($resp_profile["response_code"]) {
+    case SUCCESS:
+        $title = "Profiel van " . $resp_profile["response"]["meta.name"] . " "
+                 . $resp_profile["response"]["meta.surname"] . " - " . SITENAME;
+        break;
+    default:
+        $title = ERROR_HEADING . " - " . SITENAME;
+}
+echo render_template("templates/head.html", array(
+                     "title" => $title));
 
-    // Request users offers
-    $request_uri = "/user/" . $_GET["id"] . "/offer?";
-    $request_method = "GET";
-    $response = api_request($request_uri, $request_method, NULL);
+// Render navbar
+if (!$logged_in) {
+    include("templates/modals/register.html");
+    include("templates/modals/login.html");
+}
+echo render_template("templates/navbar.html", array(
+                     "logged_in" => $logged_in,
+                     "user_id" => $user_id));
 
-    if ($response["response_code"] == 0) {
-        echo "api server down";
-    } elseif ($response["response_code"] == 404) {
-        echo $response["response"]["message"];
-    } elseif ($response["response_code"] == 200) {
-        $user_offers = $response["response"];
-    }
+// Render top search bar
+echo render_template("templates/search_small.html");
 
-    // Request users reviews
-    $request_uri = "/user/" . $_GET["id"] . "/review?";
-    $request_method = "GET";
-    $response = api_request($request_uri, $request_method, NULL);
+// Render profile or display error messages
+switch($resp_profile["response_code"]) {
 
-    //TODO handle errors
-    if ($response["response_code"] == 0) {
-        echo "api server down";
-    } elseif ($response["response_code"] == 200) {
-        $user_reviews = $response["response"];
-    }
+    case NO_RESULTS:
+        echo render_template("templates/error.html", array(
+                             "title" => ERROR_HEADING . " (" . $resp_profile["response_code"] . ")",
+                             "message" => ERROR_USERNOTFOUND));
+        break;
 
-    if (!empty($user_profile) && !empty($user_offers)) {
-
-        $title = "Vind bijles bij jou in de buurt - Vlakbijles";
-        $own_profile = ($user_id == $user_profile["id"]);
-
-        echo render_template("templates/head.html",
-                             array("title" => $title));
-
-        echo render_template("templates/navbar.html",
-                             array("logged_in" => $logged_in,
-                                   "user_id" => $user_id));
-
-        echo render_template("templates/modals/contactuser.html",
-                             array("offers" => $user_offers));
-
-        echo render_template("templates/modals/review.html",
-                             array("offers" => $user_offers));
+    case SUCCESS:
+        $own_profile = ($user_id == $resp_profile["response"]["id"]);
 
         if ($own_profile) {
-            echo render_template("templates/modals/editprofile.html",
-                                 array("description" => $user_profile["meta.description"],
-                                       "zipcode" => $user_profile["meta.zipcode"]));
-
+            echo render_template("templates/modals/editprofile.html", array(
+                                 "description" => $resp_profile["response"]["meta.description"],
+                                 "zipcode" => $resp_profile["response"]["meta.zipcode"]));
             echo render_template("templates/modals/addsubjects.html",
                                  array("user_id" => $user_id));
+        } elseif($logged_in) {
+            echo render_template("templates/modals/contactuser.html", array(
+                                 "offers" => $resp_offers["response"]));
+            echo render_template("templates/modals/review.html", array(
+                                 "offers" => $resp_offers["response"]));
         }
 
-        include("templates/modals/register.html");
-        include("templates/modals/login.html");
+        echo render_template("templates/profile.html", array(
+                             "name" => $resp_profile["response"]["meta.name"],
+                             "surname" => $resp_profile["response"]["meta.surname"],
+                             "city" => $resp_profile["response"]["meta.city"],
+                             "age" => $resp_profile["response"]["meta.age"],
+                             "description" => $resp_profile["response"]["meta.description"],
+                             "offers" => $resp_offers["response"],
+                             "logged_in" => $logged_in,
+                             "user_id" => $user_id,
+                             "own_profile" => $own_profile));
+        echo render_template("templates/reviews.html", array(
+                             "reviews" => $resp_reviews["response"]));
+        break;
 
-        echo render_template("templates/search_small.html");
-
-        echo render_template("templates/profile.html",
-                             array("name" => $user_profile["meta.name"],
-                                   "surname" => $user_profile["meta.surname"],
-                                   "city" => $user_profile["meta.city"],
-                                   "age" => $user_profile["meta.age"],
-                                   "description" => $user_profile["meta.description"],
-                                   "offers" => $user_offers,
-                                   "logged_in" => $logged_in,
-                                   "user_id" => $user_id,
-                                   "own_profile" => $own_profile));
-
-        echo render_template("templates/reviews.html",
-                             array("reviews" => $user_reviews));
-
-        include("templates/footer.html");
-
-    }
-
-
-} else {
-
-    echo "no profile id provided";
+    default:
+        echo render_template("templates/error.html", array(
+                             "title" => ERROR_HEADING . " (-)",
+                             "message" => ERROR_UNDEFINED));
+        break;
 
 }
 
-?>
+include("templates/footer.html");
