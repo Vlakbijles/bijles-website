@@ -2,6 +2,38 @@
 
 require_once("api.php");
 
+$request_uri = "/offer?subject="
+                . $_GET["subject_id"]
+                . "&loc=" . strtoupper($_GET["postal_code"])
+                . "&page=1&range=10000000&level=2&sortby=apj";
+$request_method = "GET";
+$resp_offers = api_request($request_uri, $request_method, NULL);
+
+// Render header
+switch($resp_offers["response_code"]) {
+    case 200:
+        $title = "Henkies profile - Vlakbijles";
+        break;
+    default:
+        $title = "Er is iets misgegaan - Vlakbijles";
+}
+echo render_template("templates/head.html", array(
+                     "title" => $title));
+
+// Render navbar
+if (!$logged_in) {
+    include("templates/modals/register.html");
+    include("templates/modals/login.html");
+}
+echo render_template("templates/navbar.html", array(
+                     "logged_in" => $logged_in,
+                     "user_id" => $user_id));
+
+// Render top search bar
+echo render_template("templates/search_small.html");
+
+
+
 if (isset($_GET["subject_id"]) && isset($_GET["postal_code"])
     && !empty($_GET["subject_id"]) && !empty($_GET["postal_code"])) {
 

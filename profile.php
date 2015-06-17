@@ -22,7 +22,8 @@ $resp_reviews = api_request($request_uri, $request_method, NULL);
 // Render header
 switch($resp_profile["response_code"]) {
     case 200:
-        $title = "Henkies profile - Vlakbijles";
+        $title = "Profiel van " . $resp_profile["response"]["meta.name"] . " "
+                 . $resp_profile["response"]["meta.surname"] . " - Vlakbijles";
         break;
     default:
         $title = "Er is iets misgegaan - Vlakbijles";
