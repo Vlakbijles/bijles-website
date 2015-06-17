@@ -1,6 +1,7 @@
 <?php
 
 define("SITENAME", "Vlakbijles");
+define("SITETITLE", "Vind bijles bij jou in de buurt");
 
 // Error messages
 define("ERROR_HEADING", "Er is iets misgegaan");

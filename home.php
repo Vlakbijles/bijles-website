@@ -1,6 +1,8 @@
 <?php
 
-$title = "Vind bijles bij jou in de buurt - Vlakbijles";
+require_once("vars.php");
+
+$title = SITETITLE . " - " . SITENAME;
 
 echo render_template("templates/head.html", array(
                      "title" => $title));
