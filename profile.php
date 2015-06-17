@@ -1,8 +1,8 @@
 <?php
 
-require_once("api.php");
-
 if (!isset($_GET["id"])) die("Invalid URL, no profile id specified");
+
+require_once("api.php");
 
 // Request user profile data
 $request_uri = "/user/" . $_GET["id"] . "?";
