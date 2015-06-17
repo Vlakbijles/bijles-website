@@ -12,6 +12,7 @@ if (isset($_GET["subject_id"]) && isset($_GET["postal_code"])
     $request_method = "GET";
     $response = api_request($request_uri, $request_method, NULL);
 
+
     if ($response["response_code"] == 0) {
         echo "api server down";
     } elseif ($response["response_code"] == 404) {
@@ -19,6 +20,7 @@ if (isset($_GET["subject_id"]) && isset($_GET["postal_code"])
     } elseif ($response["response_code"] == 200) {
         $search_results = $response["response"];
     }
+    print_r($response);
 
     if (isset($search_results)) {
 

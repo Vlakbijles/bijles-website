@@ -12,7 +12,7 @@ $(function() {
             'dataType': "json",
             'success': function (data) {
                 $.each(data, function(key, val) {
-                    formatted.push({ "value" : key, "label" : val.name });
+                    formatted.push({ "value" : val.id, "label" : val.name });
                 });
             }
         });
@@ -22,19 +22,19 @@ $(function() {
     $( "#subject_name" ).autocomplete({
         source: subjects,
         select: function (event, ui) {
-            event.preventDefault()
+            event.preventDefault();
                 $(this).val(ui.item.label);
             $("#subject_id").val(ui.item.value);
         },
         focus: function (event, ui) {
-            event.preventDefault()
+            event.preventDefault();
                 $(this).val(ui.item.label);
             $("#subject_id").val(ui.item.value);
         },
         change: function (event, ui) {
-                if(!ui.item){
-                    $("#subject_name").val("");
-                }
+            if(!ui.item){
+                $("#subject_name").val("");
+            }
         },
 
         // focus: function (event, ui) {

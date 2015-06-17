@@ -48,7 +48,7 @@ switch ($page) {
         include("search.php");
         break;
     default:
-        echo "no way jose";
+        die("Invalid URL, no valid page specified");
 
 }
 
