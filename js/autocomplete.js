@@ -12,7 +12,7 @@ $(function() {
             'dataType': "json",
             'success': function (data) {
                 $.each(data, function(key, val) {
-                    formatted.push({ "value" : key, "label" : val.name });
+                    formatted.push({ "value" : val.id, "label" : val.name });
                 });
             }
         });
