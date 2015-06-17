@@ -53,36 +53,33 @@ switch($resp_profile["response_code"]) {
         break;
 
     case 200:
-        $user_profile = $resp_profile["response"];
-        $user_offers = $resp_offers["response"];
-        $user_reviews = $resp_reviews["response"];
-        $own_profile = ($user_id == $user_profile["id"]);
+        $own_profile = ($user_id == $resp_profile["response"]["id"]);
 
         if ($own_profile) {
             echo render_template("templates/modals/editprofile.html", array(
-                                 "description" => $user_profile["meta.description"],
-                                 "zipcode" => $user_profile["meta.zipcode"]));
+                                 "description" => $resp_profile["response"]["meta.description"],
+                                 "zipcode" => $resp_profile["response"]["meta.zipcode"]));
             echo render_template("templates/modals/addsubjects.html",
                                  array("user_id" => $user_id));
         } elseif($logged_in) {
             echo render_template("templates/modals/contactuser.html", array(
-                                 "offers" => $user_offers));
+                                 "offers" => $resp_offers["response"]));
             echo render_template("templates/modals/review.html", array(
-                                 "offers" => $user_offers));
+                                 "offers" => $resp_offers["response"]));
         }
 
         echo render_template("templates/profile.html", array(
-                             "name" => $user_profile["meta.name"],
-                             "surname" => $user_profile["meta.surname"],
-                             "city" => $user_profile["meta.city"],
-                             "age" => $user_profile["meta.age"],
-                             "description" => $user_profile["meta.description"],
-                             "offers" => $user_offers,
+                             "name" => $resp_profile["response"]["meta.name"],
+                             "surname" => $resp_profile["response"]["meta.surname"],
+                             "city" => $resp_profile["response"]["meta.city"],
+                             "age" => $resp_profile["response"]["meta.age"],
+                             "description" => $resp_profile["response"]["meta.description"],
+                             "offers" => $resp_offers["response"],
                              "logged_in" => $logged_in,
                              "user_id" => $user_id,
                              "own_profile" => $own_profile));
         echo render_template("templates/reviews.html", array(
-                             "reviews" => $user_reviews));
+                             "reviews" => $resp_reviews["response"]));
         break;
 
     default:
