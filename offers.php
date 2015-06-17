@@ -16,10 +16,10 @@ $resp_offers = api_request($request_uri, $request_method, NULL);
 switch($resp_offers["response_code"]) {
     case SUCCESS:
         //TODO city and subject name in title
-        $title = "placeholder - Vlakbijles";
+        $title = "placeholder - " . SITENAME;
         break;
     default:
-        $title = "Er is iets misgegaan - Vlakbijles";
+        $title = ERROR_HEADING . SITENAME;
 }
 echo render_template("templates/head.html", array(
                      "title" => $title));
@@ -41,14 +41,14 @@ switch($resp_offers["response_code"]) {
 
     case INVALID:
         echo render_template("templates/error.html", array(
-                             "title" => "Er is iets misgegaan (" . $resp_offers["response_code"] . ")",
-                             "message" => "Onjuist vak en/of niet bestaande postcode ingevoerd"));
+                             "title" => ERROR_HEADING . " (" . $resp_offers["response_code"] . ")",
+                             "message" => ERROR_INVALIDSEARCH));
         break;
 
     case NO_RESULTS:
         echo render_template("templates/error.html", array(
-                             "title" => "Geen resultaten (" . $resp_offers["response_code"] . ")",
-                             "message" => "Er zijn geen bijles aanbiedingen gevonden die voldoen aan de gespecifeerde criteria"));
+                             "title" => ERROR_HEADING . " (" . $resp_offers["response_code"] . ")",
+                             "message" => ERROR_NORESULTS));
         break;
 
     case SUCCESS:
@@ -59,8 +59,8 @@ switch($resp_offers["response_code"]) {
 
     default:
         echo render_template("templates/error.html", array(
-                             "title" => "Er is iets misgegaan (-)",
-                             "message" => "Undefined error"));
+                             "title" => ERROR_HEADING . " (-)",
+                             "message" => ERROR_UNDEFINED));
         break;
 
 }

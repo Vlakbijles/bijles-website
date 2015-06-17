@@ -24,10 +24,10 @@ $resp_reviews = api_request($request_uri, $request_method, NULL);
 switch($resp_profile["response_code"]) {
     case SUCCESS:
         $title = "Profiel van " . $resp_profile["response"]["meta.name"] . " "
-                 . $resp_profile["response"]["meta.surname"] . " - Vlakbijles";
+                 . $resp_profile["response"]["meta.surname"] . " - " . SITENAME;
         break;
     default:
-        $title = "Er is iets misgegaan - Vlakbijles";
+        $title = ERROR_HEADING . " - " . SITENAME;
 }
 echo render_template("templates/head.html", array(
                      "title" => $title));
@@ -49,8 +49,8 @@ switch($resp_profile["response_code"]) {
 
     case NO_RESULTS:
         echo render_template("templates/error.html", array(
-                             "title" => "Er is iets misgegaan (" . $resp_profile["response_code"] . ")",
-                             "message" => "Gebruiker niet gevonden"));
+                             "title" => ERROR_HEADING . " (" . $resp_profile["response_code"] . ")",
+                             "message" => ERROR_USERNOTFOUND));
         break;
 
     case SUCCESS:
@@ -85,8 +85,8 @@ switch($resp_profile["response_code"]) {
 
     default:
         echo render_template("templates/error.html", array(
-                             "title" => "Er is iets misgegaan (-)",
-                             "message" => "Undefined error"));
+                             "title" => ERROR_HEADING . " (-)",
+                             "message" => ERROR_UNDEFINED));
         break;
 
 }
