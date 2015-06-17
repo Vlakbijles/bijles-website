@@ -6,14 +6,15 @@ $(function() {
     var subjects = (function () {
         var formatted = [];
         $.ajax({
-            'async': false,
-            'global': false,
-            'url': "http://vlakbijles.nl:5000/subject/all",
-            'dataType': "json",
-            'success': function (data) {
-                $.each(data, function(key, val) {
-                    formatted.push({ "value" : val.id, "label" : val.name });
-                });
+            async: true,
+            url: "ajaxutils/subject.php?action=all",
+            dataType: "json",
+            success: function (data) {
+                if(data) {
+                    $.each(data, function(key, val) {
+                        formatted.push({ "value" : val.id, "label" : val.name });
+                    });
+                }
             }
         });
         return formatted;
