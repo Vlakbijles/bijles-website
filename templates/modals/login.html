@@ -36,7 +36,7 @@
           url: 'facebook/fb_auth.php?access_token=' + response.authResponse.accessToken,
           dataType: "text",
           success: function (data) {
-              document.getElementById('test2').innerHTML = response.authResponse.accessToken;
+              document.getElementById('test2').innerHTML = data;
               return data;
           }
       });
