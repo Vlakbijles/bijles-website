@@ -30,16 +30,10 @@
   }
 
   function getFacebookData(response) {
-      (function () {
-          $.ajax({
-              async: true,
-              url: 'facebook/fb_auth.php?access_token=' + response.authResponse.accessToken,
-              dataType: "json",
-              success: function (data) {
-                  // console.log(data);
-                  return data;
-              }
-          });
+      return $.ajax({
+          async: true,
+          url: 'facebook/fb_auth.php?access_token=' + response.authResponse.accessToken,
+          dataType: "json",
       });
   }
 
@@ -84,8 +78,6 @@
                         <fb:login-button size="large" scope="public_profile,email" onlogin="checkLoginState();">
                           Inloggen met Facebook
                         </fb:login-button>
-                        <div id="test2">
-                        </div>
                         <div id="test">
                         </div>
                     </div>
