@@ -17,12 +17,6 @@
                     <div class="form-group">
                         <input type="text" class="form-control" name="reg_zipcode" id="reg_zipcode" placeholder="Postcode">
                     </div>
-                    <div class="form-group">
-                        <input type="hidden" class="form-control" name="reg_fb_token" id="reg_fb_token" value="">
-                        <div id="fb-root">
-                            <div class="fb-login-button" id="fblogin" data-scope="public_profile,email,user_photos" data-size="xlarge" onlogin="check_login_state();"></div>
-                        </div>
-                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Registreren</button>
@@ -31,53 +25,3 @@
         </form>
     </div>
 </div>
-<script>
-    // This is called with the results from from FB.getLoginStatus().
-    function status_change_callback(response) {
-        if (response.status === 'connected') {
-            // Logged into your app and Facebook.
-            document.getElementById('fb-root').style.display = 'none';
-            getData();
-        } else if (response.status === 'not_authorized') {
-            // The person is logged into Facebook, but not your app.
-            console.log("App not authorised");
-        } else {
-            // The person is not logged into Facebook
-            console.log("Facebook not logged in");
-        }
-    }
-
-    // This function is called when someone finishes with the Login Button.
-    function check_login_state() {
-        FB.getLoginStatus(function(response) {
-            status_change_callback(response);
-        });
-    }
-
-    // Here we run a very simple test of the Graph API after login is
-    function get_data() {
-        var access_token = FB.getAuthResponse()['accessToken'];
-        document.getElementById('reg_fb_token').value = access_token;
-    }
-
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId : '1597503327174282',
-            cookie : true,  // enable cookies to allow the server to access
-            xfbml : true,  // parse social plugins on this page
-            version : 'v2.3' // use version 2.2
-        });
-        FB.getLoginStatus(function(response) {
-            status_change_callback(response);
-        });
-    };
-
-    // Load the SDK asynchronously
-    (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-</script>

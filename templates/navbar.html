@@ -18,11 +18,9 @@
                 <?php if ($logged_in) { ?>
 
                 <li><a href="index.php?page=profile&id=<?=$user_id?>">Mijn profiel</a></li>
-                <li><a href="logout.php">Uitloggen</a></li>
 
                 <?php } else { ?>
 
-                <li><a href="#" data-toggle="modal" data-target="#registermodal">Registreren</a></li>
                 <li><a href="#" data-toggle="modal" data-target="#loginmodal">Inloggen</a></li>
 
                 <?php } ?>
