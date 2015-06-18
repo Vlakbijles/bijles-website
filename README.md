@@ -53,7 +53,7 @@ PUT
 }
 ```
 
-/user/<id>?
+/user/"<id>"?
 
 GET
 
