@@ -15,6 +15,7 @@
     } else {
       // The person is not logged into Facebook, so we're not sure if
       // they are logged into this app or not.
+      console.log(getFacebookData(response));
       document.getElementById('status').innerHTML = 'Please log ' +
         'into Facebook.';
     }
@@ -78,7 +79,7 @@
                         <fb:login-button size="large" scope="public_profile,email" onlogin="checkLoginState();">
                           Inloggen met Facebook
                         </fb:login-button>
-                        <div id="test">
+                        <div id="status">
                         </div>
                     </div>
                 </div>
