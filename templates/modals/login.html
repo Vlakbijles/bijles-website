@@ -36,11 +36,14 @@
           dataType: "json",
           success: function (data) {
               $("#loginBody").addClass("hidden")
+              $("#modalTitle").val("Registreren")
               $("#registerBody").removeClass("hidden")
+              $("#registerFooter").removeClass("hidden")
               $("#regName").val(data.name);
+              $("#regEmail").val(data.email);
               $("#regSurname").val(data.surname);
               $("#regPicture").attr("src", data.picture);
-              return data;
+              $("#regAccesstoken").val(data.access_token);
           }
       });
   }
@@ -89,27 +92,30 @@
                     </div>
                 </div>
             </div>
-            <div class="modal-body form-group hidden" id="registerBody">
-                <img src="" class="img-responsive img-thumbnail center-block bottommargin" id="regPicture">
-                <div class="form-group">
-                    <input type="email" class="form-control" name="reg_email" id="regEmail" placeholder="E-mailadres">
+            <form role="form" method="POST" action="register.php">
+                <div class="modal-body form-group hidden" id="registerBody">
+                    <img src="" class="img-responsive img-thumbnail center-block bottommargin" id="regPicture">
+                    <h2 class="text-center">
+                        <span id="regName"></span>
+                        <span id="regSurname"></span>
+                    </h2>
+                    <div class="form-group">
+                        <input type="email" class="form-control" name="reg_email" id="regEmail" placeholder="E-mailadres">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="reg_zipcode" id="regZipcode" placeholder="Postcode">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="3" name="reg_description" id="regDescription" placeholder="Beschrijving"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" class="form-control" name="reg_acces_token" id="regAccesstoken">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="name" class="form-control" name="reg_name" id="regName" placeholder="Name" disabled="disabled">
+                <div class="modal-footer hidden" id="registerFooter">
+                    <button type="submit" class="btn btn-primary">Registreren</button>
                 </div>
-                <div class="form-group">
-                    <input type="name" class="form-control" name="reg_surname" id="regSurname" placeholder="Name" disabled="disabled">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" name="reg_zipcode" id="regZipcode" placeholder="Postcode">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" name="reg_description" id="regDescription" placeholder="Postcode">
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Registreren</button>
-            </div>
+            </form>
         </div>
     </div>
 </div>

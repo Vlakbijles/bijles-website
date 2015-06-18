@@ -5,38 +5,39 @@
 
     require_once("api.php");
 
-    $email =  "";
-    $password = "";
-    $zipcode = "";
-    $fb_token = "";
-
     function clean_input($input) {
         return htmlspecialchars(stripslashes(trim($input)));
     }
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (isset($_POST["reg_email"])) {
-            $email = clean_input($_POST["reg_email"]);
+    $request_uri = "/user?";
+    $request_method = "POST";
+
+    if (isset($_POST["reg_email"]) && isset($_POST["reg_zipcode"]) &&
+        isset($_POST["reg_acces_token"])) {
+
+        $email = $_POST["reg_email"];
+        $zipcode = $_POST["reg_zipcode"];
+        $fb_token = $_POST["reg_acces_token"];
+
+        $user = array("email" => $email);
+        $usermeta = array("fb_token" => $fb_token, "zipcode" => $zipcode);
+
+        if (isset($_POST["reg_phone"])) {
+            $usermeta["phone"] = $_POST["phone"];
         }
-        if (isset($_POST["reg_pwd"])) {
-            $password = clean_input($_POST["reg_pwd"]);
+
+        if (isset($_POST["reg_description"])) {
+            $usermeta["description"] = $_POST["description"];
         }
-        if (isset($_POST["reg_zipcode"])) {
-            $zipcode = clean_input($_POST["reg_zipcode"]);
-        }
-        if (isset($_POST["reg_fb_token"])) {
-            $fb_token = clean_input($_POST["reg_fb_token"]);
-        }
+
+        $data = array("user" => $user, "usermeta" => $usermeta);
+
+        $response = api_request($request_uri, $request_method, $data);
+
     }
 
     // Perform login
-    $request_uri = "/user?";
-    $request_method = "POST";
-    $usermeta = array("fb_token" => $fb_token, "zipcode" => $zipcode);
-    $user = array("email" => $email, "password" => $password);
-    $data = array("user" => $user, "usermeta" => $usermeta);
 
-    $response = api_request($request_uri, $request_method, $data);
 
     if ($response["response_code"] == 200) {
         // succesful registration, proceed to login
