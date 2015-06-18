@@ -19,7 +19,7 @@ switch($resp_offers["response_code"]) {
         $title = "placeholder - " . SITENAME;
         break;
     default:
-        $title = ERROR_HEADING . SITENAME;
+        $title = ERROR_HEADING . " - " . SITENAME;
 }
 echo render_template("templates/head.html", array(
                      "title" => $title));

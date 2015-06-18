@@ -1,0 +1,83 @@
+<script>
+$(function(){
+    var numSubjects = 1;
+    $("#addOfferBtn").on("click", function(e){
+        e.preventDefault();
+        numSubjects = numSubjects + 1;
+        $("#addOfferRow").clone().prop({ id: "addOfferRow_" + numSubjects, name: "newName"}).appendTo("#addOffers");
+        $("addOfferRow_" + numSubjects).removeClass('hidden');
+        //     var offerID = $(this).attr("value");
+        //     $.ajax({
+        //         url: "ajaxutils/offer.php",
+        //         type: "post",
+        //         data: {"action": "delete", "offer_id": offerID},
+        //         success: function(data, status) {
+        //             if(data == "ok") {
+        //                 $("#offer" + offerID).remove();
+        //                 $("#numOffers").text(parseInt($("#numOffers").text()) - 1);
+        //             } else if (data == "error") {
+        //                 alert("Error");
+        //             }
+        //         }
+        //     });
+        // }
+    });
+});
+</script>
+<!-- Add subjects modal -->
+<div id="addOffersModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-xs">
+        <form role="form">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Vakken toevoegen</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group" id="addOffers">
+
+                        <div class="row">
+                            <div class="col-xs-7" style="padding: 0 5px 10px 0;">
+                                <input type="text" class="form-control" placeholder="Vaknaam...">
+                            </div>
+                            <div class="col-xs-3"style="padding: 0 5px 10px 5px;;">
+                                <select class="form-control" id="select">
+                                    <option>VMBO</option>
+                                    <option>HAVO</option>
+                                    <option>VWO</option>
+                                    <option>HBO</option>
+                                    <option>WO</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-2" style="padding: 0 0 10px 5px;">
+                                <button id="addOfferBtn" class="btn btn-block btn-success glyphicon" type="button">&#x2b;</button>
+                            </div>
+                        </div>
+
+                        <div class="row hidden" id="addOfferRow">
+                            <div class="col-xs-7" style="padding: 0 5px 10px 0;">
+                                <input type="text" class="form-control" placeholder="Vaknaam...">
+                            </div>
+                            <div class="col-xs-3"style="padding: 0 5px 10px 5px;;">
+                                <select class="form-control" id="select">
+                                    <option>VMBO</option>
+                                    <option>HAVO</option>
+                                    <option>VWO</option>
+                                    <option>HBO</option>
+                                    <option>WO</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-2" style="padding: 0 0 10px 5px;">
+                                <button id="removeOfferBtn" class="btn btn-block btn-danger glyphicon" type="button">&#x2212;</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Toevoegen</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

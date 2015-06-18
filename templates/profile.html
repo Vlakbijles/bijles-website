@@ -33,7 +33,7 @@
 
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#profile" data-toggle="tab" aria-expanded="true">Profiel</a></li>
-                        <li class=""><a href="#offers" data-toggle="tab" aria-expanded="false">Vakken</a></li>
+                        <li class=""><a href="#offers" data-toggle="tab" aria-expanded="false">Vakken (<span id="numOffers"><?=$num_offers?></span>)</a></li>
                     </ul>
 
                     <div id="myTabContent" class="tab-content topmargin" >
@@ -46,6 +46,10 @@
                             <p><?=$description?></p>
                         </div>
 
+                        <?php if($own_profile) { ?>
+                        <script src="js/editoffers.js"></script>
+                        <?php } ?>
+
                         <!-- Offers tab -->
                         <div class="tab-pane fade" id="offers">
                             <table class="table table-striped table-hover vcenter">
@@ -55,7 +59,7 @@
                                         <th class="col-xs-3">Niveau</th>
                                         <th class="col-xs-1">
                                             <?php if($own_profile) { ?>
-                                            <a href="#" data-toggle="modal" data-target="#addsubjectsmodal" class="btn btn-success btn-sm btn-block glyphicon pull-right">&#x2b;</a>
+                                            <a href="#" data-toggle="modal" data-target="#addOffersModal" class="btn btn-success btn-sm btn-block glyphicon pull-right">&#x2b;</a>
                                             <?php } ?>
                                         </th>
                                     </tr>
@@ -63,12 +67,12 @@
                                 <tbody>
                                     <?php foreach ($offers as $offer) { ?>
 
-                                    <tr>
+                                    <tr id="offer<?=$offer["id"]?>">
                                         <td><?=$offer["subject.name"]?></td>
                                         <td><?=$offer["level.name"]?></td>
                                         <td>
                                             <?php if($own_profile) { ?>
-                                            <a href="#" class="btn btn-danger btn-sm btn-block glyphicon pull-right">&#xe014;</a>
+                                            <a href="#" name="<?=$offer["subject.name"]?>" value="<?=$offer["id"]?>" class="btn btn-danger btn-sm btn-block glyphicon pull-right deleteOffer">&#xe014;</a>
                                             <?php } ?>
                                         </td>
                                     </tr>
