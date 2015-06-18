@@ -32,7 +32,7 @@
   function getFacebookData(response) {
       $.ajax({
           async: true,
-          url: "facebook/fb_auth.php?access_token=" + response.authResponse.accessToken,
+          url: "ajax/fb_auth.php?access_token=" + response.authResponse.accessToken,
           dataType: "json",
           success: function (data) {
               $("#loginBody").addClass("hidden")
