@@ -7,7 +7,7 @@
     console.log(response);
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
-      document.getElementById('test').innerHTML = getFacebookData(response);
+      console.log(getFacebookData(response));
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
@@ -30,14 +30,16 @@
   }
 
   function getFacebookData(response) {
-      $.ajax({
-          async: true,
-          url: 'facebook/fb_auth.php?access_token=' + response.authResponse.accessToken,
-          dataType: "json",
-          success: function (data) {
-              document.getElementById('test2').innerHTML = data;
-              return data;
-          }
+      (function () {
+          $.ajax({
+              async: true,
+              url: 'facebook/fb_auth.php?access_token=' + response.authResponse.accessToken,
+              dataType: "json",
+              success: function (data) {
+                  // console.log(data);
+                  return data;
+              }
+          });
       });
   }
 
