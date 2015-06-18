@@ -28,7 +28,9 @@ if(!empty($_GET['access_token'])) {
         print_r($response["response"]);
 
         echo "<br>";
+        echo "<a href='";
         echo "https://graph.facebook.com/me/permissions?method=delete&access_token=" . $response["response"]["access_token"];
+        echo "'>LOGOUT</a>'";
     }
 
 
