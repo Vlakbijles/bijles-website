@@ -5,7 +5,7 @@ $(function(){
         if(confirm($(this).attr("name") + " verwijderen uit je vakkenlijst?")){
             var offerID = $(this).attr("value");
             $.ajax({
-                url: "ajaxutils/offer.php",
+                url: "ajax/offer.php",
                 type: "POST",
                 data: {"action": "delete", "offer_id": offerID},
                 success: function(data, status) {

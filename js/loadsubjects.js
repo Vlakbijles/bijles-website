@@ -6,7 +6,7 @@ $(function(){
         var formatted = [];
         $.ajax({
             async: true,
-            url: "ajaxutils/subject.php?action=all",
+            url: "ajax/subject.php?action=all",
             dataType: "json",
             success: function (data) {
                 if(data) {
