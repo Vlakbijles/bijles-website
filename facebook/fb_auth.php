@@ -23,11 +23,16 @@ if(!empty($_GET['access_token'])) {
     if ($response["response_code"] == 200) {
         setcookie("user_id", $response["response"]["user_id"], time() + (86400 * 7), "/"); // 86400 = 1 day
         setcookie("token_hash", $response["response"]["token_hash"], time() + (86400 * 7), "/"); // 86400 = 1 day
+        print_r($response["response"]);
     } else {
         print_r($response["response"]);
+
+        echo "<br>";
+        echo "<a href='";
+        echo "https://graph.facebook.com/me/permissions?method=delete&access_token=" . $response["response"]["access_token"];
+        echo "'>LOGOUT</a>'";
     }
 
-    header("Location: " . $_SERVER["HTTP_REFERER"]);
 
 }
 
