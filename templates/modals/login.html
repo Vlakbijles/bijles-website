@@ -7,7 +7,7 @@
     console.log(response);
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
-      console.log(getFacebookData(response));
+      getFacebookData(response);
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
@@ -39,9 +39,9 @@
               $("#modalTitle").val("Registreren")
               $("#registerBody").removeClass("hidden")
               $("#registerFooter").removeClass("hidden")
-              $("#regName").val(data.name);
               $("#regEmail").val(data.email);
-              $("#regSurname").val(data.surname);
+              $("#regName").text(data.name);
+              $("#regSurname").text(data.surname);
               $("#regPicture").attr("src", data.picture);
               $("#regAccesstoken").val(data.access_token);
           }
