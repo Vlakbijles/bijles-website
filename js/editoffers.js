@@ -1,19 +1,5 @@
 $(function(){
 
-    var levels = (function () {
-        var formatted = [];
-        $.ajax({
-            async: true,
-            url: "ajaxutils/subject.php?action=all",
-            dataType: "json",
-            success: function (data) {
-                if(data) {
-                    return data;
-                }
-            }
-        });
-    })();
-
     $(".deleteOffer").on("click", function(e){
         e.preventDefault();
         if(confirm($(this).attr("name") + " verwijderen uit je vakkenlijst?")){
