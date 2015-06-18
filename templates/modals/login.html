@@ -8,7 +8,7 @@
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       test = getFacebookData(response);
-      console.log(test);
+      document.getElementById('test').innerHTML = test;
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
@@ -34,7 +34,7 @@
       $.ajax({
           async: true,
           url: 'facebook/fb_auth.php?access_token=' + response.authResponse.accessToken,
-          dataType: "json",
+          dataType: "text",
           success: function (data) {
               return data;
           }
@@ -82,6 +82,8 @@
                         <fb:login-button size="large" scope="public_profile,email" onlogin="checkLoginState();">
                           Inloggen met Facebook
                         </fb:login-button>
+                        <div id="test">
+                        </div>
                     </div>
                 </div>
             </div>
