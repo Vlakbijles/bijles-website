@@ -1,27 +1,37 @@
+<script src="js/loadlevels.js"></script>
 <script>
 $(function(){
+
     var numSubjects = 1;
+
     $("#addOfferBtn").on("click", function(e){
-        e.preventDefault();
         numSubjects = numSubjects + 1;
-        $("#addOfferRow").clone().prop({ id: "addOfferRow_" + numSubjects, name: "newName"}).appendTo("#addOffers");
-        $("addOfferRow_" + numSubjects).removeClass('hidden');
-        //     var offerID = $(this).attr("value");
-        //     $.ajax({
-        //         url: "ajaxutils/offer.php",
-        //         type: "post",
-        //         data: {"action": "delete", "offer_id": offerID},
-        //         success: function(data, status) {
-        //             if(data == "ok") {
-        //                 $("#offer" + offerID).remove();
-        //                 $("#numOffers").text(parseInt($("#numOffers").text()) - 1);
-        //             } else if (data == "error") {
-        //                 alert("Error");
-        //             }
-        //         }
-        //     });
-        // }
+        $("#extraOfferRow").clone().prop({id: "extraOfferRow_" + numSubjects}).appendTo("#addOffers");
+        $("#extraOfferRow_" + numSubjects).removeClass("hidden");
+        $(".subjectName").autocomplete({
+            source: subjects,
+            select: function (event, ui) {
+                event.preventDefault();
+                    $(this).val(ui.item.label);
+                $(".subject_id").val(ui.item.value);
+            },
+            focus: function (event, ui) {
+                event.preventDefault();
+                    $(this).val(ui.item.label);
+                $(".subject_id").val(ui.item.value);
+            },
+            change: function (event, ui) {
+                if(!ui.item){
+                    $(".subjectName").val("");
+                }
+            },
+        });
     });
+
+    $(document).on("click", "button.removeOfferBtn", function(e) {
+        $(this).parent().parent().remove();
+    });
+
 });
 </script>
 <!-- Add subjects modal -->
@@ -38,15 +48,10 @@ $(function(){
 
                         <div class="row">
                             <div class="col-xs-7" style="padding: 0 5px 10px 0;">
-                                <input type="text" class="form-control" placeholder="Vaknaam...">
+                                <input type="text" class="form-control subjectName" placeholder="Vaknaam...">
                             </div>
-                            <div class="col-xs-3"style="padding: 0 5px 10px 5px;;">
-                                <select class="form-control" id="select">
-                                    <option>VMBO</option>
-                                    <option>HAVO</option>
-                                    <option>VWO</option>
-                                    <option>HBO</option>
-                                    <option>WO</option>
+                            <div class="col-xs-3"style="padding: 0 5px 10px 5px;">
+                                <select class="form-control levelSelector">
                                 </select>
                             </div>
                             <div class="col-xs-2" style="padding: 0 0 10px 5px;">
@@ -54,21 +59,16 @@ $(function(){
                             </div>
                         </div>
 
-                        <div class="row hidden" id="addOfferRow">
+                        <div class="row hidden" id="extraOfferRow">
                             <div class="col-xs-7" style="padding: 0 5px 10px 0;">
-                                <input type="text" class="form-control" placeholder="Vaknaam...">
+                                <input type="text" class="form-control subjectName" placeholder="Vaknaam...">
                             </div>
-                            <div class="col-xs-3"style="padding: 0 5px 10px 5px;;">
-                                <select class="form-control" id="select">
-                                    <option>VMBO</option>
-                                    <option>HAVO</option>
-                                    <option>VWO</option>
-                                    <option>HBO</option>
-                                    <option>WO</option>
+                            <div class="col-xs-3"style="padding: 0 5px 10px 5px;">
+                                <select class="form-control levelSelector">
                                 </select>
                             </div>
                             <div class="col-xs-2" style="padding: 0 0 10px 5px;">
-                                <button id="removeOfferBtn" class="btn btn-block btn-danger glyphicon" type="button">&#x2212;</button>
+                                <button class="btn btn-block btn-danger glyphicon removeOfferBtn" type="button">&#x2212;</button>
                             </div>
                         </div>
 
