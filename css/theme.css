@@ -23,6 +23,10 @@ body {
     width: auto;
 }
 
+ul.ui-autocomplete {
+    z-index: 1100;
+}
+
 .search-bg {
     background-image: url(../img/bg3.jpg);
     background-position: center top;
