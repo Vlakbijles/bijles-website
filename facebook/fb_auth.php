@@ -27,7 +27,7 @@ if(!empty($_GET['access_token'])) {
         print_r($response["response"]);
     }
 
-    header("Location: " . $_SERVER["HTTP_REFERER"]);
+    // header("Location: " . $_SERVER["HTTP_REFERER"]);
 
 }
 
