@@ -36,6 +36,7 @@
           url: 'facebook/fb_auth.php?access_token=' + response.authResponse.accessToken,
           dataType: "text",
           success: function (data) {
+              document.getElementById('test2').innerHTML = response.authResponse.accessToken;
               return data;
           }
       });
@@ -82,6 +83,8 @@
                         <fb:login-button size="large" scope="public_profile,email" onlogin="checkLoginState();">
                           Inloggen met Facebook
                         </fb:login-button>
+                        <div id="test2">
+                        </div>
                         <div id="test">
                         </div>
                     </div>
