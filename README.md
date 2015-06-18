@@ -1,6 +1,9 @@
 # Vlakbijles
 
+```
 /user?
+```
+
 GET
 ```
 {
@@ -53,7 +56,8 @@ PUT
 }
 ```
 
+```
 /user/<user_id>?
-
+```
 GET
 
