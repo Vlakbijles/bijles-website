@@ -1,3 +1,8 @@
+// loadlevels.js
+//
+// Sends ajax request to API server, loads list of all available levels into
+// global variable
+
 var levels = [];
 
 $(function(){

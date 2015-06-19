@@ -1,3 +1,8 @@
+// loadsubjects.js
+//
+// Sends ajax request to API server, loads list of all available subjects into
+// global variable
+
 var subjects = [];
 
 $(function(){

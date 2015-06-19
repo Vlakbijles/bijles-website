@@ -1,3 +1,9 @@
+// removeoffers.js
+//
+// Send ajax request to API server for removing/deactivating a user's offer,
+// dynamically removes the offer from the profile page and decrements the
+// shown offer count
+
 $(function(){
 
     $(".deleteOffer").on("click", function(e){
@@ -18,19 +24,5 @@ $(function(){
                 });
          }
     });
-
-    // levels = (function() {
-    //     $.ajax({
-    //         url: "ajax/level.php?action=all",
-    //         dataType: "json"})
-    //         .done(function(data) {
-    //             if(data) {
-    //                 $.each(data, function(index, value) {
-    //                     $(".levelSelector").append("<option value=" + value.id + ">" + value.name + "</option>");
-    //                 });
-    //                 return data;
-    //             }
-    //         });
-    // })();
 
 });
