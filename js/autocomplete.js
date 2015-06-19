@@ -1,6 +1,9 @@
 // autocomplete.js
 //
 // Handles autocomplete for the main search bar
+//
+// Makes use of global variables:
+// subjects     - List of available subjects
 
 $(function() {
 
