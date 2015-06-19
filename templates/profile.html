@@ -60,7 +60,7 @@
                                         <th class="col-xs-3">Niveau</th>
                                         <th class="col-xs-1">
                                             <?php if($own_profile) { ?>
-                                            <a href="#" id="addOffersBtn" data-toggle="modal" data-target="#addOffersModal" class="btn btn-success btn-sm btn-block glyphicon pull-right">&#x2b;</a>
+                                            <button id="addOffersBtn" data-toggle="modal" data-target="#addOffersModal" class="btn btn-success btn-sm btn-block glyphicon pull-right">&#x2b;</a>
                                             <?php } ?>
                                         </th>
                                     </tr>
@@ -73,7 +73,7 @@
                                         <td class="levelName"><?=$offer["level.name"]?></td>
                                         <td>
                                             <?php if($own_profile) { ?>
-                                            <a href="#" name="<?=$offer["subject.name"]?>" value="<?=$offer["id"]?>" class="btn btn-danger btn-sm btn-block glyphicon pull-right deleteOffer">&#xe014;</a>
+                                            <button name="<?=$offer["subject.name"]?>" value="<?=$offer["id"]?>" class="deleteOfferBtn btn btn-block btn-sm btn-danger glyphicon" type="button">&#xe014;</button>
                                             <?php } ?>
                                         </td>
                                     </tr>
@@ -84,9 +84,9 @@
                                         <td class="subjectName">subject name</td>
                                         <td class="levelName">level name</td>
                                         <td>
-                                            <!-- <?php if($own_profile) { ?> -->
-                                            <!-- <a href="#" name="<?=$offer["subject.name"]?>" value="<?=$offer["id"]?>" class="btn btn&#45;danger btn&#45;sm btn&#45;block glyphicon pull&#45;right deleteOffer">&#38;#xe014;</a> -->
-                                            <!-- <?php } ?> -->
+                                            <?php if($own_profile) { ?>
+                                            <button name="<?=$offer["subject.name"]?>" value="<?=$offer["id"]?>" class="deleteOfferBtn btn btn-block btn-sm btn-danger glyphicon" type="button">&#xe014;</button>
+                                            <?php } ?>
                                         </td>
                                     </tr>
 
