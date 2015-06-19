@@ -59,6 +59,7 @@ switch($resp_profile["response_code"]) {
 
         if ($own_profile) {
             echo render_template("templates/modals/editprofile.html", array(
+                                 "email" => $resp_profile["response"]["email"],
                                  "description" => $resp_profile["response"]["meta.description"],
                                  "zipcode" => $resp_profile["response"]["meta.zipcode"]));
             echo render_template("templates/modals/addoffers.html",
