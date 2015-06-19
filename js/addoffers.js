@@ -51,7 +51,7 @@ $(function(){
     var numOffers = 1;
     enableAutoComplete(numOffers); // Enable autocomplete on initial row
 
-    $("#addOffersBtn").on("click", function(e){
+    $("#addOffersBtn").one("click", function(e){
         $.each(levels, function(index, value) {
             $(".levelSelector").append("<option value=" + value.value + ">" + value.label + "</option>");
         });
@@ -78,37 +78,34 @@ $(function(){
         for(i = 1; i <= numOffers; i++) {
             var subjectId = $("#subject_id" + i).val();
             var levelId = $("#level_id" + i).val();
-
             if (subjectId && levelId) {
-
                 $.ajax({
                     url: "ajax/offer.php",
+                    // async: false,
                     type: "POST",
+                    dataType: "json",
                     data: {"action": "create",
                            "subject_id": subjectId,
                            "level_id": levelId}})
                     .done(function(data, status) {
-                        if(data == "ok") {
-                            rowId = "" + subjectId + levelId;
-
-                            $("#offerRow").clone().prop({id: "offerRow_" + rowId}).appendTo($("#offerTable tbody"));
-                            $("#offerRow_" + rowId).removeClass("hidden");
-                            // Index/id correspondance assumed, not pretty
-                            $("#offerRow_" + rowId).find(".subjectName").html(subjects[subjectId - 1].label);
-                            $("#offerRow_" + rowId).find(".levelName").html(levels[levelId - 1].label);
+                        if(data) {
+                            $("#offerRow").clone().prop({id: "offerRow_" + data["id"]}).prependTo($("#offerTable tbody"));
+                            $("#offerRow_" + data["id"]).removeClass("hidden");
+                            $("#offerRow_" + data["id"]).find(".subjectName").text(data["subject.name"]);
+                            $("#offerRow_" + data["id"]).find(".levelName").text(data["level.name"]);
                             $("#numOffers").text(parseInt($("#numOffers").text()) + 1);
+                            $("#offerRow_" + data["id"]).find(".deleteOfferBtn").attr({value: data["id"], name: data["subject.name"]});
                         }
                     })
                     .fail(function() {
                         alert("Error");
                     })
                     .always(function() {
-                        clearForm();
-                        $("#addOffersModal").modal("toggle");
                     });
-
             }
         }
+        clearForm();
+        $("#addOffersModal").modal("toggle");
     });
 
 });

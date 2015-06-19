@@ -37,7 +37,7 @@ if ($logged_in) {
                 $response = api_request($request_uri, $request_method, $data);
 
                 if ($response["response_code"] == CREATED) {
-                    die("ok");
+                    echo json_encode($response["response"]);
                 }
             }
 
@@ -52,13 +52,10 @@ if ($logged_in) {
                 }
             }
 
-        default:
-            die("error");
+        default: ;
 
     }
 
 }
-
-die("error");
 
 ?>
