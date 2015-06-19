@@ -8,18 +8,19 @@ var levels = [];
 $(function(){
 
     levels = (function() {
+        var formatted = [];
         $.ajax({
             url: "ajax/level.php?action=all",
             type: "GET",
             dataType: "json"})
             .done(function(data) {
                 if(data) {
-                    $.each(data, function(index, value) {
-                        $(".levelSelector").append("<option value=" + value.id + ">" + value.name + "</option>");
+                    $.each(data, function(key, val) {
+                        formatted.push({ "value": val.id, "label": val.name });
                     });
-                    return data;
                 }
             });
+        return formatted;
     })();
 
 });
