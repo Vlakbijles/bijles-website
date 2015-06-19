@@ -39,12 +39,15 @@
 
                     <div id="myTabContent" class="tab-content topmargin" >
 
+                        <?php if($own_profile) { ?>
+                        <script src="js/editprofile.js"></script>
+                        <?php } ?>
                         <!-- Profile tab -->
                         <div class="tab-pane fade active in" id="profile">
                             <?php if ($own_profile) { ?>
-                            <a href="#" data-toggle="modal" data-target="#editmodal" class="btn btn-primary btn-sm glyphicon pull-right" style="margin: 0 0 10px 10px;">&#x270f;</a>
+                            <button data-toggle="modal" id="editProfileBtn" data-target="#editmodal" class="btn btn-primary btn-sm glyphicon pull-right" style="opacity: 0; margin: 0 0 10px 10px;">&#x270f;</button>
                             <?php } ?>
-                            <p><?=$description?></p>
+                            <p id="userDescription"><?=$description?></p>
                         </div>
 
                         <?php if($own_profile) { ?>
