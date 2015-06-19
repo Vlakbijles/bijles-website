@@ -1,16 +1,8 @@
 // autocomplete.js
+//
+// Handles autocomplete for the main search bar
 
 $(function() {
-
-    // $("#searchForm").submit(function(event) {
-    //     console.log($.inArray($("#subjectName").val(), subjects));
-    //     // console.log($("#subjectName").val() in subjects);
-    //
-    //     // if($.inArray($("#subjectName").val(), subjects) == -1) {
-    //     //     alert($("#subject_id").val());
-    //     // }
-    //     event.preventDefault();
-    // });
 
     $("#searchSubjectName").autocomplete({
         source: subjects,
