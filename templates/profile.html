@@ -68,12 +68,12 @@
                                 <tbody>
                                     <?php foreach ($offers as $offer) { ?>
 
-                                    <tr id="offerRow_<?=$offer["id"]?>">
+                                    <tr id="offerRow_<?=$offer["id"]?>" class="offerRow">
                                         <td class="subjectName"><?=$offer["subject.name"]?></td>
                                         <td class="levelName"><?=$offer["level.name"]?></td>
                                         <td>
                                             <?php if($own_profile) { ?>
-                                            <button name="<?=$offer["subject.name"]?>" value="<?=$offer["id"]?>" class="deleteOfferBtn btn btn-block btn-sm btn-danger glyphicon" type="button">&#xe014;</button>
+                                            <button name="<?=$offer["subject.name"]?>" value="<?=$offer["id"]?>" class="deleteOfferBtn btn btn-block btn-sm btn-danger glyphicon" style="opacity: 0;" type="button">&#xe014;</button>
                                             <?php } ?>
                                         </td>
                                     </tr>
@@ -85,7 +85,7 @@
                                         <td class="levelName">level name</td>
                                         <td>
                                             <?php if($own_profile) { ?>
-                                            <button name="<?=$offer["subject.name"]?>" value="<?=$offer["id"]?>" class="deleteOfferBtn btn btn-block btn-sm btn-danger glyphicon" type="button">&#xe014;</button>
+                                            <button name="<?=$offer["subject.name"]?>" value="<?=$offer["id"]?>" class="deleteOfferBtn btn btn-block btn-sm btn-danger glyphicon" style="opacity: 0;" type="button">&#xe014;</button>
                                             <?php } ?>
                                         </td>
                                     </tr>

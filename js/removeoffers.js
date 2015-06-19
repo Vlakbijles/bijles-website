@@ -6,6 +6,11 @@
 
 $(function(){
 
+    $(document).find(".offerRow").hover(
+            function() { $(this).find(".deleteOfferBtn").fadeTo(200, 1); },
+            function() { $(this).find(".deleteOfferBtn").fadeTo(0, 0); }
+    );
+
     $(document).on("click", "button.deleteOfferBtn", function(e){
         e.preventDefault();
         if(confirm($(this).attr("name") + " verwijderen uit je vakkenlijst?")){
