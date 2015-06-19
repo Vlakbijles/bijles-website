@@ -2,21 +2,19 @@ var levels = [];
 
 $(function(){
 
-    levels = (function () {
-        var formatted = [];
+    levels = (function() {
         $.ajax({
-            async: true,
             url: "ajax/level.php?action=all",
-            dataType: "json",
-            success: function (data) {
+            type: "GET",
+            dataType: "json"})
+            .done(function(data) {
                 if(data) {
                     $.each(data, function(index, value) {
                         $(".levelSelector").append("<option value=" + value.id + ">" + value.name + "</option>");
                     });
                     return data;
                 }
-            }
-        });
+            });
     })();
 
 });
