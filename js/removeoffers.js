@@ -16,7 +16,7 @@ $(function(){
                 data: {"action": "delete", "offer_id": offerId}})
                 .done(function(data, status) {
                     if(data == "ok") {
-                        $("#offer" + offerId).remove();
+                        $("#offerRow_" + offerId).remove();
                         $("#numOffers").text(parseInt($("#numOffers").text()) - 1);
                     } else if (data == "error") {
                         alert("Error");

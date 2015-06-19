@@ -3,10 +3,25 @@
 // Script for the add offers modal, handles possible extra rows and their
 // autocomplete, handles ajax request to submit the offers, dynamically
 // updates profile page when offers are succesfully created
+//
+// Makes use of global variables:
+// subjects     - List of available subjects
+// levels       - List of available levels
 
 $(function(){
 
-    var numOffers = 1;
+    // Reset first row, remove any dynamically added rows
+    function clearForm() {
+        $("#subject_name1").val("");
+        $("#subject_id1").val("");
+        $("#level_id1").val(1);
+
+        for(i = 2; i <= numOffers; i++) {
+            $(document).find("#addOfferRow_" + i).remove();
+        }
+
+        numOffers = 1;
+    }
 
     // Required for adding autocomplete to possible extra offer rows,
     // appropriate hidden fields need to be set
@@ -32,9 +47,17 @@ $(function(){
                 });
     };
 
+    // Initialization
+    var numOffers = 1;
     enableAutoComplete(numOffers); // Enable autocomplete on initial row
 
-    // Clone extra row, set id's and enable autocomplete
+    $("#addOffersBtn").on("click", function(e){
+        $.each(levels, function(index, value) {
+            $(".levelSelector").append("<option value=" + value.value + ">" + value.label + "</option>");
+        });
+    });
+
+    // Handler for dynamically adding extra rows
     $("#extraOfferBtn").on("click", function(e){
         numOffers = numOffers + 1;
         $("#extraOfferRow").clone().prop({id: "addOfferRow_" + numOffers}).appendTo("#addOffers");
@@ -45,22 +68,47 @@ $(function(){
         enableAutoComplete(numOffers);
     });
 
+    // Enable remove buttons on extra rows
     $(document).on("click", "button.removeOfferBtn", function(e) {
         $(this).parent().parent().remove();
     });
 
+    // Submit new offers to API server
     $("#submitOfferBtn").on("click", function(e){
-
         for(i = 1; i <= numOffers; i++) {
+            var subjectId = $("#subject_id" + i).val();
+            var levelId = $("#level_id" + i).val();
 
-            console.log(i + ": " +  $("#addOfferRow_" + i).children("input.subjectId").val()  );
+            if (subjectId && levelId) {
 
-            // TODO ajax request, on success add offers to offers table
+                $.ajax({
+                    url: "ajax/offer.php",
+                    type: "POST",
+                    data: {"action": "create",
+                           "subject_id": subjectId,
+                           "level_id": levelId}})
+                    .done(function(data, status) {
+                        if(data == "ok") {
+                            rowId = "" + subjectId + levelId;
 
+                            $("#offerRow").clone().prop({id: "offerRow_" + rowId}).appendTo($("#offerTable tbody"));
+                            $("#offerRow_" + rowId).removeClass("hidden");
+                            // Index/id correspondance assumed, not pretty
+                            $("#offerRow_" + rowId).find(".subjectName").html(subjects[subjectId - 1].label);
+                            $("#offerRow_" + rowId).find(".levelName").html(levels[levelId - 1].label);
+                            $("#numOffers").text(parseInt($("#numOffers").text()) + 1);
+                        }
+                    })
+                    .fail(function() {
+                        alert("Error");
+                    })
+                    .always(function() {
+                        clearForm();
+                        $("#addOffersModal").modal("toggle");
+                    });
+
+            }
         }
-
-        // $("#addOffersModal").modal("toggle");
-
     });
 
 });
