@@ -22,7 +22,7 @@
     }
 
     // Perform login
-    $request_uri = "/login?";
+    $request_uri = "/fblogin?";
     $request_method = "POST";
     $data = array("user" => array("email" => $email, "password" => $password));
     $response = api_request($request_uri, $request_method, $data);
