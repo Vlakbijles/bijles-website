@@ -9,14 +9,14 @@ $(function(){
     $(".deleteOffer").on("click", function(e){
         e.preventDefault();
         if(confirm($(this).attr("name") + " verwijderen uit je vakkenlijst?")){
-            var offerID = $(this).attr("value");
+            var offerId = $(this).attr("value");
             $.ajax({
                 url: "ajax/offer.php",
                 type: "POST",
-                data: {"action": "delete", "offer_id": offerID}})
+                data: {"action": "delete", "offer_id": offerId}})
                 .done(function(data, status) {
                     if(data == "ok") {
-                        $("#offer" + offerID).remove();
+                        $("#offer" + offerId).remove();
                         $("#numOffers").text(parseInt($("#numOffers").text()) - 1);
                     } else if (data == "error") {
                         alert("Error");
