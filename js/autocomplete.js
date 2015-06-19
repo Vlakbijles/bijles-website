@@ -12,21 +12,22 @@ $(function() {
     //     event.preventDefault();
     // });
 
-    $(".subjectName").autocomplete({
+    $("#searchSubjectName").autocomplete({
         source: subjects,
         select: function (event, ui) {
             event.preventDefault();
-                $(this).val(ui.item.label);
-            $(".subjectId").val(ui.item.value);
+            $(this).val(ui.item.label);
+            $("#searchSubjectId").val(ui.item.value);
         },
         focus: function (event, ui) {
             event.preventDefault();
-                $(this).val(ui.item.label);
-            $(".subjectId").val(ui.item.value);
+            $(this).val(ui.item.label);
+            $("#searchSubjectId").val(ui.item.value);
         },
         change: function (event, ui) {
             if(!ui.item){
-                $(".subjectName").val("");
+                $("#searchSubjectName").val("");
+                $("#searchSubjectId").val("");
             }
         },
     });
