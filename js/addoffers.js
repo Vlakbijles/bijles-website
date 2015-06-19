@@ -26,8 +26,22 @@ $(function(){
     // Required for adding autocomplete to possible extra offer rows,
     // appropriate hidden fields need to be set
     function enableAutoComplete(x) {
+        source = subjects;
         return $("#subject_name" + x).autocomplete({
-                    source: subjects,
+                    source: function (request, response) {
+                        var term = $.ui.autocomplete.escapeRegex(request.term)
+                            , startsWithMatcher = new RegExp("^" + term, "i")
+                            , startsWith = $.grep(source, function(value) {
+                                return startsWithMatcher.test(value.label || value.value || value);
+                            })
+                            , containsMatcher = new RegExp(term, "i")
+                            , contains = $.grep(source, function (value) {
+                                return $.inArray(value, startsWith) < 0 &&
+                                    containsMatcher.test(value.label || value.value || value);
+                            });
+
+                        response(startsWith.concat(contains));
+                    },
                     select: function (event, ui) {
                         event.preventDefault();
                         $(this).val(ui.item.label);
