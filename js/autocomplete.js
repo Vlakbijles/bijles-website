@@ -26,7 +26,7 @@ $(function() {
         },
         change: function (event, ui) {
             if(!ui.item){
-                $("#searchSubjectName").val("");
+                $(this).val("");
                 $("#searchSubjectId").val("");
             }
         },
