@@ -16,10 +16,10 @@ $(function() {
                 })
                 , containsMatcher = new RegExp(term, "i")
                 , contains = $.grep(source, function (value) {
-                    return $.inArray(value, startsWith) < 0 && 
+                    return $.inArray(value, startsWith) < 0 &&
                         containsMatcher.test(value.label || value.value || value);
                 });
-            
+
             response(startsWith.concat(contains));
         },
         select: function (event, ui) {
