@@ -4,12 +4,6 @@
 
 $(function(){
 
-    // Fade in/out edit button
-    $("#profile").hover(
-        function() { $(this).find("#editProfileBtn").fadeTo(500, 1); },
-        function() { $(this).find("#editProfileBtn").fadeTo(0, 0); }
-    );
-
     // Char counter logic for description
     var maxLength = 1000;
     var currentLength = $("#editDesc").val().length;
