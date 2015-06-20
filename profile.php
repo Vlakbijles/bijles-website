@@ -27,7 +27,7 @@ switch($resp_profile["response_code"]) {
                  . $resp_profile["response"]["meta.surname"] . " - " . SITENAME;
         break;
     default:
-        $title = ERROR_HEADING . " - " . SITENAME;
+        $title = ERROR_HEADING_GENERAL . " - " . SITENAME;
 }
 echo render_template("templates/head.html", array(
                      "title" => $title));
@@ -50,7 +50,7 @@ switch($resp_profile["response_code"]) {
 
     case NO_RESULTS:
         echo render_template("templates/error.html", array(
-                             "title" => ERROR_HEADING . " (" . $resp_profile["response_code"] . ")",
+                             "title" => ERROR_HEADING_GENERAL . " (" . $resp_profile["response_code"] . ")",
                              "message" => ERROR_USERNOTFOUND));
         break;
 
@@ -88,9 +88,11 @@ switch($resp_profile["response_code"]) {
         break;
 
     default:
+
+        print_r($resp_profile);
         echo render_template("templates/error.html", array(
-                             "title" => ERROR_HEADING . " (-)",
-                             "message" => ERROR_UNDEFINED));
+                             "title" => ERROR_HEADING_GENERAL . " (-)",
+                             "message" => $resp_profile["response_code"]));
         break;
 
 }

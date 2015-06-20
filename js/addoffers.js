@@ -101,7 +101,7 @@ $(function(){
                     data: {"action": "create",
                            "subject_id": subjectId,
                            "level_id": levelId}})
-                    .done(function(data, status) {
+                    .done(function(data) {
                         if(data) {
                             $("#offerRow").clone().prop({id: "offerRow_" + data["id"]}).prependTo($("#offerTable tbody"));
                             $("#offerRow_" + data["id"]).removeClass("hidden");

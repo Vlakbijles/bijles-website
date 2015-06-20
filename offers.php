@@ -29,7 +29,7 @@ switch($resp_offers["response_code"]) {
         $title = $subject . " bijles in " . $city . " - " . SITENAME;
         break;
     default:
-        $title = ERROR_HEADING . " - " . SITENAME;
+        $title = ERROR_HEADING_GENERAL . " - " . SITENAME;
 }
 echo render_template("templates/head.html", array(
                      "title" => $title));
@@ -69,7 +69,7 @@ switch($resp_offers["response_code"]) {
 
     default:
         echo render_template("templates/error.html", array(
-                             "title" => ERROR_HEADING . " (-)",
+                             "title" => ERROR_HEADING_GENERAL . " (-)",
                              "message" => $resp_offers["response_code"]));
         break;
 
