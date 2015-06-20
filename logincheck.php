@@ -19,7 +19,7 @@ if(isset($_COOKIE["user_id"]) && isset($_COOKIE["token_hash"])) {
     if ($response["response_code"] == 200) {
         $logged_in = true;
         $user_id = $_COOKIE["user_id"];
-        $user_postal_code = $response["response"]["meta.zipcode"];
+        $user_postal_code = $response["response"]["meta.postal_code"];
     } elseif ($response["response_code"] == 0) {
         die("Unable to connect to API server");
     }

@@ -54,11 +54,11 @@ $(function(){
                 dataType: "json",
                 data: {"action": "edit",
                        "email": newEmail,
-                       "zipcode": newPostalCode,
+                       "postal_code": newPostalCode,
                        "description": newDesc},
                 statusCode: {
                     // 400 indicates the email address is already in use, the
-                    // zipcode does not exist or that the max description
+                    // postal code does not exist or that the max description
                     // length is exceeded
                     400:
                         function() {
@@ -74,7 +74,7 @@ $(function(){
                         $("#userLocation").text(data["meta.city"]);
                         $("#userDescription").text(data["meta.description"]);
                         $("#editEmail").val(data["email"]);
-                        $("#editPostalCode").val(data["meta.zipcode"]);
+                        $("#editPostalCode").val(data["meta.postal_code"]);
                         $("#editDesc").val(data["meta.description"]);
                         $("#editProfileModal").modal("toggle");
                     }
