@@ -88,8 +88,6 @@ switch($resp_profile["response_code"]) {
         break;
 
     default:
-
-        print_r($resp_profile);
         echo render_template("templates/error.html", array(
                              "title" => ERROR_HEADING_GENERAL . " (-)",
                              "message" => $resp_profile["response_code"]));

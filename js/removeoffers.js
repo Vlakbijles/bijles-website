@@ -2,15 +2,19 @@
 //
 // Send ajax request to API server for removing/deactivating a user's offer,
 // dynamically removes the offer from the profile page and decrements the
-// shown offer count
+// shown offer count. Contains handler for fading of offer delete buttons.
 
 $(function(){
 
-    $(document).find(".offerRow").hover(
-            function() { $(this).find(".deleteOfferBtn").fadeTo(200, 1); },
-            function() { $(this).find(".deleteOfferBtn").fadeTo(0, 0); }
-    );
+    // Fade delete offer buttons
+    $(document)
+        .on("mouseenter", ".offerRow", function() {
+            $(this).find(".deleteOfferBtn").fadeTo(200, 1);})
+        .on("mouseleave", ".offerRow", function() {
+             $(this).find(".deleteOfferBtn").fadeTo(0, 0);
+    });
 
+    // Delete offer button handler
     $(document).on("click", "button.deleteOfferBtn", function(e){
         e.preventDefault();
         if(confirm($(this).attr("name") + " verwijderen uit je vakkenlijst?")){
