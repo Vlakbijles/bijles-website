@@ -69,7 +69,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($offers as $offer) { ?>
+                                    <?php if (isset($offers) && $num_offers) {
+                                          foreach ($offers as $offer) { ?>
 
                                     <tr id="offerRow_<?=$offer["id"]?>" class="offerRow">
                                         <td class="subjectName"><?=$offer["subject.name"]?></td>
@@ -81,7 +82,7 @@
                                         </td>
                                     </tr>
 
-                                    <?php } ?>
+                                    <?php }} ?>
 
                                     <tr id="offerRow" class="offerRow hidden">
                                         <td class="subjectName">subject name</td>
