@@ -110,11 +110,6 @@ $(function(){
                             $("#numOffers").text(parseInt($("#numOffers").text()) + 1);
                             $("#offerRow_" + data["id"]).find(".deleteOfferBtn").attr({value: data["id"], name: data["subject.name"]});
                         }
-                    })
-                    .fail(function() {
-                        alert("Error");
-                    })
-                    .always(function() {
                     });
             }
         }

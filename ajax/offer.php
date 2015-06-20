@@ -9,7 +9,7 @@
 if (!isset($_POST["action"])) die();
 
 include("../api.php");
-include("logincheck.php");
+include("../logincheck.php");
 
 if ($logged_in) {
 
