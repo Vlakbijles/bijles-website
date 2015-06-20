@@ -153,7 +153,7 @@ function registerForm(data){
                        "description": Desc},
                 statusCode: {
                     // 400 indicates the email address is already in use, the
-                    // zipcode does not exist or that the max description
+                    // postal code does not exist or that the max description
                     // length is exceeded
                     400:
                         function() {

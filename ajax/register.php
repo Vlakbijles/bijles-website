@@ -22,7 +22,7 @@
 
         $user = array("email" => $email);
         $usermeta = array("fb_token" => $fb_token,
-                          "zipcode" => $postal_code,
+                          "postal_code" => $postal_code,
                           "description" => $description);
 
         $data = array("user" => $user, "usermeta" => $usermeta);
