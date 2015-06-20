@@ -65,6 +65,7 @@ $(function(){
     var numOffers = 1;
     enableAutoComplete(numOffers); // Enable autocomplete on initial row
 
+    // Load levels into level selector
     $("#addOffersBtn").one("click", function(e){
         $.each(levels, function(index, value) {
             $(".levelSelector").append("<option value=" + value.value + ">" + value.label + "</option>");
