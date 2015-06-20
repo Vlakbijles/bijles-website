@@ -61,7 +61,7 @@ switch($resp_profile["response_code"]) {
             echo render_template("templates/modals/editprofile.html", array(
                                  "email" => $resp_profile["response"]["email"],
                                  "description" => $resp_profile["response"]["meta.description"],
-                                 "zipcode" => $resp_profile["response"]["meta.zipcode"]));
+                                 "postal_code" => $resp_profile["response"]["meta.postal_code"]));
             echo render_template("templates/modals/addoffers.html",
                                  array("user_id" => $user_id));
         } elseif($logged_in) {
