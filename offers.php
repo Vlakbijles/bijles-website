@@ -14,9 +14,19 @@ $resp_offers = api_request($request_uri, $request_method, NULL);
 
 // Render header
 switch($resp_offers["response_code"]) {
+    case INVALID:
+        $title = INVALIDSEARCH_HEADING . " - " . SITENAME;
+        break;
+
+    case NO_RESULTS:
+        $title = NORESULTS_HEADING . " - " . SITENAME;
+        break;
+
     case SUCCESS:
-        //TODO city and subject name in title
-        $title = "placeholder - " . SITENAME;
+        $subject = $resp_offers["response"][0]["subject.name"];
+        //TODO Fix up postal code, its not very nicely done
+        $city = $_GET["postal_code"];
+        $title = $subject . " in " . $city . " - " . SITENAME;
         break;
     default:
         $title = ERROR_HEADING . " - " . SITENAME;
@@ -42,13 +52,13 @@ switch($resp_offers["response_code"]) {
 
     case INVALID:
         echo render_template("templates/error.html", array(
-                             "title" => ERROR_HEADING . " (" . $resp_offers["response_code"] . ")",
+                             "title" => INVALIDSEARCH_HEADING,
                              "message" => ERROR_INVALIDSEARCH));
         break;
 
     case NO_RESULTS:
         echo render_template("templates/error.html", array(
-                             "title" => ERROR_HEADING . " (" . $resp_offers["response_code"] . ")",
+                             "title" => NORESULTS_HEADING,
                              "message" => ERROR_NORESULTS));
         break;
 

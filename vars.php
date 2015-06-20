@@ -4,6 +4,8 @@ define("SITENAME", "Vlakbijles");
 define("SITETITLE", "Vind bijles bij jou in de buurt");
 
 // Error messages
+define("INVALIDSEARCH_HEADING", "Onjuiste zoekopdracht");
+define("NORESULTS_HEADING", "Geen resultaten gevonden");
 define("ERROR_HEADING", "Er is iets misgegaan");
 define("ERROR_USERNOTFOUND", "Gebruiker niet gevonden");
 define("ERROR_INVALIDSEARCH", "Onjuist vak en/of niet bestaande postcode ingevoerd");
