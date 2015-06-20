@@ -13,7 +13,7 @@
                             <div class="progress-bar progress-bar-success" style="width: 80%"></div>
                             <div class="progress-bar progress-bar-warning" style="width: 20%"></div>
                         </div>
-                        <p class="zeromargin"><span class="text-muted hidden-sm hidden-md">Locatie</span> <?=$city?></p>
+                        <p class="zeromargin"><span class="text-muted hidden-sm hidden-md">Locatie</span> <span id="userLocation"><?=$city?></span></p>
                         <?php if ($age) { ?>
                         <p class="zeromargin"><span class="text-muted hidden-sm hidden-md">Leeftijd</span> <?=$age?></p>
                         <?php } ?>
@@ -45,7 +45,7 @@
                         <!-- Profile tab -->
                         <div class="tab-pane fade active in" id="profile">
                             <?php if ($own_profile) { ?>
-                            <button data-toggle="modal" id="editProfileBtn" data-target="#editmodal" class="btn btn-primary btn-sm glyphicon pull-right" style="opacity: 0; margin: 0 0 10px 10px;">&#x270f;</button>
+                            <button data-toggle="modal" id="editProfileBtn" data-target="#editProfileModal" class="btn btn-primary btn-sm glyphicon pull-right" style="opacity: 0; margin: 0 0 10px 10px;">&#x270f;</button>
                             <?php } ?>
                             <p id="userDescription"><?=$description?></p>
                         </div>

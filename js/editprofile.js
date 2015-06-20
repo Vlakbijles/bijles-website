@@ -1,16 +1,16 @@
 // editprofile.js
 //
-// bla
+// Handles the modal for editing a user's profile
 
 $(function(){
 
-    // Fade edit profile button
+    // Fade in/out edit button
     $("#profile").hover(
         function() { $(this).find("#editProfileBtn").fadeTo(500, 1); },
         function() { $(this).find("#editProfileBtn").fadeTo(0, 0); }
     );
 
-    // Char counter logic
+    // Char counter logic for description
     var maxLength = 1000;
     var currentLength = $("#editDesc").val().length;
     $("#charCounter").text(currentLength + "/" + maxLength).fadeTo(0, 0.2);
@@ -45,10 +45,47 @@ $(function(){
         },
     });
 
-    // Actual validation
+    // Validation for profile editing form
     $("#editProfileForm").validate({
 
-        // submitHandler: function(form) { alert("joe"); },
+        // Called when form is filled in properly
+        submitHandler: function(form) {
+            var newEmail = $(form).find("#editEmail").val();
+            var newPostalCode = $(form).find("#editPostalCode").val();
+            var newDesc = $(form).find("#editDesc").val();
+
+            $.ajax({
+                url: "ajax/profile.php",
+                type: "POST",
+                dataType: "json",
+                data: {"action": "edit",
+                       "email": newEmail,
+                       "zipcode": newPostalCode,
+                       "description": newDesc},
+                statusCode: {
+                    // 400 indicates the email address is already in use, the
+                    // zipcode does not exist or that the max description
+                    // length is exceeded
+                    400:
+                        function() {
+                            alert("Er is iets misgegaan:\n" +
+                                  "\nHet ingevulde emailadres kan al in gebruik zijn" +
+                                  "\nIs de ingevoerde postcode een bestaande postcode? " +
+                                  "\nBevat je beschrijving niet meer dan " + maxLength + " karakters?");
+                        }
+                }})
+                .done(function(data) {
+                    if (data) {
+                        // Update page with updated profile returned from API
+                        $("#userLocation").text(data["meta.city"]);
+                        $("#userDescription").text(data["meta.description"]);
+                        $("#editEmail").val(data["email"]);
+                        $("#editPostalCode").val(data["meta.zipcode"]);
+                        $("#editDesc").val(data["meta.description"]);
+                        $("#editProfileModal").modal("toggle");
+                    }
+                });
+        },
 
         rules: {
             "editEmail": {
@@ -70,24 +107,6 @@ $(function(){
                     "editDesc": {maxlength: ""} }
 
     });
-
-
-    // $(document).on("click", "button.deleteOfferBtn", function(e){
-    //     e.preventDefault();
-    //     if(confirm($(this).attr("name") + " verwijderen uit je vakkenlijst?")){
-    //         var offerId = $(this).attr("value");
-    //         $.ajax({
-    //             url: "ajax/offer.php",
-    //             type: "POST",
-    //             data: {"action": "delete", "offer_id": offerId}})
-    //             .done(function(data, status) {
-    //                 if(data == "ok") {
-    //                     $("#offerRow_" + offerId).remove();
-    //                     $("#numOffers").text(parseInt($("#numOffers").text()) - 1);
-    //                 }
-    //             });
-    //      }
-    // });
 
 });
 
