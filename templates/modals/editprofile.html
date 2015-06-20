@@ -1,7 +1,7 @@
 <!-- Edit profile modal -->
 <div id="editProfileModal" class="modal fade" role="dialog">
     <div class="modal-dialog modal-xs">
-        <form role="form" id="editProfileForm">
+        <form role="form" id="editProfileForm" >
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -10,16 +10,16 @@
                 <div class="modal-body">
                     <div class="form-group has-feedback">
                         <label for="editEmail" class="control-label">Emailadres</label>
-                        <input type="text" id="editEmail" name="editEmail" class="form-control" value="<?=$email?>">
+                        <input type="text" id="editEmail" class="form-control" name="editEmail" value="<?=$email?>">
                     </div>
                     <div class="form-group has-feedback">
                         <label for="editPostalCode" class="control-label">Postcode</label>
-                        <input type="text" id="editPostalCode" name="editPostalCode" class="form-control" maxlength="6" value="<?=$zipcode?>">
+                        <input type="text" id="editPostalCode" class="form-control" name="editPostalCode" maxlength="6" value="<?=$zipcode?>">
                     </div>
                     <div class="form-group has-feedback">
                         <label for="editDesc" class="control-label">Beschrijving</label>
                         <p id="charCounter" class="pull-right"></p>
-                        <textarea class="form-control" rows="4" maxlength="1000" id="editDesc" name="editDesc" style="resize:vertical;"><?=$description?></textarea>
+                        <textarea id="editDesc" class="form-control" name="editDesc" rows="4" maxlength="1000" style="resize:vertical;"><?=$description?></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
