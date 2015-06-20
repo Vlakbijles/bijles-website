@@ -1,5 +1,10 @@
 <?php
 
+// api.php
+//
+// Defines interface to API server, contains function for formatting API
+// requests
+
 // Response codes
 define("SUCCESS", 200);
 define("CREATED", 201);
