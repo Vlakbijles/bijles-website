@@ -95,12 +95,19 @@ $(function(){
             if (subjectId && levelId) {
                 $.ajax({
                     url: "ajax/offer.php",
-                    // async: false,
                     type: "POST",
                     dataType: "json",
                     data: {"action": "create",
                            "subject_id": subjectId,
-                           "level_id": levelId}})
+                           "level_id": levelId},
+                    statusCode: {
+                        400:
+                            // 400 indicated the API could not create the offer
+                            function() {
+                                alert("Er is iets misgegaan bij het toevoegen" +
+                                      " van een vak");
+                            }
+                    }})
                     .done(function(data) {
                         if(data) {
                             $("#offerRow").clone().prop({id: "offerRow_" + data["id"]}).prependTo($("#offerTable tbody"));
