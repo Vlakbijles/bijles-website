@@ -9,9 +9,9 @@ $(function(){
     // Fade delete offer buttons
     $(document)
         .on("mouseenter", ".offerRow", function() {
-            $(this).find(".deleteOfferBtn").fadeTo(200, 1);})
+            $(this).find(".deleteOfferBtn").stop(true, true).fadeTo(300, 1);})
         .on("mouseleave", ".offerRow", function() {
-             $(this).find(".deleteOfferBtn").fadeTo(0, 0);
+             $(this).find(".deleteOfferBtn").stop(true, true).fadeTo(0, 0);
     });
 
     // Delete offer button handler
