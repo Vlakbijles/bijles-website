@@ -22,9 +22,19 @@ $(function(){
             $.ajax({
                 url: "ajax/offer.php",
                 type: "POST",
-                data: {"action": "delete", "offer_id": offerId}})
-                .done(function(data, status) {
-                    if(data == "ok") {
+                data: {"action": "delete",
+                       "offer_id": offerId},
+                statusCode: {
+                    // 400 indicated the API server was unable to remove the
+                    // offer
+                    400:
+                        function() {
+                            alert("Er is iets misgegaan bij het verwijderen " +
+                                   "van dit vak, wellicht is het al verwijderd?");
+                        }
+                }})
+                .done(function(data) {
+                    if(data) {
                         $("#offerRow_" + offerId).remove();
                         $("#numOffers").text(parseInt($("#numOffers").text()) - 1);
                     }
