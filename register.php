@@ -23,31 +23,27 @@
         $usermeta = array("fb_token" => $fb_token, "zipcode" => $zipcode);
 
         if (isset($_POST["reg_phone"])) {
-            $usermeta["phone"] = $_POST["phone"];
+            $usermeta["phone"] = $_POST["reg_phone"];
         }
 
         if (isset($_POST["reg_description"])) {
-            $usermeta["description"] = $_POST["description"];
+            $usermeta["description"] = $_POST["reg_description"];
         }
 
         $data = array("user" => $user, "usermeta" => $usermeta);
 
         $response = api_request($request_uri, $request_method, $data);
 
-    }
 
-    // Perform login
-
-
-    if ($response["response_code"] == 200) {
-        // succesful registration, proceed to login
-    } else if ($response["response_code"] == 400) {
-        // Check for faulty data (duplicate email, invalid fb token)
-        print_r($response["response"]);
-    } else {
-        // Unknown error
-        echo "Unknown Errors";
-        print_r($response["response"]);
+        if ($response["response_code"] == 201) {
+            // succesful registration
+        } else if ($response["response_code"] == 400) {
+            // TODO:Check for faulty data (duplicate email, invalid fb token)
+            print_r($response["response"]);
+        } else {
+            // TODO:Error outside of UserResource
+            print_r($response["response"]);
+        }
     }
 
     header("Location: " . $_SERVER["HTTP_REFERER"]);

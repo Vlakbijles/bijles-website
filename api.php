@@ -8,6 +8,7 @@
 // Response codes
 define("SUCCESS", 200);
 define("CREATED", 201);
+define("ACCEPTED", 202);
 define("NO_RESULTS", 404);
 define("INVALID", 400);
 
