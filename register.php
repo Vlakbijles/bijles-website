@@ -23,11 +23,11 @@
         $usermeta = array("fb_token" => $fb_token, "zipcode" => $zipcode);
 
         if (isset($_POST["reg_phone"])) {
-            $usermeta["phone"] = $_POST["phone"];
+            $usermeta["phone"] = $_POST["reg_phone"];
         }
 
         if (isset($_POST["reg_description"])) {
-            $usermeta["description"] = $_POST["description"];
+            $usermeta["description"] = $_POST["reg_description"];
         }
 
         $data = array("user" => $user, "usermeta" => $usermeta);
@@ -38,10 +38,10 @@
         if ($response["response_code"] == 201) {
             // succesful registration
         } else if ($response["response_code"] == 400) {
-            // Check for faulty data (duplicate email, invalid fb token)
+            // TODO:Check for faulty data (duplicate email, invalid fb token)
             print_r($response["response"]);
         } else {
-            // Error outside of UserResource
+            // TODO:Error outside of UserResource
             print_r($response["response"]);
         }
     }
