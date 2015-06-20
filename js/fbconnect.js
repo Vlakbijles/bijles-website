@@ -44,15 +44,7 @@ function getFacebookData(response) {
                 case 202:
                     // 202, means account doesn't exists with this fb account,
                     // so prompt user to make one
-                    $("#modalTitle").text("Registreren");
-                    $("#loginBody").addClass("hidden");
-                    $("#registerBody").removeClass("hidden");
-                    $("#registerFooter").removeClass("hidden");
-                    $("#regEmail").val(data.email);
-                    $("#regName").text(data.name);
-                    $("#regSurname").text(data.surname);
-                    $("#regPicture").attr("src", data.picture);
-                    $("#regAccesstoken").val(data.access_token);
+                    registerForm(data);
                     break;
                 default:
                     ;
@@ -64,6 +56,8 @@ function getFacebookData(response) {
         });
 
 }
+
+
 
 window.fbAsyncInit = function() {
     FB.init({
@@ -89,3 +83,118 @@ window.fbAsyncInit = function() {
     js.src = "//connect.facebook.net/en_US/sdk.js";
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
+
+
+
+function registerForm(data){
+
+    $("#modalTitle").text("Registreren");
+    $("#loginBody").addClass("hidden");
+    $("#registerBody").removeClass("hidden");
+    $("#registerFooter").removeClass("hidden");
+    $("#regEmail").val(data.email);
+    $("#regName").text(data.name);
+    $("#regSurname").text(data.surname);
+    $("#regPicture").attr("src", data.picture);
+    $("#regAccessToken").val(data.access_token);
+
+    // Char counter logic
+    var maxLength = 1000;
+    var currentLength = $("#regDesc").val().length;
+    $("#charCounter").text(currentLength + "/" + maxLength).fadeTo(0, 0.2);
+    $("#regDesc")
+        .keyup(function() {
+            currentLength = $(this).val().length;
+            $("#charCounter").text(currentLength + "/" + maxLength);})
+        .focusin(function() {
+            $("#charCounter").fadeTo(1000, 0.7);})
+        .focusout(function() {
+            $("#charCounter").fadeTo(1000, 0.2);
+    });
+
+    // Postal code validator
+    $.validator.addMethod("postalcode", function(value, element) {
+        return this.optional(element) || /^[0-9]{4}[A-Za-z]{2}/.test(value);
+    });
+
+    // Use bootstrap classes for indicating errors
+    $.validator.setDefaults({
+        errorElement: "span",
+        errorClass: "glyphicon glyphicon-remove form-control-feedback",
+        errorPlacement: function(error, element) {
+            error.insertAfter(element);
+        },
+        highlight: function(element) {
+            $(element).closest(".form-group").addClass("has-error");
+        },
+
+        unhighlight: function(element) {
+            $(element).closest(".form-group").removeClass("has-error");
+        },
+    });
+
+    // Actual validation
+    $("#registerForm").validate({
+
+        // Called when form is filled in properly
+        submitHandler: function(form) {
+            var Email = $(form).find("#regEmail").val();
+            var accessToken = $(form).find("#regAccessToken").val()
+            var PostalCode = $(form).find("#regPostalCode").val();
+            var Desc = $(form).find("#regDesc").val();
+
+            $.ajax({
+                url: "ajax/register.php",
+                type: "POST",
+                dataType: "json",
+                data: {"email": Email,
+                       "access_token": accessToken,
+                       "postal_code": PostalCode,
+                       "description": Desc},
+                statusCode: {
+                    // 400 indicates the email address is already in use, the
+                    // zipcode does not exist or that the max description
+                    // length is exceeded
+                    400:
+                        function() {
+                            alert("Er is iets misgegaan bij het invoeren");
+                        }
+                }})
+                .done(function(data) {
+                    location.reload();
+                })
+                .fail(function( jqXHR, textStatus ) {
+                    // Something went wrong, log error
+                    alert("Er is iets misgegaan in de API");
+                    console.log("Request failed: " + textStatus);
+                });
+        },
+        // submitHandler: function(form) { alert("joe"); },
+
+        rules: {
+            "regEmail": {
+                required: true,
+                email: true
+            },
+            "regAccessToken": {
+                required: true,
+            },
+            "regPostalCode": {
+                required: true,
+                postalcode: true
+            },
+            "regDesc": {
+                maxlength: 1000,
+            },
+        },
+
+        // Empty error messages, bootstrap indicators used instead
+        messages: { "regEmail": {required: "", email: ""},
+                    "regAccessToken": {required: ""},
+                    "regPostalCode": {required: "", postalcode: ""},
+                    "regDesc": {maxlength: ""} }
+
+    });
+
+
+}
