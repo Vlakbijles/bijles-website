@@ -13,18 +13,20 @@ function get_content($URL){
     return rtrim($out,1);
 }
 
-if(!empty($_GET['access_token'])) {
+if(isset($_POST['access_token'])) {
 
     $request_uri = "/fblogin?";
     $request_method = "POST";
-    $data = array("facebook" => array("access_token" => $_GET['access_token']));
+    $data = array("facebook" => array("access_token" => $_POST['access_token']));
     $response = api_request($request_uri, $request_method, $data);
 
-    if ($response["response_code"] == 200) {
+    if ($response["response_code"] == SUCCESS) {
         setcookie("user_id", $response["response"]["user_id"], time() + (86400 * 7), "/"); // 86400 = 1 day
         setcookie("token_hash", $response["response"]["token_hash"], time() + (86400 * 7), "/"); // 86400 = 1 day
-        echo json_encode($response["response"]);
-    } elseif ($response["response_code"] == 202) {
+        http_response_code(SUCCESS);
+        echo json_encode(new ArrayObject());
+    } elseif ($response["response_code"] == ACCEPTED) {
+        http_response_code(ACCEPTED);
         echo json_encode($response["response"]);
     }
 

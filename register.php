@@ -34,20 +34,16 @@
 
         $response = api_request($request_uri, $request_method, $data);
 
-    }
 
-    // Perform login
-
-
-    if ($response["response_code"] == 200) {
-        // succesful registration, proceed to login
-    } else if ($response["response_code"] == 400) {
-        // Check for faulty data (duplicate email, invalid fb token)
-        print_r($response["response"]);
-    } else {
-        // Unknown error
-        echo "Unknown Errors";
-        print_r($response["response"]);
+        if ($response["response_code"] == 201) {
+            // succesful registration
+        } else if ($response["response_code"] == 400) {
+            // Check for faulty data (duplicate email, invalid fb token)
+            print_r($response["response"]);
+        } else {
+            // Error outside of UserResource
+            print_r($response["response"]);
+        }
     }
 
     header("Location: " . $_SERVER["HTTP_REFERER"]);
