@@ -1,26 +1,15 @@
 <?php
 
+// ajax/offer.php
+//
+// Handles API requests for offer creation and deletion, uses POST data.
+// Creation returns created offer in JSON format, deletion responds with string
+// "ok" on success
+
 if (!isset($_POST["action"])) die();
 
 include("../api.php");
-
-// Login check
-$logged_in = false;
-$user_id = NULL;
-if(isset($_COOKIE["user_id"]) && isset($_COOKIE["token_hash"])) {
-    $data = array("loggedin" => array("token_hash" => $_COOKIE["token_hash"],
-                                      "user_id" => $_COOKIE["user_id"]));
-    $request_uri = "/user?";
-    $request_method = "GET";
-    $response = api_request($request_uri, $request_method, $data);
-    if ($response["response_code"] == 200) {
-        $logged_in = true;
-        $user_id = $_COOKIE["user_id"];
-    } elseif ($response["response_code"] == 0) {
-        die("Unable to connect to API server");
-    }
-}
-
+include("logincheck.php");
 
 if ($logged_in) {
 
