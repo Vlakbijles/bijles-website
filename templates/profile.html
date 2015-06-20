@@ -7,7 +7,7 @@
 
                 <div class="col-sm-3 lead">
                     <div class="well">
-                        <img src="<?=$photo?>" class="img-responsive img-thumbnail center-block bottommargin" alt="<?=$name?> <?=$surname?>">
+                        <img src="<?=$photo?>" alt="<?=$name?> <?=$surname?>" class="img-responsive img-thumbnail center-block bottommargin">
                         <h1 class="notopmargin text-center visible-xs"><?=$name?> <?=$surname?></h1>
                         <div class="progress">
                             <div class="progress-bar progress-bar-success" style="width: 80%"></div>
@@ -63,7 +63,7 @@
                                         <th class="col-xs-3">Niveau</th>
                                         <th class="col-xs-1">
                                             <?php if($own_profile) { ?>
-                                            <button id="addOffersBtn" data-toggle="modal" data-target="#addOffersModal" class="btn btn-success btn-sm btn-block glyphicon pull-right">&#x2b;</a>
+                                            <button id="addOffersBtn" class="btn btn-success btn-sm btn-block glyphicon pull-right" data-toggle="modal" data-target="#addOffersModal">&#x2b;</a>
                                             <?php } ?>
                                         </th>
                                     </tr>
@@ -77,7 +77,7 @@
                                         <td class="levelName"><?=$offer["level.name"]?></td>
                                         <td>
                                             <?php if($own_profile) { ?>
-                                            <button name="<?=$offer["subject.name"]?>" value="<?=$offer["id"]?>" class="deleteOfferBtn btn btn-block btn-sm btn-danger glyphicon" style="opacity: 0;" type="button">&#xe014;</button>
+                                            <button class="deleteOfferBtn btn btn-block btn-sm btn-danger glyphicon" name="<?=$offer["subject.name"]?>" value="<?=$offer["id"]?>" style="opacity: 0;">&#xe014;</button>
                                             <?php } ?>
                                         </td>
                                     </tr>
@@ -89,7 +89,7 @@
                                         <td class="levelName">level name</td>
                                         <td>
                                             <?php if($own_profile) { ?>
-                                            <button name="<?=$offer["subject.name"]?>" value="<?=$offer["id"]?>" class="deleteOfferBtn btn btn-block btn-sm btn-danger glyphicon" style="opacity: 0;" type="button">&#xe014;</button>
+                                            <button class="deleteOfferBtn btn btn-block btn-sm btn-danger glyphicon" name="<?=$offer["subject.name"]?>" value="<?=$offer["id"]?>" style="opacity: 0;">&#xe014;</button>
                                             <?php } ?>
                                         </td>
                                     </tr>
