@@ -14,12 +14,22 @@ $resp_offers = api_request($request_uri, $request_method, NULL);
 
 // Render header
 switch($resp_offers["response_code"]) {
+    case INVALID:
+        $title = ERROR_HEADING_INVALIDSEARCH . " - " . SITENAME;
+        break;
+
+    case NO_RESULTS:
+        $title = ERROR_HEADING_NORESULTS . " - " . SITENAME;
+        break;
+
     case SUCCESS:
-        //TODO city and subject name in title
-        $title = "placeholder - " . SITENAME;
+        $subject = $resp_offers["response"][0]["subject.name"];
+        //TODO Postal code to city
+        $city = $_GET["postal_code"];
+        $title = $subject . " bijles in " . $city . " - " . SITENAME;
         break;
     default:
-        $title = ERROR_HEADING . " - " . SITENAME;
+        $title = ERROR_HEADING_GENERAL . " - " . SITENAME;
 }
 echo render_template("templates/head.html", array(
                      "title" => $title));
@@ -42,26 +52,25 @@ switch($resp_offers["response_code"]) {
 
     case INVALID:
         echo render_template("templates/error.html", array(
-                             "title" => ERROR_HEADING . " (" . $resp_offers["response_code"] . ")",
+                             "title" => ERROR_HEADING_INVALIDSEARCH,
                              "message" => ERROR_INVALIDSEARCH));
         break;
 
     case NO_RESULTS:
         echo render_template("templates/error.html", array(
-                             "title" => ERROR_HEADING . " (" . $resp_offers["response_code"] . ")",
+                             "title" => ERROR_HEADING_NORESULTS,
                              "message" => ERROR_NORESULTS));
         break;
 
     case SUCCESS:
         echo render_template("templates/offers.html", array(
                              "results" => $resp_offers["response"]));
-
         break;
 
     default:
         echo render_template("templates/error.html", array(
-                             "title" => ERROR_HEADING . " (-)",
-                             "message" => ERROR_UNDEFINED));
+                             "title" => ERROR_HEADING_GENERAL . " (-)",
+                             "message" => $resp_offers["response_code"]));
         break;
 
 }

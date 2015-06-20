@@ -27,7 +27,7 @@ switch($resp_profile["response_code"]) {
                  . $resp_profile["response"]["meta.surname"] . " - " . SITENAME;
         break;
     default:
-        $title = ERROR_HEADING . " - " . SITENAME;
+        $title = ERROR_HEADING_GENERAL . " - " . SITENAME;
 }
 echo render_template("templates/head.html", array(
                      "title" => $title));
@@ -50,7 +50,7 @@ switch($resp_profile["response_code"]) {
 
     case NO_RESULTS:
         echo render_template("templates/error.html", array(
-                             "title" => ERROR_HEADING . " (" . $resp_profile["response_code"] . ")",
+                             "title" => ERROR_HEADING_GENERAL . " (" . $resp_profile["response_code"] . ")",
                              "message" => ERROR_USERNOTFOUND));
         break;
 
@@ -59,6 +59,7 @@ switch($resp_profile["response_code"]) {
 
         if ($own_profile) {
             echo render_template("templates/modals/editprofile.html", array(
+                                 "email" => $resp_profile["response"]["email"],
                                  "description" => $resp_profile["response"]["meta.description"],
                                  "zipcode" => $resp_profile["response"]["meta.zipcode"]));
             echo render_template("templates/modals/addoffers.html",
@@ -76,6 +77,7 @@ switch($resp_profile["response_code"]) {
                              "city" => $resp_profile["response"]["meta.city"],
                              "age" => $resp_profile["response"]["meta.age"],
                              "description" => $resp_profile["response"]["meta.description"],
+                             "photo" => $resp_profile["response"]["meta.photo_id"],
                              "offers" => $resp_offers["response"],
                              "num_offers" => count($resp_offers["response"]),
                              "logged_in" => $logged_in,
@@ -87,8 +89,8 @@ switch($resp_profile["response_code"]) {
 
     default:
         echo render_template("templates/error.html", array(
-                             "title" => ERROR_HEADING . " (-)",
-                             "message" => ERROR_UNDEFINED));
+                             "title" => ERROR_HEADING_GENERAL . " (-)",
+                             "message" => $resp_profile["response_code"]));
         break;
 
 }

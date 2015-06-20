@@ -1,49 +1,47 @@
-<script src="js/loadlevels.js"></script>
 <script src="js/addoffers.js"></script>
-<!-- Add subjects modal -->
+
+<!-- Add offers modal -->
 <div id="addOffersModal" class="modal fade" role="dialog">
     <div class="modal-dialog modal-xs">
-        <form role="form">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Vakken toevoegen</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group" id="addOffers">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Vakken toevoegen</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group" id="addOffers">
 
-                        <div class="row">
-                            <div class="col-xs-7" style="padding: 0 5px 10px 0;">
-                                <input type="text" class="form-control subjectName" placeholder="Vaknaam...">
-                            </div>
-                            <div class="col-xs-3"style="padding: 0 5px 10px 5px;">
-                                <select class="form-control levelSelector">
-                                </select>
-                            </div>
-                            <div class="col-xs-2" style="padding: 0 0 10px 5px;">
-                                <button id="addOfferBtn" class="btn btn-block btn-success glyphicon" type="button">&#x2b;</button>
-                            </div>
+                    <div class="row" id="addOfferRow_1">
+                        <input type="hidden" class="subjectId" id="subject_id1" value="">
+                        <div class="col-sm-7" style="padding: 0 0 10px 0;">
+                            <input type="text" id="subject_name1" class="form-control" placeholder="Vaknaam...">
                         </div>
-
-                        <div class="row hidden" id="extraOfferRow">
-                            <div class="col-xs-7" style="padding: 0 5px 10px 0;">
-                                <input type="text" class="form-control subjectName" placeholder="Vaknaam...">
-                            </div>
-                            <div class="col-xs-3"style="padding: 0 5px 10px 5px;">
-                                <select class="form-control levelSelector">
-                                </select>
-                            </div>
-                            <div class="col-xs-2" style="padding: 0 0 10px 5px;">
-                                <button class="btn btn-block btn-danger glyphicon removeOfferBtn" type="button">&#x2212;</button>
-                            </div>
+                        <div class="col-sm-3 col-xs-6" style="padding: 0 0 10px 0;">
+                            <select id="level_id1" class="form-control levelSelector"></select>
                         </div>
-
+                        <div class="col-sm-2 col-xs-6" style="padding: 0 0 0 10px;">
+                            <button id="extraOfferBtn" class="btn btn-block btn-success glyphicon" type="button">&#x2b;</button>
+                        </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Toevoegen</button>
+
+                    <div class="row hidden" id="extraOfferRow">
+                        <input type="hidden" class="subjectId" id="subject_id" value="">
+                        <div class="col-sm-7" style="padding: 0 0 10px 0;">
+                            <input type="text" id="subject_name" class="form-control" placeholder="Vaknaam...">
+                        </div>
+                        <div class="col-sm-3 col-xs-6" style="padding: 0 0 10px 0;">
+                            <select id="level_id" class="form-control levelSelector"></select>
+                        </div>
+                        <div class="col-sm-2 col-xs-6" style="padding: 0 0 0 10px;">
+                            <button class="removeOfferBtn btn btn-block btn-danger glyphicon" type="button">&#x2212;</button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        </form>
+            <div class="modal-footer">
+                <button id="submitOfferBtn" class="btn btn-primary">Toevoegen</button>
+            </div>
+        </div>
     </div>
 </div>

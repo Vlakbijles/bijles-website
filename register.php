@@ -5,48 +5,45 @@
 
     require_once("api.php");
 
-    $email =  "";
-    $password = "";
-    $zipcode = "";
-    $fb_token = "";
-
     function clean_input($input) {
         return htmlspecialchars(stripslashes(trim($input)));
     }
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (isset($_POST["reg_email"])) {
-            $email = clean_input($_POST["reg_email"]);
-        }
-        if (isset($_POST["reg_pwd"])) {
-            $password = clean_input($_POST["reg_pwd"]);
-        }
-        if (isset($_POST["reg_zipcode"])) {
-            $zipcode = clean_input($_POST["reg_zipcode"]);
-        }
-        if (isset($_POST["reg_fb_token"])) {
-            $fb_token = clean_input($_POST["reg_fb_token"]);
-        }
-    }
-
-    // Perform login
     $request_uri = "/user?";
     $request_method = "POST";
-    $usermeta = array("fb_token" => $fb_token, "zipcode" => $zipcode);
-    $user = array("email" => $email, "password" => $password);
-    $data = array("user" => $user, "usermeta" => $usermeta);
 
-    $response = api_request($request_uri, $request_method, $data);
+    if (isset($_POST["reg_email"]) && isset($_POST["reg_zipcode"]) &&
+        isset($_POST["reg_acces_token"])) {
 
-    if ($response["response_code"] == 200) {
-        // succesful registration, proceed to login
-    } else if ($response["response_code"] == 400) {
-        // Check for faulty data (duplicate email, invalid fb token)
-        print_r($response["response"]);
-    } else {
-        // Unknown error
-        echo "Unknown Errors";
-        print_r($response["response"]);
+        $email = $_POST["reg_email"];
+        $zipcode = $_POST["reg_zipcode"];
+        $fb_token = $_POST["reg_acces_token"];
+
+        $user = array("email" => $email);
+        $usermeta = array("fb_token" => $fb_token, "zipcode" => $zipcode);
+
+        if (isset($_POST["reg_phone"])) {
+            $usermeta["phone"] = $_POST["reg_phone"];
+        }
+
+        if (isset($_POST["reg_description"])) {
+            $usermeta["description"] = $_POST["reg_description"];
+        }
+
+        $data = array("user" => $user, "usermeta" => $usermeta);
+
+        $response = api_request($request_uri, $request_method, $data);
+
+
+        if ($response["response_code"] == 201) {
+            // succesful registration
+        } else if ($response["response_code"] == 400) {
+            // TODO:Check for faulty data (duplicate email, invalid fb token)
+            print_r($response["response"]);
+        } else {
+            // TODO:Error outside of UserResource
+            print_r($response["response"]);
+        }
     }
 
     header("Location: " . $_SERVER["HTTP_REFERER"]);

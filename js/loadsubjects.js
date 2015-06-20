@@ -1,3 +1,8 @@
+// loadsubjects.js
+//
+// Sends ajax request to API server, loads list of all available subjects into
+// global variable
+
 var subjects = [];
 
 $(function(){
@@ -5,17 +10,16 @@ $(function(){
     subjects = (function() {
         var formatted = [];
         $.ajax({
-            async: true,
-            url: "ajaxutils/subject.php?action=all",
-            dataType: "json",
-            success: function (data) {
+            url: "ajax/subject.php?action=all",
+            type: "GET",
+            dataType: "json"})
+            .done(function(data) {
                 if(data) {
                     $.each(data, function(key, val) {
                         formatted.push({ "value": val.id, "label": val.name });
                     });
                 }
-            }
-        });
+            });
         return formatted;
     })();
 

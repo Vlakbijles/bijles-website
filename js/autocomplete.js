@@ -1,32 +1,41 @@
 // autocomplete.js
+//
+// Handles autocomplete for the main search bar
+//
+// Makes use of global variables:
+// subjects     - List of available subjects
 
 $(function() {
+    source = subjects;
+    $("#searchSubjectName").autocomplete({
+        source: function (request, response) {
+            var term = $.ui.autocomplete.escapeRegex(request.term)
+                , startsWithMatcher = new RegExp("^" + term, "i")
+                , startsWith = $.grep(source, function(value) {
+                    return startsWithMatcher.test(value.label || value.value || value);
+                })
+                , containsMatcher = new RegExp(term, "i")
+                , contains = $.grep(source, function (value) {
+                    return $.inArray(value, startsWith) < 0 &&
+                        containsMatcher.test(value.label || value.value || value);
+                });
 
-    // $("#searchForm").submit(function(event) {
-    //     console.log($.inArray($("#subjectName").val(), subjects));
-    //     // console.log($("#subjectName").val() in subjects);
-    //
-    //     // if($.inArray($("#subjectName").val(), subjects) == -1) {
-    //     //     alert($("#subject_id").val());
-    //     // }
-    //     event.preventDefault();
-    // });
-
-    $(".subjectName").autocomplete({
-        source: subjects,
+            response(startsWith.concat(contains));
+        },
         select: function (event, ui) {
             event.preventDefault();
-                $(this).val(ui.item.label);
-            $(".subjectId").val(ui.item.value);
+            $(this).val(ui.item.label);
+            $("#searchSubjectId").val(ui.item.value);
         },
         focus: function (event, ui) {
             event.preventDefault();
-                $(this).val(ui.item.label);
-            $(".subjectId").val(ui.item.value);
+            $(this).val(ui.item.label);
+            $("#searchSubjectId").val(ui.item.value);
         },
         change: function (event, ui) {
             if(!ui.item){
-                $(".subjectName").val("");
+                $(this).val("");
+                $("#searchSubjectId").val("");
             }
         },
     });
