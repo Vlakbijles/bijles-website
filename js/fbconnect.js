@@ -112,6 +112,38 @@ function registerForm(data){
             $("#charCounter").fadeTo(1000, 0.2);
     });
 
+    // $.validator.addMethod("unique_email", function(value, element)
+    //         {
+    //             var inputElem = $('#register-form :input[name="email"]'),
+    //             data = { "emails" : inputElem.val() },
+    //             eReport = ''; //error report
+    //
+    //             $.ajax(
+    //                     {
+    //                         type: "POST",
+    //                         url: validateEmail.php,
+    //                         dataType: "json",
+    //                         data: data,
+    //                         success: function(returnData)
+    //                         {
+    //                             if (returnData!== 'true')
+    //                             {
+    //                                 return '<p>This email address is already registered.</p>';
+    //                             }
+    //                             else
+    //                             {
+    //                                 return true;
+    //                             }
+    //                         },
+    //                         error: function(xhr, textStatus, errorThrown)
+    //                         {
+    //                             alert('ajax loading error... ... '+url + query);
+    //                             return false;
+    //                         }
+    //                     });
+    //
+    //         }, '');
+    //
     // Postal code validator
     $.validator.addMethod("postalcode", function(value, element) {
         return this.optional(element) || /^[0-9]{4}[A-Za-z]{2}/.test(value);
@@ -138,6 +170,7 @@ function registerForm(data){
 
         // Called when form is filled in properly
         submitHandler: function(form) {
+
             var Email = $(form).find("#regEmail").val();
             var accessToken = $(form).find("#regAccessToken").val()
             var PostalCode = $(form).find("#regPostalCode").val();
@@ -156,32 +189,53 @@ function registerForm(data){
                     // postal code does not exist or that the max description
                     // length is exceeded
                     400:
-                        function() {
-                            alert("Er is iets misgegaan bij het invoeren");
+                        function(data) {
+                            console.log(data);
+                            if (data.responseJSON.message.match("Postal code")) {
+                                $("#regPostalCode").closest(".form-group").addClass("has-error");
+                            } else if (data.responseJSON.message.match("Email")) {
+                                $("#regEmail").closest(".form-group").addClass("has-error");
+                            } else {
+                                alert('ALASD???');
+                            }
                         }
                 }})
                 .done(function(data) {
                     location.reload();
-                })
-                .fail(function( jqXHR, textStatus ) {
-                    // Something went wrong, log error
-                    alert("Er is iets misgegaan in de API");
-                    console.log("Request failed: " + textStatus);
                 });
         },
-        // submitHandler: function(form) { alert("joe"); },
 
         rules: {
             "regEmail": {
                 required: true,
-                email: true
+                email: true,
+                remote: {
+                    url: "ajax/verify.php",
+                    type: "GET",
+                    data: {
+                        "verify_type": "email",
+                        "verify_data": function() {
+                            return $("#regEmail").val();
+                        }
+                    }
+                }
             },
             "regAccessToken": {
                 required: true,
             },
             "regPostalCode": {
                 required: true,
-                postalcode: true
+                postalcode: true,
+                remote: {
+                    url: "ajax/verify.php",
+                    type: "GET",
+                    data: {
+                        "verify_type": "postal_code",
+                        "verify_data": function() {
+                            return $("#regPostalCode").val();
+                        }
+                    }
+                }
             },
             "regDesc": {
                 maxlength: 1000,
@@ -189,9 +243,9 @@ function registerForm(data){
         },
 
         // Empty error messages, bootstrap indicators used instead
-        messages: { "regEmail": {required: "", email: ""},
+        messages: { "regEmail": {required: "", email: "", remote: ""},
                     "regAccessToken": {required: ""},
-                    "regPostalCode": {required: "", postalcode: ""},
+                    "regPostalCode": {required: "", postalcode: "", remote: ""},
                     "regDesc": {maxlength: ""} }
 
     });
