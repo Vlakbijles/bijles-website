@@ -47,7 +47,13 @@
                             <?php if ($own_profile) { ?>
                             <button data-toggle="modal" id="editProfileBtn" data-target="#editProfileModal" class="btn btn-primary btn-sm glyphicon pull-right" style="margin: 0 0 10px 10px;">&#x270f;</button>
                             <?php } ?>
-                            <p id="userDescription"><?=$description?></p>
+                            <p id="userDescription">
+                                <?php if ($description) {
+                                        echo $description;
+                                      } else { ?>
+                                <span class="text-muted"><?=$name?> <?=$surname?> heeft geen beschrijving</span>
+                                <?php } ?>
+                            </p>
                         </div>
 
                         <?php if($own_profile) { ?>

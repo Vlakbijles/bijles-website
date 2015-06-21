@@ -33,7 +33,7 @@ $(function(){
                                 {"type": "warning",
                                  "message": "Er is iets misgegaan bij het " +
                                             "verwijderen van " + subjectName +
-                                            ", wellicht is het al verwijderd?"});
+                                            ", wellicht is deze al verwijderd?"});
                         }
                 }})
                 .done(function(data, status, xhr) {

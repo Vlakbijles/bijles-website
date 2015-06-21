@@ -1,5 +1,5 @@
 <!-- Review modal -->
-<div id="reviewmodal" class="modal fade" role="dialog">
+<div id="reviewModal" class="modal fade" role="dialog">
     <div class="modal-dialog modal-xs">
         <form role="form">
             <div class="modal-content">
@@ -9,21 +9,21 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                    <label for="review_offer" class="control-label">Bijles</label>
-                        <select class="form-control" id="review_offer">
+                    <label for="reviewOffer" class="control-label">Bijles</label>
+                        <select class="form-control" id="reviewOffer">
                             <?php foreach ($offers as $offer) { ?>
                             <option value=<?=$offer["id"]?>><?=$offer["subject.name"]?> (<?=$offer["level.name"]?>)</option>
                             <?php } ?>
                         </select>
                     </div>
                     <div class="form-group">
-                    <label for="review_msg" class="control-label">Jouw ervaring</label>
-                        <textarea class="form-control" rows="3" id="review_msg" placeholder="Beschrijf jouw ervaring met Bolle Henkie"></textarea>
+                    <label for="reviewDesc" class="control-label">Jouw ervaring</label>
+                        <textarea class="form-control" rows="3" id="reviewDesc" placeholder="Beschrijf jouw ervaring met Bolle Henkie" style="resize:vertical;"></textarea>
 
                     </div>
-                    <label for="review_offer" class="review_rating">Waardering</label>
+                    <label for="reviewRating" class="control-label">Waardering</label>
                     <div class="form-group">
-                        <select class="form-control" id="review_rating">
+                        <select class="form-control" id="reviewrating">
                             <option>Uitmuntend</option>
                             <option>Goed</option>
                             <option>Matig</option>
