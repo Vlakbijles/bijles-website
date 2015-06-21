@@ -49,6 +49,7 @@ echo render_template("templates/search_small.html", array(
 // Render found offers or display errors
 switch($resp_offers["response_code"]) {
 
+
     case INVALID:
         echo render_template("templates/error.html", array(
                              "title" => ERROR_HEADING_INVALIDSEARCH,

@@ -26,7 +26,7 @@ $(function(){
                 data: {"action": "delete",
                        "offer_id": offerId},
                 statusCode: {
-                    // Unable to remove offer
+                    // Offer does not exist
                     400:
                         function() {
                             $("#notificationContent").load("ajax/notification.php",
@@ -34,6 +34,14 @@ $(function(){
                                  "message": "Er is iets misgegaan bij het " +
                                             "verwijderen van " + subjectName +
                                             ", wellicht is deze al verwijderd?"});
+                        },
+                    // Not authorized to remove this offer
+                    401:
+                        function() {
+                            $("#notificationContent").load("ajax/notification.php",
+                                {"type": "warning",
+                                 "message": "Je bent niet bevoegd om " + subjectName +
+                                            " voor deze gebruiker te verwijderen"});
                         }
                 }})
                 .done(function(data, status, xhr) {

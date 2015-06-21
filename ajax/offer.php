@@ -43,13 +43,8 @@ if ($logged_in) {
                 $request_method = "DELETE";
                 $response = api_request($request_uri, $request_method, $data);
 
-                if ($response["response_code"] == SUCCESS) {
-                    http_response_code(SUCCESS);
-                    die(json_encode(array()));
-                } else {
-                    http_response_code(INVALID);
-                    die(json_encode(array()));
-                }
+                http_response_code($response["response_code"]);
+                die(json_encode(array()));
             }
 
         default:
