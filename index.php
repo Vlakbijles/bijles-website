@@ -4,6 +4,8 @@
 //
 // Main entry point of site
 
+date_default_timezone_set("Europe/Amsterdam");
+
 require_once("api.php");
 require_once("common.php");
 include("logincheck.php");

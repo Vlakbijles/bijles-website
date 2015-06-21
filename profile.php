@@ -84,6 +84,7 @@ switch($resp_profile["response_code"]) {
                              "own_profile" => $own_profile));
         echo render_template("templates/reviews.html", array(
                              "reviews" => $resp_reviews["response"]));
+        print_r($resp_reviews["response"]);
         break;
 
     default:

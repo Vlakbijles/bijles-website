@@ -19,7 +19,7 @@
                 <div class="col-xs-9">
                     <blockquote class="pull-right">
                         <p class="lead"><?=$reviews[$keys[$i]]["description"]?></p>
-                        <small><?=$reviews[$keys[$i]]["author.meta.name"]?> <?=$reviews[$keys[$i]]["author.meta.surname"]?></small>
+                        <small><?=$reviews[$keys[$i]]["author.meta.name"]?> <?=$reviews[$keys[$i]]["author.meta.surname"]?> <em>(<?php echo date_format(date_create($reviews[$keys[$i]]["date"]), "d-m-Y"); ?>)</em></small>
                     </blockquote>
                 </div>
                 <div class="col-xs-3">
@@ -36,7 +36,7 @@
                 <div class="col-xs-9">
                     <blockquote>
                         <p class="lead"><?=$reviews[$keys[$i]]["description"]?></p>
-                        <small><?=$reviews[$keys[$i]]["author.meta.name"]?> <?=$reviews[$keys[$i]]["author.meta.surname"]?></small>
+                        <small><?=$reviews[$keys[$i]]["author.meta.name"]?> <?=$reviews[$keys[$i]]["author.meta.surname"]?> <em>(<?php echo date_format(date_create($reviews[$keys[$i]]["date"]), "d-m-Y"); ?>)</em></small>
                     </blockquote>
                 </div>
             </div>
