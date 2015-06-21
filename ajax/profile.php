@@ -32,7 +32,11 @@ if ($logged_in) {
                 if ($response["response_code"] == SUCCESS) {
                     http_response_code(SUCCESS);
                     die(json_encode($response["response"]));
+                } else {
+                    http_response_code(INVALID);
+                    die(json_encode(array()));
                 }
+
             }
 
         default:
@@ -44,4 +48,3 @@ if ($logged_in) {
 }
 
 ?>
-
