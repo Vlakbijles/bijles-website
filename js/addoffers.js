@@ -66,14 +66,14 @@ $(function(){
     enableAutoComplete(numOffers); // Enable autocomplete on initial row
 
     // Load levels into level selector
-    $("#addOffersBtn").one("click", function(e){
+    $("#addOffersBtn").one("click", function(){
         $.each(levels, function(index, value) {
             $(".levelSelector").append("<option value=" + value.value + ">" + value.label + "</option>");
         });
     });
 
     // Handler for dynamically adding extra rows
-    $("#extraOfferBtn").on("click", function(e){
+    $("#extraOfferBtn").on("click", function(){
         numOffers = numOffers + 1;
         $("#extraOfferRow").clone().prop({id: "addOfferRow_" + numOffers}).appendTo("#addOffers");
         $("#addOfferRow_" + numOffers).removeClass("hidden");
@@ -84,12 +84,12 @@ $(function(){
     });
 
     // Enable remove buttons on extra rows
-    $(document).on("click", "button.removeOfferBtn", function(e) {
+    $(document).on("click", "button.removeOfferBtn", function() {
         $(this).parent().parent().remove();
     });
 
     // Submit new offers to API server
-    $("#submitOfferBtn").on("click", function(e){
+    $("#submitOfferBtn").on("click", function(){
         for(i = 1; i <= numOffers; i++) {
             var subjectId = $("#subject_id" + i).val();
             var levelId = $("#level_id" + i).val();
