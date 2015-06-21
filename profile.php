@@ -59,7 +59,7 @@ switch($resp_profile["response_code"]) {
         if ($own_profile) {
             echo render_template("templates/modals/editprofile.html", array(
                                  "email" => $resp_profile["response"]["email"],
-                                 "description" => $resp_profile["response"]["meta.description"],
+                                 "no_reviews" => $resp_profile["response"]["meta.no_reviews"],
                                  "postal_code" => $resp_profile["response"]["meta.postal_code"]));
             echo render_template("templates/modals/addoffers.html",
                                  array("user_id" => $user_id));
@@ -77,6 +77,9 @@ switch($resp_profile["response_code"]) {
                              "age" => $resp_profile["response"]["meta.age"],
                              "description" => $resp_profile["response"]["meta.description"],
                              "photo" => $resp_profile["response"]["meta.photo_id"],
+                             "no_endorsed" => $resp_profile["response"]["meta.no_endorsed"],
+                             "no_reviews" => $resp_profile["response"]["meta.no_reviews"],
+                             "description" => $resp_profile["response"]["meta.description"],
                              "offers" => $resp_offers["response"],
                              "num_offers" => count($resp_offers["response"]),
                              "logged_in" => $logged_in,
