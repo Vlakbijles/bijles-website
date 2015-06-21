@@ -28,7 +28,8 @@
 		$to = $resp_profile["response"]["email"];
 		$subject = "Een gebruiker op VlakBijles heeft je een bericht gestuurd over " . $contact_offer; //automated response met offer verkregen vanuit html/js 
 		$message = $contact_msg;
-		$headers = array('From: ' . $resp_email["response"]["email"],
+		$headers = array("From:  vlakbijles@gmail.com",
+"Reply-To: " . $resp_email["response"]["email"],
 			"X-Mailer: PHP/" . PHP_VERSION);
 
 		mail($to, $subject, $message, $headers)
