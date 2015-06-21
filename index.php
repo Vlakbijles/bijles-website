@@ -5,20 +5,8 @@
 // Main entry point of site
 
 require_once("api.php");
+require_once("common.php");
 include("logincheck.php");
-
-// Template rendering
-class MissingTemplateException extends Exception {}
-function render_template($template_file, $vars = array()) {
-    if(file_exists($template_file)) {
-        ob_start();
-        extract($vars);
-        include($template_file);
-        return ob_get_clean();
-    } else {
-        throw new MissingTemplateException("Template: {$template_file} could not be found!");
-    }
-}
 
 // Landing page if no page parameter is specified
 $page = "home";

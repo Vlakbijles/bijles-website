@@ -5,28 +5,14 @@
 // Defines interface to API server, contains function for formatting API
 // requests
 
-// Response codes
-define("SUCCESS", 200);
-define("CREATED", 201);
-define("ACCEPTED", 202);
-define("NO_RESULTS", 404);
-define("INVALID", 400);
+require_once("vars.php");
+require_once("common.php");
 
 $api_user = "site-vlakbij";
 $api_key = "3aced6d2d652a5a7426daabff22e372c";
 
 $hash_algorithm = "sha256";
 $api_url = "localhost:5000";
-
-// Recursively sort elements in array by key
-function ksortRecursive(&$array) {
-    if (is_array($array)) {
-        ksort($array);
-        foreach ($array as &$arr) {
-            ksortRecursive($arr);
-        }
-    }
-}
 
 function api_request($request_uri, $request_method, $data) {
 

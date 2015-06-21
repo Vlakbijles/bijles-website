@@ -28,6 +28,9 @@ if ($logged_in) {
                 if ($response["response_code"] == CREATED) {
                     http_response_code(CREATED);
                     die(json_encode($response["response"]));
+                } elseif ($response["response_code"] == SUCCESS) {
+                    http_response_code(SUCCESS);
+                    die(json_encode($response["response"]));
                 }
             }
 

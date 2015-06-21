@@ -68,15 +68,20 @@ $(function(){
                                   "\nBevat je beschrijving niet meer dan " + maxLength + " karakters?");
                         }
                 }})
-                .done(function(data) {
-                    if (data) {
-                        // Update page with updated profile returned from API
-                        $("#userLocation").text(data["meta.city"]);
-                        $("#userDescription").text(data["meta.description"]);
-                        $("#editEmail").val(data["email"]);
-                        $("#editPostalCode").val(data["meta.postal_code"]);
-                        $("#editDesc").val(data["meta.description"]);
-                        $("#editProfileModal").modal("toggle");
+                .done(function(data, status, xhr) {
+                    switch (xhr.status) {
+                        case 200:
+                            // Update page with updated profile returned from API
+                            $("#userLocation").text(data["meta.city"]);
+                            $("#userDescription").text(data["meta.description"]);
+                            $("#editEmail").val(data["email"]);
+                            $("#editPostalCode").val(data["meta.postal_code"]);
+                            $("#editDesc").val(data["meta.description"]);
+                            $("#editProfileModal").modal("toggle");
+                            $("#notificationContent").load("ajax/notification.php",
+                                                           {"type": "success",
+                                                            "message": "Je profiel is aangepast"});
+                        default: ;
                     }
                 });
         },

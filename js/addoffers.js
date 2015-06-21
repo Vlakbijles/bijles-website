@@ -109,14 +109,21 @@ $(function(){
                                       " van een vak");
                             }
                     }})
-                    .done(function(data) {
-                        if(data) {
-                            $("#offerRow").clone().prop({id: "offerRow_" + data["id"]}).prependTo($("#offerTable tbody"));
-                            $("#offerRow_" + data["id"]).removeClass("hidden");
-                            $("#offerRow_" + data["id"]).find(".subjectName").text(data["subject.name"]);
-                            $("#offerRow_" + data["id"]).find(".levelName").text(data["level.name"]);
-                            $("#numOffers").text(parseInt($("#numOffers").text()) + 1);
-                            $("#offerRow_" + data["id"]).find(".deleteOfferBtn").attr({value: data["id"], name: data["subject.name"]});
+                    .done(function(data, status, xhr) {
+                        switch (xhr.status) {
+                            case 200:
+                                // Offer already exists, do nothing
+                                break;
+                            case 201:
+                                // Offer created, add to offer table
+                                $("#offerRow").clone().prop({id: "offerRow_" + data["id"]}).prependTo($("#offerTable tbody"));
+                                $("#offerRow_" + data["id"]).removeClass("hidden");
+                                $("#offerRow_" + data["id"]).find(".subjectName").text(data["subject.name"]);
+                                $("#offerRow_" + data["id"]).find(".levelName").text(data["level.name"]);
+                                $("#numOffers").text(parseInt($("#numOffers").text()) + 1);
+                                $("#offerRow_" + data["id"]).find(".deleteOfferBtn").attr({value: data["id"], name: data["subject.name"]});
+                                break;
+                            default: ;
                         }
                     });
             }
