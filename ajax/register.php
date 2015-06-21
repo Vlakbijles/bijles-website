@@ -25,7 +25,7 @@
                           "postal_code" => $postal_code,
                           "description" => $description);
 
-        $data = array("user" => $user, "usermeta" => $usermeta);
+        $data = array("user" => $user, "user_meta" => $usermeta);
 
         $response = api_request($request_uri, $request_method, $data);
 
