@@ -12,12 +12,24 @@ $(function(){
         $.ajax({
             url: "ajax/level.php?action=all",
             type: "GET",
-            dataType: "json"})
-            .done(function(data) {
-                if(data) {
-                    $.each(data, function(key, val) {
-                        formatted.push({ "value": val.id, "label": val.name });
-                    });
+            dataType: "json",
+            statusCode: {
+                400:
+                    // Unable to load levels
+                    function() {
+                        $("#notificationContent").load("ajax/notification.php",
+                                {"type": "danger",
+                                 "message": "Er is iets misgegaan bij het laden van de beschikbare niveaus"});
+                    }
+            }})
+            .done(function(data, status, xhr) {
+                switch (xhr.status) {
+                    case 200:
+                        $.each(data, function(key, val) {
+                            formatted.push({ "value": val.id, "label": val.name });
+                        });
+                        break;
+                    default: ;
                 }
             });
         return formatted;

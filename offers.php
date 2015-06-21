@@ -36,7 +36,6 @@ echo render_template("templates/head.html", array(
 
 // Render navbar
 if (!$logged_in) {
-    include("templates/modals/register.html");
     include("templates/modals/login.html");
 }
 echo render_template("templates/navbar.html", array(

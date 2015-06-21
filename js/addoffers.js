@@ -65,6 +65,7 @@ $(function(){
     var numOffers = 1;
     enableAutoComplete(numOffers); // Enable autocomplete on initial row
 
+    // Load levels into level selector
     $("#addOffersBtn").one("click", function(e){
         $.each(levels, function(index, value) {
             $(".levelSelector").append("<option value=" + value.value + ">" + value.label + "</option>");
@@ -95,20 +96,34 @@ $(function(){
             if (subjectId && levelId) {
                 $.ajax({
                     url: "ajax/offer.php",
-                    // async: false,
                     type: "POST",
                     dataType: "json",
                     data: {"action": "create",
                            "subject_id": subjectId,
-                           "level_id": levelId}})
-                    .done(function(data) {
-                        if(data) {
-                            $("#offerRow").clone().prop({id: "offerRow_" + data["id"]}).prependTo($("#offerTable tbody"));
-                            $("#offerRow_" + data["id"]).removeClass("hidden");
-                            $("#offerRow_" + data["id"]).find(".subjectName").text(data["subject.name"]);
-                            $("#offerRow_" + data["id"]).find(".levelName").text(data["level.name"]);
-                            $("#numOffers").text(parseInt($("#numOffers").text()) + 1);
-                            $("#offerRow_" + data["id"]).find(".deleteOfferBtn").attr({value: data["id"], name: data["subject.name"]});
+                           "level_id": levelId},
+                    statusCode: {
+                        400:
+                            // 400 indicated the API could not create the offer
+                            function() {
+                                alert("Er is iets misgegaan bij het toevoegen" +
+                                      " van een vak");
+                            }
+                    }})
+                    .done(function(data, status, xhr) {
+                        switch (xhr.status) {
+                            case 200:
+                                // Offer already exists, do nothing
+                                break;
+                            case 201:
+                                // Offer created, add to offer table
+                                $("#offerRow").clone().prop({id: "offerRow_" + data["id"]}).prependTo($("#offerTable tbody"));
+                                $("#offerRow_" + data["id"]).removeClass("hidden");
+                                $("#offerRow_" + data["id"]).find(".subjectName").text(data["subject.name"]);
+                                $("#offerRow_" + data["id"]).find(".levelName").text(data["level.name"]);
+                                $("#numOffers").text(parseInt($("#numOffers").text()) + 1);
+                                $("#offerRow_" + data["id"]).find(".deleteOfferBtn").attr({value: data["id"], name: data["subject.name"]});
+                                break;
+                            default: ;
                         }
                     });
             }

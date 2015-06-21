@@ -9,24 +9,41 @@ $(function(){
     // Fade delete offer buttons
     $(document)
         .on("mouseenter", ".offerRow", function() {
-            $(this).find(".deleteOfferBtn").fadeTo(200, 1);})
+            $(this).find(".deleteOfferBtn").stop(true, true).fadeTo(300, 1);})
         .on("mouseleave", ".offerRow", function() {
-             $(this).find(".deleteOfferBtn").fadeTo(0, 0);
+             $(this).find(".deleteOfferBtn").stop(true, true).fadeTo(0, 0);
     });
 
     // Delete offer button handler
     $(document).on("click", "button.deleteOfferBtn", function(e){
         e.preventDefault();
-        if(confirm($(this).attr("name") + " verwijderen uit je vakkenlijst?")){
+        var subjectName = $(this).attr("name");
+        if(confirm(subjectName + " verwijderen uit je vakkenlijst?")){
             var offerId = $(this).attr("value");
             $.ajax({
                 url: "ajax/offer.php",
                 type: "POST",
-                data: {"action": "delete", "offer_id": offerId}})
-                .done(function(data, status) {
-                    if(data == "ok") {
-                        $("#offerRow_" + offerId).remove();
-                        $("#numOffers").text(parseInt($("#numOffers").text()) - 1);
+                data: {"action": "delete",
+                       "offer_id": offerId},
+                statusCode: {
+                    // Unable to remove offer
+                    400:
+                        function() {
+                            $("#notificationContent").load("ajax/notification.php",
+                                {"type": "warning",
+                                 "message": "Er is iets misgegaan bij het " +
+                                            "verwijderen van " + subjectName +
+                                            ", wellicht is het al verwijderd?"});
+                        }
+                }})
+                .done(function(data, status, xhr) {
+                    switch (xhr.status) {
+                        case 200:
+                            // Offer succesfully removed/deactivated
+                            $("#offerRow_" + offerId).remove();
+                            $("#numOffers").text(parseInt($("#numOffers").text()) - 1);
+                            break;
+                        default: ;
                     }
                 });
          }

@@ -12,8 +12,13 @@ switch($_GET["action"]) {
         $response = api_request($request_uri, $request_method, NULL);
 
         if ($response["response_code"] == SUCCESS) {
-            echo json_encode($response["response"]);
+            http_response_code(SUCCESS);
+            die(json_encode($response["response"]));
         }
+
+    default:
+        http_response_code(INVALID);
+        die(json_encode(array()));
 
 }
 

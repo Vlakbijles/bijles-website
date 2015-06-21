@@ -1,7 +1,19 @@
 <?php
 
+// vars.php
+//
+// Defines widely used variables
+
+// General
 define("SITENAME", "Vlakbijles");
 define("SITETITLE", "Vind bijles bij jou in de buurt");
+
+// Response codes
+define("SUCCESS", 200);
+define("CREATED", 201);
+define("ACCEPTED", 202);
+define("NO_RESULTS", 404);
+define("INVALID", 400);
 
 // Error messages
 define("ERROR_HEADING_GENERAL", "Er is iets misgegaan");
