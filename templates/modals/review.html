@@ -1,34 +1,126 @@
+<script>
+
+$(function(){
+
+    // Char counter logic for description
+    var maxLength = 500;
+    var currentLength = $("#reviewDesc").val().length;
+    $("#charCounter").text(currentLength + "/" + maxLength).fadeTo(0, 0.2);
+    $("#reviewDesc")
+        .keyup(function() {
+            currentLength = $(this).val().length;
+            $("#charCounter").text(currentLength + "/" + maxLength);})
+        .focusin(function() {
+            $("#charCounter").fadeTo(500, 0.7);})
+        .focusout(function() {
+            $("#charCounter").fadeTo(500, 0.2);
+    });
+
+    $("#reviewEndorsed").on("click", function(){
+        $(this).parent().toggleClass("text-success text-danger");
+        $(this).parent().toggleClass("stroked");
+        $("#warningContent").toggleClass("hidden");
+    });
+
+    // Validation for review form
+    $("#reviewForm").validate({
+
+        // Called when form is filled in properly
+        submitHandler: function(form) {
+            var reviewOffer = $(form).find("#reviewOffer").val();
+            var reviewDesc = $(form).find("#reviewDesc").val();
+            var reviewEndorsed = $(form).find("#reviewEndorsed").is(":checked");
+
+            $.ajax({
+                url: "ajax/review.php",
+                type: "POST",
+                dataType: "json",
+                data: {"action": "create",
+                       "offer_id": reviewOffer,
+                       "description": reviewDesc,
+                       "endorsed": reviewEndorsed},
+                statusCode: {
+                    400:
+                        function() {
+                            alert("Er is iets misgegaan");
+                        }
+                }})
+                .done(function(data, status, xhr) {
+                    switch (xhr.status) {
+                        case 200:
+                            // User has already reviewed this offer
+                            $("#notificationContent").load("ajax/notification.php",
+                                                           {"type": "warning",
+                                                            "message": "Je hebt deze gebruiker/bijles combinatie al eens beoordeeld"});
+                            break;
+                        case 201:
+                            // Review successfully created, update page
+                            $("#notificationContent").load("ajax/notification.php",
+                                                           {"type": "success",
+                                                            "message": "Bedankt voor je beoordeling"});
+                            // TODO update page
+                            break;
+                        default: ;
+                    }
+                    $("#reviewModal").modal("toggle");
+                });
+        },
+
+        rules: {
+            "reviewOffer": {
+                required: true,
+            },
+            "reviewDesc": {
+                required: false,
+                maxlength: 500,
+            },
+            "reviewEndorsed": {
+                required: false,
+            },
+        },
+
+        // Empty error messages, bootstrap indicators used instead
+        messages: { "reviewOffer": {required: ""},
+                    "reviewDesc": {required: "", maxlength: ""},
+                    "reviewEndorsed": {required: ""} }
+
+    });
+
+});
+
+</script>
 <!-- Review modal -->
 <div id="reviewModal" class="modal fade" role="dialog">
     <div class="modal-dialog modal-xs">
-        <form role="form">
+        <form role="form" id="reviewForm">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Recensie schrijven over Bolle Henkie</h4>
+                    <h4 class="modal-title">Deel jouw ervaring met Bolle Henkie</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="form-group">
+                    <div class="form-group has-feedback">
                     <label for="reviewOffer" class="control-label">Bijles</label>
-                        <select class="form-control" id="reviewOffer">
+                        <select class="form-control" id="reviewOffer" name="reviewOffer">
                             <?php foreach ($offers as $offer) { ?>
                             <option value=<?=$offer["id"]?>><?=$offer["subject.name"]?> (<?=$offer["level.name"]?>)</option>
                             <?php } ?>
                         </select>
                     </div>
                     <div class="form-group">
-                    <label for="reviewDesc" class="control-label">Jouw ervaring</label>
-                        <textarea class="form-control" rows="3" id="reviewDesc" placeholder="Beschrijf jouw ervaring met Bolle Henkie" style="resize:vertical;"></textarea>
-
+                        <div class="checkbox">
+                            <label class="text-success">
+                                <input type="checkbox" id="reviewEndorsed" name="reviewEndorsed" checked> <strong>Ik raad deze bijles docent aan</strong>
+                            </label>
+                        </div>
                     </div>
-                    <label for="reviewRating" class="control-label">Waardering</label>
-                    <div class="form-group">
-                        <select class="form-control" id="reviewrating">
-                            <option>Uitmuntend</option>
-                            <option>Goed</option>
-                            <option>Matig</option>
-                            <option>Slecht</option>
-                        </select>
+                    <div class="form-group has-feedback">
+                    <label for="reviewDesc" class="control-label">Jouw ervaring (optioneel)</label>
+                        <p id="charCounter" class="pull-right"></p>
+                        <textarea id="reviewDesc" name="reviewDesc" class="form-control" rows="3" maxlength="500" placeholder="Beschrijf jouw bijles ervaring met Bolle Henkie" style="resize:vertical;"></textarea>
+                    </div>
+                    <div id="warningContent" class="text-center hidden">
+                        <p class="lead nobottommargin">Je staat op het punt een negatieve recensie achter te laten, druk op versturen als je dit zeker weet</p>
                     </div>
                 </div>
                 <div class="modal-footer">

@@ -98,6 +98,10 @@ ul.ui-autocomplete {
   letter-spacing: -1px;
 }
 
+.stroked {
+    text-decoration: line-through;
+}
+
 .footer {
     position: absolute;
     bottom: 0;

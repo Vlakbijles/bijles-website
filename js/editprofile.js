@@ -81,6 +81,7 @@ $(function(){
                             $("#notificationContent").load("ajax/notification.php",
                                                            {"type": "success",
                                                             "message": "Je profiel is aangepast"});
+                            break;
                         default: ;
                     }
                 });
