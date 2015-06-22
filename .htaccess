@@ -1,4 +1,4 @@
-
+<IfModule mod_rewrite.c>
     Options +FollowSymLinks -Indexes    
     
     RewriteEngine On
@@ -15,7 +15,7 @@
     RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
     RewriteCond %{QUERY_STRING} ^page=([A-Za-z]*)&id=([0-9]*)$
     RewriteRule ^ %1/%2? [R=302,L]
-asdasd
+
     # To internally redirect localhost/X/XX to localhost/index.php?page=X&id=XX
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{DOCUMENT_ROOT}/$1/$2 !-f
@@ -44,7 +44,7 @@ asdasd
     RewriteCond %{DOCUMENT_ROOT} !-f
     RewriteRule ^([A-Za-z]+)?$ index.php [L]
 
-
+</IfModule>
 
 # Tests
 # http://localhost/templates/offers.html
