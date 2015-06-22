@@ -18,12 +18,15 @@ switch ($page) {
 
     case "home":
         include("home.php");
+        include("templates/footer.html");
         break;
     case "profile":
         include("profile.php");
+        include("templates/footer.html");
         break;
     case "offers":
         include("offers.php");
+        include("templates/footer.html");
         break;
     default:
         die("Invalid URL, no valid page specified");

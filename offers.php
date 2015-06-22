@@ -75,6 +75,4 @@ switch($resp_offers["response_code"]) {
 
 }
 
-include("templates/footer.html");
-
 ?>

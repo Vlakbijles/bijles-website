@@ -17,6 +17,4 @@ echo render_template("templates/search_large.html", array(
 
 include("templates/home.html");
 
-include("templates/footer.html");
-
 ?>
