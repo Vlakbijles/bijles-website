@@ -21,12 +21,12 @@
     #RewriteCond %{DOCUMENT_ROOT}/$1/$2 !-f
     #RewriteRule ^([A-Za-z]+)/([0-9]+)/?$ index.php?page=$1&id=$2 [L]
 
-
+    RewriteCond %{REQUEST_FILENAME} !-f
     # http://localhost/index.php?page=offers&subject_id=1&postal_code=2341TS
     # To externally redirect localhost/index.php?page=X&subject_id=XX&postal_code=XXX to localhost/X/XX/XXX
-    #RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
-    #RewriteCond %{QUERY_STRING} ^page=([A-Za-z]*)&subject_id=([0-9]*)&postal_code=([0-9]{4}[A-Za-z]{2})$
-    #RewriteRule ^ %1/%2/%3? [R=302,L]
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
+    RewriteCond %{QUERY_STRING} ^page=([A-Za-z]*)&subject_id=([0-9]*)&postal_code=([0-9]{4}[A-Za-z]{2})$
+    RewriteRule ^ %1/%2/%3? [R=302,L]
     
     # To internally redirect localhost/X/XX/XXX to localhost/index.php?page=X&subject_id=XX&postal_code=XXX
     #RewriteCond %{REQUEST_FILENAME} !-d
