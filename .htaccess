@@ -1,4 +1,4 @@
-<IfModule mod_rewrite.c>
+
     Options +FollowSymLinks -Indexes    
     
     RewriteEngine On
@@ -44,7 +44,7 @@ asdasd
     RewriteCond %{DOCUMENT_ROOT} !-f
     RewriteRule ^([A-Za-z]+)?$ index.php [L]
 
-</IfModule>
+
 
 # Tests
 # http://localhost/templates/offers.html
