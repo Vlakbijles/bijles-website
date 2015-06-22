@@ -46,8 +46,6 @@ echo render_template("templates/navbar.html", array(
 echo render_template("templates/search_small.html", array(
                      "postal_code" => $user_postal_code));
 
-print_r($resp_offers["response"][0]);
-
 // Render found offers or display errors
 switch($resp_offers["response_code"]) {
 
