@@ -102,18 +102,34 @@ ul.ui-autocomplete {
     text-decoration: line-through;
 }
 
-
-.img-full-width {
-    width: 100%;
-    height: auto;
-}
-
-.caption {
+.profile-pic {
     position: relative;
-    margin-bottom: 2%;
+    max-width:210px;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    color: #ffffff;
 }
 
+.endorsment-indicator {
+    position: absolute;
+    right:5px;
+    top:5px;
+}
 
+.endorsment-indicator-lg {
+    font-size: 20px;
+    padding: 10px;
+}
+
+.endorsment-indicator-md {
+    font-size: 17px;
+    padding: 8px;
+}
+
+.endorsment-indicator-sm {
+    font-size: 13px;
+    padding: 6px;
+}
 
 
 .footer {

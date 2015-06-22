@@ -19,7 +19,7 @@
                 <div class="col-xs-9">
                     <blockquote class="pull-right">
                         <p class="lead"><?=$reviews[$keys[$i]]["description"]?></p>
-                        <small><a href="/index.php?page=profile&id=<?=$reviews[$keys[$i]]["author.id"]?>"><?=$reviews[$keys[$i]]["author.meta.name"]?> <?=$reviews[$keys[$i]]["author.meta.surname"]?></a> op <?php echo date_format(date_create($reviews[$keys[$i]]["date"]), "d-m-Y"); ?> <?php if ($reviews[$keys[$i]]["endorsed"] == 1) { ?><span class="label label-success glyphicon">&#xe013;</span><?php } else { ?><span class="label label-warning glyphicon">&#xe014;</span><?php } ?></small>
+                        <small><a href="/index.php?page=profile&id=<?=$reviews[$keys[$i]]["author.id"]?>"><?=$reviews[$keys[$i]]["author.meta.name"]?> <?=$reviews[$keys[$i]]["author.meta.surname"]?></a> op <?php echo date_format(date_create($reviews[$keys[$i]]["date"]), "d-m-Y"); ?></small>
                     </blockquote>
                 </div>
                 <div class="col-xs-3">
@@ -36,7 +36,7 @@
                 <div class="col-xs-9">
                     <blockquote>
                         <p class="lead"><?=$reviews[$keys[$i]]["description"]?></p>
-                        <small><?php if ($reviews[$keys[$i]]["endorsed"] == 1) { ?><span class="label label-success glyphicon">&#xe013;</span><?php } else { ?><span class="label label-warning glyphicon">&#xe014;</span><?php } ?> <a href="/index.php?page=profile&id=<?=$reviews[$keys[$i]]["author.id"]?>"><?=$reviews[$keys[$i]]["author.meta.name"]?> <?=$reviews[$keys[$i]]["author.meta.surname"]?></a> op <?php echo date_format(date_create($reviews[$keys[$i]]["date"]), "d-m-Y"); ?> </small>
+                        <small><a href="/index.php?page=profile&id=<?=$reviews[$keys[$i]]["author.id"]?>"><?=$reviews[$keys[$i]]["author.meta.name"]?> <?=$reviews[$keys[$i]]["author.meta.surname"]?></a> op <?php echo date_format(date_create($reviews[$keys[$i]]["date"]), "d-m-Y"); ?></small>
                     </blockquote>
                 </div>
             </div>
