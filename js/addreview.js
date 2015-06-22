@@ -20,11 +20,17 @@ $(function(){
             $("#charCounter").fadeTo(500, 0.2);
     });
 
+    // Show warning when user is to explicitely not endorse an offer
     $("#reviewEndorsed").on("click", function(){
         $(this).parent().toggleClass("text-success text-danger");
         $(this).parent().toggleClass("stroked");
         $("#warningContent").toggleClass("hidden");
     });
+
+    // Keep track of which alligment to use for dynamically adding review, for
+    // the case a user leaves more than one review
+    var allignLeft = true;
+    if (parseInt($("#reviewCounter").text() == 0)) allignLeft = false;
 
     // Validation for review form
     $("#reviewForm").validate({
@@ -62,7 +68,42 @@ $(function(){
                             $("#notificationContent").load("ajax/notification.php",
                                                            {"type": "success",
                                                             "message": "Bedankt voor je beoordeling"});
-                            // TODO update page
+
+                            // Update page
+                            console.log(data);
+
+                            if (allignLeft) {
+                                $("#reviewLeftTemplate").clone().prop({id: "newReview"}).prependTo($("#reviewContainer"));
+                            } else {
+                                $("#reviewRightTemplate").clone().prop({id: "newReview"}).prependTo($("#reviewContainer"));
+                            }
+                            // Toggle allignment for next review
+                            allignLeft = !allignLeft;
+
+                            $("#newReview").removeClass("hidden");
+                            $("#newReview").find(".reviewDescription").text(data["description"]);
+                            $("#newReview").find(".reviewDate").text("Zojuist");
+                            $("#newReview").find(".reviewSubject").text(data["offer.subject.name"]);
+                            $("#newReview").find(".reviewLevel").text(data["offer.level.name"]);
+                            $("#newReview").find(".reviewAuthorPhoto").attr({"src": data["author.meta.photo_id"],
+                                                                             "alt": data["author.meta.name"] + " " + data["author.meta.surname"]});
+                            $("#newReview").find(".reviewAuthorLink").attr("href", "index.php?page=profile&id=" + data["author.id"]);
+                            $("#newReview").find(".reviewAuthor").text(data["author.meta.name"] + " " + data["author.meta.surname"]);
+
+                            // Show endorsment in review, increment endorsment counters
+                            if (!data["endorsed"]) {
+                                $("#newReview").find(".reviewEndorsed").remove();
+                            } else {
+                                $("#endorsmentCounter").text(parseInt($("#endorsmentCounter").text()) + 1);
+                            }
+
+                            // Increment review counter
+                            $("#reviewCounter").text(parseInt($("#reviewCounter").text()) + 1);
+                            // TODO show counter when inital number of endorsments was 0
+
+                            // Clear ID so another review can be added
+                            $("#newReview").prop({id: ""});
+
                             break;
                         default: ;
                     }

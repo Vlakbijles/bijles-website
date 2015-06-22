@@ -10,9 +10,9 @@
                         <div class="profile-pic profile-pic-profile">
                             <img src="<?=$photo?>" alt="<?=$name?> <?=$surname?>" class="img-thumbnail">
                             <?php if ($no_endorsed) { ?>
-                            <span class="endorsment-indicator endorsment-indicator-lg glyphicon label-success visible-xs visible-lg">&#xe125;<?=$no_endorsed?></span>
-                            <span class="endorsment-indicator endorsment-indicator-sm glyphicon label-success visible-sm">&#xe125;<?=$no_endorsed?></span>
-                            <span class="endorsment-indicator endorsment-indicator-md glyphicon label-success visible-md">&#xe125;<?=$no_endorsed?></span>
+                            <span class="endorsment-indicator endorsment-indicator-lg glyphicon label-success visible-xs visible-lg">&#xe125;<span id="endorsmentCounter"><?=$no_endorsed?></span></span>
+                            <span class="endorsment-indicator endorsment-indicator-sm glyphicon label-success visible-sm">&#xe125;<span id="endorsmentCounter"><?=$no_endorsed?></span></span>
+                            <span class="endorsment-indicator endorsment-indicator-md glyphicon label-success visible-md">&#xe125;<span id="endorsmentCounter"><?=$no_endorsed?></span></span>
                             <?php } ?>
                         </div>
                         <h1 class="no-top-margin text-center visible-xs"><?=$name?> <?=$surname?></h1>
