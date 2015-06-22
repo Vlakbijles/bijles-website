@@ -17,7 +17,18 @@
                         <div class="panel-heading text-center"><?php echo round($results[$keys[$i]]["distance"] / 1000.0, 1) ?>km</div>
 
                         <div class="panel-body">
-                            <a href="index.php?page=profile&id=<?=$results[$keys[$i]]["user_id"]?>"><img src="<?=$results[$keys[$i]]["user.meta.photo_id"]?>" class="img-responsive img-circle center-block" alt="Henk Honk"></a>
+
+                            <?php //print_r($results[$keys[$i]]); ?>
+
+                            <div class="profile-pic">
+                                <a href="index.php?page=profile&id=<?=$results[$keys[$i]]["user_id"]?>"><img src="<?=$results[$keys[$i]]["user.meta.photo_id"]?>" alt="<?=$results[$keys[$i]]["user.meta.name"]?> <?=$results[$keys[$i]]["user.meta.surname"]?>" class="img-thumbnail"></a>
+                                <!-- TODO no_endorsments -->
+                                <?php if ($no_endorsed) { ?>
+                                <span class="endorsment-indicator endorsment-indicator-lg glyphicon label-success visible-xs visible-lg">&#xe125;<?=$no_endorsed?></span>
+                                <span class="endorsment-indicator endorsment-indicator-sm glyphicon label-success visible-sm">&#xe125;<?=$no_endorsed?></span>
+                                <span class="endorsment-indicator endorsment-indicator-md glyphicon label-success visible-md">&#xe125;<?=$no_endorsed?></span>
+                                <?php } ?>
+                            </div>
                             <h4 class="offer-name text-center nobottommargin"><?=$results[$keys[$i]]["user.meta.name"]?> <?=$results[$keys[$i]]["user.meta.surname"]?></h4>
                         </div>
                         <?php if ($results[$keys[$i]]["user.meta.no_reviews"]) { ?>

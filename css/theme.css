@@ -106,8 +106,11 @@ ul.ui-autocomplete {
     position: relative;
     max-width:210px;
     margin: 0 auto;
-    padding-bottom: 10px;
     color: #ffffff;
+}
+
+.profile-pic-profile {
+    padding-bottom: 10px;
 }
 
 .endorsment-indicator {
