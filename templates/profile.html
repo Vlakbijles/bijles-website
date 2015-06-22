@@ -7,24 +7,16 @@
 
                 <div class="col-sm-3 lead">
                     <div class="well">
-                        <img src="<?=$photo?>" alt="<?=$name?> <?=$surname?>" class="img-responsive img-thumbnail center-block bottommargin">
-                        <h1 class="notopmargin text-center visible-xs"><?=$name?> <?=$surname?></h1>
-                        <div class="progress">
-                            <?php
-                            if ($no_reviews) {
-                                $bar_endorsed = round(($no_endorsed / $no_reviews)*100, 0);
-                                $bar_rest = 100 - $bar_endorsed;
-                            ?>
-                            <div class="progress-bar progress-bar-success" style="width: <?=$bar_endorsed?>%"></div>
-                            <div class="progress-bar progress-bar-warning" style="width: <?=$bar_rest?>%"></div>
-                            <?php
-                            }
-                            ?>
+                        <div class="profile-pic">
+                            <img src="<?=$photo?>" alt="<?=$name?> <?=$surname?>" class="img-thumbnail">
+                            <?php if ($no_endorsed) { ?>
+                            <span class="endorsment-indicator endorsment-indicator-lg glyphicon label-success visible-xs visible-lg">&#xe125;<?=$no_endorsed?></span>
+                            <span class="endorsment-indicator endorsment-indicator-sm glyphicon label-success visible-sm">&#xe125;<?=$no_endorsed?></span>
+                            <span class="endorsment-indicator endorsment-indicator-md glyphicon label-success visible-md">&#xe125;<?=$no_endorsed?></span>
+                            <?php } ?>
                         </div>
-                        <p class="zeromargin"><span class="text-muted hidden-sm hidden-md">Locatie</span> <span id="userLocation"><?=$city?></span></p>
-                        <?php if ($age) { ?>
-                        <p class="zeromargin"><span class="text-muted hidden-sm hidden-md">Leeftijd</span> <?=$age?></p>
-                        <?php } ?>
+                        <h1 class="notopmargin text-center visible-xs"><?=$name?> <?=$surname?></h1>
+                        <p class="text-center zeromargin"><span id="userLocation"><?=$city?></span></p>
                     </div>
 
                     <?php if (!$own_profile && $logged_in && $num_offers) { ?>
