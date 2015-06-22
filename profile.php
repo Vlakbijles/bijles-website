@@ -98,4 +98,4 @@ switch($resp_profile["response_code"]) {
 
 }
 
-include("templates/footer.html");
+?>

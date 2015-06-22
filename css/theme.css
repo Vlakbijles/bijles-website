@@ -102,6 +102,20 @@ ul.ui-autocomplete {
     text-decoration: line-through;
 }
 
+
+.img-full-width {
+    width: 100%;
+    height: auto;
+}
+
+.caption {
+    position: relative;
+    margin-bottom: 2%;
+}
+
+
+
+
 .footer {
     position: absolute;
     bottom: 0;

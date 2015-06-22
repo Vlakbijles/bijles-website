@@ -7,20 +7,12 @@
 
                 <div class="col-sm-3 lead">
                     <div class="well">
-                        <img src="<?=$photo?>" alt="<?=$name?> <?=$surname?>" class="img-responsive img-thumbnail center-block bottommargin">
-                        <h1 class="notopmargin text-center visible-xs"><?=$name?> <?=$surname?></h1>
-                        <div class="progress">
-                            <?php
-                            if ($no_reviews) {
-                                $bar_endorsed = round(($no_endorsed / $no_reviews)*100, 0);
-                                $bar_rest = 100 - $bar_endorsed;
-                            ?>
-                            <div class="progress-bar progress-bar-success" style="width: <?=$bar_endorsed?>%"></div>
-                            <div class="progress-bar progress-bar-warning" style="width: <?=$bar_rest?>%"></div>
-                            <?php
-                            }
-                            ?>
+                        <div>
+                        <img src="<?=$photo?>" alt="<?=$name?> <?=$surname?>" class="img-responsive img-thumbnail center-block">
+                        <div class="bottommargin label-primary center-block text-center" style="max-width: 210px; margin-top: 10px;">7
                         </div>
+                        </div>
+                        <h1 class="notopmargin text-center visible-xs"><?=$name?> <?=$surname?></h1>
                         <p class="zeromargin"><span class="text-muted hidden-sm hidden-md">Locatie</span> <span id="userLocation"><?=$city?></span></p>
                         <?php if ($age) { ?>
                         <p class="zeromargin"><span class="text-muted hidden-sm hidden-md">Leeftijd</span> <?=$age?></p>
@@ -38,7 +30,7 @@
 
                 <div class="col-sm-9 lead">
 
-                    <h1 class="notopmargin hidden-xs"><?=$name?> <?=$surname?></h1>
+                    <h1 class="notopmargin hidden-xs"><?=$name?> <?=$surname?> </h1>
 
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#profile" data-toggle="tab" aria-expanded="true">Profiel</a></li>
