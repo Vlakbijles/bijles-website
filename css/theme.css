@@ -131,6 +131,10 @@ ul.ui-autocomplete {
     padding: 6px;
 }
 
+.offer-name {
+    white-space: nowrap;
+    overflow: hidden;
+}
 
 .footer {
     position: absolute;

@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col-xs-9">
                     <blockquote class="pull-right">
-                        <p class="lead"><?=$reviews[$keys[$i]]["description"]?></p>
+                        <p class="lead"><?=$reviews[$keys[$i]]["description"]?> <span class="text-muted">asdsd</span></p>
                         <small><a href="/index.php?page=profile&id=<?=$reviews[$keys[$i]]["author.id"]?>"><?=$reviews[$keys[$i]]["author.meta.name"]?> <?=$reviews[$keys[$i]]["author.meta.surname"]?></a> op <?php echo date_format(date_create($reviews[$keys[$i]]["date"]), "d-m-Y"); ?></small>
                     </blockquote>
                 </div>
