@@ -91,10 +91,10 @@ $(function(){
                             $("#newReview").find(".reviewAuthor").text(data["author.meta.name"] + " " + data["author.meta.surname"]);
 
                             // Show endorsment in review, increment endorsment counters
-                            if (!data["endorsed"]) {
-                                $("#newReview").find(".reviewEndorsed").remove();
-                            } else {
+                            if (data["endorsed"]) {
                                 $("#endorsmentCounter").text(parseInt($("#endorsmentCounter").text()) + 1);
+                            } else {
+                                $("#newReview").find(".reviewEndorsed").remove();
                             }
 
                             // Increment review counter
