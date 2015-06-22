@@ -1,6 +1,8 @@
 // editprofile.js
 //
-// Handles the modal for editing a user's profile
+// Handles the modal for editing a user's profile, validates new email and
+// postal with API server to make sure the email address is not already in
+// use and the postal code is valid
 
 $(function(){
 
@@ -90,11 +92,33 @@ $(function(){
         rules: {
             "editEmail": {
                 required: true,
-                email: true
+                email: true,
+                remote: {
+                    url: "ajax/verify.php",
+                    type: "GET",
+                    // Verify email is not already in use via API
+                    data: {
+                        "verify_type": "email",
+                        "verify_data": function() {
+                            return $("#editEmail").val();
+                        }
+                    }
+                }
             },
             "editPostalCode": {
                 required: true,
-                postalcode: true
+                postalcode: true,
+                remote: {
+                    url: "ajax/verify.php",
+                    type: "GET",
+                    // Verify postal code exists via API
+                    data: {
+                        "verify_type": "postal_code",
+                        "verify_data": function() {
+                            return $("#editPostalCode").val();
+                        }
+                    }
+                }
             },
             "editDesc": {
                 maxlength: 1000,
@@ -102,8 +126,8 @@ $(function(){
         },
 
         // Empty error messages, bootstrap indicators used instead
-        messages: { "editEmail": {required: "", email: ""},
-                    "editPostalCode": {required: "", postalcode: ""},
+        messages: { "editEmail": {required: "", email: "", remote: ""},
+                    "editPostalCode": {required: "", postalcode: "", remote: ""},
                     "editDesc": {maxlength: ""} }
 
     });

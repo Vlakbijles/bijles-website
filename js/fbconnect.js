@@ -112,38 +112,6 @@ function registerForm(data){
             $("#charCounter").fadeTo(1000, 0.2);
     });
 
-    // $.validator.addMethod("unique_email", function(value, element)
-    //         {
-    //             var inputElem = $('#register-form :input[name="email"]'),
-    //             data = { "emails" : inputElem.val() },
-    //             eReport = ''; //error report
-    //
-    //             $.ajax(
-    //                     {
-    //                         type: "POST",
-    //                         url: validateEmail.php,
-    //                         dataType: "json",
-    //                         data: data,
-    //                         success: function(returnData)
-    //                         {
-    //                             if (returnData!== 'true')
-    //                             {
-    //                                 return '<p>This email address is already registered.</p>';
-    //                             }
-    //                             else
-    //                             {
-    //                                 return true;
-    //                             }
-    //                         },
-    //                         error: function(xhr, textStatus, errorThrown)
-    //                         {
-    //                             alert('ajax loading error... ... '+url + query);
-    //                             return false;
-    //                         }
-    //                     });
-    //
-    //         }, '');
-    //
     // Postal code validator
     $.validator.addMethod("postalcode", function(value, element) {
         return this.optional(element) || /^[0-9]{4}[A-Za-z]{2}/.test(value);
