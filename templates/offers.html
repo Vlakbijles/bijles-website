@@ -1,5 +1,5 @@
         <!-- Search results -->
-        <div class="container maincontent">
+        <div class="container main-content">
 
             <!-- Top row -->
             <div class="row">
@@ -29,7 +29,7 @@
                                 <span class="endorsment-indicator endorsment-indicator-md glyphicon label-success visible-md">&#xe125;<?=$no_endorsed?></span>
                                 <?php } ?>
                             </div>
-                            <h4 class="offer-name text-center nobottommargin"><?=$results[$keys[$i]]["user.meta.name"]?> <?=$results[$keys[$i]]["user.meta.surname"]?></h4>
+                            <h4 class="offer-name text-center no-bottom-margin"><?=$results[$keys[$i]]["user.meta.name"]?> <?=$results[$keys[$i]]["user.meta.surname"]?></h4>
                         </div>
                         <?php if ($results[$keys[$i]]["user.meta.no_reviews"]) { ?>
                         <a href="index.php?page=profile&id=<?=$results[$keys[$i]]["user_id"]?>#reviews" class="btn btn-block btn-primary btn-sm"><?=$results[$keys[$i]]["user.meta.no_reviews"]?> recensies</a>

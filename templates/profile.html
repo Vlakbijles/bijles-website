@@ -1,6 +1,6 @@
 
         <!-- Main container -->
-        <div class="container maincontent">
+        <div class="container main-content">
 
             <!-- Profile -->
             <div class="row ">
@@ -15,8 +15,8 @@
                             <span class="endorsment-indicator endorsment-indicator-md glyphicon label-success visible-md">&#xe125;<?=$no_endorsed?></span>
                             <?php } ?>
                         </div>
-                        <h1 class="notopmargin text-center visible-xs"><?=$name?> <?=$surname?></h1>
-                        <p class="text-center zeromargin"><span id="userLocation"><?=$city?></span></p>
+                        <h1 class="no-top-margin text-center visible-xs"><?=$name?> <?=$surname?></h1>
+                        <p class="text-center no-margin"><span id="userLocation"><?=$city?></span></p>
                     </div>
 
                     <?php if (!$own_profile && $logged_in && $num_offers) { ?>
@@ -30,14 +30,14 @@
 
                 <div class="col-sm-9 lead">
 
-                    <h1 class="notopmargin hidden-xs"><?=$name?> <?=$surname?> </h1>
+                    <h1 class="no-top-margin hidden-xs"><?=$name?> <?=$surname?> </h1>
 
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#profile" data-toggle="tab" aria-expanded="true">Profiel</a></li>
                         <li class=""><a href="#offers" data-toggle="tab" aria-expanded="false">Vakken (<span id="numOffers"><?=$num_offers?></span>)</a></li>
                     </ul>
 
-                    <div id="myTabContent" class="tab-content topmargin" >
+                    <div id="myTabContent" class="tab-content top-margin" >
 
                         <?php if($own_profile) { ?>
                         <script src="js/editprofile.js"></script>

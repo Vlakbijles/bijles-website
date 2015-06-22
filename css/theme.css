@@ -32,7 +32,7 @@ ul.ui-autocomplete {
     background-position: center top;
 }
 
-.maincontent {
+.main-content {
     margin-top: 30px;
 }
 
@@ -68,23 +68,23 @@ ul.ui-autocomplete {
     margin-right: 0;
 }
 
-.zeromargin {
+.no-margin {
     margin: 0;
 }
 
-.nobottommargin {
+.no-bottom-margin {
     margin-bottom: 0;
 }
 
-.notopmargin {
+.no-top-margin {
     margin-top: 0;
 }
 
-.topmargin {
+.top-margin {
     margin: 10px 0 0 0;
 }
 
-.bottommargin{
+.bottom-margin{
     margin-bottom: 25px;
 }
 
