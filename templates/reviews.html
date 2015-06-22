@@ -3,8 +3,10 @@
 
             <!-- Reviews -->
             <div id="reviews" class="row featurette">
-                <h2 class="featurette-heading col-xs-11">Recensies <span class="text-muted">(<?=count($reviews)?>)</span></h2>
+                <h2 class="featurette-heading col-xs-11">Recensies <span id="reviewCounter" class="text-muted">(<?=count($reviews)?>)</span></h2>
             </div>
+
+            <div id="reviewContainer">
 
             <?php
             if (!empty($reviews)) {
@@ -15,32 +17,104 @@
 
                 if ($i % 2 == 0) { ?>
 
-            <div class="row">
-                <div class="col-xs-9">
-                    <blockquote class="pull-right">
-                        <p class="lead"><?=$reviews[$keys[$i]]["description"]?> <span class="text-muted">asdsd</span></p>
-                        <small><a href="/index.php?page=profile&id=<?=$reviews[$keys[$i]]["author.id"]?>"><?=$reviews[$keys[$i]]["author.meta.name"]?> <?=$reviews[$keys[$i]]["author.meta.surname"]?></a> op <?php echo date_format(date_create($reviews[$keys[$i]]["date"]), "d-m-Y"); ?></small>
-                    </blockquote>
+                <div class="row top-margin-lg reviewRight">
+                    <div class="col-xs-9 lead no-padding">
+                        <div class="text-right">
+                            <p class="reviewDescription"><?=$reviews[$keys[$i]]["description"]?></p>
+                            <h4 class="no-margin">
+                                <a class="reviewAuthorLink" href="/index.php?page=profile&id=<?=$reviews[$keys[$i]]["author.id"]?>"><?=$reviews[$keys[$i]]["author.meta.name"]?> <?=$reviews[$keys[$i]]["author.meta.surname"]?></a>
+                                <span class="text-muted reviewDate"><?php echo date_format(date_create($reviews[$keys[$i]]["date"]), "d-m-Y"); ?></span>
+                            </h4>
+                            <ul class="review-details padding-left text-muted no-padding">
+                                <li class="reviewSubject"><?=$reviews[$keys[$i]]["offer.subject.name"]?></li>
+                                <li class="reviewLevel"><?=$reviews[$keys[$i]]["offer.level.name"]?></li>
+                                <?php if ($reviews[$keys[$i]]["endorsed"]) { ?>
+                                <li class="reviewEndorsed"><span class="glyphicon text-success" style="font-size: 13px;">&#xe125;</span></li>
+                                <?php } ?>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="profile-pic profile-pic-profile">
+                            <a class="reviewAuthorLink" href="/index.php?page=profile&id=<?=$reviews[$keys[$i]]["author.id"]?>"><img src="<?=$reviews[$keys[$i]]["author.meta.photo_id"]?>" alt="<?=$reviews[$keys[$i]]["author.meta.name"]?> <?=$reviews[$keys[$i]]["author.meta.surname"]?>" class="img-thumbnail reviewAuthorPhoto"></a>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-xs-3">
-                    <img src="<?=$reviews[$keys[$i]]["author.meta.photo_id"]?>" alt="<?=$reviews[$keys[$i]]["author.meta.name"]?> <?=$reviews[$keys[$i]]["author.meta.surname"]?>" class="img-responsive img-circle">
-                </div>
-            </div>
 
             <?php } else { ?>
 
-            <div class="row">
-                <div class="col-xs-3">
-                    <img src="<?=$reviews[$keys[$i]]["author.meta.photo_id"]?>" alt="<?=$reviews[$keys[$i]]["author.meta.name"]?> <?=$reviews[$keys[$i]]["author.meta.surname"]?>" class="img-responsive img-circle">
+                <div class="row top-margin-lg reviewLeft">
+                    <div class="col-xs-3">
+                        <div class="profile-pic profile-pic-profile">
+                            <a class="reviewAuthorLink" href="/index.php?page=profile&id=<?=$reviews[$keys[$i]]["author.id"]?>"><img src="<?=$reviews[$keys[$i]]["author.meta.photo_id"]?>" alt="<?=$reviews[$keys[$i]]["author.meta.name"]?> <?=$reviews[$keys[$i]]["author.meta.surname"]?>" class="img-thumbnail reviewAuthorPhoto"></a>
+                        </div>
+                    </div>
+                    <div class="col-xs-9 lead">
+                        <div class="text-left">
+                            <p class="reviewDescription"><?=$reviews[$keys[$i]]["description"]?></p>
+                            <h4 class="no-margin">
+                                <a class="reviewAuthorLink" href="/index.php?page=profile&id=<?=$reviews[$keys[$i]]["author.id"]?>"><?=$reviews[$keys[$i]]["author.meta.name"]?> <?=$reviews[$keys[$i]]["author.meta.surname"]?></a>
+                                <span class="text-muted reviewDate"><?php echo date_format(date_create($reviews[$keys[$i]]["date"]), "d-m-Y"); ?></span>
+                            </h4>
+                            <ul class="review-details padding-left text-muted no-padding">
+                                <li class="reviewSubject"><?=$reviews[$keys[$i]]["offer.subject.name"]?></li>
+                                <li class="reviewLevel"><?=$reviews[$keys[$i]]["offer.level.name"]?></li>
+                                <?php if ($reviews[$keys[$i]]["endorsed"]) { ?>
+                                <li class="reviewEndorsed"><span class="glyphicon text-success" style="font-size: 13px;">&#xe125;</span></li>
+                                <?php } ?>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-xs-9">
-                    <blockquote>
-                        <p class="lead"><?=$reviews[$keys[$i]]["description"]?></p>
-                        <small><a href="/index.php?page=profile&id=<?=$reviews[$keys[$i]]["author.id"]?>"><?=$reviews[$keys[$i]]["author.meta.name"]?> <?=$reviews[$keys[$i]]["author.meta.surname"]?></a> op <?php echo date_format(date_create($reviews[$keys[$i]]["date"]), "d-m-Y"); ?></small>
-                    </blockquote>
+
+            <?php } } } ?>
+
+            </div>
+
+            <!-- Right alligned review template -->
+            <div id="reviewRightTemplate" class="row top-margin-lg hidden">
+                <div class="col-xs-9 lead no-padding">
+                    <div class="text-right">
+                        <p class="reviewDescription"></p>
+                        <h4 class="no-margin">
+                            <a class="reviewAuthorLink" href="#"></a>
+                            <span class="text-muted reviewDate"></span>
+                        </h4>
+                        <ul class="review-details padding-left text-muted no-padding">
+                            <li class="reviewSubject"></li>
+                            <li class="reviewLevel"></li>
+                            <li class="reviewEndorsed"><span class="glyphicon text-success" style="font-size: 13px;">&#xe125;</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="profile-pic profile-pic-profile">
+                        <a class="reviewAuthorLink" href="#"><img src="" alt="" class="img-thumbnail reviewAuthorPhoto"></a>
+                    </div>
                 </div>
             </div>
 
-            <?php } } } ?>
+            <!-- Left alligned review template -->
+            <div id="reviewLeftTemplate" class="row top-margin-lg hidden">
+                <div class="col-xs-3">
+                    <div class="profile-pic profile-pic-profile">
+                        <a class="reviewAuthorLink" href="#"><img src="" alt="" class="img-thumbnail reviewAuthorPhoto"></a>
+                    </div>
+                </div>
+                <div class="col-xs-9 lead no-padding">
+                    <div class="text-left">
+                        <p class="reviewDescription"></p>
+                        <h4 class="no-margin">
+                            <a class="reviewAuthorLink" href="#"></a>
+                            <span class="text-muted reviewDate"></span>
+                        </h4>
+                        <ul class="review-details padding-left text-muted no-padding">
+                            <li class="reviewSubject"></li>
+                            <li class="reviewLevel"></li>
+                            <li class="reviewEndorsed"><span class="glyphicon text-success" style="font-size: 13px;">&#xe125;</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
         </div>

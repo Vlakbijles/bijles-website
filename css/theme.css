@@ -55,7 +55,6 @@ ul.ui-autocomplete {
 
 .search-result:hover{
     background-color: #f3f3f3;
-    /* cursor: pointer; */
 }
 
 .navbar-logo {
@@ -72,6 +71,10 @@ ul.ui-autocomplete {
     margin: 0;
 }
 
+.no-padding {
+    padding: 0;
+}
+
 .no-bottom-margin {
     margin-bottom: 0;
 }
@@ -81,7 +84,11 @@ ul.ui-autocomplete {
 }
 
 .top-margin {
-    margin: 10px 0 0 0;
+    margin-top: 10px;
+}
+
+.top-margin-lg {
+    margin-top: 20px;
 }
 
 .bottom-margin{
@@ -137,6 +144,21 @@ ul.ui-autocomplete {
 .offer-name {
     white-space: nowrap;
     overflow: hidden;
+}
+
+.review-details li {
+    font-size: 15px;
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+}
+
+.padding-left li {
+    padding-left: 0px;
+}
+
+.padding-right li {
+    padding-right: 0px;
 }
 
 .footer {
