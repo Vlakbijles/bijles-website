@@ -4,7 +4,7 @@
 // API server, displaying warnings and dynamically adding any newly created
 // reviews
 
-// External resources (must be included in html page too):
+// Dependencies (must at some point be included in html):
 // charcounter.js
 
 $(function(){

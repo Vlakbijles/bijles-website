@@ -4,6 +4,9 @@
 // postal with API server to make sure the email address is not already in
 // use and the postal code is valid
 
+// Dependencies (must at some point be included in html):
+// charcounter.js
+
 $(function(){
 
     charCounter("charCounter", "editDesc", 1000);

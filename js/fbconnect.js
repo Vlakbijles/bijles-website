@@ -3,6 +3,9 @@
 // Tries to connect using facebook,
 // when connected for the first time prompt the user to register
 
+// External resources (must at some point be included in html):
+// charcounter.js
+
 
 // This is called with the results from from FB.getLoginStatus().
 function statusChangeCallback(response) {
