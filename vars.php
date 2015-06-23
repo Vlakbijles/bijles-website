@@ -12,7 +12,7 @@ define("SITETITLE", "Vind bijles bij jou in de buurt");
 define("SUCCESS", 200);
 define("CREATED", 201);
 define("ACCEPTED", 202);
-define("NO_RESULTS", 404);
+define("NO_RESULTS", 204);
 define("INVALID", 400);
 define("UNAUTHORIZED", 401);
 
