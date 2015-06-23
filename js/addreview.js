@@ -69,37 +69,70 @@ $(function(){
                             break;
                         case 201:
                             //TODO handle review with no content
+                            //TODO major refactoring
 
-                            // Review successfully created, update page
+                            // Review successfully created, add new review and
+                            // possible endorsment head to page
+                            var userId = data["author.id"];
+                            var description = data["description"];
+                            var subjectName = data["offer.subject.name"];
+                            var levelName = data["offer.level.name"];
+                            var photoSrc = data["author.meta.photo_id"];
+                            var name = data["author.meta.name"];
+                            var surname = data["author.meta.surname"];
+                            var endorsed = data["endorsed"];
+
                             $("#notificationContent").load("/ajax/notification.php",
                                                            {"type": "success",
                                                             "message": "Bedankt voor je beoordeling"});
 
-                            // Update page
+                            // Clone review template
                             if (allignLeft) {
-                                $("#reviewLeftTemplate").clone().prop({id: "newReview"}).prependTo($("#reviewContainer"));
+                                $("#reviewLeftTemplate").clone().prop({id: "newReview"}).removeClass("hidden").prependTo($("#reviewContainer"));
                             } else {
-                                $("#reviewRightTemplate").clone().prop({id: "newReview"}).prependTo($("#reviewContainer"));
+                                $("#reviewRightTemplate").clone().prop({id: "newReview"}).removeClass("hidden").prependTo($("#reviewContainer"));
                             }
                             // Toggle allignment for next review
                             allignLeft = !allignLeft;
 
-                            $("#newReview").removeClass("hidden");
-                            $("#newReview").find(".reviewDescription").text(data["description"]);
+                            // Fill review template with review data as returned from API
+                            $("#newReview").find(".reviewDescription").text(description);
                             $("#newReview").find(".reviewDate").text("Zojuist");
-                            $("#newReview").find(".reviewSubject").text(data["offer.subject.name"]);
-                            $("#newReview").find(".reviewLevel").text(data["offer.level.name"]);
-                            $("#newReview").find(".reviewAuthorPhoto").attr({"src": data["author.meta.photo_id"],
-                                                                             "alt": data["author.meta.name"] + " " + data["author.meta.surname"]});
-                            $("#newReview").find(".reviewAuthorLink").attr("href", "index.php?page=profile&id=" + data["author.id"]);
-                            $("#newReview").find(".reviewAuthor").text(data["author.meta.name"] + " " + data["author.meta.surname"]);
+                            $("#newReview").find(".reviewSubject").text(subjectName);
+                            $("#newReview").find(".reviewLevel").text(levelName);
+                            $("#newReview").find(".reviewAuthorPhoto").attr({"src": photoSrc,
+                                                                             "alt": name + " " + surname});
+                            $("#newReview").find(".reviewAuthorLink").attr("href", "index.php?page=profile&id=" + userId);
+                            $("#newReview").find(".reviewAuthor").text(name + " " + surname);
 
-                            // Show endorsment in review, increment endorsment counters
-                            if (data["endorsed"]) {
-                                if (parseInt($("#endorsmentCounter").text()) == 0) $("#endorsmentIndicator").removeClass("hidden");
-                                $("#endorsmentCounter").text(parseInt($("#endorsmentCounter").text()) + 1);
+                            if (endorsed) {
+
+                                // Increment endorsment counter
+                                if (parseInt($("#endorsmentCounter-lg").text()) == 0) $("#endorsmentIndicator").removeClass("hidden");
+                                $("#endorsmentCounter-lg").text(parseInt($("#endorsmentCounter-lg").text()) + 1);
+                                $("#endorsmentCounter-sm").text(parseInt($("#endorsmentCounter-sm").text()) + 1);
+                                $("#endorsmentCounter-md").text(parseInt($("#endorsmentCounter-md").text()) + 1);
+
+                                // Update endorsers tab with user posting review if not already in the list
+                                if ($("#endorsmentHead_" + userId).length == 0) {
+
+                                    // Enable the tab if there were no endorsers before
+                                    if (parseInt($("#numEndorsers").text()) == 0) {
+                                        $("#tabEndorsersBtn").removeClass("disabled");
+                                        $("#tabEndorsersLink").attr({"data-toggle": "tab", "href": "#endorsments"});
+                                    }
+                                    $("#numEndorsers").text(parseInt($("#numEndorsers").text()) + 1);
+
+                                    // Add endorser to tab
+                                    $(".endorsmentHeadTemplate").clone().prop({id: "endorsmentHead_" + userId}).removeClass("hidden").prependTo($("#endorsmentsHeads"));
+                                    $("#endorsmentHead_" + userId).find(".endorsmentHeadLink").attr("href", "index.php?page=profile&id=" + userId);
+                                    $("#endorsmentHead_" + userId).find(".endorsmentHeadPhoto").attr({"src": photoSrc, "alt": name + " " + surname});
+                                }
                             } else {
+
+                                // Remove endorsment indicator from review
                                 $("#newReview").find(".reviewEndorsed").remove();
+
                             }
 
                             // Increment review counter
