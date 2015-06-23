@@ -30,9 +30,9 @@ switch($resp_offers["response_code"]) {
         break;
 
     case SUCCESS:
-        $subject = $resp_offers["response"][0]["subject.name"];
+        $subject = $resp_offers["response"][0]["subject"];
         //TODO Postal code to city
-        $city = $_GET["postal_code"];
+        $city = $resp_offers["response"][0]["city"];
         $title = $subject . " bijles in " . $city . " - " . SITENAME;
         break;
     default:
