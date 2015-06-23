@@ -9,17 +9,17 @@
                     <div class="well">
                         <div class="profile-pic profile-pic-profile">
                             <img src="<?=$photo?>" alt="<?=$name?> <?=$surname?>" class="img-thumbnail">
-                            <?php if ($no_endorsed > 0) { ?>
+                            <?php if ($num_endorsed > 0) { ?>
                             <div id="endorsmentIndicator">
-                                <span class="endorsment-indicator endorsment-indicator-lg glyphicon label-success visible-xs visible-lg">&#xe125;<span id="endorsmentCounter"><?=$no_endorsed?></span></span>
-                                <span class="endorsment-indicator endorsment-indicator-sm glyphicon label-success visible-sm">&#xe125;<span id="endorsmentCounter"><?=$no_endorsed?></span></span>
-                                <span class="endorsment-indicator endorsment-indicator-md glyphicon label-success visible-md">&#xe125;<span id="endorsmentCounter"><?=$no_endorsed?></span></span>
+                                <span class="endorsment-indicator endorsment-indicator-lg glyphicon label-success visible-xs visible-lg">&#xe125;<span id="endorsmentCounter"><?=$num_endorsed?></span></span>
+                                <span class="endorsment-indicator endorsment-indicator-sm glyphicon label-success visible-sm">&#xe125;<span id="endorsmentCounter"><?=$num_endorsed?></span></span>
+                                <span class="endorsment-indicator endorsment-indicator-md glyphicon label-success visible-md">&#xe125;<span id="endorsmentCounter"><?=$num_endorsed?></span></span>
                             </div>
                             <?php } else { ?>
                             <div id="endorsmentIndicator" class="hidden">
-                                <span class="endorsment-indicator endorsment-indicator-lg glyphicon label-success visible-xs visible-lg">&#xe125;<span id="endorsmentCounter"><?=$no_endorsed?></span></span>
-                                <span class="endorsment-indicator endorsment-indicator-sm glyphicon label-success visible-sm">&#xe125;<span id="endorsmentCounter"><?=$no_endorsed?></span></span>
-                                <span class="endorsment-indicator endorsment-indicator-md glyphicon label-success visible-md">&#xe125;<span id="endorsmentCounter"><?=$no_endorsed?></span></span>
+                                <span class="endorsment-indicator endorsment-indicator-lg glyphicon label-success visible-xs visible-lg">&#xe125;<span id="endorsmentCounter"><?=$num_endorsed?></span></span>
+                                <span class="endorsment-indicator endorsment-indicator-sm glyphicon label-success visible-sm">&#xe125;<span id="endorsmentCounter"><?=$num_endorsed?></span></span>
+                                <span class="endorsment-indicator endorsment-indicator-md glyphicon label-success visible-md">&#xe125;<span id="endorsmentCounter"><?=$num_endorsed?></span></span>
                             </div>
                             <?php } ?>
                         </div>
@@ -42,8 +42,14 @@
 
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#profile" data-toggle="tab" aria-expanded="true">Profiel</a></li>
-                        <li class=""><a href="#offers" data-toggle="tab" aria-expanded="false">Vakken (<span id="numOffers"><?=$num_offers?></span>)</a></li>
-                        <li class=""><a href="#endorsments" data-toggle="tab" aria-expanded="false">Aanbevolen (<span id="numEndorsments">4</span>)</a></li>
+                        <li><a href="#offers" data-toggle="tab" aria-expanded="false">Vakken (<span id="numOffers"><?=$num_offers?></span>)</a></li>
+
+                        <?php if($num_endorsers) { ?>
+                        <li><a href="#endorsments" data-toggle="tab" aria-expanded="false">Aanbevolen (<span id="numEndorsments"><?=$num_endorsers?></span>)</a></li>
+                        <?php } else { ?>
+                        <li class="disabled"><a href="#" data-toggle="" aria-expanded="false">Aanbevolen (<span id="numEndorsments"><?=$num_endorsers?></span>)</a></li>
+                        <?php } ?>
+
                     </ul>
 
                     <div id="myTabContent" class="tab-content top-margin" >
@@ -84,7 +90,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php if (isset($offers) && $num_offers) {
+                                    <?php if ($num_offers) {
                                           foreach ($offers as $offer) { ?>
 
                                     <tr id="offerRow_<?=$offer["id"]?>" class="offerRow">
@@ -117,11 +123,21 @@
 
                             <div id="endorsmentsHeads" class="row">
 
+                                <?php foreach($endorsments as $endorsment) { ?>
+
                                 <div class="col-xs-2">
                                     <div class="endorsmentHead endorsment-head">
-                                        <a href="#" class="endorsmentHeadLink">
-                                        <img src="http://hetgroenebrein.nl/wp-content/uploads/2014/11/Helen-Toxopeus-200x200.jpg" alt="<?=$name?> <?=$surname?>" class="img-responsive img-circle endorsmentHeadPhoto">
+                                        <a href="/index.php?page=profile&id=<?=$endorsment["author.id"]?>" class="endorsmentHeadLink">
+                                            <img src="<?=$endorsment["author.meta.photo_id"]?>" alt="<?=$endorsment["author.meta.name"]?> <?=$endorsment["author.meta.surname"]?>" class="img-responsive img-circle endorsmentHeadPhoto">
                                         </a>
+                                    </div>
+                                </div>
+
+                                <?php } ?>
+
+                                <div class="col-xs-2 endorsmentHeadTemplate hidden">
+                                    <div class="endorsmentHead endorsment-head">
+                                        <a href="#" class="endorsmentHeadLink"><img src="" alt="" class="img-responsive img-circle endorsmentHeadPhoto"></a>
                                     </div>
                                 </div>
 
