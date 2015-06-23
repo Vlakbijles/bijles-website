@@ -30,7 +30,7 @@ function checkLoginState() {
 
 function getFacebookData(response) {
     $.ajax({
-        url: "ajax/fb_auth.php",
+        url: "/ajax/fb_auth.php",
         type: "POST",
         dataType: "json",
         data: {"access_token": response.authResponse.accessToken}})
@@ -112,57 +112,9 @@ function registerForm(data){
             $("#charCounter").fadeTo(1000, 0.2);
     });
 
-    // $.validator.addMethod("unique_email", function(value, element)
-    //         {
-    //             var inputElem = $('#register-form :input[name="email"]'),
-    //             data = { "emails" : inputElem.val() },
-    //             eReport = ''; //error report
-    //
-    //             $.ajax(
-    //                     {
-    //                         type: "POST",
-    //                         url: validateEmail.php,
-    //                         dataType: "json",
-    //                         data: data,
-    //                         success: function(returnData)
-    //                         {
-    //                             if (returnData!== 'true')
-    //                             {
-    //                                 return '<p>This email address is already registered.</p>';
-    //                             }
-    //                             else
-    //                             {
-    //                                 return true;
-    //                             }
-    //                         },
-    //                         error: function(xhr, textStatus, errorThrown)
-    //                         {
-    //                             alert('ajax loading error... ... '+url + query);
-    //                             return false;
-    //                         }
-    //                     });
-    //
-    //         }, '');
-    //
     // Postal code validator
     $.validator.addMethod("postalcode", function(value, element) {
         return this.optional(element) || /^[0-9]{4}[A-Za-z]{2}/.test(value);
-    });
-
-    // Use bootstrap classes for indicating errors
-    $.validator.setDefaults({
-        errorElement: "span",
-        errorClass: "glyphicon glyphicon-remove form-control-feedback",
-        errorPlacement: function(error, element) {
-            error.insertAfter(element);
-        },
-        highlight: function(element) {
-            $(element).closest(".form-group").addClass("has-error");
-        },
-
-        unhighlight: function(element) {
-            $(element).closest(".form-group").removeClass("has-error");
-        },
     });
 
     // Actual validation
@@ -177,7 +129,7 @@ function registerForm(data){
             var Desc = $(form).find("#regDesc").val();
 
             $.ajax({
-                url: "ajax/register.php",
+                url: "/ajax/register.php",
                 type: "POST",
                 dataType: "json",
                 data: {"email": Email,
@@ -210,7 +162,7 @@ function registerForm(data){
                 required: true,
                 email: true,
                 remote: {
-                    url: "ajax/verify.php",
+                    url: "/ajax/verify.php",
                     type: "GET",
                     data: {
                         "verify_type": "email",
@@ -227,7 +179,7 @@ function registerForm(data){
                 required: true,
                 postalcode: true,
                 remote: {
-                    url: "ajax/verify.php",
+                    url: "/ajax/verify.php",
                     type: "GET",
                     data: {
                         "verify_type": "postal_code",

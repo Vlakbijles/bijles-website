@@ -1,0 +1,37 @@
+<script src="/js/autocomplete.js"></script>
+<script src="/js/validator_search.js"></script>
+
+<!-- Search container -->
+<div class="container-fluid text-center search-bg">
+    <?php if($show_logo) { ?>
+    <img src="/img/logo_green.png" alt="Vlakbijles" class="search-logo">
+    <?php } ?>
+    <div class="container theme-vlakbijles">
+        <div class="row search-form">
+            <form id="searchForm" action="index.php" method="GET">
+                <div class="col-sm-6">
+                    <div class="form-group has-feedback no-margin">
+                        <input type="hidden" name="page" value="offers">
+                        <input type="hidden" id="searchSubjectId" name="subject_id" value="">
+                        <input type="text" id="searchSubjectName" name="subject_name" class="form-control" placeholder="Vaknaam...">
+                    </div>
+                </div>
+                <div class="hidden-lg hidden-md hidden-sm spacer-small">&nbsp;</div>
+                <div class="col-sm-3">
+                    <div class="form-group has-feedback no-margin">
+                        <input type="text" id="postal_code" class="form-control" name="postal_code" maxlength="6" placeholder="1234AB" value="<?php if(isset($postal_code)) echo $postal_code; ?>">
+                    </div>
+                </div>
+                <div class="hidden-lg hidden-md hidden-sm spacer-small">&nbsp;</div>
+                <div class="col-sm-3">
+                    <div class="form-group no-margin">
+                        <button type="submit" class="btn btn-block btn-danger glyphicon">&#xe003;</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="notificationContent"></div>
+

@@ -1,0 +1,48 @@
+<IfModule mod_rewrite.c>
+    
+    # Set Options for following symbolic links and not allowing indexes in request
+    Options +FollowSymLinks -Indexes
+    
+    # Turn on rewriteEngine
+    RewriteEngine On
+    RewriteBase /
+
+    # Redirect every request containing /templates/ to 403 error
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s.*/templates/.*$ [NC] 
+    RewriteRule .* - [F,NS,L]
+
+    # To externally redirect 
+    # vlakbijles.nl/index.php?page=X&id=XX to vlakbijles.nl/X/XX
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
+    RewriteCond %{QUERY_STRING} ^page=([A-Za-z]*)&id=([0-9]*)$
+    RewriteRule ^ %1/%2? [R=302,L]
+    
+    # To internally redirect 
+    # vlakbijles.nl/X/XX to vlakbijles.nl/index.php?page=X&id=XX
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{DOCUMENT_ROOT}/$1/$2 !-f
+    RewriteRule ^([A-Za-z]+)/([0-9]+)/?$ index.php?page=$1&id=$2 [L]
+    
+    # To externally redirect 
+    # vlakbijles.nl/index.php?page=X&subject_id=XX&subject_name=XXX&postal_code=XXXX to vlakbijles.nl/X/XX/XXX/XXXX
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
+    RewriteCond %{QUERY_STRING} ^page=([A-Za-z]*)&subject_id=([0-9]*)&subject_name=(.*)&postal_code=([0-9]{4}[A-Za-z]{2})$
+    RewriteRule ^ %1/%2/%3/%4? [R=302,L]
+    
+    # To internally redirect 
+    # vlakbijles.nl/X/XX/XXX/XXX to vlakbijles.nl/index.php?page=X&subject_id=XX&subject_name=XXX&postal_code=XXXX
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{DOCUMENT_ROOT}/$1/$2/$3/$4 !-f
+    RewriteRule ^([A-Za-z]+)/([0-9]*)/(.*)/([0-9]{4}[A-Za-z]{2})/?$ index.php?page=$1&subject_id=$2&subject_name=$3&postal_code=$4 [L]
+
+    # Redirect localhost/index.php to localhost, no internal redirect needed  
+    # since vlakbijles.nl automatically loads index.php
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/index\.php$ [NC]
+    RewriteRule ^ /? [R=302]
+
+</IfModule>
+
+# Tests
+# http://vlakbijles.nl/templates/offers.html
+# http://vlakbijles.nl/index.php?page=profile&id=5
+# http://vlakbijles.nl/index.php?page=offers&subject_id=1&subject_name=Aardwetenschaooen&postal_code=2341TS

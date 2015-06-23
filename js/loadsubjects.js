@@ -10,14 +10,14 @@ $(function(){
     subjects = (function() {
         var formatted = [];
         $.ajax({
-            url: "ajax/subject.php?action=all",
+            url: "/ajax/subject.php?action=all",
             type: "GET",
             dataType: "json",
             statusCode: {
                 400:
                     // Unable to load subjects
                     function() {
-                        $("#notificationContent").load("ajax/notification.php",
+                        $("#notificationContent").load("/ajax/notification.php",
                                 {"type": "danger",
                                  "message": "Er is iets misgegaan bij het laden van de beschikbare vakken"});
                     }

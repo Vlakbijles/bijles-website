@@ -10,14 +10,14 @@ $(function(){
     levels = (function() {
         var formatted = [];
         $.ajax({
-            url: "ajax/level.php?action=all",
+            url: "/ajax/level.php?action=all",
             type: "GET",
             dataType: "json",
             statusCode: {
                 400:
                     // Unable to load levels
                     function() {
-                        $("#notificationContent").load("ajax/notification.php",
+                        $("#notificationContent").load("/ajax/notification.php",
                                 {"type": "danger",
                                  "message": "Er is iets misgegaan bij het laden van de beschikbare niveaus"});
                     }

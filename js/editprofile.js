@@ -1,6 +1,8 @@
 // editprofile.js
 //
-// Handles the modal for editing a user's profile
+// Handles the modal for editing a user's profile, validates new email and
+// postal with API server to make sure the email address is not already in
+// use and the postal code is valid
 
 $(function(){
 
@@ -18,27 +20,6 @@ $(function(){
             $("#charCounter").fadeTo(1000, 0.2);
     });
 
-    // Postal code validator
-    $.validator.addMethod("postalcode", function(value, element) {
-        return this.optional(element) || /^[0-9]{4}[A-Za-z]{2}/.test(value);
-    });
-
-    // Use bootstrap classes for indicating errors
-    $.validator.setDefaults({
-        errorElement: "span",
-        errorClass: "glyphicon glyphicon-remove form-control-feedback",
-        errorPlacement: function(error, element) {
-            error.insertAfter(element);
-        },
-        highlight: function(element) {
-            $(element).closest(".form-group").addClass("has-error");
-        },
-
-        unhighlight: function(element) {
-            $(element).closest(".form-group").removeClass("has-error");
-        },
-    });
-
     // Validation for profile editing form
     $("#editProfileForm").validate({
 
@@ -49,7 +30,7 @@ $(function(){
             var newDesc = $(form).find("#editDesc").val();
 
             $.ajax({
-                url: "ajax/profile.php",
+                url: "/ajax/profile.php",
                 type: "POST",
                 dataType: "json",
                 data: {"action": "edit",
@@ -78,7 +59,7 @@ $(function(){
                             $("#editPostalCode").val(data["meta.postal_code"]);
                             $("#editDesc").val(data["meta.description"]);
                             $("#editProfileModal").modal("toggle");
-                            $("#notificationContent").load("ajax/notification.php",
+                            $("#notificationContent").load("/ajax/notification.php",
                                                            {"type": "success",
                                                             "message": "Je profiel is aangepast"});
                             break;
@@ -90,11 +71,32 @@ $(function(){
         rules: {
             "editEmail": {
                 required: true,
-                email: true
+                email: true,
+                remote: {
+                    url: "/ajax/verify.php",
+                    type: "GET",
+                    // Verify email is not already in use via API
+                    data: {
+                        "verify_type": "email",
+                        "verify_data": function() {
+                            return $("#editEmail").val();
+                        }
+                    }
+                }
             },
             "editPostalCode": {
                 required: true,
-                postalcode: true
+                remote: {
+                    url: "/ajax/verify.php",
+                    type: "GET",
+                    // Verify postal code exists via API
+                    data: {
+                        "verify_type": "postal_code",
+                        "verify_data": function() {
+                            return $("#editPostalCode").val();
+                        }
+                    }
+                }
             },
             "editDesc": {
                 maxlength: 1000,
@@ -102,8 +104,8 @@ $(function(){
         },
 
         // Empty error messages, bootstrap indicators used instead
-        messages: { "editEmail": {required: "", email: ""},
-                    "editPostalCode": {required: "", postalcode: ""},
+        messages: { "editEmail": {required: "", email: "", remote: ""},
+                    "editPostalCode": {required: "", remote: ""},
                     "editDesc": {maxlength: ""} }
 
     });

@@ -28,17 +28,17 @@ ul.ui-autocomplete {
 }
 
 .search-bg {
-    background-image: url(../img/bg3.jpg);
+    background-image: url(/img/bg3.jpg);
     background-position: center top;
 }
 
-.maincontent {
+.main-content {
     margin-top: 30px;
 }
 
 .search-logo {
     max-width:270px;
-    margin: 30px 0 0 0;
+    margin: 15px 0 0 0;
 }
 
 .search-form {
@@ -55,7 +55,6 @@ ul.ui-autocomplete {
 
 .search-result:hover{
     background-color: #f3f3f3;
-    /* cursor: pointer; */
 }
 
 .navbar-logo {
@@ -68,23 +67,31 @@ ul.ui-autocomplete {
     margin-right: 0;
 }
 
-.zeromargin {
+.no-margin {
     margin: 0;
 }
 
-.nobottommargin {
+.no-padding {
+    padding: 0;
+}
+
+.no-bottom-margin {
     margin-bottom: 0;
 }
 
-.notopmargin {
+.no-top-margin {
     margin-top: 0;
 }
 
-.topmargin {
-    margin: 10px 0 0 0;
+.top-margin {
+    margin-top: 10px;
 }
 
-.bottommargin{
+.top-margin-lg {
+    margin-top: 20px;
+}
+
+.bottom-margin{
     margin-bottom: 25px;
 }
 
@@ -100,6 +107,62 @@ ul.ui-autocomplete {
 
 .stroked {
     text-decoration: line-through;
+}
+
+.profile-pic {
+    position: relative;
+    max-width:210px;
+    margin: 0 auto;
+    color: #ffffff;
+}
+
+.profile-pic-profile {
+    padding-bottom: 10px;
+}
+
+.endorsment-indicator {
+    position: absolute;
+    right:5px;
+    top:5px;
+}
+
+.endorsment-indicator-lg {
+    font-size: 20px;
+    padding: 10px;
+}
+
+.endorsment-indicator-md {
+    font-size: 17px;
+    padding: 8px;
+}
+
+.endorsment-indicator-sm {
+    font-size: 13px;
+    padding: 6px;
+}
+
+.offer-name {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.review-details li {
+    font-size: 15px;
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+}
+
+.endorsment-head {
+    padding-bottom: 10px;
+}
+
+.padding-left li {
+    padding-left: 0px;
+}
+
+.padding-right li {
+    padding-right: 0px;
 }
 
 .footer {

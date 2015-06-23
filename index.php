@@ -4,6 +4,8 @@
 //
 // Main entry point of site
 
+date_default_timezone_set("Europe/Amsterdam");
+
 require_once("api.php");
 require_once("common.php");
 include("logincheck.php");
@@ -16,12 +18,15 @@ switch ($page) {
 
     case "home":
         include("home.php");
+        include("templates/footer.html");
         break;
     case "profile":
         include("profile.php");
+        include("templates/footer.html");
         break;
     case "offers":
         include("offers.php");
+        include("templates/footer.html");
         break;
     default:
         die("Invalid URL, no valid page specified");

@@ -7,18 +7,19 @@ require_once("vars.php");
 
 // Request user profile data
 $request_uri = "/user/" . $_GET["id"] . "?";
-$request_method = "GET";
-$resp_profile = api_request($request_uri, $request_method, NULL);
+$resp_profile = api_request($request_uri, "GET", NULL);
 
 // Request user's offers
 $request_uri = "/user/" . $_GET["id"] . "/offer?";
-$request_method = "GET";
-$resp_offers = api_request($request_uri, $request_method, NULL);
+$resp_offers = api_request($request_uri, "GET", NULL);
 
 // Request user's reviews
 $request_uri = "/user/" . $_GET["id"] . "/review?";
-$request_method = "GET";
-$resp_reviews = api_request($request_uri, $request_method, NULL);
+$resp_reviews = api_request($request_uri, "GET", NULL);
+
+// Request user's endorsments
+$request_uri = "/user/" . $_GET["id"] . "/endorsment?";
+$resp_endorsments = api_request($request_uri, "GET", NULL);
 
 // Render header
 switch($resp_profile["response_code"]) {
@@ -41,7 +42,8 @@ echo render_template("templates/navbar.html", array(
                      "user_id" => $user_id));
 
 // Render top search bar
-echo render_template("templates/search_small.html", array(
+echo render_template("templates/searchbar.html", array(
+                     "show_logo" => false,
                      "postal_code" => $user_postal_code));
 
 // Render profile or display error messages
@@ -61,8 +63,8 @@ switch($resp_profile["response_code"]) {
                                  "email" => $resp_profile["response"]["email"],
                                  "description" => $resp_profile["response"]["meta.description"],
                                  "postal_code" => $resp_profile["response"]["meta.postal_code"]));
-            echo render_template("templates/modals/addoffers.html",
-                                 array("user_id" => $user_id));
+            echo render_template("templates/modals/addoffers.html", array(
+                                 "user_id" => $user_id));
         } elseif($logged_in) {
             echo render_template("templates/modals/contactuser.html", array(
                                  "offers" => $resp_offers["response"]));
@@ -77,6 +79,9 @@ switch($resp_profile["response_code"]) {
                              "age" => $resp_profile["response"]["meta.age"],
                              "description" => $resp_profile["response"]["meta.description"],
                              "photo" => $resp_profile["response"]["meta.photo_id"],
+                             "endorsments" => $resp_endorsments["response"],
+                             "num_endorsers" => count($resp_endorsments["response"]),
+                             "num_endorsed" => $resp_profile["response"]["meta.no_endorsed"],
                              "offers" => $resp_offers["response"],
                              "num_offers" => count($resp_offers["response"]),
                              "logged_in" => $logged_in,
@@ -94,4 +99,4 @@ switch($resp_profile["response_code"]) {
 
 }
 
-include("templates/footer.html");
+?>
