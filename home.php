@@ -12,7 +12,8 @@ echo render_template("templates/navbar.html", array(
 
 include("templates/modals/login.html");
 
-echo render_template("templates/search_large.html", array(
+echo render_template("templates/searchbar.html", array(
+                     "show_logo" => true,
                      "postal_code" => $user_postal_code));
 
 include("templates/home.html");

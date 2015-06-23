@@ -43,7 +43,8 @@ echo render_template("templates/navbar.html", array(
                      "user_id" => $user_id));
 
 // Render top search bar
-echo render_template("templates/search_small.html", array(
+echo render_template("templates/searchbar.html", array(
+                     "show_logo" => false,
                      "postal_code" => $user_postal_code));
 
 // Render found offers or display errors
