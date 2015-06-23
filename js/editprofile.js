@@ -20,22 +20,6 @@ $(function(){
             $("#charCounter").fadeTo(1000, 0.2);
     });
 
-    // Use bootstrap classes for indicating errors
-    $.validator.setDefaults({
-        errorElement: "span",
-        errorClass: "glyphicon glyphicon-remove form-control-feedback",
-        errorPlacement: function(error, element) {
-            error.insertAfter(element);
-        },
-        highlight: function(element) {
-            $(element).closest(".form-group").addClass("has-error");
-        },
-
-        unhighlight: function(element) {
-            $(element).closest(".form-group").removeClass("has-error");
-        },
-    });
-
     // Validation for profile editing form
     $("#editProfileForm").validate({
 

@@ -117,22 +117,6 @@ function registerForm(data){
         return this.optional(element) || /^[0-9]{4}[A-Za-z]{2}/.test(value);
     });
 
-    // Use bootstrap classes for indicating errors
-    $.validator.setDefaults({
-        errorElement: "span",
-        errorClass: "glyphicon glyphicon-remove form-control-feedback",
-        errorPlacement: function(error, element) {
-            error.insertAfter(element);
-        },
-        highlight: function(element) {
-            $(element).closest(".form-group").addClass("has-error");
-        },
-
-        unhighlight: function(element) {
-            $(element).closest(".form-group").removeClass("has-error");
-        },
-    });
-
     // Actual validation
     $("#registerForm").validate({
 
