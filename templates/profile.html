@@ -11,15 +11,15 @@
                             <img src="<?=$photo?>" alt="<?=$name?> <?=$surname?>" class="img-thumbnail">
                             <?php if ($num_endorsed > 0) { ?>
                             <div id="endorsmentIndicator">
-                                <span class="endorsment-indicator endorsment-indicator-lg glyphicon label-success visible-xs visible-lg">&#xe125;<span id="endorsmentCounter"><?=$num_endorsed?></span></span>
-                                <span class="endorsment-indicator endorsment-indicator-sm glyphicon label-success visible-sm">&#xe125;<span id="endorsmentCounter"><?=$num_endorsed?></span></span>
-                                <span class="endorsment-indicator endorsment-indicator-md glyphicon label-success visible-md">&#xe125;<span id="endorsmentCounter"><?=$num_endorsed?></span></span>
+                                <span class="endorsment-indicator endorsment-indicator-lg glyphicon label-success visible-xs visible-lg">&#xe125;<span id="endorsmentCounter-lg"><?=$num_endorsed?></span></span>
+                                <span class="endorsment-indicator endorsment-indicator-sm glyphicon label-success visible-sm">&#xe125;<span id="endorsmentCounter-sm"><?=$num_endorsed?></span></span>
+                                <span class="endorsment-indicator endorsment-indicator-md glyphicon label-success visible-md">&#xe125;<span id="endorsmentCounter-md"><?=$num_endorsed?></span></span>
                             </div>
                             <?php } else { ?>
                             <div id="endorsmentIndicator" class="hidden">
-                                <span class="endorsment-indicator endorsment-indicator-lg glyphicon label-success visible-xs visible-lg">&#xe125;<span id="endorsmentCounter"><?=$num_endorsed?></span></span>
-                                <span class="endorsment-indicator endorsment-indicator-sm glyphicon label-success visible-sm">&#xe125;<span id="endorsmentCounter"><?=$num_endorsed?></span></span>
-                                <span class="endorsment-indicator endorsment-indicator-md glyphicon label-success visible-md">&#xe125;<span id="endorsmentCounter"><?=$num_endorsed?></span></span>
+                                <span class="endorsment-indicator endorsment-indicator-lg glyphicon label-success visible-xs visible-lg">&#xe125;<span id="endorsmentCounter-lg"><?=$num_endorsed?></span></span>
+                                <span class="endorsment-indicator endorsment-indicator-sm glyphicon label-success visible-sm">&#xe125;<span id="endorsmentCounter-sm"><?=$num_endorsed?></span></span>
+                                <span class="endorsment-indicator endorsment-indicator-md glyphicon label-success visible-md">&#xe125;<span id="endorsmentCounter-md"><?=$num_endorsed?></span></span>
                             </div>
                             <?php } ?>
                         </div>
@@ -41,18 +41,18 @@
                     <h1 class="no-top-margin hidden-xs"><?=$name?> <?=$surname?> </h1>
 
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#profile" data-toggle="tab" aria-expanded="true">Profiel</a></li>
+                        <li id="tabProfileBtn" class="active"><a href="#profile" data-toggle="tab" aria-expanded="true">Profiel</a></li>
 
                         <?php if ($own_profile) { ?>
-                        <li><a href="#offers" data-toggle="tab" aria-expanded="false">Vakken (<span id="numOffers"><?=$num_offers?></span>)</a></li>
+                        <li id="tabOffersBtn"><a href="#offers" data-toggle="tab" aria-expanded="false">Vakken (<span id="numOffers"><?=$num_offers?></span>)</a></li>
                         <?php } else { ?>
-                        <li class="disabled"><a href="#" aria-expanded="false">Vakken (0)</a></li>
+                        <li id="tabOffersBtn" class="disabled"><a href="#" aria-expanded="false">Vakken (0)</a></li>
                         <?php } ?>
 
                         <?php if($num_endorsers) { ?>
-                        <li><a href="#endorsments" data-toggle="tab" aria-expanded="false">Aanbevolen (<span id="numEndorsments"><?=$num_endorsers?></span>)</a></li>
+                        <li id="tabEndorsersBtn"><a href="#endorsments" id="tabEndorsersLink" data-toggle="tab" aria-expanded="false">Aanbevolen (<span id="numEndorsers"><?=$num_endorsers?></span>)</a></li>
                         <?php } else { ?>
-                        <li class="disabled"><a href="#" data-toggle="" aria-expanded="false">Aanbevolen (<span id="numEndorsments"><?=$num_endorsers?></span>)</a></li>
+                        <li id="tabEndorsersBtn" class="disabled"><a href="#" id="tabEndorsersLink" data-toggle="" aria-expanded="false">Aanbevolen (<span id="numEndorsers"><?=$num_endorsers?></span>)</a></li>
                         <?php } ?>
 
                     </ul>
@@ -133,7 +133,7 @@
                                 <?php foreach($endorsments as $endorsment) { ?>
 
                                 <div class="col-xs-2">
-                                    <div class="endorsmentHead endorsment-head">
+                                    <div id="endorsmentHead_<?=$endorsment["author.id"]?>" class="endorsmentHead endorsment-head">
                                         <a href="/index.php?page=profile&id=<?=$endorsment["author.id"]?>" class="endorsmentHeadLink">
                                             <img src="<?=$endorsment["author.meta.photo_id"]?>" alt="<?=$endorsment["author.meta.name"]?> <?=$endorsment["author.meta.surname"]?>" class="img-responsive img-circle endorsmentHeadPhoto">
                                         </a>
@@ -143,7 +143,7 @@
                                 <?php } ?>
 
                                 <div class="col-xs-2 endorsmentHeadTemplate hidden">
-                                    <div class="endorsmentHead endorsment-head">
+                                    <div id="endorsmentHead" class="endorsment-head">
                                         <a href="#" class="endorsmentHeadLink"><img src="" alt="" class="img-responsive img-circle endorsmentHeadPhoto"></a>
                                     </div>
                                 </div>
