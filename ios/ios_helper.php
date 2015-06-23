@@ -2,7 +2,7 @@
     require_once("../api.php");
 
     $recv = $HTTP_RAW_POST_DATA;
-    $recv = json_decode($rcv, true);
+    $recv = json_decode($recv, true);
 
     $uri = $recv["uri"];
     $method = $recv["method"];
