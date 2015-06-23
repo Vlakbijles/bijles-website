@@ -6,43 +6,41 @@
     
     # http://localhost/templates/offers.html
     # Redirect every request containing /templates/ to 403 error
-    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/templates/.*$ [NC] 
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s.*/templates/.*$ [NC] 
     RewriteRule .* - [F,NS,L]
     
     
     # http://localhost/index.php?page=profile&id=5
     # To externally redirect localhost/index.php?page=X&id=XX to localhost/X/XX
-    #RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
-    #RewriteCond %{QUERY_STRING} ^page=([A-Za-z]*)&id=([0-9]*)$
-    #RewriteRule ^ %1/%2? [R=302,L]
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
+    RewriteCond %{QUERY_STRING} ^page=([A-Za-z]*)&id=([0-9]*)$
+    RewriteRule ^ %1/%2? [R=302,L]
 
     # To internally redirect localhost/X/XX to localhost/index.php?page=X&id=XX
-    #RewriteCond %{REQUEST_FILENAME} !-d
-    #RewriteCond %{DOCUMENT_ROOT}/$1/$2 !-f
-    #RewriteRule ^([A-Za-z]+)/([0-9]+)/?$ index.php?page=$1&id=$2 [L]
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{DOCUMENT_ROOT}/$1/$2 !-f
+    RewriteRule ^([A-Za-z]+)/([0-9]+)/?$ index.php?page=$1&id=$2 [L]
 
-    RewriteCond %{REQUEST_FILENAME} !-f
+
+    #RewriteCond %{REQUEST_FILENAME} !-f
     # http://localhost/index.php?page=offers&subject_id=1&postal_code=2341TS
     # To externally redirect localhost/index.php?page=X&subject_id=XX&postal_code=XXX to localhost/X/XX/XXX
     RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
-    RewriteCond %{QUERY_STRING} ^page=([A-Za-z]*)&subject_id=([0-9]*)&postal_code=([0-9]{4}[A-Za-z]{2})$
-    RewriteRule ^ %1/%2/%3? [R=302,L]
+    RewriteCond %{QUERY_STRING} ^page=([A-Za-z]*)&subject_id=([0-9]*)&subject_name=([A-Za-z]*)&postal_code=([0-9]{4}[A-Za-z]{2})$
+    RewriteRule ^ %1/%2/%3/%4? [R=302,L]
+    
+    #/index.php?page=offers&subject_id=1&subject_name=Aardewetenschappen&postal_code=1075CL
     
     # To internally redirect localhost/X/XX/XXX to localhost/index.php?page=X&subject_id=XX&postal_code=XXX
-    #RewriteCond %{REQUEST_FILENAME} !-d
-    #RewriteCond %{DOCUMENT_ROOT}/$1/$2/$3 !-f
-    #RewriteRule ^([A-Za-z]+)/([0-9]*)/([0-9A-Za-z]*)/?$ index.php?page=$1&subject_id=$2&postal_code=$3 [L]
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{DOCUMENT_ROOT}/$1/$2/$3/$4 !-f
+    RewriteRule ^([A-Za-z]+)/([0-9]*)/([A-Za-z]*)/([0-9]{4}[A-Za-z]{2})/?$ index.php?page=$1&subject_id=$2&subject_name=$3&postal_code=$4 [L]
 
 
     # http://localhost/index.php
-    # To externally redirect localhost/index.php to localhost
-    #RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
-    #RewriteRule ^ /? [R=302]
-
-    # To internally redirect localhost to localhost/index.php
-    #RewriteCond %{REQUEST_FILENAME} !-d
-    #RewriteCond %{DOCUMENT_ROOT} !-f
-    #RewriteRule ^([A-Za-z]+)?$ index.php [L]
+    # Redirect localhost/index.php to localhost, no problem since localhost automatically loads index.php
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/index\.php$ [NC]
+    RewriteRule ^ /? [R=302]
 
 </IfModule>
 
