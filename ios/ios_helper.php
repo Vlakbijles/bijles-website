@@ -7,8 +7,10 @@
     $uri = $recv["uri"];
     $method = $recv["method"];
     $data = $recv["data"];
+    if (empty($data)) {
+        $data = NULL;
+    }
 
-
-    $resp = (api_request($uri, $method, $data));
+    $resp = api_request($uri, $method, $data);
     echo json_encode($resp);
 ?>
