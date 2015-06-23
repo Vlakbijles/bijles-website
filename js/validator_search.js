@@ -13,6 +13,7 @@ $(function(){
         },
 
         rules: {
+            "subject_name": { required: true },
             "postal_code": {
                 required: true,
                 remote: {
@@ -30,7 +31,8 @@ $(function(){
         },
 
         // Empty error messages, bootstrap indicators used instead
-        messages: { "postal_code": {required: "", remote: ""} }
+        messages: { "subject_name": {required: ""},
+                    "postal_code": {required: "", remote: ""} }
 
     });
 
