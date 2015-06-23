@@ -12,5 +12,6 @@
     }
 
     $resp = api_request($uri, $method, $data);
-    echo json_encode($resp);
+    http_response_code($resp["response_code"]);
+    die(json_encode($resp["response"]));
 ?>
