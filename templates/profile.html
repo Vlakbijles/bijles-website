@@ -43,7 +43,7 @@
                     <ul class="nav nav-tabs">
                         <li id="tabProfileBtn" class="active"><a href="#profile" data-toggle="tab" aria-expanded="true">Profiel</a></li>
 
-                        <?php if ($num_offers) { ?>
+                        <?php if ($num_offers || $own_profile) { ?>
                         <li id="tabOffersBtn"><a href="#offers" data-toggle="tab" aria-expanded="false">Vakken (<span id="numOffers"><?=$num_offers?></span>)</a></li>
                         <?php } else { ?>
                         <li id="tabOffersBtn" class="disabled"><a href="#" aria-expanded="false">Vakken (0)</a></li>
