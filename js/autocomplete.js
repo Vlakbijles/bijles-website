@@ -1,9 +1,9 @@
 // autocomplete.js
 //
 // Handles autocomplete for the main search bar
-//
-// Makes use of global variables:
-// subjects     - List of available subjects
+
+// Dependencies (must at some point be included in html):
+// loadsubjects.js
 
 $(function() {
     source = subjects;
@@ -48,7 +48,6 @@ $(function() {
             $("#searchSubjectId").val(ui.item.value);
         }
     });
-
 
     function __highlight(s, t) {
         var matcher = new RegExp("("+$.ui.autocomplete.escapeRegex(t)+")", "ig" );
