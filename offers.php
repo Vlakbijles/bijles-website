@@ -5,10 +5,10 @@ if (!isset($_GET["subject_id"]) || !isset($_GET["postal_code"])) die("Invalid UR
 require_once("api.php");
 require_once("vars.php");
 
-$request_uri = "/offer?subject="
+$request_uri = "/offer?subject_id="
                 . $_GET["subject_id"]
-                . "&loc=" . strtoupper($_GET["postal_code"])
-                . "&page=1&range=10000000&level=2&sortby=apj";
+                . "&postal_code=" . strtoupper($_GET["postal_code"])
+                . "&page=1";
 $request_method = "GET";
 $resp_offers = api_request($request_uri, $request_method, NULL);
 
