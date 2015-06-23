@@ -10,5 +10,5 @@
 
 
     $resp = (api_request($uri, $method, $data));
-    echo json_encode(resp);
+    echo json_encode($resp);
 ?>
