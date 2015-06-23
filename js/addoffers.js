@@ -95,7 +95,7 @@ $(function(){
             var levelId = $("#level_id" + i).val();
             if (subjectId && levelId) {
                 $.ajax({
-                    url: "ajax/offer.php",
+                    url: "/ajax/offer.php",
                     type: "POST",
                     dataType: "json",
                     data: {"action": "create",

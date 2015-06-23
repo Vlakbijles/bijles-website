@@ -43,12 +43,13 @@
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#profile" data-toggle="tab" aria-expanded="true">Profiel</a></li>
                         <li class=""><a href="#offers" data-toggle="tab" aria-expanded="false">Vakken (<span id="numOffers"><?=$num_offers?></span>)</a></li>
+                        <li class=""><a href="#endorsments" data-toggle="tab" aria-expanded="false">Aanbevolen (<span id="numEndorsments">4</span>)</a></li>
                     </ul>
 
                     <div id="myTabContent" class="tab-content top-margin" >
 
                         <?php if($own_profile) { ?>
-                        <script src="js/editprofile.js"></script>
+                        <script src="/js/editprofile.js"></script>
                         <?php } ?>
                         <!-- Profile tab -->
                         <div class="tab-pane fade active in" id="profile">
@@ -65,7 +66,7 @@
                         </div>
 
                         <?php if($own_profile) { ?>
-                        <script src="js/removeoffers.js"></script>
+                        <script src="/js/removeoffers.js"></script>
                         <?php } ?>
 
                         <!-- Offers tab -->
@@ -110,6 +111,22 @@
 
                                 </tbody>
                             </table>
+                        </div>
+
+                        <div class="tab-pane fade" id="endorsments">
+
+                            <div id="endorsmentsHeads" class="row">
+
+                                <div class="col-xs-2">
+                                    <div class="endorsmentHead endorsment-head">
+                                        <a href="#" class="endorsmentHeadLink">
+                                        <img src="http://hetgroenebrein.nl/wp-content/uploads/2014/11/Helen-Toxopeus-200x200.jpg" alt="<?=$name?> <?=$surname?>" class="img-responsive img-circle endorsmentHeadPhoto">
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+
                         </div>
 
                     </div>

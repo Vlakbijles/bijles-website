@@ -21,7 +21,7 @@
                             <?php //print_r($results[$keys[$i]]); ?>
 
                             <div class="profile-pic">
-                                <a href="index.php?page=profile&id=<?=$results[$keys[$i]]["user_id"]?>"><img src="<?=$results[$keys[$i]]["user.meta.photo_id"]?>" alt="<?=$results[$keys[$i]]["user.meta.name"]?> <?=$results[$keys[$i]]["user.meta.surname"]?>" class="img-thumbnail"></a>
+                                <a href="/index.php?page=profile&id=<?=$results[$keys[$i]]["user_id"]?>"><img src="<?=$results[$keys[$i]]["user.meta.photo_id"]?>" alt="<?=$results[$keys[$i]]["user.meta.name"]?> <?=$results[$keys[$i]]["user.meta.surname"]?>" class="img-thumbnail"></a>
                                 <!-- TODO no_endorsments -->
                                 <?php if ($no_endorsed) { ?>
                                 <span class="endorsment-indicator endorsment-indicator-lg glyphicon label-success visible-xs visible-lg">&#xe125;<?=$no_endorsed?></span>
@@ -32,9 +32,9 @@
                             <h4 class="offer-name text-center no-bottom-margin"><?=$results[$keys[$i]]["user.meta.name"]?> <?=$results[$keys[$i]]["user.meta.surname"]?></h4>
                         </div>
                         <?php if ($results[$keys[$i]]["user.meta.no_reviews"]) { ?>
-                        <a href="index.php?page=profile&id=<?=$results[$keys[$i]]["user_id"]?>#reviews" class="btn btn-block btn-primary btn-sm"><?=$results[$keys[$i]]["user.meta.no_reviews"]?> recensies</a>
+                        <a href="/index.php?page=profile&id=<?=$results[$keys[$i]]["user_id"]?>#reviews" class="btn btn-block btn-primary btn-sm"><?=$results[$keys[$i]]["user.meta.no_reviews"]?> recensies</a>
                         <?php } else { ?>
-                        <a href="index.php?page=profile&id=<?=$results[$keys[$i]]["user_id"]?>" class="btn btn-block btn-default btn-sm disabled">Geen recensies</a>
+                        <a href="/index.php?page=profile&id=<?=$results[$keys[$i]]["user_id"]?>" class="btn btn-block btn-default btn-sm disabled">Geen recensies</a>
                         <?php } ?>
 
                     </div>

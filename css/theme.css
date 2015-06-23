@@ -28,7 +28,7 @@ ul.ui-autocomplete {
 }
 
 .search-bg {
-    background-image: url(../img/bg3.jpg);
+    background-image: url(/img/bg3.jpg);
     background-position: center top;
 }
 
@@ -151,6 +151,10 @@ ul.ui-autocomplete {
     display: inline;
     list-style-type: none;
     margin: 0;
+}
+
+.endorsment-head {
+    padding-bottom: 10px;
 }
 
 .padding-left li {

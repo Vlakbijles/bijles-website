@@ -30,7 +30,7 @@ function checkLoginState() {
 
 function getFacebookData(response) {
     $.ajax({
-        url: "ajax/fb_auth.php",
+        url: "/ajax/fb_auth.php",
         type: "POST",
         dataType: "json",
         data: {"access_token": response.authResponse.accessToken}})
@@ -129,7 +129,7 @@ function registerForm(data){
             var Desc = $(form).find("#regDesc").val();
 
             $.ajax({
-                url: "ajax/register.php",
+                url: "/ajax/register.php",
                 type: "POST",
                 dataType: "json",
                 data: {"email": Email,
@@ -162,7 +162,7 @@ function registerForm(data){
                 required: true,
                 email: true,
                 remote: {
-                    url: "ajax/verify.php",
+                    url: "/ajax/verify.php",
                     type: "GET",
                     data: {
                         "verify_type": "email",
@@ -179,7 +179,7 @@ function registerForm(data){
                 required: true,
                 postalcode: true,
                 remote: {
-                    url: "ajax/verify.php",
+                    url: "/ajax/verify.php",
                     type: "GET",
                     data: {
                         "verify_type": "postal_code",

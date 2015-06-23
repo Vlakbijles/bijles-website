@@ -42,7 +42,7 @@ $(function(){
             var reviewEndorsed = $(form).find("#reviewEndorsed").is(":checked");
 
             $.ajax({
-                url: "ajax/review.php",
+                url: "/ajax/review.php",
                 type: "POST",
                 dataType: "json",
                 data: {"action": "create",
@@ -52,7 +52,7 @@ $(function(){
                 statusCode: {
                     400:
                         function() {
-                            $("#notificationContent").load("ajax/notification.php",
+                            $("#notificationContent").load("/ajax/notification.php",
                                                            {"type": "warning",
                                                             "message": "Er is iets misgegaan, mogelijke oorzaken zijn dat de bijles " +
                                                                        "aanbieding niet bestaat, je jezelf probeert te recenseren " +
@@ -63,13 +63,13 @@ $(function(){
                     switch (xhr.status) {
                         case 200:
                             // User has already reviewed this offer
-                            $("#notificationContent").load("ajax/notification.php",
+                            $("#notificationContent").load("/ajax/notification.php",
                                                            {"type": "warning",
                                                             "message": "Je hebt deze gebruiker/bijles combinatie al eens beoordeeld"});
                             break;
                         case 201:
                             // Review successfully created, update page
-                            $("#notificationContent").load("ajax/notification.php",
+                            $("#notificationContent").load("/ajax/notification.php",
                                                            {"type": "success",
                                                             "message": "Bedankt voor je beoordeling"});
 

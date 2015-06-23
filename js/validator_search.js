@@ -17,7 +17,7 @@ $(function(){
             "postal_code": {
                 required: true,
                 remote: {
-                    url: "ajax/verify.php",
+                    url: "/ajax/verify.php",
                     type: "GET",
                     // Verify postal code exists via API
                     data: {

@@ -30,7 +30,7 @@ $(function(){
             var newDesc = $(form).find("#editDesc").val();
 
             $.ajax({
-                url: "ajax/profile.php",
+                url: "/ajax/profile.php",
                 type: "POST",
                 dataType: "json",
                 data: {"action": "edit",
@@ -59,7 +59,7 @@ $(function(){
                             $("#editPostalCode").val(data["meta.postal_code"]);
                             $("#editDesc").val(data["meta.description"]);
                             $("#editProfileModal").modal("toggle");
-                            $("#notificationContent").load("ajax/notification.php",
+                            $("#notificationContent").load("/ajax/notification.php",
                                                            {"type": "success",
                                                             "message": "Je profiel is aangepast"});
                             break;
@@ -73,7 +73,7 @@ $(function(){
                 required: true,
                 email: true,
                 remote: {
-                    url: "ajax/verify.php",
+                    url: "/ajax/verify.php",
                     type: "GET",
                     // Verify email is not already in use via API
                     data: {
@@ -87,7 +87,7 @@ $(function(){
             "editPostalCode": {
                 required: true,
                 remote: {
-                    url: "ajax/verify.php",
+                    url: "/ajax/verify.php",
                     type: "GET",
                     // Verify postal code exists via API
                     data: {
