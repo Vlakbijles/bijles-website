@@ -5,49 +5,44 @@
             <div class="row">
 
             <?php
-
-            $keys = array_keys($results);
-            for ($i = 0; $i < count($results); $i++) {
-
+                 $keys = array_keys($results);
+                 for ($i = 0; $i < count($results); $i++) {
             ?>
 
                 <div class="col-xs-6 col-sm-3">
                     <div class="panel panel-default search-result">
 
-                        <div class="panel-heading text-center"><?php echo round($results[$keys[$i]]["distance"] / 1000.0, 1) ?>km</div>
+                        <div class="panel-heading text-center"><?=$results[$i]["distance"]?>km</div>
 
                         <div class="panel-body">
 
-                            <?php //print_r($results[$keys[$i]]); ?>
-
                             <div class="profile-pic">
-                                <a href="/index.php?page=profile&id=<?=$results[$keys[$i]]["user_id"]?>">
-                                    <img src="<?=$results[$keys[$i]]["user.meta.photo_id"]?>" alt="<?=$results[$keys[$i]]["user.meta.name"]?>
-                                    <?=$results[$keys[$i]]["user.meta.surname"]?>" class="img-thumbnail">
+                                <a href="/?page=profile&id=<?=$results[$i]["user_id"]?>">
+                                    <img src="<?=$results[$i]["photo_id"]?>" alt="<?=$results[$i]["name"]?>
+                                    <?=$results[$i]["surname"]?>" class="img-thumbnail">
                                 </a>
-                                <!-- TODO no_endorsments -->
-                                <?php if ($no_endorsed) { ?>
+                                <?php if ($results[$i]["no_endorsed"]) { ?>
                                     <span class="endorsment-indicator endorsment-indicator-lg glyphicon label-success visible-xs visible-lg">
-                                        &#xe125;<?=$no_endorsed?>
+                                        &#xe125;<?=$results[$i]["no_endorsed"]?>
                                     </span>
                                     <span class="endorsment-indicator endorsment-indicator-sm glyphicon label-success visible-sm">
-                                        &#xe125;<?=$no_endorsed?>
+                                        &#xe125;<?=$results[$i]["no_endorsed"]?>
                                     </span>
                                     <span class="endorsment-indicator endorsment-indicator-md glyphicon label-success visible-md">
-                                        &#xe125;<?=$no_endorsed?>
+                                        &#xe125;<?=$results[$i]["no_endorsed"]?>
                                     </span>
                                 <?php } ?>
                             </div>
                             <h4 class="offer-name text-center no-bottom-margin">
-                                <?=$results[$keys[$i]]["user.meta.name"]?> <?=$results[$keys[$i]]["user.meta.surname"]?>
+                                <?=$results[$i]["name"]?> <?=$results[$i]["surname"]?>
                             </h4>
                         </div>
-                        <?php if ($results[$keys[$i]]["user.meta.no_reviews"]) { ?>
-                        <a href="/index.php?page=profile&id=<?=$results[$keys[$i]]["user_id"]?>#reviews" class="btn btn-block btn-primary btn-sm">
-                            <?=$results[$keys[$i]]["user.meta.no_reviews"]?> recensies
+                        <?php if ($results[$i]["no_reviews"]) { ?>
+                        <a href="/index.php?page=profile&id=<?=$results[$i]["user_id"]?>#reviews" class="btn btn-block btn-primary btn-sm">
+                            <?=$results[$i]["no_reviews"]?> recensies
                         </a>
                         <?php } else { ?>
-                        <a href="/index.php?page=profile&id=<?=$results[$keys[$i]]["user_id"]?>" class="btn btn-block btn-default btn-sm disabled">
+                        <a href="/index.php?page=profile&id=<?=$results[$i]["user_id"]?>" class="btn btn-block btn-default btn-sm disabled">
                             Geen recensies
                         </a>
                         <?php } ?>

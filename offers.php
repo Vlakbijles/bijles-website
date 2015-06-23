@@ -1,14 +1,21 @@
 <?php
 
-if (!isset($_GET["subject_id"]) || !isset($_GET["postal_code"])) die("Invalid URL, no subject id and/or postal code provided");
-
 require_once("api.php");
 require_once("vars.php");
 
-$request_uri = "/offer?subject_id="
-                . $_GET["subject_id"]
-                . "&postal_code=" . strtoupper($_GET["postal_code"])
-                . "&page=1";
+if (isset($_GET["subject_id"]) && isset($_GET["postal_code"])) {
+    $request_uri = "/offer?subject_id="
+        . $_GET["subject_id"]
+        . "&postal_code=" . strtoupper($_GET["postal_code"])
+        . "&page=1";
+} else {
+    $resp_offers["response_code"] = INVALID;
+}
+
+if (isset($_GET["order_by"])) {
+    $request_uri .= "&order_by=" . $_GET["order_by"];
+}
+
 $request_method = "GET";
 $resp_offers = api_request($request_uri, $request_method, NULL);
 
