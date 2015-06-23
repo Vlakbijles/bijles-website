@@ -4,21 +4,12 @@
 // API server, displaying warnings and dynamically adding any newly created
 // reviews
 
+// External resources (must be included in html page too):
+// charcounter.js
+
 $(function(){
 
-    // Char counter logic for description
-    var maxLength = 500;
-    var currentLength = $("#reviewDesc").val().length;
-    $("#charCounter").text(currentLength + "/" + maxLength).fadeTo(0, 0.2);
-    $("#reviewDesc")
-        .keyup(function() {
-            currentLength = $(this).val().length;
-            $("#charCounter").text(currentLength + "/" + maxLength);})
-        .focusin(function() {
-            $("#charCounter").fadeTo(500, 0.7);})
-        .focusout(function() {
-            $("#charCounter").fadeTo(500, 0.2);
-    });
+    charCounter("charCounter", "reviewDesc", 500);
 
     // Show warning when user is to explicitely not endorse an offer
     $("#reviewEndorsed").on("click", function(){

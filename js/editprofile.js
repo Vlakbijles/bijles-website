@@ -6,19 +6,7 @@
 
 $(function(){
 
-    // Char counter logic for description
-    var maxLength = 1000;
-    var currentLength = $("#editDesc").val().length;
-    $("#charCounter").text(currentLength + "/" + maxLength).fadeTo(0, 0.2);
-    $("#editDesc")
-        .keyup(function() {
-            currentLength = $(this).val().length;
-            $("#charCounter").text(currentLength + "/" + maxLength);})
-        .focusin(function() {
-            $("#charCounter").fadeTo(1000, 0.7);})
-        .focusout(function() {
-            $("#charCounter").fadeTo(1000, 0.2);
-    });
+    charCounter("charCounter", "editDesc", 1000);
 
     // Validation for profile editing form
     $("#editProfileForm").validate({
