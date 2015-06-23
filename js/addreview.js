@@ -30,7 +30,7 @@ $(function(){
     // Keep track of which alligment to use for dynamically adding review, for
     // the case a user leaves more than one review
     var allignLeft = true;
-    if (parseInt($("#reviewCounter").text() == 0)) allignLeft = false;
+    if (parseInt($("#reviewCounter").text()) == 0) allignLeft = false;
 
     // Validation for review form
     $("#reviewForm").validate({
@@ -70,8 +70,6 @@ $(function(){
                                                             "message": "Bedankt voor je beoordeling"});
 
                             // Update page
-                            console.log(data);
-
                             if (allignLeft) {
                                 $("#reviewLeftTemplate").clone().prop({id: "newReview"}).prependTo($("#reviewContainer"));
                             } else {
@@ -92,6 +90,7 @@ $(function(){
 
                             // Show endorsment in review, increment endorsment counters
                             if (data["endorsed"]) {
+                                if (parseInt($("#endorsmentCounter").text()) == 0) $("#endorsmentIndicator").removeClass("hidden");
                                 $("#endorsmentCounter").text(parseInt($("#endorsmentCounter").text()) + 1);
                             } else {
                                 $("#newReview").find(".reviewEndorsed").remove();
@@ -99,7 +98,6 @@ $(function(){
 
                             // Increment review counter
                             $("#reviewCounter").text(parseInt($("#reviewCounter").text()) + 1);
-                            // TODO show counter when inital number of endorsments was 0
 
                             // Clear ID so another review can be added
                             $("#newReview").prop({id: ""});
