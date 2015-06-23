@@ -68,6 +68,8 @@ $(function(){
                                                             "message": "Je hebt deze gebruiker/bijles combinatie al eens beoordeeld"});
                             break;
                         case 201:
+                            //TODO handle review with no content
+
                             // Review successfully created, update page
                             $("#notificationContent").load("/ajax/notification.php",
                                                            {"type": "success",
