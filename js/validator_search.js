@@ -9,6 +9,8 @@ $(function(){
 
         // Called when form is filled in properly
         submitHandler: function(form) {
+            // Exclude subject name string from submit
+            $("#searchSubjectName").remove();
             form.submit();
         },
 
