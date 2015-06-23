@@ -27,7 +27,7 @@
     # To externally redirect localhost/index.php?page=X&subject_id=XX&postal_code=XXX to localhost/X/XX/XXX
     RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
     RewriteCond %{QUERY_STRING} ^page=([A-Za-z]*)&subject_id=([0-9]*)&subject_name=([A-Za-z]*)&postal_code=([0-9]{4}[A-Za-z]{2})$
-    RewriteRule ^ %1/%2/%3? [R=302,L]
+    RewriteRule ^ %1/%2/%3/%4? [R=302,L]
     
     #/index.php?page=offers&subject_id=1&subject_name=Aardewetenschappen&postal_code=1075CL
     
