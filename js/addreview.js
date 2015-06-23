@@ -52,7 +52,11 @@ $(function(){
                 statusCode: {
                     400:
                         function() {
-                            alert("Er is iets misgegaan");
+                            $("#notificationContent").load("ajax/notification.php",
+                                                           {"type": "warning",
+                                                            "message": "Er is iets misgegaan, mogelijke oorzaken zijn dat de bijles " +
+                                                                       "aanbieding niet bestaat, je jezelf probeert te recenseren " +
+                                                                       "of je de maximale lengte van de beschrijving hebt overschreden"});
                         }
                 }})
                 .done(function(data, status, xhr) {
@@ -105,8 +109,8 @@ $(function(){
                             break;
                         default: ;
                     }
-                    $("#reviewModal").modal("toggle");
                 });
+            $("#reviewModal").modal("toggle");
         },
 
         rules: {
