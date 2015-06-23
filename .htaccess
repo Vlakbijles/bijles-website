@@ -26,14 +26,14 @@
     # To externally redirect 
     # vlakbijles.nl/index.php?page=X&subject_id=XX&subject_name=XXX&postal_code=XXXX to vlakbijles.nl/X/XX/XXX/XXXX
     RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
-    RewriteCond %{QUERY_STRING} ^page=([A-Za-z]*)&subject_id=([0-9]*)&subject_name=([A-Za-z\+]*)&postal_code=([0-9]{4}[A-Za-z]{2})$
+    RewriteCond %{QUERY_STRING} ^page=([A-Za-z]*)&subject_id=([0-9]*)&subject_name=(.*)&postal_code=([0-9]{4}[A-Za-z]{2})$
     RewriteRule ^ %1/%2/%3/%4? [R=302,L]
     
     # To internally redirect 
     # vlakbijles.nl/X/XX/XXX/XXX to vlakbijles.nl/index.php?page=X&subject_id=XX&subject_name=XXX&postal_code=XXXX
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{DOCUMENT_ROOT}/$1/$2/$3/$4 !-f
-    RewriteRule ^([A-Za-z]+)/([0-9]*)/([A-Za-z\+]*)/([0-9]{4}[A-Za-z]{2})/?$ index.php?page=$1&subject_id=$2&subject_name=$3&postal_code=$4 [L]
+    RewriteRule ^([A-Za-z]+)/([0-9]*)/(.*)/([0-9]{4}[A-Za-z]{2})/?$ index.php?page=$1&subject_id=$2&subject_name=$3&postal_code=$4 [L]
 
     # Redirect localhost/index.php to localhost, no internal redirect needed  
     # since vlakbijles.nl automatically loads index.php
