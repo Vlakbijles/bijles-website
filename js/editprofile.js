@@ -20,11 +20,6 @@ $(function(){
             $("#charCounter").fadeTo(1000, 0.2);
     });
 
-    // Postal code validator
-    $.validator.addMethod("postalcode", function(value, element) {
-        return this.optional(element) || /^[0-9]{4}[A-Za-z]{2}/.test(value);
-    });
-
     // Use bootstrap classes for indicating errors
     $.validator.setDefaults({
         errorElement: "span",
@@ -107,7 +102,6 @@ $(function(){
             },
             "editPostalCode": {
                 required: true,
-                postalcode: true,
                 remote: {
                     url: "ajax/verify.php",
                     type: "GET",
@@ -127,7 +121,7 @@ $(function(){
 
         // Empty error messages, bootstrap indicators used instead
         messages: { "editEmail": {required: "", email: "", remote: ""},
-                    "editPostalCode": {required: "", postalcode: "", remote: ""},
+                    "editPostalCode": {required: "", remote: ""},
                     "editDesc": {maxlength: ""} }
 
     });
