@@ -1,15 +1,16 @@
 <?php
-    require_once(api.php);
+    require_once("../api.php");
 
-    $request_uri= $_SERVER["REQUEST_URI"];
-    echo "URI=" . $request_uri;
-    $request_method = "GET"; //$_SERVER["REQUEST_METHOD"];
-    echo "METHOD=" . $request_method;
-    $data = $HTTP_RAW_POST_DATA;
-    echo "DATA=" . $data;
+    $recv = $HTTP_RAW_POST_DATA;
+    $recv = json_decode($recv, true);
 
-    $response_array = api_request($request_uri, $request_method, $data);
-    $response_json = json_encode($response_array);
+    $uri = $recv["uri"];
+    $method = $recv["method"];
+    $data = $recv["data"];
+    if (empty($data)) {
+        $data = NULL;
+    }
 
-    echo $response_json;
+    $resp = api_request($uri, $method, $data);
+    echo json_encode($resp);
 ?>
