@@ -22,6 +22,8 @@ $(function() {
 
             if(startsWith[0]){
                 $("#searchSubjectId").val(startsWith[0].value);
+            } else {
+                $("#searchSubjectId").val("");
             }
             response(startsWith.concat(contains).slice(0), term);
         },
