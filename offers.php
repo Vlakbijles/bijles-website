@@ -3,11 +3,14 @@
 require_once("api.php");
 require_once("vars.php");
 
-if (isset($_GET["subject_id"]) && isset($_GET["postal_code"])) {
-    $request_uri = "/offer?subject_id="
-        . $_GET["subject_id"]
+if (isset($_GET["subject_id"]) && isset($_GET["postal_code"]) && isset($_GET["level_id"]) && isset($_GET["order_by"]) && isset($_GET["p"])) {
+    $request_uri = "/offer"
+        . "?subject_id=" . $_GET["subject_id"]
         . "&postal_code=" . strtoupper($_GET["postal_code"])
-        . "&page=1";
+        . "&order_by=" . $_GET["order_by"]
+        . "&page=" . $_GET["p"];
+    if ($_GET["level_id"] != "")
+        $request_uri = $request_uri . "&level_id=" . $_GET["level_id"];
 } else {
     $resp_offers["response_code"] = INVALID;
 }
@@ -49,12 +52,13 @@ echo render_template("templates/navbar.html", array(
 
 // Render top search bar
 echo render_template("templates/searchbar.html", array(
+                     "subject_name" => $_GET["subject_name"],
+                     "subject_id" => $_GET["subject_id"],
                      "show_logo" => false,
                      "postal_code" => $user_postal_code));
 
 // Render found offers or display errors
 switch($resp_offers["response_code"]) {
-
 
     case INVALID:
         echo render_template("templates/error.html", array(
@@ -63,12 +67,27 @@ switch($resp_offers["response_code"]) {
         break;
 
     case NO_RESULTS:
+        echo render_template("templates/sortbar.html", array(
+                             "postal_code" => $_GET["postal_code"],
+                             "order_by" => $_GET["order_by"],
+                             "subject_id" => $_GET["subject_id"],
+                             "subject_name" => $_GET["subject_name"],
+                             "level_id" => $_GET["level_id"],
+                             "p" => $_GET["p"]));
         echo render_template("templates/error.html", array(
                              "title" => ERROR_HEADING_NORESULTS,
                              "message" => ERROR_NORESULTS));
         break;
 
     case SUCCESS:
+        echo render_template("templates/sortbar.html", array(
+                             "postal_code" => $_GET["postal_code"],
+                             "order_by" => $_GET["order_by"],
+                             "subject_id" => $_GET["subject_id"],
+                             "subject_name" => $_GET["subject_name"],
+                             "level_id" => $_GET["level_id"],
+                             "p" => $_GET["p"]));
+
         echo render_template("templates/offers.html", array(
                              "results" => $resp_offers["response"]));
         break;

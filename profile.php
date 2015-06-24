@@ -43,6 +43,8 @@ echo render_template("templates/navbar.html", array(
 
 // Render top search bar
 echo render_template("templates/searchbar.html", array(
+                     "subject_name" => "",
+                     "subject_id" => "",
                      "show_logo" => false,
                      "postal_code" => $user_postal_code));
 
