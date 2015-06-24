@@ -16,8 +16,7 @@ if (isset($_GET["order_by"])) {
     $request_uri .= "&order_by=" . $_GET["order_by"];
 }
 
-$request_method = "GET";
-$resp_offers = api_request($request_uri, $request_method, NULL);
+$resp_offers = api_request($request_uri, "GET", NULL);
 
 // Render header
 switch($resp_offers["response_code"]) {

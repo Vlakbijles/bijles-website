@@ -18,7 +18,7 @@
                 if ($i % 2 == 0) { ?>
 
                 <div class="row top-margin-lg reviewRight">
-                    <div class="col-xs-9 lead no-padding">
+                    <div class="col-xs-9 lead border-right">
                         <div class="text-right">
                             <p class="reviewDescription"><?=$reviews[$keys[$i]]["description"]?></p>
                             <h4 class="no-margin">
@@ -49,7 +49,7 @@
                             <a class="reviewAuthorLink" href="/index.php?page=profile&id=<?=$reviews[$keys[$i]]["author.id"]?>"><img src="<?=$reviews[$keys[$i]]["author.meta.photo_id"]?>" alt="<?=$reviews[$keys[$i]]["author.meta.name"]?> <?=$reviews[$keys[$i]]["author.meta.surname"]?>" class="img-thumbnail reviewAuthorPhoto"></a>
                         </div>
                     </div>
-                    <div class="col-xs-9 lead">
+                    <div class="col-xs-9 lead border-left">
                         <div class="text-left">
                             <p class="reviewDescription"><?=$reviews[$keys[$i]]["description"]?></p>
                             <h4 class="no-margin">
@@ -73,7 +73,7 @@
 
             <!-- Right alligned review template -->
             <div id="reviewRightTemplate" class="row top-margin-lg hidden">
-                <div class="col-xs-9 lead no-padding">
+                <div class="col-xs-9 lead border-right">
                     <div class="text-right">
                         <p class="reviewDescription"></p>
                         <h4 class="no-margin">
@@ -101,7 +101,7 @@
                         <a class="reviewAuthorLink" href="#"><img src="" alt="" class="img-thumbnail reviewAuthorPhoto"></a>
                     </div>
                 </div>
-                <div class="col-xs-9 lead no-padding">
+                <div class="col-xs-9 lead border-left">
                     <div class="text-left">
                         <p class="reviewDescription"></p>
                         <h4 class="no-margin">

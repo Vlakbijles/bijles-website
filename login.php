@@ -23,9 +23,8 @@
 
     // Perform login
     $request_uri = "/fblogin?";
-    $request_method = "POST";
     $data = array("user" => array("email" => $email, "password" => $password));
-    $response = api_request($request_uri, $request_method, $data);
+    $response = api_request($request_uri, "POST", $data);
 
     if ($response["response_code"] == 200) {
         setcookie("user_id", $response["response"]["user_id"], time() + (86400 * 7), "/"); // 86400 = 1 day
