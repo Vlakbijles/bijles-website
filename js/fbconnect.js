@@ -61,7 +61,6 @@ function getFacebookData(response) {
 }
 
 
-
 window.fbAsyncInit = function() {
     FB.init({
         appId      : "1597503327174282",
@@ -78,6 +77,7 @@ window.fbAsyncInit = function() {
 
 };
 
+
 // Load the SDK asynchronously
 (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -86,7 +86,6 @@ window.fbAsyncInit = function() {
     js.src = "//connect.facebook.net/en_US/sdk.js";
     fjs.parentNode.insertBefore(js, fjs);
 }(document, "script", "facebook-jssdk"));
-
 
 
 function registerForm(data){
@@ -133,8 +132,6 @@ function registerForm(data){
                                 $("#regPostalCode").closest(".form-group").addClass("has-error");
                             } else if (data.responseJSON.message.match("Email")) {
                                 $("#regEmail").closest(".form-group").addClass("has-error");
-                            } else {
-                                alert("ALASD???");
                             }
                         }
                 }})
