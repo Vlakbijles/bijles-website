@@ -9,15 +9,15 @@
 
 // This is called with the results from from FB.getLoginStatus().
 function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
+    console.log("statusChangeCallback");
     console.log(response);
-    if (response.status === 'connected') {
+    if (response.status === "connected") {
         // Logged into your app and Facebook.
         getFacebookData(response);
-    } else if (response.status === 'not_authorized') {
+    } else if (response.status === "not_authorized") {
         // The person is logged into Facebook, but not your app.
     } else {
-        // The person is not logged into Facebook, so we're not sure if
+        // The person is not logged into Facebook, so we"re not sure if
         // they are logged into this app or not.
     }
 }
@@ -45,7 +45,7 @@ function getFacebookData(response) {
                     location.reload();
                     break;
                 case 202:
-                    // 202, means account doesn't exists with this fb account,
+                    // 202, means account doesn"t exists with this fb account,
                     // so prompt user to make one
                     registerForm(data);
                     break;
@@ -64,11 +64,11 @@ function getFacebookData(response) {
 
 window.fbAsyncInit = function() {
     FB.init({
-        appId      : '1597503327174282',
+        appId      : "1597503327174282",
         cookie     : true,  // enable cookies to allow the server to access
         // the session
         xfbml      : true,  // parse social plugins on this page
-        version    : 'v2.2' // use version 2.2
+        version    : "v2.2" // use version 2.2
     });
 
 
@@ -85,7 +85,7 @@ window.fbAsyncInit = function() {
     js = d.createElement(s); js.id = id;
     js.src = "//connect.facebook.net/en_US/sdk.js";
     fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+}(document, "script", "facebook-jssdk"));
 
 
 
@@ -134,7 +134,7 @@ function registerForm(data){
                             } else if (data.responseJSON.message.match("Email")) {
                                 $("#regEmail").closest(".form-group").addClass("has-error");
                             } else {
-                                alert('ALASD???');
+                                alert("ALASD???");
                             }
                         }
                 }})

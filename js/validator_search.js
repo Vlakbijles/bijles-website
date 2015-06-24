@@ -2,6 +2,9 @@
 //
 // Validator for search form, verifies entered postal code is valid via API
 
+// Dependencies (must at some point be included in html):
+// -
+
 $(function(){
 
     // Validation for search form

@@ -3,6 +3,9 @@
 // Sends ajax request to API server, loads list of all available levels into
 // global variable
 
+// Dependencies (must at some point be included in html):
+// -
+
 var levels = [];
 
 $(function(){

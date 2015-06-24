@@ -39,7 +39,7 @@ $(function() {
         },
         open: function( event, ui ) {
             var firstElement = $(this).data("uiAutocomplete").menu.element[0].children[0]
-            , inpt = $('#searchSubjectName')
+            , inpt = $("#searchSubjectName")
             , original = inpt.val()
             , firstElementText = $(firstElement).text();
 

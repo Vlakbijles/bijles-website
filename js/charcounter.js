@@ -2,6 +2,9 @@
 //
 // Set up word counter for text field
 
+// Dependencies (must at some point be included in html):
+// -
+
 function charCounter(counterId, textFieldId, maxLength) {
 
     // counterId:   id of html element displaying the counter

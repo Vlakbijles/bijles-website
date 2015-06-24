@@ -2,6 +2,9 @@
 //
 // Set defaults for jQuery Validate plugin
 
+// Dependencies (must at some point be included in html):
+// -
+
 $(function(){
 
     // Use bootstrap classes for indicating errors
