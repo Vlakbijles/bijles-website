@@ -49,7 +49,7 @@ echo render_template("templates/searchbar.html", array(
 // Render profile or display error messages
 switch($resp_profile["response_code"]) {
 
-    case NO_RESULTS:
+    case INVALID:
         echo render_template("templates/error.html", array(
                              "title" => ERROR_HEADING_GENERAL . " (" . $resp_profile["response_code"] . ")",
                              "message" => ERROR_USERNOTFOUND));
