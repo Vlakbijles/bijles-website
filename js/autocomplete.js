@@ -20,7 +20,11 @@ $(function() {
                         containsMatcher.test(value.label || value.value || value);
                 });
 
-            response(startsWith.concat(contains).slice(0,10), term);
+            if(startsWith[0]){
+                $("#searchSubjectId").val(startsWith[0].value);
+            }
+            var result = __highlight(startsWith.concat(contains).slice(0,8), term);
+            response(result, term);
         },
         select: function (event, ui) {
             event.preventDefault();
@@ -44,18 +48,7 @@ $(function() {
                 inpt[0].selectionStart = original.length; //highlight from end of input
                 inpt[0].selectionEnd = firstElementText.length;//highlight to the end
             }
-            $(this).val(ui.item.label);
-            $("#searchSubjectId").val(ui.item.value);
         }
     });
-
-    function __highlight(s, t) {
-        var matcher = new RegExp("("+$.ui.autocomplete.escapeRegex(t)+")", "ig" );
-        for (var i = 0; i < s.length; i++) {
-            s[i].label = s[i].label.replace(matcher, "<strong>$1</strong>");
-        }
-    }
-
-    // TODO force valid subject on form submission
 
 });
