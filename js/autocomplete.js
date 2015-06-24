@@ -23,8 +23,7 @@ $(function() {
             if(startsWith[0]){
                 $("#searchSubjectId").val(startsWith[0].value);
             }
-            var result = __highlight(startsWith.concat(contains).slice(0,8), term);
-            response(result, term);
+            response(startsWith.concat(contains).slice(0), term);
         },
         select: function (event, ui) {
             event.preventDefault();
