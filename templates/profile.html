@@ -130,7 +130,8 @@
 
                             <div id="endorsmentsHeads" class="row">
 
-                                <?php foreach($endorsments as $endorsment) { ?>
+                                <?php if ($num_endorsed) {
+                                      foreach($endorsments as $endorsment) { ?>
 
                                 <div class="col-xs-2">
                                     <div id="endorsmentHead_<?=$endorsment["author.id"]?>" class="endorsmentHead endorsment-head">
@@ -140,7 +141,7 @@
                                     </div>
                                 </div>
 
-                                <?php } ?>
+                                <?php }} ?>
 
                                 <div class="col-xs-2 endorsmentHeadTemplate hidden">
                                     <div id="endorsmentHead" class="endorsment-head">
