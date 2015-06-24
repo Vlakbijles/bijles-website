@@ -1,5 +1,9 @@
 <?php
 
+// ajax/level.php
+//
+// Obtains list of all available subjects from API, returns in JSON format
+
 if (!isset($_GET["action"])) die();
 
 include("../api.php");

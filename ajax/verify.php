@@ -2,7 +2,7 @@
 
 // ajax/verify.php
 //
-// Verifies form input via API
+// Verifies form input values via API, for use with jQuery Validator plugin
 
 include("../api.php");
 include("../logincheck.php");

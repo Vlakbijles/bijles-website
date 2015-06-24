@@ -2,8 +2,8 @@
 
 // ajax/notification.php
 //
-// Returns render of noticiation template for use with jQuery's load, the
-// 'type' variable corresponds with the Bootstrap color classes:
+// Returns render of noticiation template for use with jQuery's load function,
+// the 'type' variable corresponds with the Bootstrap color classes:
 // default, primary, success, info, warning, danger
 
 include("../vars.php");
