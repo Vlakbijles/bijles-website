@@ -1,25 +1,33 @@
 <?php
 
+// profile.php
+//
+// Display user profile
+
 if (!isset($_GET["id"])) die("Invalid URL, no profile id specified");
 
 require_once("api.php");
 require_once("vars.php");
 
-// Request user profile data
+
+// Perform API requests
+
+// User's profile
 $request_uri = "/user/" . $_GET["id"] . "?";
 $resp_profile = api_request($request_uri, "GET", NULL);
 
-// Request user's offers
+// User's offers
 $request_uri = "/user/" . $_GET["id"] . "/offer?";
 $resp_offers = api_request($request_uri, "GET", NULL);
 
-// Request user's reviews
+// User's reviews
 $request_uri = "/user/" . $_GET["id"] . "/review?";
 $resp_reviews = api_request($request_uri, "GET", NULL);
 
-// Request user's endorsments
+// User's endorsments
 $request_uri = "/user/" . $_GET["id"] . "/endorsment?";
 $resp_endorsments = api_request($request_uri, "GET", NULL);
+
 
 // Render header
 switch($resp_profile["response_code"]) {
@@ -30,16 +38,15 @@ switch($resp_profile["response_code"]) {
     default:
         $title = ERROR_HEADING_GENERAL . " - " . SITENAME;
 }
-echo render_template("templates/head.html", array(
-                     "title" => $title));
+echo render_template("templates/head.html", array("title" => $title));
+
 
 // Render navbar
-if (!$logged_in) {
-    include("templates/modals/login.html");
-}
+if (!$logged_in) include("templates/modals/login.html");
 echo render_template("templates/navbar.html", array(
                      "logged_in" => $logged_in,
                      "user_id" => $user_id));
+
 
 // Render top search bar
 echo render_template("templates/searchbar.html", array(
@@ -47,6 +54,7 @@ echo render_template("templates/searchbar.html", array(
                      "subject_id" => "",
                      "show_logo" => false,
                      "postal_code" => $user_postal_code));
+
 
 // Render profile or display error messages
 switch($resp_profile["response_code"]) {

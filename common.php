@@ -2,7 +2,7 @@
 
 // common.php
 //
-// Includes helper functions
+// Contains helper functions
 
 // HTML template rendering
 class MissingTemplateException extends Exception {}

@@ -2,7 +2,7 @@
 
 // index.php
 //
-// Main entry point of site
+// Main entry point of site, contains switch for available pages
 
 date_default_timezone_set("Europe/Amsterdam");
 

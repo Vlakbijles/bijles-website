@@ -1,9 +1,18 @@
 <?php
 
+// offers.php
+//
+// Display available offers
+
 require_once("api.php");
 require_once("vars.php");
 
-if (isset($_GET["subject_id"]) && isset($_GET["postal_code"]) && isset($_GET["level_id"]) && isset($_GET["order_by"]) && isset($_GET["p"])) {
+
+// Perform API request
+if (isset($_GET["subject_id"]) && isset($_GET["postal_code"])
+    && isset($_GET["level_id"]) && isset($_GET["order_by"])
+    && isset($_GET["p"])) {
+
     $request_uri = "/offer"
         . "?subject_id=" . $_GET["subject_id"]
         . "&postal_code=" . strtoupper($_GET["postal_code"])
@@ -14,12 +23,8 @@ if (isset($_GET["subject_id"]) && isset($_GET["postal_code"]) && isset($_GET["le
 } else {
     $resp_offers["response_code"] = INVALID;
 }
-
-if (isset($_GET["order_by"])) {
-    $request_uri .= "&order_by=" . $_GET["order_by"];
-}
-
 $resp_offers = api_request($request_uri, "GET", NULL);
+
 
 // Render header
 switch($resp_offers["response_code"]) {
@@ -39,16 +44,15 @@ switch($resp_offers["response_code"]) {
     default:
         $title = ERROR_HEADING_GENERAL . " - " . SITENAME;
 }
-echo render_template("templates/head.html", array(
-                     "title" => $title));
+echo render_template("templates/head.html", array("title" => $title));
+
 
 // Render navbar
-if (!$logged_in) {
-    include("templates/modals/login.html");
-}
+if (!$logged_in) include("templates/modals/login.html");
 echo render_template("templates/navbar.html", array(
                      "logged_in" => $logged_in,
                      "user_id" => $user_id));
+
 
 // Render top search bar
 echo render_template("templates/searchbar.html", array(
@@ -56,6 +60,7 @@ echo render_template("templates/searchbar.html", array(
                      "subject_id" => $_GET["subject_id"],
                      "show_logo" => false,
                      "postal_code" => $user_postal_code));
+
 
 // Render found offers or display errors
 switch($resp_offers["response_code"]) {

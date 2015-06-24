@@ -1,5 +1,9 @@
 <?php
 
+// home.php
+//
+// Home page, contains search bar and selling points
+
 require_once("vars.php");
 
 $title = SITETITLE . " - " . SITENAME;
