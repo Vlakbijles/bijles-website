@@ -56,13 +56,13 @@
         <ul class="pager" style="margin-top: 0;">
 
             <?php if ($p > 1) { ?>
-            <li class="previous"><a href="/index.php?page=offers&order_by=<?=$order_by?>&p=<?php echo $p-1; ?>&level_id=<?=$level_id?>&subject_id=<?=$subject_id?>&subject_name=<?=$subject_name?>&postal_code=<?=$postal_code?>">Vorige</a></li>
+            <li class="previous"><a href="/index.php?page=offers&order_by=<?=$order_by?>&p=<?=($p-1)?>&level_id=<?=$level_id?>&subject_id=<?=$subject_id?>&subject_name=<?=$subject_name?>&postal_code=<?=$postal_code?>">Vorige</a></li>
             <?php } else { ?>
             <li class="previous disabled"><a href="#">Vorige</a></li>
             <?php } ?>
 
-            <?php if (($p * OFFERS_PER_PAGE) + OFFERS_PER_PAGE  < $num_offers) { ?>
-            <li class="next"><a href="/index.php?page=offers&order_by=<?=$order_by?>&p=<?php echo $p+1; ?>&level_id=<?=$level_id?>&subject_id=<?=$subject_id?>&subject_name=<?=$subject_name?>&postal_code=<?=$postal_code?>">Volgende</a></li>
+            <?php if (($p * OFFERS_PER_PAGE) < $num_offers) { ?>
+            <li class="next"><a href="/index.php?page=offers&order_by=<?=$order_by?>&p=<?=($p+1)?>&level_id=<?=$level_id?>&subject_id=<?=$subject_id?>&subject_name=<?=$subject_name?>&postal_code=<?=$postal_code?>">Volgende</a></li>
             <?php } else { ?>
             <li class="next disabled"><a href="#">Volgende</a></li>
             <?php } ?>

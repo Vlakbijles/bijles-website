@@ -96,6 +96,11 @@ switch($resp_offers["response_code"]) {
 
         echo render_template("templates/offers.html", array(
                              "num_offers" => $resp_offers["response"]["total_offers"],
+                             "postal_code" => $_GET["postal_code"],
+                             "order_by" => $_GET["order_by"],
+                             "subject_id" => $_GET["subject_id"],
+                             "subject_name" => $_GET["subject_name"],
+                             "level_id" => $_GET["level_id"],
                              "p" => $_GET["p"],
                              "results" => $resp_offers["response"]["offers"]));
         break;
