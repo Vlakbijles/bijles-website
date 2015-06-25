@@ -17,8 +17,8 @@ $api_url = "localhost:5000";
 function api_request($request_uri, $request_method, $data) {
 
     global $api_url, $api_user, $api_key, $hash_algorithm;
-    $timestamp = strval(time());
 
+    $timestamp = strval(time());
     $request_url = $api_url . $request_uri;
 
     // Alphabetically sort elements in data by key

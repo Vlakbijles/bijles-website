@@ -12,14 +12,17 @@
                 <div class="col-sm-6">
                     <div class="form-group has-feedback no-margin">
                         <input type="hidden" name="page" value="offers">
-                        <input type="hidden" id="searchSubjectId" name="subject_id" value="">
-                        <input type="text" id="searchSubjectName" name="subject_name" class="form-control" placeholder="Vaknaam...">
+                        <input type="hidden" name="order_by" value="distance">
+                        <input type="hidden" name="p" value="1">
+                        <input type="hidden" name="level_id" value="0">
+                        <input type="hidden" id="searchSubjectId" name="subject_id" value="<?=$subject_id?>">
+                        <input type="text" id="searchSubjectName" name="subject_name" class="form-control" placeholder="Vaknaam..." value="<?=$subject_name?>">
                     </div>
                 </div>
                 <div class="hidden-lg hidden-md hidden-sm spacer-small">&nbsp;</div>
                 <div class="col-sm-3">
                     <div class="form-group has-feedback no-margin">
-                        <input type="text" id="postal_code" class="form-control" name="postal_code" maxlength="6" placeholder="1234AB" value="<?php if(isset($postal_code)) echo $postal_code; ?>">
+                        <input type="text" id="searchPostalCode" class="form-control" name="postal_code" maxlength="6" placeholder="1234AB" value="<?php if(isset($postal_code)) echo $postal_code; ?>">
                     </div>
                 </div>
                 <div class="hidden-lg hidden-md hidden-sm spacer-small">&nbsp;</div>
@@ -34,4 +37,3 @@
 </div>
 
 <div id="notificationContent"></div>
-

@@ -4,6 +4,9 @@
 // dynamically removes the offer from the profile page and decrements the
 // shown offer count. Contains handler for fading of offer delete buttons.
 
+// Dependencies (must at some point be included in html):
+// -
+
 $(function(){
 
     // Fade delete offer buttons

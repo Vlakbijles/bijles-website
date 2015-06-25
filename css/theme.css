@@ -165,6 +165,14 @@ ul.ui-autocomplete {
     padding-right: 0px;
 }
 
+.border-left {
+    border-left: 2px dotted #e3e3e3;
+}
+
+.border-right {
+    border-right: 2px dotted #e3e3e3;
+}
+
 .footer {
     position: absolute;
     bottom: 0;

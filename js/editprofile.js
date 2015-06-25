@@ -4,21 +4,12 @@
 // postal with API server to make sure the email address is not already in
 // use and the postal code is valid
 
+// Dependencies (must at some point be included in html):
+// charcounter.js
+
 $(function(){
 
-    // Char counter logic for description
-    var maxLength = 1000;
-    var currentLength = $("#editDesc").val().length;
-    $("#charCounter").text(currentLength + "/" + maxLength).fadeTo(0, 0.2);
-    $("#editDesc")
-        .keyup(function() {
-            currentLength = $(this).val().length;
-            $("#charCounter").text(currentLength + "/" + maxLength);})
-        .focusin(function() {
-            $("#charCounter").fadeTo(1000, 0.7);})
-        .focusout(function() {
-            $("#charCounter").fadeTo(1000, 0.2);
-    });
+    charCounter("charCounter", "editDesc", 1000);
 
     // Validation for profile editing form
     $("#editProfileForm").validate({

@@ -1,9 +1,9 @@
 // autocomplete.js
 //
 // Handles autocomplete for the main search bar
-//
-// Makes use of global variables:
-// subjects     - List of available subjects
+
+// Dependencies (must at some point be included in html):
+// loadsubjects.js
 
 $(function() {
     source = subjects;
@@ -20,7 +20,12 @@ $(function() {
                         containsMatcher.test(value.label || value.value || value);
                 });
 
-            response(startsWith.concat(contains));
+            if(startsWith[0]){
+                $("#searchSubjectId").val(startsWith[0].value);
+            } else {
+                $("#searchSubjectId").val("");
+            }
+            response(startsWith.concat(contains).slice(0), term);
         },
         select: function (event, ui) {
             event.preventDefault();
@@ -32,14 +37,19 @@ $(function() {
             $(this).val(ui.item.label);
             $("#searchSubjectId").val(ui.item.value);
         },
-        change: function (event, ui) {
-            if(!ui.item){
-                $(this).val("");
-                $("#searchSubjectId").val("");
-            }
-        },
-    });
+        open: function( event, ui ) {
+            var firstElement = $(this).data("uiAutocomplete").menu.element[0].children[0]
+            , inpt = $("#searchSubjectName")
+            , original = inpt.val()
+            , firstElementText = $(firstElement).text();
 
-    // TODO force valid subject on form submission
+            if(firstElementText.toLowerCase().indexOf(original.toLowerCase()) === 0){
+                inpt.val(firstElementText);//change the input to the first match
+
+                inpt[0].selectionStart = original.length; //highlight from end of input
+                inpt[0].selectionEnd = firstElementText.length;//highlight to the end
+            }
+        }
+    });
 
 });

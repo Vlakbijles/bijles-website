@@ -3,10 +3,11 @@
 // Script for the add offers modal, handles possible extra rows and their
 // autocomplete, handles ajax request to submit the offers, dynamically
 // updates profile page when offers are succesfully created
-//
-// Makes use of global variables:
-// subjects     - List of available subjects
-// levels       - List of available levels
+
+// Dependencies (must at some point be included in html):
+// charcounter.js
+// loadlevels.js
+// loadsubjects.js
 
 $(function(){
 

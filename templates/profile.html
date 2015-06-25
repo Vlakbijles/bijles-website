@@ -1,159 +1,158 @@
+<div class="container main-content">
 
-        <!-- Main container -->
-        <div class="container main-content">
+    <!-- Profile -->
+    <div class="row ">
 
-            <!-- Profile -->
-            <div class="row ">
-
-                <div class="col-sm-3 lead">
-                    <div class="well">
-                        <div class="profile-pic profile-pic-profile">
-                            <img src="<?=$photo?>" alt="<?=$name?> <?=$surname?>" class="img-thumbnail">
-                            <?php if ($num_endorsed > 0) { ?>
-                            <div id="endorsmentIndicator">
-                                <span class="endorsment-indicator endorsment-indicator-lg glyphicon label-success visible-xs visible-lg">&#xe125;<span id="endorsmentCounter-lg"><?=$num_endorsed?></span></span>
-                                <span class="endorsment-indicator endorsment-indicator-sm glyphicon label-success visible-sm">&#xe125;<span id="endorsmentCounter-sm"><?=$num_endorsed?></span></span>
-                                <span class="endorsment-indicator endorsment-indicator-md glyphicon label-success visible-md">&#xe125;<span id="endorsmentCounter-md"><?=$num_endorsed?></span></span>
-                            </div>
-                            <?php } else { ?>
-                            <div id="endorsmentIndicator" class="hidden">
-                                <span class="endorsment-indicator endorsment-indicator-lg glyphicon label-success visible-xs visible-lg">&#xe125;<span id="endorsmentCounter-lg"><?=$num_endorsed?></span></span>
-                                <span class="endorsment-indicator endorsment-indicator-sm glyphicon label-success visible-sm">&#xe125;<span id="endorsmentCounter-sm"><?=$num_endorsed?></span></span>
-                                <span class="endorsment-indicator endorsment-indicator-md glyphicon label-success visible-md">&#xe125;<span id="endorsmentCounter-md"><?=$num_endorsed?></span></span>
-                            </div>
-                            <?php } ?>
-                        </div>
-                        <h1 class="no-top-margin text-center visible-xs"><?=$name?> <?=$surname?></h1>
-                        <p class="text-center no-margin"><span id="userLocation"><?=$city?></span></p>
+        <div class="col-sm-3 lead">
+            <div class="well">
+                <div class="profile-pic profile-pic-profile">
+                    <img src="<?=$photo?>" alt="<?=$name?> <?=$surname?>" class="img-thumbnail">
+                    <?php if ($num_endorsed > 0) { ?>
+                    <div id="endorsmentIndicator">
+                        <span class="endorsment-indicator endorsment-indicator-lg glyphicon label-success visible-xs visible-lg">&#xe125;<span id="endorsmentCounter-lg"><?=$num_endorsed?></span></span>
+                        <span class="endorsment-indicator endorsment-indicator-sm glyphicon label-success visible-sm">&#xe125;<span id="endorsmentCounter-sm"><?=$num_endorsed?></span></span>
+                        <span class="endorsment-indicator endorsment-indicator-md glyphicon label-success visible-md">&#xe125;<span id="endorsmentCounter-md"><?=$num_endorsed?></span></span>
                     </div>
-
-                    <?php if (!$own_profile && $logged_in && $num_offers) { ?>
-                    <div class="row" >
-                        <a href="#" data-toggle="modal" data-target="#contactusermodal" class="btn btn-primary glyphicon col-xs-6">&#x2709;</a>
-                        <a href="#" data-toggle="modal" data-target="#reviewModal" class="btn btn-success glyphicon col-xs-6">&#xe065;</a>
+                    <?php } else { ?>
+                    <div id="endorsmentIndicator" class="hidden">
+                        <span class="endorsment-indicator endorsment-indicator-lg glyphicon label-success visible-xs visible-lg">&#xe125;<span id="endorsmentCounter-lg"><?=$num_endorsed?></span></span>
+                        <span class="endorsment-indicator endorsment-indicator-sm glyphicon label-success visible-sm">&#xe125;<span id="endorsmentCounter-sm"><?=$num_endorsed?></span></span>
+                        <span class="endorsment-indicator endorsment-indicator-md glyphicon label-success visible-md">&#xe125;<span id="endorsmentCounter-md"><?=$num_endorsed?></span></span>
                     </div>
                     <?php } ?>
+                </div>
+                <h1 class="no-top-margin text-center visible-xs"><?=$name?> <?=$surname?></h1>
+                <p class="text-center no-margin"><span id="userLocation"><?=$city?></span></p>
+            </div>
 
+            <?php if (!$own_profile && $logged_in && $num_offers) { ?>
+            <div class="row" >
+                <a href="#" data-toggle="modal" data-target="#contactusermodal" class="btn btn-primary glyphicon col-xs-6">&#x2709;</a>
+                <a href="#" data-toggle="modal" data-target="#reviewModal" class="btn btn-success glyphicon col-xs-6">&#xe065;</a>
+            </div>
+            <?php } ?>
+
+        </div>
+
+        <div class="col-sm-9 lead">
+
+            <h1 class="no-top-margin hidden-xs"><?=$name?> <?=$surname?> </h1>
+
+            <ul class="nav nav-tabs">
+                <li id="tabProfileBtn" class="active"><a href="#profile" data-toggle="tab" aria-expanded="true">Profiel</a></li>
+
+                <?php if ($num_offers || $own_profile) { ?>
+                <li id="tabOffersBtn"><a href="#offers" data-toggle="tab" aria-expanded="false">Vakken (<span id="numOffers"><?=$num_offers?></span>)</a></li>
+                <?php } else { ?>
+                <li id="tabOffersBtn" class="disabled"><a href="#" aria-expanded="false">Vakken (0)</a></li>
+                <?php } ?>
+
+                <?php if($num_endorsers) { ?>
+                <li id="tabEndorsersBtn"><a href="#endorsments" id="tabEndorsersLink" data-toggle="tab" aria-expanded="false">Aanbevolen (<span id="numEndorsers"><?=$num_endorsers?></span>)</a></li>
+                <?php } else { ?>
+                <li id="tabEndorsersBtn" class="disabled"><a href="#" id="tabEndorsersLink" data-toggle="" aria-expanded="false">Aanbevolen (<span id="numEndorsers"><?=$num_endorsers?></span>)</a></li>
+                <?php } ?>
+
+            </ul>
+
+            <div id="myTabContent" class="tab-content top-margin" >
+
+                <?php if($own_profile) { ?>
+                <script src="/js/editprofile.js"></script>
+                <?php } ?>
+                <!-- Profile tab -->
+                <div class="tab-pane fade active in" id="profile">
+                    <?php if ($own_profile) { ?>
+                    <button data-toggle="modal" id="editProfileBtn" data-target="#editProfileModal" class="btn btn-primary btn-sm glyphicon pull-right" style="margin: 0 0 10px 10px;">&#x270f;</button>
+                    <?php } ?>
+                    <p id="userDescription">
+                    <?php if ($description) {
+                    echo $description;
+                    } else { ?>
+                    <span class="text-muted"><?=$name?> <?=$surname?> heeft geen beschrijving</span>
+                    <?php } ?>
+                    </p>
                 </div>
 
-                <div class="col-sm-9 lead">
+                <?php if($own_profile) { ?>
+                <script src="/js/removeoffers.js"></script>
+                <?php } ?>
 
-                    <h1 class="no-top-margin hidden-xs"><?=$name?> <?=$surname?> </h1>
+                <?php if($num_offers || $own_profile) { ?>
+                <!-- Offers tab -->
+                <div class="tab-pane fade" id="offers">
+                    <table id="offerTable" class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th class="col-xs-8">Vaknaam</th>
+                                <th class="col-xs-3">Niveau</th>
+                                <th class="col-xs-1">
+                                    <?php if($own_profile) { ?>
+                                    <button id="addOffersBtn" class="btn btn-success btn-sm btn-block glyphicon pull-right" data-toggle="modal" data-target="#addOffersModal">&#x2b;</a>
+                                    <?php } ?>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php if ($num_offers) {
+                            foreach ($offers as $offer) { ?>
 
-                    <ul class="nav nav-tabs">
-                        <li id="tabProfileBtn" class="active"><a href="#profile" data-toggle="tab" aria-expanded="true">Profiel</a></li>
+                            <tr id="offerRow_<?=$offer["id"]?>" class="offerRow">
+                                <td class="subjectName"><?=$offer["subject.name"]?></td>
+                                <td class="levelName"><?=$offer["level.name"]?></td>
+                                <td>
+                                    <?php if($own_profile) { ?>
+                                    <button class="deleteOfferBtn btn btn-block btn-sm btn-danger glyphicon" name="<?=$offer["subject.name"]?>" value="<?=$offer["id"]?>" style="opacity: 0;">&#xe014;</button>
+                                    <?php } ?>
+                                </td>
+                            </tr>
 
-                        <?php if ($num_offers || $own_profile) { ?>
-                        <li id="tabOffersBtn"><a href="#offers" data-toggle="tab" aria-expanded="false">Vakken (<span id="numOffers"><?=$num_offers?></span>)</a></li>
-                        <?php } else { ?>
-                        <li id="tabOffersBtn" class="disabled"><a href="#" aria-expanded="false">Vakken (0)</a></li>
-                        <?php } ?>
+                            <?php }} ?>
 
-                        <?php if($num_endorsers) { ?>
-                        <li id="tabEndorsersBtn"><a href="#endorsments" id="tabEndorsersLink" data-toggle="tab" aria-expanded="false">Aanbevolen (<span id="numEndorsers"><?=$num_endorsers?></span>)</a></li>
-                        <?php } else { ?>
-                        <li id="tabEndorsersBtn" class="disabled"><a href="#" id="tabEndorsersLink" data-toggle="" aria-expanded="false">Aanbevolen (<span id="numEndorsers"><?=$num_endorsers?></span>)</a></li>
-                        <?php } ?>
+                            <tr id="offerRow" class="offerRow hidden">
+                                <td class="subjectName">subject name</td>
+                                <td class="levelName">level name</td>
+                                <td>
+                                    <?php if($own_profile) { ?>
+                                    <button class="deleteOfferBtn btn btn-block btn-sm btn-danger glyphicon" name="" value="" style="opacity: 0;">&#xe014;</button>
+                                    <?php } ?>
+                                </td>
+                            </tr>
 
-                    </ul>
+                        </tbody>
+                    </table>
+                </div>
+                <?php } ?>
 
-                    <div id="myTabContent" class="tab-content top-margin" >
+                <div class="tab-pane fade" id="endorsments">
 
-                        <?php if($own_profile) { ?>
-                        <script src="/js/editprofile.js"></script>
-                        <?php } ?>
-                        <!-- Profile tab -->
-                        <div class="tab-pane fade active in" id="profile">
-                            <?php if ($own_profile) { ?>
-                            <button data-toggle="modal" id="editProfileBtn" data-target="#editProfileModal" class="btn btn-primary btn-sm glyphicon pull-right" style="margin: 0 0 10px 10px;">&#x270f;</button>
-                            <?php } ?>
-                            <p id="userDescription">
-                                <?php if ($description) {
-                                        echo $description;
-                                      } else { ?>
-                                <span class="text-muted"><?=$name?> <?=$surname?> heeft geen beschrijving</span>
-                                <?php } ?>
-                            </p>
-                        </div>
+                    <div id="endorsmentsHeads" class="row">
 
-                        <?php if($own_profile) { ?>
-                        <script src="/js/removeoffers.js"></script>
-                        <?php } ?>
+                        <?php if ($num_endorsed) {
+                        foreach($endorsments as $endorsment) { ?>
 
-                        <?php if($num_offers || $own_profile) { ?>
-                        <!-- Offers tab -->
-                        <div class="tab-pane fade" id="offers">
-                            <table id="offerTable" class="table table-striped table-hover">
-                                <thead>
-                                    <tr>
-                                        <th class="col-xs-8">Vaknaam</th>
-                                        <th class="col-xs-3">Niveau</th>
-                                        <th class="col-xs-1">
-                                            <?php if($own_profile) { ?>
-                                            <button id="addOffersBtn" class="btn btn-success btn-sm btn-block glyphicon pull-right" data-toggle="modal" data-target="#addOffersModal">&#x2b;</a>
-                                            <?php } ?>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php if ($num_offers) {
-                                          foreach ($offers as $offer) { ?>
-
-                                    <tr id="offerRow_<?=$offer["id"]?>" class="offerRow">
-                                        <td class="subjectName"><?=$offer["subject.name"]?></td>
-                                        <td class="levelName"><?=$offer["level.name"]?></td>
-                                        <td>
-                                            <?php if($own_profile) { ?>
-                                            <button class="deleteOfferBtn btn btn-block btn-sm btn-danger glyphicon" name="<?=$offer["subject.name"]?>" value="<?=$offer["id"]?>" style="opacity: 0;">&#xe014;</button>
-                                            <?php } ?>
-                                        </td>
-                                    </tr>
-
-                                    <?php }} ?>
-
-                                    <tr id="offerRow" class="offerRow hidden">
-                                        <td class="subjectName">subject name</td>
-                                        <td class="levelName">level name</td>
-                                        <td>
-                                            <?php if($own_profile) { ?>
-                                            <button class="deleteOfferBtn btn btn-block btn-sm btn-danger glyphicon" name="" value="" style="opacity: 0;">&#xe014;</button>
-                                            <?php } ?>
-                                        </td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
-                        </div>
-                        <?php } ?>
-
-                        <div class="tab-pane fade" id="endorsments">
-
-                            <div id="endorsmentsHeads" class="row">
-
-                                <?php foreach($endorsments as $endorsment) { ?>
-
-                                <div class="col-xs-2">
-                                    <div id="endorsmentHead_<?=$endorsment["author.id"]?>" class="endorsmentHead endorsment-head">
-                                        <a href="/index.php?page=profile&id=<?=$endorsment["author.id"]?>" class="endorsmentHeadLink">
-                                            <img src="<?=$endorsment["author.meta.photo_id"]?>" alt="<?=$endorsment["author.meta.name"]?> <?=$endorsment["author.meta.surname"]?>" class="img-responsive img-circle endorsmentHeadPhoto">
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <?php } ?>
-
-                                <div class="col-xs-2 endorsmentHeadTemplate hidden">
-                                    <div id="endorsmentHead" class="endorsment-head">
-                                        <a href="#" class="endorsmentHeadLink"><img src="" alt="" class="img-responsive img-circle endorsmentHeadPhoto"></a>
-                                    </div>
-                                </div>
-
+                        <div class="col-xs-2">
+                            <div id="endorsmentHead_<?=$endorsment["author.id"]?>" class="endorsmentHead endorsment-head">
+                                <a href="/index.php?page=profile&id=<?=$endorsment["author.id"]?>" class="endorsmentHeadLink">
+                                    <img src="<?=$endorsment["author.meta.photo_id"]?>" alt="<?=$endorsment["author.meta.name"]?> <?=$endorsment["author.meta.surname"]?>" class="img-responsive img-circle endorsmentHeadPhoto">
+                                </a>
                             </div>
+                        </div>
 
+                        <?php }} ?>
+
+                        <div class="col-xs-2 endorsmentHeadTemplate hidden">
+                            <div id="endorsmentHead" class="endorsment-head">
+                                <a href="#" class="endorsmentHeadLink"><img src="" alt="" class="img-responsive img-circle endorsmentHeadPhoto"></a>
+                            </div>
                         </div>
 
                     </div>
 
                 </div>
+
             </div>
 
+        </div>
+
+    </div>

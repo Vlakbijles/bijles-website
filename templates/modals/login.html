@@ -1,8 +1,8 @@
-<!-- Login modal -->
 <?php if (!$logged_in) { ?>
 <script src="/js/fbconnect.js"></script>
 <?php } ?>
 
+<!-- Login modal -->
 <div id="loginmodal" class="modal fade" role="dialog">
     <div class="modal-dialog modal-xs">
         <div class="modal-content">
@@ -43,7 +43,7 @@
                         <textarea class="form-control" rows="4" maxlength="1000" id="regDesc" name="regDesc" style="resize:vertical;"></textarea>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer hidden" id="registerFooter">
                     <button type="submit" class="btn btn-primary">Versturen</button>
                 </div>
             </form>

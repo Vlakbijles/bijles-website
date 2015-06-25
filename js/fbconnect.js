@@ -3,18 +3,21 @@
 // Tries to connect using facebook,
 // when connected for the first time prompt the user to register
 
+// External resources (must at some point be included in html):
+// charcounter.js
+
 
 // This is called with the results from from FB.getLoginStatus().
 function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
+    console.log("statusChangeCallback");
     console.log(response);
-    if (response.status === 'connected') {
+    if (response.status === "connected") {
         // Logged into your app and Facebook.
         getFacebookData(response);
-    } else if (response.status === 'not_authorized') {
+    } else if (response.status === "not_authorized") {
         // The person is logged into Facebook, but not your app.
     } else {
-        // The person is not logged into Facebook, so we're not sure if
+        // The person is not logged into Facebook, so we"re not sure if
         // they are logged into this app or not.
     }
 }
@@ -42,7 +45,7 @@ function getFacebookData(response) {
                     location.reload();
                     break;
                 case 202:
-                    // 202, means account doesn't exists with this fb account,
+                    // 202, means account doesn"t exists with this fb account,
                     // so prompt user to make one
                     registerForm(data);
                     break;
@@ -58,14 +61,13 @@ function getFacebookData(response) {
 }
 
 
-
 window.fbAsyncInit = function() {
     FB.init({
-        appId      : '1597503327174282',
+        appId      : "1597503327174282",
         cookie     : true,  // enable cookies to allow the server to access
         // the session
         xfbml      : true,  // parse social plugins on this page
-        version    : 'v2.2' // use version 2.2
+        version    : "v2.2" // use version 2.2
     });
 
 
@@ -75,6 +77,7 @@ window.fbAsyncInit = function() {
 
 };
 
+
 // Load the SDK asynchronously
 (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -82,11 +85,12 @@ window.fbAsyncInit = function() {
     js = d.createElement(s); js.id = id;
     js.src = "//connect.facebook.net/en_US/sdk.js";
     fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-
+}(document, "script", "facebook-jssdk"));
 
 
 function registerForm(data){
+
+    charCounter("charCounter", "regDesc", 1000);
 
     $("#modalTitle").text("Registreren");
     $("#loginBody").addClass("hidden");
@@ -97,25 +101,6 @@ function registerForm(data){
     $("#regSurname").text(data.surname);
     $("#regPicture").attr("src", data.picture);
     $("#regAccessToken").val(data.access_token);
-
-    // Char counter logic
-    var maxLength = 1000;
-    var currentLength = $("#regDesc").val().length;
-    $("#charCounter").text(currentLength + "/" + maxLength).fadeTo(0, 0.2);
-    $("#regDesc")
-        .keyup(function() {
-            currentLength = $(this).val().length;
-            $("#charCounter").text(currentLength + "/" + maxLength);})
-        .focusin(function() {
-            $("#charCounter").fadeTo(1000, 0.7);})
-        .focusout(function() {
-            $("#charCounter").fadeTo(1000, 0.2);
-    });
-
-    // Postal code validator
-    $.validator.addMethod("postalcode", function(value, element) {
-        return this.optional(element) || /^[0-9]{4}[A-Za-z]{2}/.test(value);
-    });
 
     // Actual validation
     $("#registerForm").validate({
@@ -147,8 +132,6 @@ function registerForm(data){
                                 $("#regPostalCode").closest(".form-group").addClass("has-error");
                             } else if (data.responseJSON.message.match("Email")) {
                                 $("#regEmail").closest(".form-group").addClass("has-error");
-                            } else {
-                                alert('ALASD???');
                             }
                         }
                 }})
@@ -177,7 +160,6 @@ function registerForm(data){
             },
             "regPostalCode": {
                 required: true,
-                postalcode: true,
                 remote: {
                     url: "/ajax/verify.php",
                     type: "GET",
