@@ -82,6 +82,8 @@ switch($resp_profile["response_code"]) {
                                  "surname" => $resp_profile["response"]["meta.surname"],
                                  "offers" => $resp_offers["response"]));
             echo render_template("templates/modals/review.html", array(
+                                 "name" => $resp_profile["response"]["meta.name"],
+                                 "surname" => $resp_profile["response"]["meta.surname"],
                                  "offers" => $resp_offers["response"]));
         }
 
