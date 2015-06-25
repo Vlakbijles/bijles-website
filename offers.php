@@ -18,8 +18,9 @@ if (isset($_GET["subject_id"]) && isset($_GET["postal_code"])
         . "&postal_code=" . strtoupper($_GET["postal_code"])
         . "&order_by=" . $_GET["order_by"]
         . "&page=" . $_GET["p"];
-    if ($_GET["level_id"] != "")
+    if ($_GET["level_id"] != "0")
         $request_uri = $request_uri . "&level_id=" . $_GET["level_id"];
+
 } else {
     $resp_offers["response_code"] = INVALID;
 }
