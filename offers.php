@@ -11,13 +11,13 @@ require_once("vars.php");
 // Perform API request
 if (isset($_GET["subject_id"]) && isset($_GET["postal_code"])
     && isset($_GET["level_id"]) && isset($_GET["order_by"])
-    && isset($_GET["p"])) {
+    && isset($_GET["p"]) && isset($_GET["range"])) {
 
     $request_uri = "/offer"
         . "?subject_id=" . $_GET["subject_id"]
         . "&postal_code=" . strtoupper($_GET["postal_code"])
         . "&order_by=" . $_GET["order_by"]
-        . "&range=9999999"
+        . "&range=" . $_GET["range"]
         . "&page=" . $_GET["p"];
     if ($_GET["level_id"] != "0")
         $request_uri = $request_uri . "&level_id=" . $_GET["level_id"];
@@ -61,7 +61,7 @@ echo render_template("templates/searchbar.html", array(
                      "subject_name" => $_GET["subject_name"],
                      "subject_id" => $_GET["subject_id"],
                      "show_logo" => false,
-                     "postal_code" => $user_postal_code));
+                     "postal_code" => strtoupper($_GET["postal_code"])));
 
 // Render found offers or display errors
 switch($resp_offers["response_code"]) {
@@ -77,6 +77,7 @@ switch($resp_offers["response_code"]) {
         echo render_template("templates/sortbar.html", array(
                              "postal_code" => $_GET["postal_code"],
                              "order_by" => $_GET["order_by"],
+                             "range" => $_GET["range"],
                              "subject_id" => $_GET["subject_id"],
                              "subject_name" => $_GET["subject_name"],
                              "level_id" => $_GET["level_id"],
@@ -90,6 +91,7 @@ switch($resp_offers["response_code"]) {
         echo render_template("templates/sortbar.html", array(
                              "postal_code" => $_GET["postal_code"],
                              "order_by" => $_GET["order_by"],
+                             "range" => $_GET["range"],
                              "subject_id" => $_GET["subject_id"],
                              "subject_name" => $_GET["subject_name"],
                              "level_id" => $_GET["level_id"],
@@ -98,6 +100,7 @@ switch($resp_offers["response_code"]) {
         echo render_template("templates/offers.html", array(
                              "num_offers" => $resp_offers["response"]["total_offers"],
                              "postal_code" => $_GET["postal_code"],
+                             "range" => $_GET["range"],
                              "order_by" => $_GET["order_by"],
                              "subject_id" => $_GET["subject_id"],
                              "subject_name" => $_GET["subject_name"],
