@@ -11,7 +11,9 @@ include("../logincheck.php");
 
 if ($logged_in) {
 
-    $data = array("contact" => array("message" => $_POST["message"]));
+    $data = array("loggedin" => array("token_hash"  => $_COOKIE["token_hash"],
+                                      "user_id"  => $_COOKIE["user_id"]),
+                  "contact" => array("message" => $_POST["message"]));
     $request_uri = "/contact/" . $_POST["offer_id"] . "?";
     $response = api_request($request_uri, "POST", $data);
 
@@ -19,6 +21,7 @@ if ($logged_in) {
         http_response_code(SUCCESS);
         die(json_encode(array()));
     } else {
+        echo "asd";
         http_response_code(INVALID);
         die(json_encode(array()));
     }
