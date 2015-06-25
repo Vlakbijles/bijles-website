@@ -17,6 +17,7 @@ if (isset($_GET["subject_id"]) && isset($_GET["postal_code"])
         . "?subject_id=" . $_GET["subject_id"]
         . "&postal_code=" . strtoupper($_GET["postal_code"])
         . "&order_by=" . $_GET["order_by"]
+        . "&range=9999999"
         . "&page=" . $_GET["p"];
     if ($_GET["level_id"] != "0")
         $request_uri = $request_uri . "&level_id=" . $_GET["level_id"];
@@ -62,9 +63,9 @@ echo render_template("templates/searchbar.html", array(
                      "show_logo" => false,
                      "postal_code" => $user_postal_code));
 
-
 // Render found offers or display errors
 switch($resp_offers["response_code"]) {
+
 
     case INVALID:
         echo render_template("templates/error.html", array(
