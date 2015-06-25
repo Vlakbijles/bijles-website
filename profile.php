@@ -77,6 +77,9 @@ switch($resp_profile["response_code"]) {
                                  "user_id" => $user_id));
         } elseif($logged_in) {
             echo render_template("templates/modals/contactuser.html", array(
+                                 "user_id" => $resp_profile["response"]["id"],
+                                 "name" => $resp_profile["response"]["meta.name"],
+                                 "surname" => $resp_profile["response"]["meta.surname"],
                                  "offers" => $resp_offers["response"]));
             echo render_template("templates/modals/review.html", array(
                                  "offers" => $resp_offers["response"]));
