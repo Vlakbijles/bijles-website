@@ -7,6 +7,7 @@
     RewriteEngine On
     RewriteBase /
 
+
     # Redirect every request containing /templates/ to 403 error
     RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s.*/templates/.*$ [NC] 
     RewriteRule .* - [F,NS,L]
@@ -28,15 +29,15 @@
     # To externally redirect 
     # vlakbijles.nl/index.php?page=X&order_by=XX&p=XXX&level_id=XXXX&subject_id=XX&subject_name=XXX&postal_code=XXXX to vlakbijles.nl/X/XX/XXX/XXXX
     RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
-    RewriteCond %{QUERY_STRING} ^page=([A-Za-z]+)&order_by=([\w]+)&p=([0-9]+)&level_id=([0-9]*)&subject_id=([0-9]*)&subject_name=(.*)&postal_code=([0-9]{4}[A-Za-z]{2})$
-    RewriteRule ^ %1/%2/%3/%4/%5/%6/%7/? [R=302,L]
+    RewriteCond %{QUERY_STRING} ^page=([A-Za-z]+)&order_by=([\w]+)&range=([0-9]*)&p=([0-9]+)&level_id=([0-9]*)&subject_id=([0-9]*)&subject_name=(.*)&postal_code=([0-9]{4}[A-Za-z]{2})$
+    RewriteRule ^ %1/%2/%3/%4/%5/%6/%7/%8? [R=302,L]
     
     ###localhost/index.php?page=offers&order_by=distance&p=1&level_id=&subject_id=387&subject_name=Vrijetijdsmanagement&postal_code=1075CL
     # To internally redirect 
     # vlakbijles.nl/X/XX/XXX/XXX to vlakbijles.nl/index.php?page=X&subject_id=XX&subject_name=XXX&postal_code=XXXX
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{DOCUMENT_ROOT} !-f
-    RewriteRule ^([A-Za-z]+)/(\w+)/([0-9]*)/([0-9]*)/([0-9]*)/(.*)/([0-9]{4}[A-Za-z]{2})/?$ index.php?page=$1&order_by=$2&p=$3&level_id=$4&subject_id=$5&subject_name=$6&postal_code=$7 [L]
+    RewriteRule ^([A-Za-z]+)/(\w+)/([0-9]*)/([0-9]*)/([0-9]*)/([0-9]*)/(.*)/([0-9]{4}[A-Za-z]{2})/?$ index.php?page=$1&order_by=$2&range=$3&p=$4&level_id=$5&subject_id=$6&subject_name=$7&postal_code=$8 [L]
 
     # Redirect localhost/index.php to localhost, no internal redirect needed  
     # since vlakbijles.nl automatically loads index.php
