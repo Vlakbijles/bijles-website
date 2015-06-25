@@ -2,45 +2,44 @@
 
     <div class="row" style="margin-top: 20px;">
 
-        <?php
-        $keys = array_keys($results);
-        for ($i = 0; $i < count($results); $i++) {
-        ?>
+        <?php if ($results) {
+
+                 foreach ($results as $result) { ?>
 
         <div class="col-xs-6 col-sm-3">
             <div class="panel panel-default search-result">
 
-                <div class="panel-heading text-center"><?=$results[$i]["distance"]?>km</div>
+                <div class="panel-heading text-center"><?=$result["distance"]?>km</div>
 
                 <div class="panel-body">
 
                     <div class="profile-pic">
-                        <a href="/index.php?page=profile&id=<?=$results[$i]["user_id"]?>">
-                            <img src="<?=$results[$i]["photo_id"]?>" alt="<?=$results[$i]["name"]?>
-                            <?=$results[$i]["surname"]?>" class="img-thumbnail">
+                        <a href="/index.php?page=profile&id=<?=$result["user_id"]?>">
+                            <img src="<?=$result["photo_id"]?>" alt="<?=$result["name"]?>
+                            <?=$result["surname"]?>" class="img-thumbnail">
                         </a>
-                        <?php if ($results[$i]["no_endorsed"]) { ?>
+                        <?php if ($result["no_endorsed"]) { ?>
                         <span class="endorsment-indicator endorsment-indicator-lg glyphicon label-success visible-xs visible-lg">
-                            &#xe125;<?=$results[$i]["no_endorsed"]?>
+                            &#xe125;<?=$result["no_endorsed"]?>
                         </span>
                         <span class="endorsment-indicator endorsment-indicator-sm glyphicon label-success visible-sm">
-                            &#xe125;<?=$results[$i]["no_endorsed"]?>
+                            &#xe125;<?=$result["no_endorsed"]?>
                         </span>
                         <span class="endorsment-indicator endorsment-indicator-md glyphicon label-success visible-md">
-                            &#xe125;<?=$results[$i]["no_endorsed"]?>
+                            &#xe125;<?=$result["no_endorsed"]?>
                         </span>
                         <?php } ?>
                     </div>
                     <h4 class="offer-name text-center no-bottom-margin">
-                        <?=$results[$i]["name"]?> <?=$results[$i]["surname"]?>
+                        <?=$result["name"]?> <?=$result["surname"]?>
                     </h4>
                 </div>
-                <?php if ($results[$i]["no_reviews"]) { ?>
-                <a href="/index.php?page=profile&id=<?=$results[$i]["user_id"]?>#reviews" class="btn btn-block btn-primary btn-sm">
-                    <?=$results[$i]["no_reviews"]?> recensies
+                <?php if ($result["no_reviews"]) { ?>
+                <a href="/index.php?page=profile&id=<?=$result["user_id"]?>#reviews" class="btn btn-block btn-primary btn-sm">
+                    <?=$result["no_reviews"]?> recensies
                 </a>
                 <?php } else { ?>
-                <a href="/index.php?page=profile&id=<?=$results[$i]["user_id"]?>" class="btn btn-block btn-default btn-sm disabled">
+                <a href="/index.php?page=profile&id=<?=$result["user_id"]?>" class="btn btn-block btn-default btn-sm disabled">
                     Geen recensies
                 </a>
                 <?php } ?>
@@ -48,15 +47,25 @@
             </div>
         </div>
 
-        <?php } ?>
+        <?php }} ?>
 
     </div>
 
     <div class="row container-fluid">
 
         <ul class="pager" style="margin-top: 0;">
+
+            <?php if ($p > 0) { ?>
+            <li class="previous"><a href="/index.php?page=offers&order_by=<?=$order_by?>&p=<?php echo $p-1; ?>&level_id=<?=$level_id?>&subject_id=<?=$subject_id?>&subject_name=<?=$subject_name?>&postal_code=<?=$postal_code?>">Vorige</a></li>
+            <?php } else { ?>
             <li class="previous disabled"><a href="#">Vorige</a></li>
-            <li class="next"><a href="#">Volgende</a></li>
+            <?php } ?>
+
+            <?php if (($p * OFFERS_PER_PAGE) + OFFERS_PER_PAGE  < $num_offers) { ?>
+            <li class="next"><a href="/index.php?page=offers&order_by=<?=$order_by?>&p=<?php echo $p+1; ?>&level_id=<?=$level_id?>&subject_id=<?=$subject_id?>&subject_name=<?=$subject_name?>&postal_code=<?=$postal_code?>">Volgende</a></li>
+            <?php } else { ?>
+            <li class="next disabled"><a href="#">Volgende</a></li>
+            <?php } ?>
         </ul>
 
     </div>

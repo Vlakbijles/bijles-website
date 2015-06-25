@@ -37,8 +37,8 @@ switch($resp_offers["response_code"]) {
         break;
 
     case SUCCESS:
-        $subject = $resp_offers["response"][0]["subject"];
-        $city = $resp_offers["response"][0]["city"];
+        $subject = $resp_offers["response"]["offers"][0]["subject"];
+        $city = $resp_offers["response"]["offers"][0]["city"];
         $title = $subject . " bijles in " . $city . " - " . SITENAME;
         break;
     default:
@@ -94,12 +94,13 @@ switch($resp_offers["response_code"]) {
                              "p" => $_GET["p"]));
 
         echo render_template("templates/offers.html", array(
-                             "results" => $resp_offers["response"]));
+                             "num_offers" => $resp_offers["response"]["total_offers"],
+                             "results" => $resp_offers["response"]["offers"]));
         break;
 
     default:
         echo render_template("templates/error.html", array(
-                             "title" => ERROR_HEADING_GENERAL . " (-)",
+                             "title" => ERROR_HEADING_GENERAL,
                              "message" => $resp_offers["response_code"]));
         break;
 

@@ -8,6 +8,8 @@
 define("SITENAME", "Vlakbijles");
 define("SITETITLE", "Vind bijles bij jou in de buurt");
 
+define("OFFERS_PER_PAGE", 8);
+
 // Response codes
 define("SUCCESS", 200);
 define("CREATED", 201);
