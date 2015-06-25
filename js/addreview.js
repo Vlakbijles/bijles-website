@@ -60,7 +60,6 @@ $(function(){
                             break;
                         case 201:
                             //TODO handle review with no content
-                            //TODO major refactoring
 
                             // Review successfully created, add new review and
                             // possible endorsment head to page
